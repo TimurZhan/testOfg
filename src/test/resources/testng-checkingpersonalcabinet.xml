@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!--- Данный файл описывает тестовый набор для ВСЕХ тестов в проекте -->
+<suite name="Suite1" verbose="1" >
+
+    <!--- Набор тестов из папки pageInterfaceTests (checkingPersonalCabinet) -->
+    <test name="checkingPersonalCabinet">
+        <classes>
+            <class name="ru.stqa.pft.testOfg.tests.pageInterfaceTests.checkingPersonalCabinet.Front65CheckingRegistrationForm"/>
+            <class name="ru.stqa.pft.testOfg.tests.pageInterfaceTests.checkingPersonalCabinet.Front66CheckingAddingCashRegister"/>
+            <class name="ru.stqa.pft.testOfg.tests.pageInterfaceTests.checkingPersonalCabinet.Front67TabNavigationPersonalArea"/>
+            <class name="ru.stqa.pft.testOfg.tests.pageInterfaceTests.checkingPersonalCabinet.Front68CheckingUploadTab"/>
+            <class name="ru.stqa.pft.testOfg.tests.pageInterfaceTests.checkingPersonalCabinet.Front69CheckingFormDocuments"/>
+            <class name="ru.stqa.pft.testOfg.tests.pageInterfaceTests.checkingPersonalCabinet.Front70CheckingCashMachinePage"/>
+        </classes>
+    </test>
+
+</suite>

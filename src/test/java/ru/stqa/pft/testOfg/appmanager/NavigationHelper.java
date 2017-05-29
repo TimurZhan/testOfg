@@ -2,6 +2,9 @@ package ru.stqa.pft.testOfg.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import static org.hamcrest.CoreMatchers.*;
@@ -33,7 +36,9 @@ public class NavigationHelper extends HelperBase {
   public void goToProfileEdit() {
     click(By.xpath("//span[@data-reactid='.0.1.0.1.1.2.2.1.0.0']"));
     click(By.xpath("//span[@data-reactid='.0.1.0.1.1.2.2.3.2.0']"));
-    Assert.assertTrue(wd.findElement(By.xpath("//p[@data-reactid='.0.1.1.1.0.1.$0.2.0.1.0']")).getText().equals("Является ли организация плательщиком НДС?"));
+    assertThat(wd.findElement(By.xpath("//p[@data-reactid='.0.1.1.1.0.1.$0.2.0.1.0']"))
+            .getText(), equalTo("Является ли организация плательщиком НДС?"));
+    //Assert.assertTrue(wd.findElement(By.xpath("//p[@data-reactid='.0.1.1.1.0.1.$0.2.0.1.0']")).getText().equals("Является ли организация плательщиком НДС?"));
   }
 
   public void submit1() {
@@ -49,22 +54,28 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void submitFront79() {
-    Assert.assertTrue(isElementPresent(By.xpath("//p[@data-reactid='.0.1.1.1.0.1.$0.0.0.0.1']"))
-            && wd.findElement(By.xpath("//p[@data-reactid='.0.1.1.1.0.1.$0.0.0.0.1']")).getText().equals("170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1")
-            && isElementPresent(By.xpath("//p[@data-reactid='.0.1.1.1.0.1.$0.0.0.1.1']"))
-            && wd.findElement(By.xpath("//p[@data-reactid='.0.1.1.1.0.1.$0.0.0.1.1']")).getText().equals("170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1"));
+    waitTheElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[1]/p[1]"),"170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1");
+    waitTheElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/p[1]"),"170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1");
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[1]/p[1]")).getText(),
+            equalTo("170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/p[1]")).getText(),
+            equalTo("170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1"));
     click(By.xpath("//div[@class='navbar']//span[.='zhanchikov@ofd.ru']"));
     click(By.xpath("//a[@class='fd-text fd-text_m']"));
   }
 
   public void submitFront77() {
-    assertThat(wd.findElement(By.xpath("//p[@data-reactid='.0.1.1.1.0.1.$0.0.0.0.1']")).getText(), equalTo("420095, Казань, ул Восход, 5, корп/стр: 3, офис/кв: 7"));
+    waitTheElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[1]/p[1]"),"420095, Казань, ул Восход, 5, корп/стр: 3, офис/кв: 7");
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[1]/p[1]")).getText(),
+            equalTo("420095, Казань, ул Восход, 5, корп/стр: 3, офис/кв: 7"));
     click(By.xpath("//div[@class='navbar']//span[.='zhanchikov@ofd.ru']"));
     click(By.xpath("//a[@class='fd-text fd-text_m']"));
   }
 
   public void submitFront78() {
-    assertThat(wd.findElement(By.xpath("//p[@data-reactid='.0.1.1.1.0.1.$0.0.0.1.1']")).getText(), equalTo("140095, Тула, ул Восход, 67, корп/стр: 1, офис/кв: 94"));
+    waitTheElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/p[1]"),"140095, Тула, ул Восход, 67, корп/стр: 1, офис/кв: 94");
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/p[1]")).getText(),
+            equalTo("140095, Тула, ул Восход, 67, корп/стр: 1, офис/кв: 94"));
     click(By.xpath("//div[@class='navbar']//span[.='zhanchikov@ofd.ru']"));
     click(By.xpath("//a[@class='fd-text fd-text_m']"));
   }
@@ -318,6 +329,12 @@ public class NavigationHelper extends HelperBase {
     click(By.linkText("Войти"));
   }
 
+  public void loginToSystem(){
+    type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "zhanchikov@ofd.ru");
+    type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), "12345");
+    click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
+  }
+
   public void checkUserNotRegister(){
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "zhanchikov@ofd.ru");
   }
@@ -326,54 +343,65 @@ public class NavigationHelper extends HelperBase {
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "test@mail.ru");
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), "12345");
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
-    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]")).getText(), equalTo("Ошибка авторизации"));
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]"))
+            .getText(), equalTo("Ошибка авторизации"));
   }
 
   public void checkAuthorizationIncorrectEmail(){
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "testmail.ru");
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), "12345");
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
-    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]")).getText(), equalTo("Ошибка авторизации"));
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]"))
+            .getText(), equalTo("Ошибка авторизации"));
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "test@mailru");
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), "12345");
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
-    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]")).getText(), equalTo("Ошибка авторизации"));
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]"))
+            .getText(), equalTo("Ошибка авторизации"));
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "testТест@mail.ru");
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), "12345");
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
-    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]")).getText(), equalTo("Ошибка авторизации"));
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]"))
+            .getText(), equalTo("Ошибка авторизации"));
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "t&es#t@mail.ru");
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), "12345");
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
-    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]")).getText(), equalTo("Ошибка авторизации"));
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]"))
+            .getText(), equalTo("Ошибка авторизации"));
   }
 
   public void checkAuthorizationIncorrectPassword(){
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "zhanchikov@ofd.ru");
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), "123456");
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
-    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]")).getText(), equalTo("Ошибка авторизации"));
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]"))
+            .getText(), equalTo("Ошибка авторизации"));
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "zhanchikov@ofd.ru");
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), "1234");
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
-    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]")).getText(), equalTo("Ошибка авторизации"));
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]"))
+            .getText(), equalTo("Ошибка авторизации"));
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), "12346");
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
-    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]")).getText(), equalTo("Ошибка авторизации"));
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]"))
+            .getText(), equalTo("Ошибка авторизации"));
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), "12%s345");
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
-    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]")).getText(), equalTo("Ошибка авторизации"));
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]"))
+            .getText(), equalTo("Ошибка авторизации"));
   }
 
   public void checkAuthorizationEmptyInput(){
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "");
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), "");
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
-    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[2]")).getText(), equalTo("Поле обязательно для заполнения"));
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[2]"))
+            .getText(), equalTo("Поле обязательно для заполнения"));
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "zhanchikov@ofd.ru");
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), "");
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
-    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/span[2]")).getText(), equalTo("Поле обязательно для заполнения"));
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/span[2]"))
+            .getText(), equalTo("Поле обязательно для заполнения"));
   }
 
   public void checkMessagePasswordChange(){
