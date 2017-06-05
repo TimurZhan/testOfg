@@ -2,12 +2,12 @@ package ru.stqa.pft.testOfg.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import static org.hamcrest.CoreMatchers.*;
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
@@ -94,9 +94,12 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//a[@class='fd-text fd-text_m']"));
   }
 
-  public void signOut() {
+  public void signOut() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(1);
     click(By.xpath("/html/body/div[1]/div/div/div[1]/div[2]/div/div[3]/div[2]/div[1]/span/span[1]"));
-    click(By.xpath("//a[@class='fd-text fd-text_m']"));
+    click(By.xpath("/html/body/div[1]/div/div/div[1]/div[2]/div/div[3]/div[2]/div[2]/div[4]/a"));
+    TimeUnit.SECONDS.sleep(2);
+    //wd.navigate().refresh();
   }
 
   public void clickButtonConnect() {
@@ -444,4 +447,472 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("/html/body/div/div/div[1]/div[4]/div[2]/div/div[1]/div"));
   }
 
+  public void newCustomerRegistration(String email, String password){
+  type(By.id("Email"), email);
+  type(By.id("Phone"), "89024951054");
+  type(By.id("FullName"), "Test Test");
+  click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[4]/i"));
+  type(By.id("Password"), password);
+  click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[2]/button"));
+  click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/p[2]/a"));
 }
+
+  public void finish(String confirmationLink, String password) {
+    wd.get(confirmationLink);
+    waitTheElement(By.xpath("//*[@id='app']/div/div[1]/div[3]/div[2]/div/div[2]/div/h4"), "Вход в личный кабинет ОФД");
+    type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "user1@localhost.localdomain");
+    type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), password);
+    click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[2]/div/div[1]/div/div/span")).getText(), equalTo("Все кассы"));
+  }
+
+  public void registrationUserToMailinator(String user){
+    wd.get("http://www.yopmail.com/en/");
+    type1(By.id("login"), user);
+    click(By.cssSelector("input.sbut"));
+  }
+
+  public void newCustomerRegistration2(String email, String password) throws InterruptedException {
+    wd.get("http://test.ofd.ru/");
+    click(By.xpath("/html/body/div/div/header/div[3]/div/div[2]/nav/a[2]"));
+    TimeUnit.SECONDS.sleep(2);
+    type(By.id("Email"), email);
+    type(By.id("Phone"), "89024951054");
+    type(By.id("FullName"), "Test Test");
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[4]/i"));
+    type(By.id("Password"), password);
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[2]/button"));
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/p[2]/a"));
+    TimeUnit.SECONDS.sleep(35);
+  }
+
+  public void confirmationRegistration(String user, String email, String password) throws InterruptedException {
+    wd.get("http://www.yopmail.com/en/");
+    type1(By.id("login"), user);
+    click(By.cssSelector("input.sbut"));
+    click(By.id("lrefr"));
+    wd.switchTo().frame(wd.findElement(By.id("ifmail")));
+    waitTheElement(By.xpath("/html/body/div/div[3]/div[2]/table/tbody/tr[2]/td/table/tbody/tr[2]/td[2]/table/tbody/tr[3]/td/h1"), "Подтвердите регистрацию");
+    //scrollToItem(By.xpath("//a[@rel='nofollow']"));
+    click(By.xpath("//p[@style='font-size:14px;line-height:22px;']//a"));
+    wd.switchTo().defaultContent();
+    TimeUnit.SECONDS.sleep(8);
+    wd.get("http://test.ofd.ru/login");
+    type(By.name("Login"), email);
+    type(By.name("Password"), password);
+    click(By.cssSelector("button.btn-primary"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(), equalTo("Регистрация данных пользователя"));
+  }
+
+  public void notConfirmEmailRegistration(String user, String email, String password) throws InterruptedException {
+    //TimeUnit.SECONDS.sleep(30);
+    wd.get("http://www.yopmail.com/en/");
+    type1(By.id("login"), user);
+    click(By.cssSelector("input.sbut"));
+    click(By.id("lrefr"));
+    wd.switchTo().frame(wd.findElement(By.id("ifmail")));
+    assertThat(wd.findElement(By.xpath("//td[@align='center']//h1")).getText(),
+            equalTo("Подтвердите регистрацию"));
+    wd.switchTo().defaultContent();
+    wd.get("http://test.ofd.ru/login");
+    click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[1]/div"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("/html/body/div/div/header/div[3]/div/div[2]/nav/a[2]"));
+    type(By.id("Email"), email);
+    type(By.id("Phone"), "89024951054");
+    type(By.id("FullName"), "Test Test");
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[4]/i"));
+    type(By.id("Password"), password);
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[2]/button"));
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/p[2]/a"));
+    wd.get("http://www.yopmail.com/en/");
+    type1(By.id("login"), user);
+    click(By.cssSelector("input.sbut"));
+    TimeUnit.SECONDS.sleep(35);
+    click(By.id("lrefr"));
+    wd.switchTo().frame(wd.findElement(By.id("ifmail")));
+    assertThat(wd.findElement(By.xpath("//td[@align='center']//h1")).getText(),
+            equalTo("Подтвердите регистрацию"));
+  }
+
+  public void replaceForgotPassword(String user, String email, String password) throws InterruptedException{
+    wd.get("http://www.yopmail.com/en/");
+    type1(By.id("login"), user);
+    click(By.cssSelector("input.sbut"));
+    click(By.id("lrefr"));
+    wd.switchTo().frame(wd.findElement(By.id("ifmail")));
+    waitTheElement(By.xpath("/html/body/div/div[3]/div[2]/table/tbody/tr[2]/td/table/tbody/tr[2]/td[2]/table/tbody/tr[3]/td/h1"), "Подтвердите регистрацию");
+    click(By.xpath("//p[@style='font-size:14px;line-height:22px;']//a"));
+    wd.switchTo().defaultContent();
+    TimeUnit.SECONDS.sleep(8);
+    wd.get("http://test.ofd.ru/login");
+    type(By.name("Login"), email);
+    type(By.name("Password"), password);
+    click(By.cssSelector("button.btn-primary"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(), equalTo("Регистрация данных пользователя"));
+    click(By.xpath("/html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/div/a/span"));
+    click(By.xpath("/html/body/div/div/header/div[3]/div/div[2]/nav/a[1]"));
+    click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/a"));
+    TimeUnit.SECONDS.sleep(1);
+    type(By.cssSelector("div.input-group input.placeholder-center"), email);
+    click(By.xpath("/html/body/div/div/div[1]/div[4]/div[2]/div/div[2]/form/button"));
+    click(By.xpath("/html/body/div/div/div[1]/div[4]/div[2]/div/div[1]/div"));
+    TimeUnit.SECONDS.sleep(30);
+    wd.get("http://www.yopmail.com/en/");
+    type1(By.id("login"), user);
+    click(By.cssSelector("input.sbut"));
+    //click(By.id("lrefr"));
+    wd.switchTo().frame(wd.findElement(By.id("ifmail")));
+    click(By.xpath("//p[@style='font-size:14px;line-height:22px;']//a"));
+    wd.switchTo().defaultContent();
+    TimeUnit.SECONDS.sleep(2);
+    //wd.get("http://test.ofd.ru/change-password");
+    ArrayList tabs2 = new ArrayList (wd.getWindowHandles());//Получение списка открытых окон браузера
+    wd.switchTo().window((String) tabs2.get(2));//Переключение на второй таб в браузере
+    click(By.xpath("/html/body/div/div/div[1]/div[5]/div[2]/div/div[2]/form/div[2]/i"));
+    type(By.id("Password"), password);
+    click(By.xpath("/html/body/div/div/div[1]/div[5]/div[2]/div/div[2]/form/div[3]/i"));
+    type(By.id("ConfirmPassword"), password);
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(6);
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(), equalTo("Регистрация данных пользователя"));
+  }
+
+  public void checkPasswordsNotMatch(String user, String email, String password) throws InterruptedException{
+    wd.get("http://www.yopmail.com/en/");
+    type1(By.id("login"), user);
+    click(By.cssSelector("input.sbut"));
+    click(By.id("lrefr"));
+    wd.switchTo().frame(wd.findElement(By.id("ifmail")));
+    waitTheElement(By.xpath("/html/body/div/div[3]/div[2]/table/tbody/tr[2]/td/table/tbody/tr[2]/td[2]/table/tbody/tr[3]/td/h1"), "Подтвердите регистрацию");
+    click(By.xpath("//p[@style='font-size:14px;line-height:22px;']//a"));
+    wd.switchTo().defaultContent();
+    TimeUnit.SECONDS.sleep(8);
+    wd.get("http://test.ofd.ru/login");
+    type(By.name("Login"), email);
+    type(By.name("Password"), password);
+    click(By.cssSelector("button.btn-primary"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(), equalTo("Регистрация данных пользователя"));
+    click(By.xpath("/html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/div/a/span"));
+    click(By.xpath("/html/body/div/div/header/div[3]/div/div[2]/nav/a[1]"));
+    click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/a"));
+    TimeUnit.SECONDS.sleep(1);
+    type(By.cssSelector("div.input-group input.placeholder-center"), email);
+    click(By.xpath("/html/body/div/div/div[1]/div[4]/div[2]/div/div[2]/form/button"));
+    click(By.xpath("/html/body/div/div/div[1]/div[4]/div[2]/div/div[1]/div"));
+    TimeUnit.SECONDS.sleep(30);
+    wd.get("http://www.yopmail.com/en/");
+    type1(By.id("login"), user);
+    click(By.cssSelector("input.sbut"));
+    wd.switchTo().frame(wd.findElement(By.id("ifmail")));
+    click(By.xpath("//p[@style='font-size:14px;line-height:22px;']//a"));
+    wd.switchTo().defaultContent();
+    TimeUnit.SECONDS.sleep(2);
+    ArrayList tabs2 = new ArrayList (wd.getWindowHandles());//Получение списка открытых окон браузера
+    wd.switchTo().window((String) tabs2.get(2));//Переключение на второй таб в браузере
+    click(By.xpath("/html/body/div/div/div[1]/div[5]/div[2]/div/div[2]/form/div[2]/i"));
+    type(By.id("Password"), password);
+    click(By.xpath("/html/body/div/div/div[1]/div[5]/div[2]/div/div[2]/form/div[3]/i"));
+    type(By.id("ConfirmPassword"), "12346");
+    TimeUnit.SECONDS.sleep(2);
+    isElementPresent(By.xpath("//button[@disabled='']"));
+  }
+
+  public void checkForFields(String email, String password) throws InterruptedException {
+    type(By.xpath("//div[@class='modal__area']//input[@name='Login']"), email);
+    type(By.xpath("//div[@class='modal__area']//input[@name='Password']"), password);
+    click(By.xpath("//div[@class='modal__area']//button[@type='submit']"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/label")).getText()
+            , equalTo("ИНН компании"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[2]/div[1]/div/div/label")).getText()
+            , equalTo("Название организации"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[1]/div[2]/div/div/label")).getText()
+            , equalTo("ФИО руководителя и должность"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[2]/div[2]/div/div/label")).getText()
+            , equalTo("КПП"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[1]/div[3]/div/div/label")).getText()
+            , equalTo("ОГРН"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[2]/div[3]/div/div/label")).getText()
+            , equalTo("Электронный документооборот"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[2]/div[1]/div/div/label")).getText()
+            , equalTo("Индекс"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/label")).getText()
+            , equalTo("Регион"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[2]/div[3]/div/div/label")).getText()
+            , equalTo("Населённый пункт"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[3]/div[1]/div/div/label")).getText()
+            , equalTo("Улица"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[3]/div[2]/div/div/label")).getText()
+            , equalTo("Дом"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[3]/div[3]/div/div/label")).getText()
+            , equalTo("Корпус/строение"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[3]/div[4]/div/div/label")).getText()
+            , equalTo("Офис/квартира"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[5]/div/div[1]/div")).getText()
+            , equalTo("Да"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[5]/div/div[2]/div")).getText()
+            , equalTo("Нет"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[2]/div/div[2]/button")).getText()
+            , equalTo("Продолжить"));
+    isElementPresent(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[4]/input"));
+  }
+
+  public void enterValuesInputFieldsLegalEntity() throws InterruptedException {
+    type(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/input"), "6685133850");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[2]/div[2]/div/div/input"), "668501001");
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[2]/div[3]/div/div"));
+    click(By.xpath("/html/body/div[4]/div/div/div/div[3]/span"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[5]/div/div[1]/div"));
+    scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[2]/div/div[2]/button"));
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[2]/div/div[2]/button"));
+    TimeUnit.SECONDS.sleep(8);
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[2]/div/div[1]/div/div/span")).getText()
+            , equalTo("Все кассы"));
+  }
+
+  public void enterValuesInputFieldsIndividualEntrepreneur() throws InterruptedException {
+    type(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/input"), "231105692926");
+    type(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[3]/div[1]/div/div/input"), "Ленина");
+    type(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[3]/div[2]/div/div/input"), "36");
+    scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/input"));
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[2]/div[3]/div/div"));
+    click(By.xpath("/html/body/div[4]/div/div/div/div[3]/span"));
+    TimeUnit.SECONDS.sleep(1); //Ожидание, нужное для закрытия выпадающего списка выбора документооборота
+    isElementPresent(By.cssSelector("div.fw-col-1 div.disabled"));
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[5]/div/div[1]/div"));
+    scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[2]/div/div[2]/button"));
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[2]/div/div[2]/button"));
+    TimeUnit.SECONDS.sleep(8);
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[2]/div/div[1]/div/div/span")).getText(),
+            equalTo("Все кассы"));
+  }
+
+  public void checkInnNotFound() throws InterruptedException {
+    type(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/input"), "771597009077");
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/div[2]/div/div[1]/div/div/div[1]")).getText(),
+            equalTo("Юридическое лицо с таким ИНН не найдено"));
+    click(By.xpath("/html/body/div[2]/div/div[1]/div/div/div[2]/div/button"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(),
+            equalTo("Регистрация данных пользователя"));
+  }
+
+  public void checkNotCorrectInn() throws InterruptedException {
+    type(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/input"), "11133333333");
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/div[2]/div/div[1]/div/div/div[1]")).getText(),
+            equalTo("Неверный ИНН"));
+    click(By.xpath("/html/body/div[2]/div/div[1]/div/div/div[2]/div/button"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(),
+            equalTo("Регистрация данных пользователя"));
+  }
+
+  public void checkInnDoesNotExist() throws InterruptedException {
+    type(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/input"), "7805707229");
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/div[2]/div/div[1]/div/div/div[1]")).getText(),
+            equalTo("Юридическое лицо с таким ИНН не найдено"));
+    click(By.xpath("/html/body/div[2]/div/div[1]/div/div/div[2]/div/button"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(),
+            equalTo("Регистрация данных пользователя"));
+  }
+
+  public void clearLegalAddressFields() throws InterruptedException {
+    type(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/input"), "6685133850");
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[2]/div[3]/div/div"));
+    click(By.xpath("/html/body/div[4]/div/div/div/div[3]/span"));
+    TimeUnit.SECONDS.sleep(1);
+    clear(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[2]/div[1]/div/div/input"));
+    clear(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/input"));
+    clear(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[2]/div[3]/div/div/input"));
+    clear(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[3]/div[1]/div/div/input"));
+    clear(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[3]/div[2]/div/div/input"));
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[3]/div[3]/div/div/input"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[2]/div[1]/div/span")).getText()
+            , equalTo("Обязательно для заполнения"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[2]/div[2]/div/span")).getText()
+            , equalTo("Обязательно для заполнения"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[2]/div[3]/div/span")).getText()
+            , equalTo("Обязательно для заполнения"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[3]/div[1]/div/span")).getText()
+            , equalTo("Обязательно для заполнения"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[3]/div[2]/div/span")).getText()
+            , equalTo("Обязательно для заполнения"));
+    isElementPresent(By.xpath("//button[@disabled='']"));
+  }
+
+  public void enterValuesCorrespAddress() throws InterruptedException {
+    type(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/input"), "6685133850");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[2]/div[2]/div/div/input"), "668501001");
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[2]/div[3]/div/div"));
+    click(By.xpath("/html/body/div[4]/div/div/div/div[3]/span"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[4]/input"));
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[5]/div[1]/div[1]/div/div/input"), "6206769");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[5]/div[1]/div[2]/div/div/div[1]/input"), "Ивановская область");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[5]/div[1]/div[3]/div/div/input"), "Тула");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[5]/div[2]/div[1]/div/div/input"), "Ленина");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[5]/div[2]/div[2]/div/div/input"), "54");
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[5]/div/div[1]/div"));
+    //scrollToItem(By.xpath(""));
+  }
+
+  public void notFillCorresoAddressFields(){
+
+  }
+
+  public void enterBecomePartner() throws InterruptedException {
+    click(By.xpath("/html/body/div/div/header/div[3]/div/div[1]/nav/a[2]"));
+    click(By.xpath("/html/body/div/div/div[1]/div[1]/section[1]/div/div/div[1]/p[2]/a"));
+    TimeUnit.SECONDS.sleep(1);
+  }
+
+  public void fillingRegistrationFieldsNewPartner(String email, String password) throws InterruptedException {
+    type(By.id("Email"), email);
+    type(By.id("Phone"), "89054001020");
+    type(By.id("FullName"), "Test Testov");
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[4]/i"));
+    type(By.id("Password"), password);
+    click(By.xpath("//button[@type='submit']"));
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/p[2]/a"));
+    TimeUnit.SECONDS.sleep(30);
+  }
+
+  public void confirmationRegistrationMail(String user) throws InterruptedException {
+    wd.get("http://www.yopmail.com/en/");
+    type1(By.id("login"), user);
+    click(By.cssSelector("input.sbut"));
+    click(By.id("lrefr"));
+    wd.switchTo().frame(wd.findElement(By.id("ifmail")));
+    waitTheElement(By.xpath("/html/body/div/div[3]/div[2]/table/tbody/tr[2]/td/table/tbody/tr[2]/td[2]/table/tbody/tr[3]/td/h1"), "Подтвердите регистрацию");
+    click(By.xpath("//p[@style='font-size:14px;line-height:22px;']//a"));
+    wd.switchTo().defaultContent();
+    TimeUnit.SECONDS.sleep(8);
+  }
+
+  public void confirmationRegistrationOnSite(String email, String password) throws InterruptedException {
+    ArrayList tabs2 = new ArrayList (wd.getWindowHandles());//Получение списка открытых окон браузера
+    wd.switchTo().window((String) tabs2.get(1));//Переключение на второй таб в браузере
+    type(By.xpath("//input[@name='Login']"), email);
+    type(By.xpath("//input[@name='Password']"), password);
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div/div/h1")).getText()
+            , equalTo("Анкета партнера"));
+
+  }
+
+  public void fillingRegistrationFieldsPartnerAlreadyExists(String email, String password){
+    type(By.id("Email"), email);
+    type(By.id("Phone"), "89054001020");
+    type(By.id("FullName"), "Test Testov");
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[4]/i"));
+    type(By.id("Password"), password);
+    click(By.xpath("//button[@type='submit']"));
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[1]/div")).getText()
+            , equalTo("Аккаунт с таким E-Mail уже существует"));
+  }
+
+  public void fillingRegistrationFieldsEmptyPhoneField(String email, String password){
+    type(By.id("Email"), email);
+    type(By.id("FullName"), "Test Testov");
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[4]/i"));
+    type(By.id("Password"), password);
+    click(By.xpath("//button[@type='submit']"));
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[2]/div")).getText()
+            , equalTo("Поле обязательно для заполнения"));
+  }
+
+  public void fillingRegistrationFieldsEmptyPasswordField(String email){
+    type(By.id("Email"), email);
+    type(By.id("Phone"), "89054001020");
+    type(By.id("FullName"), "Test Testov");
+    click(By.xpath("//button[@type='submit']"));
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[4]/div")).getText()
+            , equalTo("Поле обязательно для заполнения"));
+  }
+
+  public void fillingRegistrationFieldsEmptyAllFields(){
+    click(By.xpath("//button[@type='submit']"));
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[1]/div")).getText()
+            , equalTo("Поле обязательно для заполнения"));
+  }
+
+  public void entranceToPartnerOffice(String email, String password) throws InterruptedException {
+    type(By.xpath("//input[@name='Login']"), email);
+    type(By.xpath("//input[@name='Password']"), password);
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/div/div[1]/div/ul/li/a")).getText()
+            , equalTo("Клиенты и Кассы"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/div/div[1]/span/a/p")).getText()
+            , equalTo("КАБИНЕТ ПАРТНЁРА"));
+  }
+
+  public void enterIncorrectEmail() throws InterruptedException {
+    type(By.xpath("//input[@name='Login']"), "ofdtestpartne@yopmail.com");
+    type(By.xpath("//input[@name='Password']"), "12345");
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]")).getText()
+            , equalTo("Неверный Email или пароль"));
+    type(By.xpath("//input[@name='Login']"), "ofdtestpartneryopmail.com");
+    type(By.xpath("//input[@name='Password']"), "12345");
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]")).getText()
+            , equalTo("Неверный Email или пароль"));
+    type(By.xpath("//input[@name='Login']"), "ofdtestpartner@yopmailcom");
+    type(By.xpath("//input[@name='Password']"), "12345");
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/span[1]")).getText()
+            , equalTo("Неверный Email или пароль"));
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
