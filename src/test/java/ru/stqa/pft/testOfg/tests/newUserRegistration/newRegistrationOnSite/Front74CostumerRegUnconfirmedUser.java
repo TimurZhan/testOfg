@@ -17,7 +17,7 @@ public class Front74CostumerRegUnconfirmedUser extends TestBase {
     String password = "12345";
     System.out.println(email);
     app.getNavigationHelper().signOut();
-    app.getNavigationHelper().registrationUserToMailinator(user);
+    app.getNavigationHelper().registrationUserToYopmail(user);
     app.getNavigationHelper().newCustomerRegistration2(email, password);
     app.getNavigationHelper().notConfirmEmailRegistration(user, email, password);
   }

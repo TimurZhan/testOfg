@@ -15,7 +15,7 @@ public class Front92PasswordsNotMatch extends TestBase {
     String password = "12345";
     System.out.println(email);
     app.getNavigationHelper().signOut();
-    app.getNavigationHelper().registrationUserToMailinator(user);
+    app.getNavigationHelper().registrationUserToYopmail(user);
     app.getNavigationHelper().newCustomerRegistration2(email, password);
     app.getNavigationHelper().checkPasswordsNotMatch(user, email, password);
   }
