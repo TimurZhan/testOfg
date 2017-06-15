@@ -5,10 +5,8 @@ import java.sql.*;
 
 public class DbHelper {
 
-  public DbHelper() throws SQLException {
-
+  /*public DbHelper() throws SQLException {
     Connection conn = null;
-
     conn = DriverManager.getConnection("jdbc:sqlserver://wifimenu.cj57wuvexwcc.eu-central-1.rds.amazonaws.com","sa","yeisrkm21");
     Statement st = conn.createStatement();
     ResultSet resultSet = st.executeQuery("select * from [Manul_UserAccounts].[dbo].[UserAccount] where LoginEmail = 'userofd12345@yopmail.com'");
@@ -20,15 +18,12 @@ public class DbHelper {
     resultSet.close();
     st.close();
     conn.close();
-
-  }
+  }*/
 
   //Метод отвечает за удаление юзера из БД после прохождеиня теста
   public void deleteUserFromDB(String email) throws SQLException {
-
     Connection conn = null;
     conn = DriverManager.getConnection("jdbc:sqlserver://wifimenu.cj57wuvexwcc.eu-central-1.rds.amazonaws.com","sa","yeisrkm21");
-
     String qwery = "update Manul_UserAccounts.dbo.UserAccount set Deleted = 1 where LoginEmail = ?";
     PreparedStatement resultSet = conn.prepareStatement(qwery);
     resultSet.setString(1, email);
@@ -39,7 +34,6 @@ public class DbHelper {
 
   //Метод отвечает за добавление юзера из БД после прохождеиня теста
   public void addUserInDB(String email) throws SQLException {
-
     Connection conn = null;
     conn = DriverManager.getConnection("jdbc:sqlserver://wifimenu.cj57wuvexwcc.eu-central-1.rds.amazonaws.com","sa","yeisrkm21");
     String insrtSQL =  "update Manul_UserAccounts.dbo.UserAccount set Deleted = 0 where LoginEmail = ?";
@@ -50,10 +44,8 @@ public class DbHelper {
     conn.close();
   }
 
-
   //Метод отвечает за удаление ИНН из БД после прохождеиня теста
   public void deleteINN(String inn) throws SQLException {
-
     Connection conn = null;
     conn = DriverManager.getConnection("jdbc:sqlserver://wifimenu.cj57wuvexwcc.eu-central-1.rds.amazonaws.com","sa","yeisrkm21");
     String insrtSQL =  "delete from [Manul_CustomerModel].[dbo].[B2bAgreement] where Inn = ? ";
@@ -63,7 +55,6 @@ public class DbHelper {
     resultSet.close();
     conn.close();
   }
-
 
 
 
