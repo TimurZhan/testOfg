@@ -8,16 +8,13 @@ public class Front92PasswordsNotMatch extends TestBase {
 
   @Test
   public void testCheckPasswordsNotMatch() throws InterruptedException {
-
     long now = System.currentTimeMillis();
-    String user = String.format("user%s", now);
-    String email = String.format(user + "@yopmail.com");
-    String password = "12345";
+    String email = String.format("user%s@yopmail.com", now);
+    String password = "123";
     System.out.println(email);
     app.getNavigationHelper().signOut();
-    app.getNavigationHelper().registrationUserToYopmail(user);
-    app.getNavigationHelper().newCustomerRegistration2(email, password);
-    app.getNavigationHelper().checkPasswordsNotMatch(user, email, password);
+    app.getNavigationHelper().newCustomerRegistration(email, password);
+    app.getNavigationHelper().checkPasswordsNotMatch(email, password);
   }
 
 }

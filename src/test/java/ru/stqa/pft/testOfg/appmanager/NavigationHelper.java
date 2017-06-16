@@ -27,7 +27,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void goToEditMailingAddress() {
-      click(By.xpath("//a[@data-reactid='.0.1.1.1.0.1.$0.0.0.1.2.0']"));
+    click(By.xpath("//a[@data-reactid='.0.1.1.1.0.1.$0.0.0.1.2.0']"));
   }
 
   public void goToEditFullName() {
@@ -39,7 +39,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void goToEditLegalAddress() {
-      click(By.xpath("//a[@data-reactid='.0.1.1.1.0.1.$0.0.0.0.2.0']"));
+    click(By.xpath("//a[@data-reactid='.0.1.1.1.0.1.$0.0.0.0.2.0']"));
   }
 
   public void goToProfileEdit() {
@@ -63,8 +63,8 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void submitFront79() {
-    waitTheElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[1]/p[1]"),"170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1");
-    waitTheElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/p[1]"),"170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1");
+    waitTheElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[1]/p[1]"), "170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1");
+    waitTheElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/p[1]"), "170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1");
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[1]/p[1]")).getText(),
             equalTo("170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1"));
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/p[1]")).getText(),
@@ -74,7 +74,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void submitFront77() {
-    waitTheElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[1]/p[1]"),"420095, Казань, ул Восход, 5, корп/стр: 3, офис/кв: 7");
+    waitTheElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[1]/p[1]"), "420095, Казань, ул Восход, 5, корп/стр: 3, офис/кв: 7");
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[1]/p[1]")).getText(),
             equalTo("420095, Казань, ул Восход, 5, корп/стр: 3, офис/кв: 7"));
     click(By.xpath("//div[@class='navbar']//span[.='zhanchikov@ofd.ru']"));
@@ -82,7 +82,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void submitFront78() {
-    waitTheElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/p[1]"),"140095, Тула, ул Восход, 67, корп/стр: 1, офис/кв: 94");
+    waitTheElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/p[1]"), "140095, Тула, ул Восход, 67, корп/стр: 1, офис/кв: 94");
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/p[1]")).getText(),
             equalTo("140095, Тула, ул Восход, 67, корп/стр: 1, офис/кв: 94"));
     click(By.xpath("//div[@class='navbar']//span[.='zhanchikov@ofd.ru']"));
@@ -121,37 +121,37 @@ public class NavigationHelper extends HelperBase {
     Assert.assertTrue(isElementPresent(By.xpath("//div[@data-reactid='.0.1.1.1.0.1.$0.2.0.0.0.0.2.0.1:0']")));
   }
 
-  public void clickVAT(){
+  public void clickVAT() {
     click(By.xpath("//div[@data-reactid='.0.1.1.1.0.1.$0.2.0.1.1.1.0']"));
     Assert.assertTrue(isElementPresent(By.xpath("//div[@class='fw-label fw-label_success fw-label_size-static ']")));
     click(By.xpath("//div[@data-reactid='.0.1.1.1.0.1.$0.2.0.1.1.0.0']"));
     Assert.assertTrue(isElementPresent(By.xpath("//div[@class='fw-label fw-label_success fw-label_size-static ']")));
   }
 
-  public void clickAddedCashMachine(){
+  public void clickAddedCashMachine() {
     click(By.cssSelector("div.navbar-item a.btn-primary"));
   }
 
-  public void clickMainLabel(){
+  public void clickMainLabel() {
     click(By.cssSelector("a.logo"));
   }
 
-  public void checkingFormDocuments(){
+  public void checkingFormDocuments() {
     click(By.xpath("//a[@href='/lk/documents']"));
     Assert.assertTrue(isElementPresent(By.cssSelector("div.fw-col-11 span.vertical-align-middle"))
             && isElementPresent(By.cssSelector("div.fw-col-11 span.color-fade")));
   }
 
-  public void addCashRegister(){
+  public void addCashRegister() {
     click(By.cssSelector("div.pull-right a.analytics-registration"));
   }
 
-  public void clickCashMachinePage(){
+  public void clickCashMachinePage() {
     click(By.xpath("//div[1]/a[2]"));
     click(By.xpath("//div[2]/div/div[1]/div/a/span"));
   }
 
-  public void checkingCashMachinePage(){
+  public void checkingCashMachinePage() {
     assertThat(wd.findElement(By.cssSelector("div.fw-card-body h2.font-size-24")).getText(), equalTo("Договор с OFD.RU"));
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div[3]/div[2]/div/h3")).getText(), equalTo("Касса"));
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div[3]/div[2]/div/div/div[1]/div[2]/div[1]")).getText(), equalTo("Заводской номер кассы"));
@@ -160,7 +160,7 @@ public class NavigationHelper extends HelperBase {
 
   }
 
-  public void checkingCashRegister(){
+  public void checkingCashRegister() {
     Assert.assertTrue(isElementPresent(By.xpath("//input[@maxlength='20']")));
     Assert.assertTrue(isElementPresent(By.xpath("//input[@maxlength='16']")));
     Assert.assertTrue(isElementPresent(By.cssSelector("div.margin-bottom-25 i.vertical-align-middle")));
@@ -169,7 +169,7 @@ public class NavigationHelper extends HelperBase {
     Assert.assertTrue(isElementPresent(By.cssSelector("div.fw-col_40 button.fw-btn-primary")));
   }
 
-  public void checkingItemsOnRegistrationPage(){
+  public void checkingItemsOnRegistrationPage() {
     Assert.assertTrue(isElementPresent(By.xpath("//input[@name='Inn']")));
     Assert.assertTrue(isElementPresent(By.xpath("//input[@name='Employee']")));
     Assert.assertTrue(isElementPresent(By.xpath("//input[@name='Name']")));
@@ -185,14 +185,14 @@ public class NavigationHelper extends HelperBase {
     Assert.assertTrue(isElementPresent(By.xpath("//input[@name='Flat']")));
   }
 
-  public void tabNavigation(){
+  public void tabNavigation() {
     click(By.xpath("//a[@data-reactid='.0.1.0.1.1.1.0']"));
     Assert.assertTrue(isElementPresent(By.xpath("//h2[@data-reactid='.0.1.1.0.1.$0.0.1']")));
     click(By.xpath("//a[@data-reactid='.0.1.0.1.1.1.1']"));
     Assert.assertTrue(isElementPresent(By.xpath("//img[@data-reactid='.0.1.1.1.0.0']")));
   }
 
-  public void goToEditAndAssertUpload(){
+  public void goToEditAndAssertUpload() {
     click(By.xpath("//a[@data-reactid='.0.1.0.1.1.1.0']"));
     Assert.assertTrue(isElementPresent(By.xpath("//h2[@data-reactid='.0.1.1.0.1.$0.0.1']")));
     click(By.xpath("//input[@value='KktReport']"));
@@ -209,7 +209,7 @@ public class NavigationHelper extends HelperBase {
     Assert.assertTrue(isElementPresent(By.xpath("//div[@data-reactid='.0.1.1.0.1.$1.0']")));
   }
 
-  public void checkingTabsMainPage(){
+  public void checkingTabsMainPage() {
     Assert.assertTrue(isElementPresent(By.linkText("Проверить чек")));
     Assert.assertTrue(isElementPresent(By.linkText("Партнёрам")));
     Assert.assertTrue(isElementPresent(By.linkText("О компании")));
@@ -223,7 +223,7 @@ public class NavigationHelper extends HelperBase {
     Assert.assertTrue(isElementPresent(By.className("pull-right")));
   }
 
-  public void clickTabsMainPage(){
+  public void clickTabsMainPage() {
     click(By.linkText("Проверить чек"));
     Assert.assertTrue(isElementPresent(By.className("till")));
     click(By.linkText("Партнёрам"));
@@ -238,25 +238,25 @@ public class NavigationHelper extends HelperBase {
     Assert.assertTrue(isElementPresent(By.className("developers__content")));
   }
 
-  public void checkDevelopersPage(){
+  public void checkDevelopersPage() {
     click(By.linkText("Разработчикам"));
     click(By.xpath("//a[@href='#v2-info']"));
     click(By.xpath("//a[@href='#v2-check-list']"));
     scrollToItem(By.cssSelector("div.developers__content span.developers__label"));
   }
 
-  public void checkInformationPage(){
+  public void checkInformationPage() {
     click(By.linkText("Информация"));
     Assert.assertTrue(isElementPresent(By.id("news-page")));
   }
 
-  public void checkInformationCompany(){
+  public void checkInformationCompany() {
     click(By.linkText("О компании"));
     Assert.assertTrue(isElementPresent(By.id("about")));
     //Позже дополнить проверкой юр.информации о компании
   }
 
-  public void checkPartnersPage(){
+  public void checkPartnersPage() {
     click(By.linkText("Партнёрам"));
     Assert.assertTrue(isElementPresent(By.cssSelector("p.text_m")));
     assertThat(wd.findElement(By.cssSelector("div.container a.btn")).getText(), equalTo("СТАТЬ ПАРТНЕРОМ"));
@@ -264,16 +264,16 @@ public class NavigationHelper extends HelperBase {
 
   }
 
-  public void checkAttribute(){
+  public void checkAttribute() {
     Assert.assertTrue(isElementPresent(By.xpath("//button[@disabled='']")));
   }
 
-  public void checkNewsPage(){
+  public void checkNewsPage() {
     click(By.linkText("Новости"));
     Assert.assertTrue(isElementPresent(By.id("news-page")));
   }
 
-  public void checkEmailWhenRegistering(){
+  public void checkEmailWhenRegistering() {
     type(By.id("Email"), "rt5b&de@mail.ru");
     click(By.xpath("//button[@type='submit']"));
     assertThat(wd.findElement(By.className("ofd-form__input-group-error")).getText(), equalTo("Некорректный E-Mail"));
@@ -287,7 +287,7 @@ public class NavigationHelper extends HelperBase {
     assertThat(wd.findElement(By.className("ofd-form__input-group-error")).getText(), equalTo("Некорректный E-Mail"));
   }
 
-  public void checkEmailRegistrationForm(){
+  public void checkEmailRegistrationForm() {
     Assert.assertTrue(isElementPresent(By.id("Email")));
     Assert.assertTrue(isElementPresent(By.id("Phone")));
     Assert.assertTrue(isElementPresent(By.id("FullName")));
@@ -303,7 +303,7 @@ public class NavigationHelper extends HelperBase {
     assertThat(wd.findElement(By.className("ofd-form__input-group-error")).getText(), equalTo("Аккаунт с таким E-Mail уже существует"));
   }
 
-  public void checkEmailEmptyField(){
+  public void checkEmailEmptyField() {
     type(By.id("Email"), "");
     type(By.id("Phone"), "34234234");
     type(By.id("FullName"), "Test");
@@ -313,8 +313,8 @@ public class NavigationHelper extends HelperBase {
     assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[1]/div")).getText(), equalTo("Поле обязательно для заполнения"));
   }
 
-  public void checkPhoneEmptyField(){
-    type(By.id("Email"), "test1@mail.ru");
+  public void checkPhoneEmptyField() {
+    type(By.id("Email"), "getIdUser@mail.ru");
     type(By.id("Phone"), "");
     type(By.id("FullName"), "Test");
     click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[4]/i"));
@@ -323,7 +323,7 @@ public class NavigationHelper extends HelperBase {
     assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[2]/div")).getText(), equalTo("Поле обязательно для заполнения"));
   }
 
-  public void checkChangePasswordEmailEmptyField(){
+  public void checkChangePasswordEmailEmptyField() {
     click(By.linkText("Войти"));
     click(By.linkText("Забыли пароль?"));
     type(By.className("placeholder-center"), "f#fbfbdb@mail.ru");
@@ -337,22 +337,22 @@ public class NavigationHelper extends HelperBase {
     assertThat(wd.findElement(By.className("input-error")).getText(), equalTo("Поле обязательно для заполнения"));
   }
 
-  public void loginAccount(){
+  public void loginAccount() {
     click(By.linkText("Войти"));
   }
 
-  public void loginToSystem(String email, String password){
+  public void loginToSystem(String email, String password) {
     click(By.linkText("Войти"));
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), email);
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), password);
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
   }
 
-  public void checkUserNotRegister(){
+  public void checkUserNotRegister() {
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "zhanchikov@ofd.ru");
   }
 
-  public void checkHomePage(){
+  public void checkHomePage() {
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "test@mail.ru");
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), "12345");
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
@@ -360,7 +360,7 @@ public class NavigationHelper extends HelperBase {
             .getText(), equalTo("Ошибка авторизации"));
   }
 
-  public void checkAuthorizationIncorrectEmail(){
+  public void checkAuthorizationIncorrectEmail() {
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "testmail.ru");
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), "12345");
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
@@ -383,7 +383,7 @@ public class NavigationHelper extends HelperBase {
             .getText(), equalTo("Ошибка авторизации"));
   }
 
-  public void checkAuthorizationIncorrectPassword(){
+  public void checkAuthorizationIncorrectPassword() {
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "zhanchikov@ofd.ru");
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), "123456");
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
@@ -404,7 +404,7 @@ public class NavigationHelper extends HelperBase {
             .getText(), equalTo("Ошибка авторизации"));
   }
 
-  public void checkAuthorizationEmptyInput(){
+  public void checkAuthorizationEmptyInput() {
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), "");
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), "");
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
@@ -417,17 +417,17 @@ public class NavigationHelper extends HelperBase {
             .getText(), equalTo("Поле обязательно для заполнения"));
   }
 
-  public void checkMessagePasswordChange(){
+  public void checkMessagePasswordChange() {
     click(By.linkText("Войти"));
     click(By.linkText("Забыли пароль?"));
-    type(By.className("placeholder-center"), "test1@binka.me");
+    type(By.className("placeholder-center"), "getIdUser@binka.me");
     click(By.xpath("/html/body/div/div/div[1]/div[4]/div[2]/div/div[2]/form/button"));
     assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[4]/div[2]/div/div[2]/p")).getText(),
             equalTo("Мы отправили на почту письмо с инструкцией о смене пароля"));
     click(By.xpath("/html/body/div/div/div[1]/div[4]/div[2]/div/div[1]/div"));
   }
 
-  public void checkMessagePasswordChangeIncorrectEmail(){
+  public void checkMessagePasswordChangeIncorrectEmail() {
     click(By.linkText("Войти"));
     click(By.linkText("Забыли пароль?"));
     type(By.className("placeholder-center"), "ergeger@mail.ru");
@@ -457,97 +457,75 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("/html/body/div/div/div[1]/div[4]/div[2]/div/div[1]/div"));
   }
 
-  public void newCustomerRegistration(String email, String password){
-  type(By.id("Email"), email);
-  type(By.id("Phone"), "89024951054");
-  type(By.id("FullName"), "Test Test");
-  click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[4]/i"));
-  type(By.id("Password"), password);
-  click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[2]/button"));
-  click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/p[2]/a"));
-}
+  public void newCustomerRegistration(String email, String password) {
+    click(By.xpath("/html/body/div/div/header/div[3]/div/div[2]/nav/a[2]"));
+    type(By.id("Email"), email);
+    type(By.id("Phone"), "89024951054");
+    type(By.id("FullName"), "Test Test");
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[4]/i"));
+    type(By.id("Password"), password);
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[2]/button"));
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/p[2]/a"));
+  }
 
-  public void finish(String email, String password) {
-    //wd.get(confirmationLink);
-    waitTheElement(By.xpath("//*[@id='app']/div/div[1]/div[3]/div[2]/div/div[2]/div/h4"), "Вход в личный кабинет ОФД");
+  public void notConfirmEmailRegistration(String email, String password) throws InterruptedException {
+
+    click(By.xpath("/html/body/div/div/header/div[3]/div/div[2]/nav/a[2]"));
+    type(By.id("Email"), email);
+    type(By.id("Phone"), "89024951054");
+    type(By.id("FullName"), "Test Test");
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[4]/i"));
+    type(By.id("Password"), password);
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[2]/button"));
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/p[2]/a"));
+  }
+
+  public void finish(String email, String password) throws InterruptedException {
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("/html/body/div/div/header/div[3]/div/div[2]/nav/a[1]"));
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), email);
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), password);
     click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[2]/div/div[1]/div/div/span")).getText(), equalTo("Все кассы"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(), equalTo("Регистрация данных пользователя"));
   }
 
-  public void registrationUserToYopmail(String user){
+  public void registrationUserToYopmail(String user) {
     wd.get("http://www.yopmail.com/en/");
     type1(By.id("login"), user);
     click(By.cssSelector("input.sbut"));
   }
 
-  public void newCustomerRegistration2(String email, String password) throws InterruptedException {
-    wd.get("http://test.ofd.ru/");
-    click(By.xpath("/html/body/div/div/header/div[3]/div/div[2]/nav/a[2]"));
-    TimeUnit.SECONDS.sleep(2);
-    type(By.id("Email"), email);
-    type(By.id("Phone"), "89024951054");
-    type(By.id("FullName"), "Test Test");
-    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[4]/i"));
-    type(By.id("Password"), password);
-    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[2]/button"));
-    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/p[2]/a"));
-    TimeUnit.SECONDS.sleep(35);
-  }
-
-  public void confirmationRegistration(String user, String email, String password) throws InterruptedException {
-    wd.get("http://www.yopmail.com/en/");
-    type1(By.id("login"), user);
-    click(By.cssSelector("input.sbut"));
-    click(By.id("lrefr"));
-    wd.switchTo().frame(wd.findElement(By.id("ifmail")));
-    waitTheElement(By.xpath("/html/body/div/div[3]/div[2]/table/tbody/tr[2]/td/table/tbody/tr[2]/td[2]/table/tbody/tr[3]/td/h1"), "Подтвердите регистрацию");
-    //scrollToItem(By.xpath("//a[@rel='nofollow']"));
-    click(By.xpath("//p[@style='font-size:14px;line-height:22px;']//a"));
-    wd.switchTo().defaultContent();
-    TimeUnit.SECONDS.sleep(8);
-    wd.get("http://test.ofd.ru/login");
+  public void confirmationRegistration(String email, String password) throws InterruptedException {
+    click(By.xpath("/html/body/div/div/header/div[3]/div/div[2]/nav/a[1]"));
     type(By.name("Login"), email);
     type(By.name("Password"), password);
     click(By.cssSelector("button.btn-primary"));
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(), equalTo("Регистрация данных пользователя"));
+    click(By.xpath("/html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/div/a/span"));
   }
 
-  public void notConfirmEmailRegistration(String user, String email, String password) throws InterruptedException {
-    //TimeUnit.SECONDS.sleep(30);
-    wd.get("http://www.yopmail.com/en/");
-    type1(By.id("login"), user);
-    click(By.cssSelector("input.sbut"));
-    click(By.id("lrefr"));
-    wd.switchTo().frame(wd.findElement(By.id("ifmail")));
-    assertThat(wd.findElement(By.xpath("//td[@align='center']//h1")).getText(),
-            equalTo("Подтвердите регистрацию"));
-    wd.switchTo().defaultContent();
-    wd.get("http://test.ofd.ru/login");
-    click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[1]/div"));
-    TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("/html/body/div/div/header/div[3]/div/div[2]/nav/a[2]"));
-    type(By.id("Email"), email);
-    type(By.id("Phone"), "89024951054");
-    type(By.id("FullName"), "Test Test");
-    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[4]/i"));
-    type(By.id("Password"), password);
-    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[2]/button"));
-    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/p[2]/a"));
-    wd.get("http://www.yopmail.com/en/");
-    type1(By.id("login"), user);
-    click(By.cssSelector("input.sbut"));
-    TimeUnit.SECONDS.sleep(35);
-    click(By.id("lrefr"));
-    wd.switchTo().frame(wd.findElement(By.id("ifmail")));
-    assertThat(wd.findElement(By.xpath("//td[@align='center']//h1")).getText(),
-            equalTo("Подтвердите регистрацию"));
+  public void replaceForgotPassword(String email) throws InterruptedException {
+    //click(By.xpath("/html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/div/a/span"));
+    click(By.xpath("/html/body/div/div/header/div[3]/div/div[2]/nav/a[1]"));
+    click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/a"));
+    TimeUnit.SECONDS.sleep(1);
+    type(By.cssSelector("div.input-group input.placeholder-center"), email);
+    click(By.xpath("/html/body/div/div/div[1]/div[4]/div[2]/div/div[2]/form/button"));
+    click(By.xpath("/html/body/div/div/div[1]/div[4]/div[2]/div/div[1]/div"));
   }
 
-  public void replaceForgotPassword(String user, String email, String password) throws InterruptedException{
+   public void confirmForgotPassword(String email) throws InterruptedException {
+     TimeUnit.SECONDS.sleep(2);
+     click(By.xpath("/html/body/div/div/header/div[3]/div/div[2]/nav/a[1]"));
+     type(By.name("Login"), email);
+     type(By.name("Password"), "321");
+     click(By.cssSelector("button.btn-primary"));
+     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(), equalTo("Регистрация данных пользователя"));
+  }
+
+  public void checkPasswordsNotMatch(String email, String password) throws InterruptedException {
     wd.get("http://www.yopmail.com/en/");
-    type1(By.id("login"), user);
+    type1(By.id("login"), "");
     click(By.cssSelector("input.sbut"));
     click(By.id("lrefr"));
     wd.switchTo().frame(wd.findElement(By.id("ifmail")));
@@ -569,57 +547,13 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("/html/body/div/div/div[1]/div[4]/div[2]/div/div[1]/div"));
     TimeUnit.SECONDS.sleep(30);
     wd.get("http://www.yopmail.com/en/");
-    type1(By.id("login"), user);
-    click(By.cssSelector("input.sbut"));
-    //click(By.id("lrefr"));
-    wd.switchTo().frame(wd.findElement(By.id("ifmail")));
-    click(By.xpath("//p[@style='font-size:14px;line-height:22px;']//a"));
-    wd.switchTo().defaultContent();
-    TimeUnit.SECONDS.sleep(2);
-    //wd.get("http://test.ofd.ru/change-password");
-    ArrayList tabs2 = new ArrayList (wd.getWindowHandles());//Получение списка открытых окон браузера
-    wd.switchTo().window((String) tabs2.get(2));//Переключение на второй таб в браузере
-    click(By.xpath("/html/body/div/div/div[1]/div[5]/div[2]/div/div[2]/form/div[2]/i"));
-    type(By.id("Password"), password);
-    click(By.xpath("/html/body/div/div/div[1]/div[5]/div[2]/div/div[2]/form/div[3]/i"));
-    type(By.id("ConfirmPassword"), password);
-    TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//button[@type='submit']"));
-    TimeUnit.SECONDS.sleep(6);
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(), equalTo("Регистрация данных пользователя"));
-  }
-
-  public void checkPasswordsNotMatch(String user, String email, String password) throws InterruptedException{
-    wd.get("http://www.yopmail.com/en/");
-    type1(By.id("login"), user);
-    click(By.cssSelector("input.sbut"));
-    click(By.id("lrefr"));
-    wd.switchTo().frame(wd.findElement(By.id("ifmail")));
-    waitTheElement(By.xpath("/html/body/div/div[3]/div[2]/table/tbody/tr[2]/td/table/tbody/tr[2]/td[2]/table/tbody/tr[3]/td/h1"), "Подтвердите регистрацию");
-    click(By.xpath("//p[@style='font-size:14px;line-height:22px;']//a"));
-    wd.switchTo().defaultContent();
-    TimeUnit.SECONDS.sleep(8);
-    wd.get("http://test.ofd.ru/login");
-    type(By.name("Login"), email);
-    type(By.name("Password"), password);
-    click(By.cssSelector("button.btn-primary"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(), equalTo("Регистрация данных пользователя"));
-    click(By.xpath("/html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/div/a/span"));
-    click(By.xpath("/html/body/div/div/header/div[3]/div/div[2]/nav/a[1]"));
-    click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/a"));
-    TimeUnit.SECONDS.sleep(1);
-    type(By.cssSelector("div.input-group input.placeholder-center"), email);
-    click(By.xpath("/html/body/div/div/div[1]/div[4]/div[2]/div/div[2]/form/button"));
-    click(By.xpath("/html/body/div/div/div[1]/div[4]/div[2]/div/div[1]/div"));
-    TimeUnit.SECONDS.sleep(30);
-    wd.get("http://www.yopmail.com/en/");
-    type1(By.id("login"), user);
+    type1(By.id("login"), "");
     click(By.cssSelector("input.sbut"));
     wd.switchTo().frame(wd.findElement(By.id("ifmail")));
     click(By.xpath("//p[@style='font-size:14px;line-height:22px;']//a"));
     wd.switchTo().defaultContent();
     TimeUnit.SECONDS.sleep(2);
-    ArrayList tabs2 = new ArrayList (wd.getWindowHandles());//Получение списка открытых окон браузера
+    ArrayList tabs2 = new ArrayList(wd.getWindowHandles());//Получение списка открытых окон браузера
     wd.switchTo().window((String) tabs2.get(2));//Переключение на второй таб в браузере
     click(By.xpath("/html/body/div/div/div[1]/div[5]/div[2]/div/div[2]/form/div[2]/i"));
     type(By.id("Password"), password);
@@ -903,7 +837,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void confirmationRegistrationOnSite(String email, String password) throws InterruptedException {
-    ArrayList tabs2 = new ArrayList (wd.getWindowHandles());//Получение списка открытых окон браузера
+    ArrayList tabs2 = new ArrayList(wd.getWindowHandles());//Получение списка открытых окон браузера
     wd.switchTo().window((String) tabs2.get(1));//Переключение на второй таб в браузере
     type(By.xpath("//input[@name='Login']"), email);
     type(By.xpath("//input[@name='Password']"), password);
@@ -914,7 +848,7 @@ public class NavigationHelper extends HelperBase {
 
   }
 
-  public void fillingRegistrationFieldsPartnerAlreadyExists(String email, String password){
+  public void fillingRegistrationFieldsPartnerAlreadyExists(String email, String password) {
     type(By.id("Email"), email);
     type(By.id("Phone"), "89054001020");
     type(By.id("FullName"), "Test Testov");
@@ -925,7 +859,7 @@ public class NavigationHelper extends HelperBase {
             , equalTo("Аккаунт с таким E-Mail уже существует"));
   }
 
-  public void fillingRegistrationFieldsEmptyPhoneField(String email, String password){
+  public void fillingRegistrationFieldsEmptyPhoneField(String email, String password) {
     type(By.id("Email"), email);
     type(By.id("FullName"), "Test Testov");
     click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[4]/i"));
@@ -935,7 +869,7 @@ public class NavigationHelper extends HelperBase {
             , equalTo("Поле обязательно для заполнения"));
   }
 
-  public void fillingRegistrationFieldsEmptyPasswordField(String email){
+  public void fillingRegistrationFieldsEmptyPasswordField(String email) {
     type(By.id("Email"), email);
     type(By.id("Phone"), "89054001020");
     type(By.id("FullName"), "Test Testov");
@@ -944,7 +878,7 @@ public class NavigationHelper extends HelperBase {
             , equalTo("Поле обязательно для заполнения"));
   }
 
-  public void fillingRegistrationFieldsEmptyAllFields(){
+  public void fillingRegistrationFieldsEmptyAllFields() {
     click(By.xpath("//button[@type='submit']"));
     assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[1]/div")).getText()
             , equalTo("Поле обязательно для заполнения"));
@@ -1015,7 +949,7 @@ public class NavigationHelper extends HelperBase {
     wd.switchTo().frame(wd.findElement(By.id("ifmail")));
     click(By.xpath("//p[@style='font-size:14px;line-height:22px;']//a"));
     wd.switchTo().defaultContent();
-    ArrayList tabs2 = new ArrayList (wd.getWindowHandles());//Получение списка открытых окон браузера
+    ArrayList tabs2 = new ArrayList(wd.getWindowHandles());//Получение списка открытых окон браузера
     wd.switchTo().window((String) tabs2.get(1));//Переключение на второй таб в браузере
     TimeUnit.SECONDS.sleep(4);
     click(By.xpath("/html/body/div/div/div[1]/div[5]/div[2]/div/div[2]/form/div[2]/i"));
@@ -1083,13 +1017,13 @@ public class NavigationHelper extends HelperBase {
     type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div[1]/input"), "москва");
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("/html/body/div[4]/div"));//Надо извлечь регион из БД, так не кликается выпадающий список
-    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/input"),"Город");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/input"), "Город");
     type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[2]/div[3]/div[1]/div/div/input"), "Ленина");
     type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[2]/div[3]/div[2]/div/div/input"), "4");
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[3]/div/div[1]/div"));
     scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/h2"));
-    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div/input"),"041403633");
-    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[2]/div[1]/input"),"30101810100000000633");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div/input"), "041403633");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[2]/div[1]/input"), "30101810100000000633");
     TimeUnit.SECONDS.sleep(1);
     scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/h2"));
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/div[2]"));
@@ -1108,8 +1042,8 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[3]/div/div[1]/div"));
     scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/h2"));
-    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div/input"),"041403633");
-    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[2]/div[1]/input"),"30101810100000000633");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div/input"), "041403633");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[2]/div[1]/input"), "30101810100000000633");
     TimeUnit.SECONDS.sleep(1);
     scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/h2"));
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/div[2]"));
@@ -1128,8 +1062,8 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[3]/div/div[1]/div"));
     scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/h2"));
-    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div/input"),"041403633");
-    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[2]/div[1]/input"),"30101810100000000633");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div/input"), "041403633");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[2]/div[1]/input"), "30101810100000000633");
     TimeUnit.SECONDS.sleep(1);
     scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/h2"));
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/div[2]"));
@@ -1152,8 +1086,8 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[3]/div/div[1]/div"));
     scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/h2"));
-    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div/input"),"041403633");
-    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[2]/div[1]/input"),"30101810100000000633");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div/input"), "041403633");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[2]/div[1]/input"), "30101810100000000633");
     TimeUnit.SECONDS.sleep(1);
     scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/h2"));
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/div[2]"));
@@ -1178,8 +1112,8 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[3]/div/div[1]/div"));
     scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/h2"));
-    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div/input"),"041403633");
-    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[2]/div[1]/input"),"30101810100000000633");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div/input"), "041403633");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[2]/div[1]/input"), "30101810100000000633");
     TimeUnit.SECONDS.sleep(1);
     scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/h2"));
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/div[2]"));
@@ -1209,8 +1143,8 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[3]/div/div[1]/div"));
     scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/h2"));
-    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div/input"),"041403633");
-    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[2]/div[1]/input"),"30101810100000000633");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div/input"), "041403633");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[2]/div[1]/input"), "30101810100000000633");
     TimeUnit.SECONDS.sleep(1);
     scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/h2"));
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/div[2]"));
@@ -1261,7 +1195,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkUserConfirmation(String email) {
-    ArrayList tabs2 = new ArrayList (wd.getWindowHandles());//Получение списка открытых окон браузера
+    ArrayList tabs2 = new ArrayList(wd.getWindowHandles());//Получение списка открытых окон браузера
     wd.switchTo().window((String) tabs2.get(1));//Переключение на второй таб в браузере
     click(By.xpath("/html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/a[4]"));
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[1]/div[3]/div/div/div/div[2]/div/div[2]/div")).getText(),
