@@ -1,6 +1,11 @@
 package ru.stqa.pft.testOfg.appmanager;
 
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.fluent.Request;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.io.IOException;
 import java.sql.*;
 
 public class DbHelper {
@@ -84,6 +89,36 @@ public class DbHelper {
     st.close();
     conn.close();
     return String.valueOf(resultSet);
+  }
+
+  public void sendPOSTRequestForChangePassword(String email, String password2) throws SQLException, IOException, InterruptedException {
+    String code = getCodeUser(email);
+    Request.Post("http://test.ofd.ru/api/userAccounts/ChangePassword").bodyForm(
+            new BasicNameValuePair("Email", email),
+            new BasicNameValuePair("ConfirmationCode", code),
+            new BasicNameValuePair("NewPassword", password2)
+    ).execute().returnResponse();
+  }
+
+  public void sendPOSTRequestForChangeEmail(String email1, String email2, String password) throws SQLException, IOException, InterruptedException {
+
+    HttpResponse httpResponse1 = Request.Post("http://test.ofd.ru/api/userAccounts/sendEmailChangeConfirmationCode").bodyForm(
+            new BasicNameValuePair("Email", email1),
+            new BasicNameValuePair("Password", password)
+    ).execute().returnResponse();
+
+    String code2 = getCodeUser(email1);
+    HttpResponse httpResponse2 = Request.Post("http://test.ofd.ru/api/userAccounts/changeEmail").bodyForm(
+            new BasicNameValuePair("Email", email2),
+            new BasicNameValuePair("ConfirmationCode", code2)
+    ).execute().returnResponse();
+
+  }
+
+  public void sendGETRequestForRegConfirm(String email) throws SQLException, IOException {
+    String id = getIdUser(email);
+    String code = getCodeUser(email);
+    Request.Get("http://test.ofd.ru/api/Authorization/ConfirmRegistration?AccountId="+id+"&ConfirmCode="+code).execute();
   }
 
 }

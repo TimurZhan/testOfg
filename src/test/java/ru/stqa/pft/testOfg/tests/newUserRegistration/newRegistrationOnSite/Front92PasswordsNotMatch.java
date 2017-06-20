@@ -3,17 +3,19 @@ package ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite;
 import org.testng.annotations.Test;
 import ru.stqa.pft.testOfg.tests.TestBase;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 //Front-92:Регистрация на сайте (пароли не совпадают)
 public class Front92PasswordsNotMatch extends TestBase {
 
   @Test
-  public void testCheckPasswordsNotMatch() throws InterruptedException {
-    long now = System.currentTimeMillis();
-    String email = String.format("user%s@yopmail.com", now);
+  public void testCheckPasswordsNotMatch() throws InterruptedException, IOException, SQLException {
+    String email = "ofdcachangepass@yopmail.com";
     String password = "123";
-    System.out.println(email);
+
     app.getNavigationHelper().signOut();
-    app.getNavigationHelper().newCustomerRegistration(email, password);
+    app.getNavigationHelper().replaceForgotPassword(email);
     app.getNavigationHelper().checkPasswordsNotMatch(email, password);
   }
 
