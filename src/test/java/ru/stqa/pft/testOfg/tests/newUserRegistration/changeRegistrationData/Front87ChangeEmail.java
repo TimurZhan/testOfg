@@ -14,11 +14,10 @@ public class Front87ChangeEmail extends TestBase {
     String email1 = "userofd202@yopmail.com";
     String email2 = "userofd203@yopmail.com";
     String password = "123";
-    System.out.println(email1);
 
     app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
-    app.getNavigationHelper().changingEmail(email1, email2, password);
+    app.getNavigationHelper().changingEmail(email1, password);
     app.db().sendPOSTRequestForChangeEmail(email1, email2, password);
     app.getNavigationHelper().authUnderModifMail(email2, password);
   }

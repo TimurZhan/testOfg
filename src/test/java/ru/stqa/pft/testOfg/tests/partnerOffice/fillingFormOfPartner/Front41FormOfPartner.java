@@ -15,8 +15,8 @@ public class Front41FormOfPartner extends TestBase {
     long now = System.currentTimeMillis();
     String user = String.format("user%s", now);
     String email = String.format(user + "@yopmail.com");
-    String password = "12345";
-    String inn = "6908009802";
+    String password = "123";
+    String inn = "7723900990";
     app.getNavigationHelper().signOut();
     app.getNavigationHelper().enterBecomePartner();
     app.getNavigationHelper().fillingRegistrationFieldsNewPartner(email, password);
@@ -26,6 +26,7 @@ public class Front41FormOfPartner extends TestBase {
     Request.Get("http://test.ofd.ru/api/Authorization/ConfirmRegistration?AccountId="+id+"&ConfirmCode="+code1).execute();
     app.getNavigationHelper().confirmationRegistrationOnSite(email, password);
     app.getNavigationHelper().fillingCustomerForm(inn);
+    app.db().deleteINN(inn);
   }
 
 }

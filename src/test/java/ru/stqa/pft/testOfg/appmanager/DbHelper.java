@@ -101,18 +101,22 @@ public class DbHelper {
   }
 
   public void sendPOSTRequestForChangeEmail(String email1, String email2, String password) throws SQLException, IOException, InterruptedException {
-
     HttpResponse httpResponse1 = Request.Post("http://test.ofd.ru/api/userAccounts/sendEmailChangeConfirmationCode").bodyForm(
-            new BasicNameValuePair("Email", email1),
+            new BasicNameValuePair("Email", email2),
             new BasicNameValuePair("Password", password)
     ).execute().returnResponse();
 
-    String code2 = getCodeUser(email1);
+    String code = getCodeUser(email2);
     HttpResponse httpResponse2 = Request.Post("http://test.ofd.ru/api/userAccounts/changeEmail").bodyForm(
             new BasicNameValuePair("Email", email2),
-            new BasicNameValuePair("ConfirmationCode", code2)
+            new BasicNameValuePair("ConfirmationCode", code)
     ).execute().returnResponse();
+  }
 
+  public void sendPOSTRequestForLinkFormation(String email) throws SQLException, IOException {
+    Request.Post("http://test.ofd.ru/api/userAccounts/SendPasswordChangeConfirmationCode").bodyForm(
+            new BasicNameValuePair("Email", email)
+    ).execute();
   }
 
   public void sendGETRequestForRegConfirm(String email) throws SQLException, IOException {
