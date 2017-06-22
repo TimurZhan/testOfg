@@ -15,7 +15,7 @@ public class Front36NewPartnerRegistration extends TestBase {
     long now = System.currentTimeMillis();
     String user = String.format("user%s", now);
     String email = String.format(user + "@yopmail.com");
-    String password = "12345";
+    String password = "123";
     app.getNavigationHelper().signOut();
     app.getNavigationHelper().enterBecomePartner();
     app.getNavigationHelper().fillingRegistrationFieldsNewPartner(email, password);
