@@ -1834,6 +1834,188 @@ public class NavigationHelper extends HelperBase {
     invisibleElement(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/custom-input[4]/div/div"));
   }
 
+  public void fieldFilterRegnumber() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(3);
+    wd.get("http://test.ofd.ru/mk");
+    TimeUnit.SECONDS.sleep(3);
+    type1(By.xpath("//input[@id='KktRegNumber']"), "0000000009048113");
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/div[2]/button"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/div[1]/div[2]/div[3]")).getText(),
+            equalTo("0000000009048113"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/div[1]/div[2]/div[5]")).getText(),
+            equalTo("9999078900005732"));
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/custom-input[5]/div/div/i"));
+    TimeUnit.SECONDS.sleep(2);
+    invisibleElement(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/custom-input[5]/div/div"));
+  }
+
+  public void fieldFilterInvoiceNumber() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(3);
+    wd.get("http://test.ofd.ru/mk");
+    TimeUnit.SECONDS.sleep(3);
+    type1(By.xpath("//input[@id='BillNumber']"), "165515665-2");
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/div[2]/button"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/div[1]/div[2]/div[4]")).getText(),
+            equalTo("234234234"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/div[1]/div[2]/div[5]")).getText(),
+            equalTo("9999234234234232"));
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/custom-input[6]/div/div/i"));
+    TimeUnit.SECONDS.sleep(2);
+    invisibleElement(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/custom-input[6]/div/div"));
+  }
+
+  public void checkCheckSidebar() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(3);
+    wd.get("http://test.ofd.ru/mk");
+    wd.manage().window().maximize();
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/div[1]/div[2]"));
+    TimeUnit.SECONDS.sleep(3);
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/div/div/h4[1]")).getText(),
+            equalTo("Действия"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/div/div/h4[2]")).getText(),
+            equalTo("Последний документ"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/div/div/h4[3]")).getText(),
+            equalTo("Последняя ошибка"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/div/div/h4[4]")).getText(),
+            equalTo("Просмотреть документ"));
+    assertThat(wd.findElement(By.cssSelector("p.ofd-link")).getText(),
+            equalTo("Аудит по кассе"));
+    click(By.cssSelector("p.ofd-link"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/audit/div/div/div[1]/div[1]")).getText(),
+            equalTo("Событие"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/audit/div/div/div[1]/div[2]")).getText(),
+            equalTo("Дата события"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/audit/div/div/div[1]/div[3]")).getText(),
+            equalTo("Пользователь"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/audit/div/div/div[1]/div[4]")).getText(),
+            equalTo("Ip-Address"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/audit/div/div/div[1]/div[5]")).getText(),
+            equalTo("Сообщение"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/audit/div/div/div[1]/div[6]")).getText(),
+            equalTo("Результат"));
+  }
+
+  public void checkSectionActions() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(3);
+    wd.get("http://test.ofd.ru/mk");
+    wd.manage().window().maximize();
+    TimeUnit.SECONDS.sleep(2);
+    type1(By.id("KktSerialNumber"), "0493006104");
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/div[2]/button"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/div[1]/div[2]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/div/div/p[1]/span")).getText(),
+            equalTo("Проверить регномер"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/div/div/p[2]/span")).getText(),
+            equalTo("Оплата счета"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/div/div/p[3]/span")).getText(),
+            equalTo("Перенести оплату на договор"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/div/div/p[4]/span")).getText(),
+            equalTo("Включить причем чеков"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/div/div/p[5]/span")).getText(),
+            equalTo("Прекратить обслуживание кассы"));
+    click(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/div/div/p[1]"));
+    type1(By.id("modalKktRegNumber"), "42324234");
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/check-reg-number/div/div[3]/button"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/div[2]/button")).getText(),
+            equalTo("Применить фильтр"));
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/div[1]/div[2]"));
+    click(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/div/div/p[2]"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/set-bill-paid/div/div[4]/button")).getText(),
+            equalTo("Оплатить"));
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/set-bill-paid/div/div[4]/button"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/notifications/div/div/span")).getText(),
+            equalTo("У вас нет прав доступа"));
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[1]/div/i"));
+  }
+
+  public void checkSectionDocIncorrectDoc() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(3);
+    wd.get("http://test.ofd.ru/mk");
+    wd.manage().window().maximize();
+    TimeUnit.SECONDS.sleep(2);
+    type1(By.id("KktSerialNumber"), "0493006104");
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/div[2]/button"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/div[1]/div[2]"));
+    TimeUnit.SECONDS.sleep(2);
+    type1(By.id("documentNumber"), "533977777777777");
+    click(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/div/div/div[4]/div[2]/button"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[1]/div[1]")).getText(),
+            equalTo("Документ tab"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[1]/div[2]")).getText(),
+            equalTo("JSON tab"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[1]/div[3]")).getText(),
+            equalTo("TLV tab"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[2]/div/p")).getText(),
+            equalTo("Нет данных для отображения"));
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[1]/div[2]"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[2]/div/div")).getText(),
+            equalTo("The DocNumber field is required."));
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[1]/div[3]"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[2]/div/div")).getText(),
+            equalTo("The DocNumber field is required."));
+  }
+
+  public void checkSectionDocWhereDocIsNull() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(3);
+    wd.get("http://test.ofd.ru/mk");
+    wd.manage().window().maximize();
+    TimeUnit.SECONDS.sleep(2);
+    type1(By.id("KktSerialNumber"), "0493006104");
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/div[2]/button"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/div[1]/div[2]"));
+    TimeUnit.SECONDS.sleep(2);
+    type1(By.id("documentNumber"), "425");
+    click(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/div/div/div[4]/div[2]/button"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[1]/div[1]")).getText(),
+            equalTo("Документ tab"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[1]/div[2]")).getText(),
+            equalTo("JSON tab"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[1]/div[3]")).getText(),
+            equalTo("TLV tab"));
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[2]/div/p")).getText(),
+            equalTo("Нет данных для отображения"));
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[1]/div[2]"));
+    invisibleElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[2]/div/textarea"));
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[1]/div[3]"));
+    invisibleElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[2]/div/textarea"));
+  }
+
+  public void checkClientsTab() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(2);
+    wd.get("http://test.ofd.ru/mk/clients?PageCount=100");
+    wd.manage().window().maximize();
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("/html/body/app/div/header/div/div/div[1]/a[3]"));
+    TimeUnit.SECONDS.sleep(2);
+    type1(By.id("filter"), "2NAH8VMO4A\n");
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/div/div/div[4]/div[1]/div[2]/div[1]")).getText(),
+            equalTo("ООО 2NAH8VMO4A"));
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/form/custom-input/div/div/i"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/div/div/div[4]/div[1]/div[2]/div[3]")).getText(),
+            equalTo("774200005722"));
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/default-select"));
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/default-select/div/div[3]/default-option[2]/div"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/div/div/div[4]/div[1]/div[2]/div[7]")).getText(),
+            equalTo("testofd@inbox.ru"));
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/default-select"));
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/default-select/div/div[3]/default-option[3]/div"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/div/div/div[4]/div[1]/div[2]/div[7]")).getText(),
+            equalTo("s124214dsg@sdggsd.ru"));
+  }
+
 }
 
 
