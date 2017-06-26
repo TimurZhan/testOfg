@@ -9,7 +9,7 @@ public class Front38PartnerRegistrationEmptyPhoneField extends TestBase{
   @Test
   public void testEmptyPhoneField() throws InterruptedException {
     String email = "ofdtest451111@yopmail.com";
-    String password = "12345";
+    String password = "123";
     app.getNavigationHelper().signOut();
     app.getNavigationHelper().enterBecomePartner();
     app.getNavigationHelper().fillingRegistrationFieldsEmptyPhoneField(email, password);

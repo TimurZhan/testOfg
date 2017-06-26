@@ -14,11 +14,16 @@ public class DbHelper {
   public void deleteUserFromDB(String email) throws SQLException {
     Connection conn = null;
     conn = DriverManager.getConnection("jdbc:sqlserver://wifimenu.cj57wuvexwcc.eu-central-1.rds.amazonaws.com", "sa", "yeisrkm21");
-    String qwery = "update Manul_UserAccounts.dbo.UserAccount set Deleted = 1 where LoginEmail = ?";
-    PreparedStatement resultSet = conn.prepareStatement(qwery);
-    resultSet.setString(1, email);
-    resultSet.executeUpdate();
-    resultSet.close();
+    String qwery1 = "update Manul_UserAccounts.dbo.UserAccount set Deleted = 1 where LoginEmail = ?";
+    String qwery2 = "update Manul_CustomerModel.dbo.OFDAgreement set Deleted = 1 where UserAccountId in (select Id from [Manul_UserAccounts].[dbo].[UserAccount] where LoginEmail = ?)";
+    PreparedStatement resultSet1 = conn.prepareStatement(qwery1);
+    PreparedStatement resultSet2 = conn.prepareStatement(qwery2);
+    resultSet1.setString(1, email);
+    resultSet2.setString(1, email);
+    resultSet1.executeUpdate();
+    resultSet2.executeUpdate();
+    resultSet1.close();
+    resultSet2.close();
     conn.close();
   }
 
@@ -38,11 +43,16 @@ public class DbHelper {
   public void deleteINN(String inn) throws SQLException {
     Connection conn = null;
     conn = DriverManager.getConnection("jdbc:sqlserver://wifimenu.cj57wuvexwcc.eu-central-1.rds.amazonaws.com", "sa", "yeisrkm21");
-    String insrtSQL = "delete from Manul_CustomerModel.dbo.B2bAgreement where Inn = ?";
-    PreparedStatement resultSet = conn.prepareStatement(insrtSQL);
-    resultSet.setString(1, inn);
-    resultSet.executeUpdate();
-    resultSet.close();
+    String insrtSQL1 = "delete from Manul_CustomerModel.dbo.B2bAgreement where Inn = ?";
+    String insrtSQL2 = "delete from Manul_CustomerModel.dbo.OFDAgreement where OrgInn = ?";
+    PreparedStatement resultSet1 = conn.prepareStatement(insrtSQL1);
+    PreparedStatement resultSet2 = conn.prepareStatement(insrtSQL2);
+    resultSet1.setString(1, inn);
+    resultSet2.setString(1, inn);
+    resultSet1.executeUpdate();
+    resultSet2.executeUpdate();
+    resultSet1.close();
+    resultSet2.close();
     conn.close();
   }
 

@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertFalse;
 
 
 public class NavigationHelper extends HelperBase {
@@ -1799,7 +1800,7 @@ public class NavigationHelper extends HelperBase {
     type1(By.xpath("//input[@id='FnNumber']"), "0030099990789199");
     click(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/div[2]/button"));
     TimeUnit.SECONDS.sleep(2);
-    Assert.assertFalse(isElementPresent(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/div[1]/div[2]")));
+    assertFalse(isElementPresent(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/div[1]/div[2]")));
     click(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/custom-input[3]/div/div/i"));
     TimeUnit.SECONDS.sleep(2);
     invisibleElement(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/custom-input[3]/div/div"));
@@ -1828,7 +1829,7 @@ public class NavigationHelper extends HelperBase {
     type1(By.xpath("//input[@id='KktSerialNumber']"), "0493556104");
     click(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/div[2]/button"));
     TimeUnit.SECONDS.sleep(2);
-    Assert.assertFalse(isElementPresent(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/div[1]/div[2]")));
+    assertFalse(isElementPresent(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/div[1]/div[2]")));
     click(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/custom-input[4]/div/div/i"));
     TimeUnit.SECONDS.sleep(2);
     invisibleElement(By.xpath("/html/body/app/div/ng-component/div/div/div[1]/pos-filter/div/form/custom-input[4]/div/div"));
@@ -2014,6 +2015,140 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/div/div/div[4]/div[1]/div[2]/div[7]")).getText(),
             equalTo("s124214dsg@sdggsd.ru"));
+  }
+
+  public void checkAddNewUserIndividMerch(String email, String inn) throws InterruptedException {
+    TimeUnit.SECONDS.sleep(2);
+    wd.get("http://test.ofd.ru/mk/clients?PageCount=100");
+    wd.manage().window().maximize();
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[3]/button"));
+    type1(By.id("OrgInn"), inn);
+    TimeUnit.SECONDS.sleep(1);
+    type1(By.id("SignatoryName"), "Testiv Test");
+    type1(By.id("SignatoryPosition"), "Тестовый юзер");
+    type1(By.id("OrgName"), "Front138");
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[2]/default-select"));
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[2]/default-select/div/div[3]/default-option[2]"));
+    type1(By.id("OrgPostalCode"), "127299");
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/address-selector/div/form/div[1]/div[2]/default-select"));
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/address-selector/div/form/div[1]/div[2]/default-select/div/div[3]/default-option[1]"));
+    type1(By.id("OrgLocality"), "Москва");
+    type1(By.id("OrgStreet"), "Ленина");
+    type1(By.id("OrgHouse"), "34");
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[3]/div[1]/div/label"));
+    scrollToItem(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[6]/span"));
+    type1(By.id("Name"), "Testik Test");
+    type1(By.id("Phone"), "89034567766");
+    type1(By.id("LoginEmail"), email);
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[6]/button"));
+    TimeUnit.SECONDS.sleep(4);
+    type1(By.id("filter"), "Front138\n");
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/div/div/div[4]/div[1]/div[2]/div[3]")).getText(),
+            equalTo(inn));
+  }
+
+  public void checkAddNewUserlegalEntity(String email, String inn) throws InterruptedException {
+    TimeUnit.SECONDS.sleep(2);
+    wd.get("http://test.ofd.ru/mk/clients?PageCount=100");
+    wd.manage().window().maximize();
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[3]/button"));
+    type1(By.id("OrgInn"), inn);
+    TimeUnit.SECONDS.sleep(1);
+    type1(By.id("SignatoryName"), "Testеее Testеее");
+    type1(By.id("SignatoryPosition"), "Тестовая организация");
+    type1(By.id("OrgName"), "Front143");
+    type1(By.id("OrgKpp"), "560601001");
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[2]/default-select"));
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[2]/default-select/div/div[3]/default-option[2]"));
+    type1(By.id("OrgPostalCode"), "127300");
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/address-selector/div/form/div[1]/div[2]/default-select"));
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/address-selector/div/form/div[1]/div[2]/default-select/div/div[3]/default-option[1]"));
+    type1(By.id("OrgLocality"), "Москва");
+    type1(By.id("OrgStreet"), "Блаблабла");
+    type1(By.id("OrgHouse"), "34");
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[3]/div[1]/div/label"));
+    scrollToItem(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[6]/span"));
+    type1(By.id("Name"), "Testik Test");
+    type1(By.id("Phone"), "89034567766");
+    type1(By.id("LoginEmail"), email);
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[6]/button"));
+    TimeUnit.SECONDS.sleep(4);
+    type1(By.id("filter"), "Front143\n");
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/div/div/div[4]/div[1]/div[2]/div[3]")).getText(),
+            equalTo(inn));
+  }
+
+  public void checkAddNewUserIncorrectINN(String inn) throws InterruptedException {
+    TimeUnit.SECONDS.sleep(2);
+    wd.get("http://test.ofd.ru/mk/clients?PageCount=100");
+    wd.manage().window().maximize();
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[3]/button"));
+    type1(By.id("OrgInn"), inn);
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.id("OrgInn")).getAttribute("value"),
+            equalTo("123456789012"));
+  }
+
+  public void checkAddNewUserCorrectINN(String email, String inn) throws InterruptedException {
+    TimeUnit.SECONDS.sleep(2);
+    wd.get("http://test.ofd.ru/mk/clients?PageCount=100");
+    wd.manage().window().maximize();
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[3]/button"));
+    type1(By.id("OrgInn"), inn);
+    TimeUnit.SECONDS.sleep(1);
+    type1(By.id("SignatoryName"), "Testеее Testеее");
+    type1(By.id("SignatoryPosition"), "Тестовая организация");
+    type1(By.id("OrgName"), "Front143");
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[2]/default-select"));
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[2]/default-select/div/div[3]/default-option[2]"));
+    type1(By.id("OrgPostalCode"), "127300");
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/address-selector/div/form/div[1]/div[2]/default-select"));
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/address-selector/div/form/div[1]/div[2]/default-select/div/div[3]/default-option[1]"));
+    type1(By.id("OrgLocality"), "Москва");
+    type1(By.id("OrgStreet"), "Блаблабла");
+    type1(By.id("OrgHouse"), "34");
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[3]/div[1]/div/label"));
+    scrollToItem(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[6]/span"));
+    type1(By.id("Name"), "Testik Test");
+    type1(By.id("Phone"), "89034567766");
+    type1(By.id("LoginEmail"), email);
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//button[@type='submit']")).getCssValue("background-color"),
+            equalTo("rgba(0, 190, 106, 1)"));
+  }
+
+  public void checkAddNewUserIncorrectZipcode(String email, String inn) throws InterruptedException {
+    TimeUnit.SECONDS.sleep(2);
+    wd.get("http://test.ofd.ru/mk/clients?PageCount=100");
+    wd.manage().window().maximize();
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("/html/body/app/div/ng-component/div/div/div[3]/button"));
+    type1(By.id("OrgInn"), inn);
+    TimeUnit.SECONDS.sleep(1);
+    type1(By.id("SignatoryName"), "Testеее Testеее");
+    type1(By.id("SignatoryPosition"), "Тестовая организация");
+    type1(By.id("OrgName"), "Front143");
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[2]/default-select"));
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[2]/default-select/div/div[3]/default-option[2]"));
+    type1(By.id("OrgPostalCode"), "12300");
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/address-selector/div/form/div[1]/div[2]/default-select"));
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/address-selector/div/form/div[1]/div[2]/default-select/div/div[3]/default-option[1]"));
+    type1(By.id("OrgLocality"), "Москва");
+    type1(By.id("OrgHouse"), "34");
+    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[3]/div[1]/div/label"));
+    scrollToItem(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[6]/span"));
+    type1(By.id("Name"), "Testik Test");
+    type1(By.id("Phone"), "89034567766");
+    type1(By.id("LoginEmail"), email);
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//button[@type='submit']")).getCssValue("background-color"),
+            equalTo("rgba(229, 233, 240, 1)"));
   }
 
 }

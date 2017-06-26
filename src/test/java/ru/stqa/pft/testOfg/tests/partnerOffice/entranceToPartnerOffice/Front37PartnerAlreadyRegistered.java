@@ -9,7 +9,7 @@ public class Front37PartnerAlreadyRegistered extends TestBase {
   @Test
   public void testPartnerAlreadyRegistered() throws InterruptedException {
     String email = "ofdtest451111@yopmail.com";
-    String password = "12345";
+    String password = "123";
     app.getNavigationHelper().signOut();
     app.getNavigationHelper().enterBecomePartner();
     app.getNavigationHelper().fillingRegistrationFieldsPartnerAlreadyExists(email, password);
