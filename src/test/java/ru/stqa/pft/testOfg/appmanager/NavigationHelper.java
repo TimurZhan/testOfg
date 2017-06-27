@@ -1,7 +1,6 @@
 package ru.stqa.pft.testOfg.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -344,6 +343,14 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void loginToSystem(String email, String password) {
+    click(By.linkText("Войти"));
+    type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), email);
+    type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), password);
+    click(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/button"));
+  }
+
+  public void loginToSystemDemoSite(String email, String password) {
+    wd.get("https://demo.ofd.ru/");
     click(By.linkText("Войти"));
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[1]/input"), email);
     type(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div/div[2]/div/form/div[2]/input"), password);
@@ -800,8 +807,6 @@ public class NavigationHelper extends HelperBase {
 
   public void fillingRegistrationFieldsNewPartner(String email, String password) throws InterruptedException {
     TimeUnit.SECONDS.sleep(2);
-    //deleteWebElement(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[1]/label"));
-    ((JavascriptExecutor)wd).executeScript("document.querySelector('/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[1]/label').remove();");
     type1(By.xpath("//*[@id='Email']"), email);
     type(By.id("Phone"), "89054001020");
     type(By.id("FullName"), "Test Testov");
@@ -1040,6 +1045,83 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div/h1")).getText(),
             equalTo("Прочтите и подпишите договор с OFD.RU"));
+  }
+
+  public void testIncorrectINNFront95(String inn) throws InterruptedException {
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[1]/div[5]/label/div[1]"));
+    type(By.xpath("//input[@name='Inn']"), inn);
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("/html/body/div[2]/div/div[1]/div/div/div[1]")).getText(),
+            equalTo("Неверный ИНН"));
+    click(By.xpath("/html/body/div[2]/div/div[1]/div/div/div[2]/div/button"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[1]/div[2]/div[4]/div/div[1]"));
+    click(By.xpath("/html/body/div[4]/div/div/div/div[3]/span"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[3]/div/div[1]/div"));
+    scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/h2"));
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div/input"), "041403633");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[2]/div[1]/input"), "30101810100000000633");
+    TimeUnit.SECONDS.sleep(1);
+    scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/h2"));
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/div[2]"));
+    click(By.xpath("//button[@type='submit']"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[2]/div/div[1]/div/div/div[1]")).getText(),
+            equalTo("Ошибка"));
+  }
+
+  public void checkContractNotSigned1(String inn) throws InterruptedException {
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[1]/div[5]/label/div[1]"));
+    type(By.xpath("//input[@name='Inn']"), inn);
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[1]/div[2]/div[4]/div/div[1]"));
+    click(By.xpath("/html/body/div[4]/div/div/div/div[3]/span"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[3]/div/div[1]/div"));
+    scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/h2"));
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div/input"), "044525411");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[2]/div[1]/input"), "30101810100000000633");
+    TimeUnit.SECONDS.sleep(1);
+    scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/h2"));
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/div[2]"));
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[3]/div[2]/button"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div/h1")).getText(),
+            equalTo("Прочтите и подпишите договор с OFD.RU"));
+    click(By.xpath("/html/body/div[1]/div/div/div[1]/div/div[2]/div/div/div[1]/span"));
+    click(By.xpath("/html/body/div[1]/div/div/div[1]/div/div[2]/div/div/div[2]/div/a"));
+  }
+
+  public void checkContractNotSigned2(String inn) throws InterruptedException {
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[1]/div[5]/label/div[1]"));
+    type(By.xpath("//input[@name='Inn']"), inn);
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[1]/div[2]/div[4]/div/div[1]"));
+    click(By.xpath("/html/body/div[4]/div/div/div/div[3]/span"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[3]/div/div[1]/div"));
+    scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/h2"));
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div/input"), "044525411");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[4]/div[2]/div[1]/input"), "30101810100000000633");
+    TimeUnit.SECONDS.sleep(1);
+    scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/h2"));
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[2]/div[2]/div[5]/div[2]"));
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[3]/div/form/div/div[3]/div[2]/button"));
+  }
+
+  public void checkContractAvailable() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div/h1")).getText(),
+            equalTo("Прочтите и подпишите договор с OFD.RU"));
+  }
+
+  public void checkTabCustomersAndCash() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div/h1")).getText(),
+            equalTo("Прочтите и подпишите договор с OFD.RU"));
+    click(By.xpath("/html/body/div[1]/div/div/div[1]/div/div[1]/div/ul"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div[1]/a/button/div")).getText(),
+            equalTo("Скачать кассы"));
   }
 
   public void checkVerificationSignature(String inn) throws InterruptedException {
@@ -1629,7 +1711,6 @@ public class NavigationHelper extends HelperBase {
     //click(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[4]/div/div[2]/div[3]/button"));
     //TimeUnit.SECONDS.sleep(1);
     //click(By.xpath("/html/body/div[4]/div/div[1]/button"));
-
   }
 
   public void authUnderModifMail(String email, String password) throws InterruptedException {
@@ -2074,7 +2155,7 @@ public class NavigationHelper extends HelperBase {
     type1(By.id("Name"), "Testik Test");
     type1(By.id("Phone"), "89034567766");
     type1(By.id("LoginEmail"), email);
-    click(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/client-form/div/form/div[6]/button"));
+    click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(4);
     type1(By.id("filter"), "Front143\n");
     TimeUnit.SECONDS.sleep(2);
