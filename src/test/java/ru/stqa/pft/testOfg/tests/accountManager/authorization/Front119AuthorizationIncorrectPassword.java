@@ -1,4 +1,4 @@
-package ru.stqa.pft.testOfg.tests.accountManager;
+package ru.stqa.pft.testOfg.tests.accountManager.authorization;
 
 import org.testng.annotations.Test;
 import ru.stqa.pft.testOfg.tests.TestBase;
@@ -10,7 +10,6 @@ public class Front119AuthorizationIncorrectPassword extends TestBase {
   public void testtestAuthIncorrectPassword() throws InterruptedException {
     String email = "zhanchikov@ofd.ru";
     String password = "12346";
-    app.getNavigationHelper().signOut();
     app.getNavigationHelper().authIncorrectPassword(email, password);
   }
 

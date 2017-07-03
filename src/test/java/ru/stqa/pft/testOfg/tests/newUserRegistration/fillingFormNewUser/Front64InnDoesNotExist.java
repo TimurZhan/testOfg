@@ -10,10 +10,11 @@ public class Front64InnDoesNotExist extends TestBase {
   public void testInnDoesNotExist() throws InterruptedException {
     String email = "ofdtest@yopmail.com";
     String password = "12345";
-    app.getNavigationHelper().signOut();
+    String inn = "675675677646";
+    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);
-    app.getNavigationHelper().checkInnDoesNotExist();
+    app.getNavigationHelper().checkInnDoesNotExist(inn);
   }
 
 }

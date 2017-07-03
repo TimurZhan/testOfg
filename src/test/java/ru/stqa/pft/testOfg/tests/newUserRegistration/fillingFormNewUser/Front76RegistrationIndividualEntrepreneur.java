@@ -3,17 +3,23 @@ package ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser;
 import org.testng.annotations.Test;
 import ru.stqa.pft.testOfg.tests.TestBase;
 
+import java.sql.SQLException;
+
 //Front-76:Регистрация ИП в OFD.RU
 public class Front76RegistrationIndividualEntrepreneur extends TestBase {
 
   @Test
-  public void testRegistrationIndividualEntrepreneur() throws InterruptedException {
-    String email = "timurofd123@mailinator.com";
-    String password = "12345";
-    app.getNavigationHelper().signOut();
+  public void testRegistrationIndividualEntrepreneur() throws InterruptedException, SQLException {
+    String email = "usercompany@yopmail.com";
+    String password = "123";
+    String inn = "027312034723";
+    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);
-    app.getNavigationHelper().enterValuesInputFieldsIndividualEntrepreneur();
+    app.getNavigationHelper().enterValuesInputFieldsIndividualEntrepreneur(inn);
+    app.db().deleteINN(inn);
+    app.db().deleteUserFromDB(email);
+    app.db().addUserInDB(email);
   }
 
 }

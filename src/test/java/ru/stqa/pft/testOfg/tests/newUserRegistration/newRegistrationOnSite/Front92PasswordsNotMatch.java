@@ -12,11 +12,12 @@ public class Front92PasswordsNotMatch extends TestBase {
   @Test
   public void testCheckPasswordsNotMatch() throws InterruptedException, IOException, SQLException {
     String email = "ofdcachangepass@yopmail.com";
-    String password = "123";
+    String password1 = "123";
+    String password2 = "321";
 
-    app.getNavigationHelper().signOut();
+    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().replaceForgotPassword(email);
-    app.getNavigationHelper().checkPasswordsNotMatch(email, password);
+    app.getNavigationHelper().checkPasswordsNotMatch(email, password1, password2);
   }
 
 }

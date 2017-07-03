@@ -17,7 +17,7 @@ public class Front74CostumerRegUnconfirmedUser extends TestBase {
     String email = String.format("user%s@yopmail.com", now);
     String password = "123";
     System.out.println(email);
-    app.getNavigationHelper().signOut();
+    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().newCustomerRegistration(email, password);
     app.getNavigationHelper().notConfirmEmailRegistration(email, password);
     String id = app.db().getIdUser(email);

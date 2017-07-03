@@ -12,8 +12,8 @@ public class Front86CheckChangePassword extends TestBase {
   @Test
   public void testChangePassword() throws InterruptedException, IOException, SQLException {
     String email = "userofd007@yopmail.com";
-    String password1 = "123";
-    String password2 = "321";
+    String password1 = "321";
+    String password2 = "123";
 
     app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();

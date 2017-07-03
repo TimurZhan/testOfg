@@ -33,7 +33,7 @@ public class HbConnetionsTest {
     }
   }
 
-  @Test //Извлекаем из БД какую-нибудь информацию о Группах.
+  @Test(enabled = false) //Извлекаем из БД какую-нибудь информацию о Группах.
   public void testHbConnections(){
     Session session = sessionFactory.openSession();
     session.beginTransaction();

@@ -8,10 +8,10 @@ public class Front53FieldLegalAddressEmpty extends TestBase {
 
   @Test
   public void testFieldLegalAddressEmpty() throws InterruptedException {
-    String email = "userofd2@yopmail.com";
-    String password = "12345";
-    String inn = "2464114499";
-    app.getNavigationHelper().signOut();
+    String email = "ofdinnispres@yopmail.com";
+    String password = "123";
+    String inn = "6618399732";
+    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);
     app.getNavigationHelper().checkFieldLegalAddressEmpty(inn);

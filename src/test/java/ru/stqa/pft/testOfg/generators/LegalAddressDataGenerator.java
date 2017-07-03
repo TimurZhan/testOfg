@@ -62,7 +62,6 @@ public class LegalAddressDataGenerator {
       for (LegalAddressData legalAddressData : legalAddress) {
         writer.write(String.format("%s;%s;%s;%s;%s;%s;%s\n",
                 legalAddressData.getIndex(),
-                legalAddressData.getRegion(),
                 legalAddressData.getLocality(),
                 legalAddressData.getStreet(),
                 legalAddressData.getHouse(),
@@ -79,7 +78,6 @@ public class LegalAddressDataGenerator {
     for (int i = 0; i < count; i++){
       legalAddress.add(new LegalAddressData()
               .withIndex(String.format("420095"))
-              .withRegion(String.format("Свердловская область"))
               .withLocality(String.format("Казань"))
               .withStreet(String.format("ул Восход"))
               .withHouse(String.format("5"))

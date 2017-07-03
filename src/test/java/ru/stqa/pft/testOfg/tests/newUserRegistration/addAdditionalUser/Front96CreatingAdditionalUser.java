@@ -15,6 +15,7 @@ public class Front96CreatingAdditionalUser extends TestBase {
     long now = System.currentTimeMillis();
     String user = String.format("user%s", now);
     String email = String.format(user + "@yopmail.com");
+    app.getNavigationHelper().signOut();
     app.getNavigationHelper().addAdditionalUser(email);
     String id = app.db().getIdUser(email);
     String code1 = app.db().getCodeUser(email);

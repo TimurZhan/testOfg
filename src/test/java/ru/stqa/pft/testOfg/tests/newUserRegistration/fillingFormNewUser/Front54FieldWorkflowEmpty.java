@@ -9,9 +9,9 @@ public class Front54FieldWorkflowEmpty extends TestBase {
   @Test
   public void testFieldWorkflowEmpty() throws InterruptedException {
     String email = "usercompany@yopmail.com";
-    String password = "12345";
+    String password = "123";
     String inn = "2464114499";
-    app.getNavigationHelper().signOut();
+    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);
     app.getNavigationHelper().checkFieldWorkflowEmpty(inn);

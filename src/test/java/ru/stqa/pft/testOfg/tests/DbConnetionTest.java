@@ -5,7 +5,7 @@ import java.sql.*;
 
 public class DbConnetionTest {
 
-  @Test
+  @Test(enabled = false)
   public void testDbConnection(){
     Connection conn = null;
 
@@ -29,7 +29,7 @@ public class DbConnetionTest {
 
   }
 
-  @Test
+  @Test(enabled = false)
   public void testDbConnection2(){
     Connection conn = null;
 

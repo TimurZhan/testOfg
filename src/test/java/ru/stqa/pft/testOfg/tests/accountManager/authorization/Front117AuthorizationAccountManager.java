@@ -1,4 +1,4 @@
-package ru.stqa.pft.testOfg.tests.accountManager;
+package ru.stqa.pft.testOfg.tests.accountManager.authorization;
 
 import org.testng.annotations.Test;
 import ru.stqa.pft.testOfg.tests.TestBase;
