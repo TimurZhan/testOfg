@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!--- Данный файл описывает тестовый набор для ВСЕХ тестов в проекте -->
+<suite name="Suite1" verbose="1" >
+
+    <!--- Набор тестов из папки AccountManager/ClientsTab -->
+    <test name="checkAccountManagerClientsTab">
+        <classes>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.clientsTab.Front137CheckClientsTab"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.clientsTab.Front138CheckAddNewUserIndividMerch"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.clientsTab.Front139CheckAddNewUserIncorrectINN"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.clientsTab.Front140CheckAddNewUserCorrectINN"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.clientsTab.Front143CheckAddNewUserlegalEntity"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.clientsTab.Front144CheckAddNewUserIncorrectZipcode"/>
+        </classes>
+    </test>
+
+</suite>

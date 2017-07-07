@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!--- Данный файл описывает тестовый набор для ВСЕХ тестов в проекте -->
+<suite name="Suite1" verbose="1" >
+
+    <!--- Набор тестов из папки NewUserRegistration/FillingFormNewUser -->
+    <test name="checkNewUserRegistrationFillingFormNewUser">
+        <classes>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front100RegistrationPostoplatnik"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front2andFront30_RegistrationLegalEntity"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front28InnNotFound"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front29InnNotCorrect"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front30CompanyRegistration"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front31ClearLegalAddressFields"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front32FillOutAddressCorresp"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front33CorrespAddressFields"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front52FieldNdsEmpty"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front53FieldLegalAddressEmpty"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front54FieldWorkflowEmpty"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front64InnDoesNotExist"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front76RegistrationIndividualEntrepreneur"/>
+        </classes>
+    </test>
+
+</suite>

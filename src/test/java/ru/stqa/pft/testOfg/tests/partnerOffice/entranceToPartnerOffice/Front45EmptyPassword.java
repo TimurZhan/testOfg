@@ -8,7 +8,7 @@ public class Front45EmptyPassword extends TestBase {
 
   @Test
   public void testEmptyPassword() throws InterruptedException {
-    app.getNavigationHelper().signOut();
+    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().enterEmptyPassword();
   }

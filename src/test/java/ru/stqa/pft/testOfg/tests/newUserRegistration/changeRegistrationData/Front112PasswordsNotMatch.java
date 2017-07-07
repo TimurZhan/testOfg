@@ -8,13 +8,13 @@ public class Front112PasswordsNotMatch extends TestBase {
 
   @Test(enabled = false)
   public void testPasswordsNotMatch() throws InterruptedException {
-    String email = "ofdru@yopmail.com";
+    String email = "testuserofd@yopmail.com";
     String password1 = "123";
     String password2 = "321";
 
     app.getNavigationHelper().signOut();
-    app.getNavigationHelper().loginAccount();
-    app.getNavigationHelper().changingPasswordOnLK(email, password1);
+    app.getNavigationHelper().loginToSystem(email, password1);
+    app.getNavigationHelper().changingPasswordOnLK();
     app.getNavigationHelper().checkPasswordsNotMatch(email, password1, password2);
   }
 

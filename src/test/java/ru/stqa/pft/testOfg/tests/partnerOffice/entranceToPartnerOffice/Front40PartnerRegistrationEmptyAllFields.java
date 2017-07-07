@@ -8,7 +8,7 @@ public class Front40PartnerRegistrationEmptyAllFields extends TestBase {
 
   @Test
   public void testEmptyAllFields() throws InterruptedException {
-    app.getNavigationHelper().signOut();
+    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().enterBecomePartner();
     app.getNavigationHelper().fillingRegistrationFieldsEmptyAllFields();
   }

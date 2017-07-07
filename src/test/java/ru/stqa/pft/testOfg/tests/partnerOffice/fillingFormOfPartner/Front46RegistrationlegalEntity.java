@@ -13,7 +13,8 @@ public class Front46RegistrationlegalEntity extends TestBase {
     String email = "userofd12345@yopmail.com"; //После выполнения теста надо удалить из базы и зарегать заново
     String password = "123";
     String inn = "7801441024";
-    app.getNavigationHelper().signOut();
+
+    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().testRegLegalEntity(inn);
     app.db().deleteUserFromDB(email);

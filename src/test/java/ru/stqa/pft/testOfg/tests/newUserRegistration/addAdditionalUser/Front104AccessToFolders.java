@@ -8,9 +8,9 @@ public class Front104AccessToFolders extends TestBase {
 
   @Test
   public void testAccessToFolders() throws InterruptedException {
-    String email = "ofdru008@yopmail.com";
+    String email = "ofdru007@yopmail.com";
     String password = "123";
-    app.getNavigationHelper().signOut();
+    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkAccessToFolders();
   }

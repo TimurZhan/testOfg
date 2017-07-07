@@ -1,0 +1,28 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!--- Данный файл описывает тестовый набор для ВСЕХ тестов в проекте -->
+<suite name="Suite1" verbose="1" >
+
+    <!--- Набор тестов из папки pageInterfaceTests (checkingPersonalCabinet) -->
+    <test name="checkNewUserRegistrationNewRegistrationOnSite">
+        <classes>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite.Front106MessagePasswordChange"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite.Front108AndFront116MessagePasswordChangeIncorrectEmail"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite.Front1CostumerRegistrationTest"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite.Front3IncorrectEmail"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite.Front4EmailEmptyField"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite.Front5PhoneEmptyFiled"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite.Front6CheckLoginAccount"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite.Front7AuthorizationUserNotRegister"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite.Front8AuthorizationIncorrectEmail"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite.Front9AndFront10AuthorizationIncorrectPassword"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite.Front11AuthorizationEmptyInput"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite.Front73EmailAlreadyRegistered"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite.Front74CostumerRegUnconfirmedUser"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite.Front90CheckChangePassword"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite.Front91ChangePasswordIncorrectEmail"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.newRegistrationOnSite.Front92PasswordsNotMatch"/>
+        </classes>
+    </test>
+
+</suite>

@@ -13,7 +13,7 @@ public class Front98ContractNotSigned extends TestBase {
     String email = "ofdru2@yopmail.com";
     String password = "123";
     String inn = "2130189551";
-    app.getNavigationHelper().signOut();
+    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystemDemoSite(email, password);
     app.getNavigationHelper().checkContractNotSigned1(inn);
     app.getNavigationHelper().loginToSystem(email, password);

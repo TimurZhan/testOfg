@@ -9,24 +9,23 @@ import java.sql.SQLException;
 //Front-86:Смена пароля
 public class Front86CheckChangePassword extends TestBase {
 
-  @Test
+  @Test(enabled = true)
   public void testChangePassword() throws InterruptedException, IOException, SQLException {
     String email = "userofd007@yopmail.com";
     String password1 = "321";
     String password2 = "123";
 
-    app.getNavigationHelper().signOut();
-    app.getNavigationHelper().loginAccount();
-    app.getNavigationHelper().changingPassword(email, password1);
+    //app.getNavigationHelper().signOut();
+    app.getNavigationHelper().loginToSystem(email, password1);
     app.db().sendPOSTRequestForLinkFormation(email);
     app.db().sendPOSTRequestForChangePassword(email, password2);
     app.getNavigationHelper().authUnderModifMail(email, password2);
     app.getNavigationHelper().signOut();
-    app.getNavigationHelper().loginAccount();
-    app.getNavigationHelper().changingPassword(email, password2);
+    app.getNavigationHelper().loginToSystem(email, password2);
     app.db().sendPOSTRequestForLinkFormation(email);
     app.db().sendPOSTRequestForChangePassword(email, password1);
     app.getNavigationHelper().authUnderModifMail(email, password1);
+    app.getNavigationHelper().signOut();
   }
 
 }

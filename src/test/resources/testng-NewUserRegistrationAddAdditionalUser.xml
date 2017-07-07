@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!--- Данный файл описывает тестовый набор для ВСЕХ тестов в проекте -->
+<suite name="Suite1" verbose="1" >
+
+    <!--- Набор тестов из папки NewUserRegistration/AddAdditionalUser -->
+    <test name="checkNewUserRegistrationAddAdditionalUser">
+        <classes>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.addAdditionalUser.Front101RemoveAccessFolders"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.addAdditionalUser.Front102AccessToUserAccount"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.addAdditionalUser.Front103NoAccessToFolders"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.addAdditionalUser.Front104AccessToFolders"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.addAdditionalUser.Front96CreatingAdditionalUser"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.addAdditionalUser.Front97CreatingUserEmailAlreadyExists"/>
+        </classes>
+    </test>
+
+</suite>

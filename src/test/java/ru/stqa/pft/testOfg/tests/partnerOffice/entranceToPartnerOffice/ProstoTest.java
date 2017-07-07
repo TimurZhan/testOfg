@@ -5,7 +5,7 @@ import ru.stqa.pft.testOfg.tests.TestBase;
 
 public class ProstoTest extends TestBase {
 
-  @Test
+  @Test(enabled = false)
   public void prosto() throws InterruptedException {
     //String email = "partofd1@yopmail.com";
     //String password = "12345";

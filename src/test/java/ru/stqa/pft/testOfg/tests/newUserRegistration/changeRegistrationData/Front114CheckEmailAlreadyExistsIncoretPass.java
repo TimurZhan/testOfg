@@ -8,9 +8,14 @@ public class Front114CheckEmailAlreadyExistsIncoretPass extends TestBase {
 
   @Test
   public void testEmailAlreadyExistsIncoretPass() throws InterruptedException {
-    String email = "userofd007@yopmail.com";
-    String password = "12346";
-    app.getNavigationHelper().checkEmailIncoretPassword(email, password);
+    String email = "testuserofd@yopmail.com";
+    String password1 = "123";
+    String password2 = "124";
+
+    //app.getNavigationHelper().signOut();
+    app.getNavigationHelper().loginToSystem(email, password1);
+    app.getNavigationHelper().checkEmailIncoretPassword(email, password2);
+    app.getNavigationHelper().signOut();
   }
 
 }

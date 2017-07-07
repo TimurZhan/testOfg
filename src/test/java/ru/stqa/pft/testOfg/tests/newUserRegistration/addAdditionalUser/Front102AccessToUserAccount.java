@@ -10,7 +10,7 @@ public class Front102AccessToUserAccount extends TestBase {
   public void testAccessToUserAccount() throws InterruptedException {
     String email = "ofdru007@yopmail.com";
     String password = "123";
-    app.getNavigationHelper().signOut();
+    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkAccessUserAccount();
   }

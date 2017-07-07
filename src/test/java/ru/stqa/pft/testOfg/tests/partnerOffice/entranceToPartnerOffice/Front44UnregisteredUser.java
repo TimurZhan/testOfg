@@ -8,7 +8,7 @@ public class Front44UnregisteredUser extends TestBase {
 
   @Test
   public void testUnregisteredUser() throws InterruptedException {
-    app.getNavigationHelper().signOut();
+    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().enterUnregisteredUser();
   }

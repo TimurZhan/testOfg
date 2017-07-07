@@ -13,7 +13,7 @@ public class Front99TabCustomersAndCash extends TestBase{
     String email = "ofdru2@yopmail.com";
     String password = "123";
     String inn = "7713443953";
-    app.getNavigationHelper().signOut();
+    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkContractNotSigned2(inn);
     app.getNavigationHelper().checkTabCustomersAndCash();

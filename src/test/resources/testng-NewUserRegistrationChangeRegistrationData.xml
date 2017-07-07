@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!--- Данный файл описывает тестовый набор для ВСЕХ тестов в проекте -->
+<suite name="Suite1" verbose="1" >
+
+    <!--- Набор тестов из папки NewUserRegistration/ChangeRegistrationData -->
+    <test name="checkNewUserRegistrationChangeRegistrationData">
+        <classes>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.changeRegistrationData.Front112PasswordsNotMatch"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.changeRegistrationData.Front113ChangingEmailAlreadyExists"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.changeRegistrationData.Front114CheckEmailAlreadyExistsIncoretPass"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.changeRegistrationData.Front115CheckEmailAlreadyExistsIncoretEmail"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.changeRegistrationData.Front86CheckChangePassword"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.changeRegistrationData.Front87ChangeEmailNotFinished"/>
+        </classes>
+    </test>
+
+</suite>

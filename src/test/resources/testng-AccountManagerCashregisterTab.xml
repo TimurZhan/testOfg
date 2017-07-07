@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!--- Данный файл описывает тестовый набор для ВСЕХ тестов в проекте -->
+<suite name="Suite1" verbose="1" >
+
+    <!--- Набор тестов из папки AccountManager/CashregisterTab () -->
+    <test name="checkAccountManagerCashregisterTab">
+        <classes>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.cashregisterTab.Front122CheckFieldFilterINN"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.cashregisterTab.Front123CheckFieldFilterINNPartner"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.cashregisterTab.Front125CheckFieldFilterFN"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.cashregisterTab.Front126CheckFieldFilterIncorrectFN"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.cashregisterTab.Front127CheckFieldFilterCashNumber"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.cashregisterTab.Front128CheckFieldFilterIncorrectCashNumber"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.cashregisterTab.Front129CheckFieldFilterRegnumber"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.cashregisterTab.Front130CheckFieldFilterInvoiceNumber"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.cashregisterTab.Front131CheckSidebar"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.cashregisterTab.Front132CheckSidebarSectionActionsNEDODELAN"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.cashregisterTab.Front133CheckSidebarSectionDocNEDODELAN"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.cashregisterTab.Front134CheckSidebarSectionDocIncorrectDoc"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.cashregisterTab.Front135CheckSidebarSectionDocWhereDocIsNull"/>
+        </classes>
+    </test>
+
+</suite>

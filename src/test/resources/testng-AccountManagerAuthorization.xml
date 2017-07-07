@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!--- Данный файл описывает тестовый набор для ВСЕХ тестов в проекте -->
+<suite name="Suite1" verbose="1" >
+
+    <!--- Набор тестов из папки AccountManager/Authorization () -->
+    <test name="checkAccountManagerAuthorization">
+        <classes>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.authorization.Front117AuthorizationAccountManager"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.authorization.Front118AuthorizationIncorrectEmail"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.authorization.Front119AuthorizationIncorrectPassword"/>
+            <class name="ru.stqa.pft.testOfg.tests.accountManager.authorization.Front120AuthorizationIncorrectUser"/>
+        </classes>
+    </test>
+
+</suite>

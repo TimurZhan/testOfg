@@ -17,6 +17,7 @@ public class Front2andFront30_RegistrationLegalEntity extends TestBase{
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);
     app.getNavigationHelper().enterValuesInputFieldsLegalEntity(inn);
+    app.getNavigationHelper().signOut();
     app.db().deleteINN(inn);
     app.db().addUserInDB(email);
   }

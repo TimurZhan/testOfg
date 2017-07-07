@@ -9,7 +9,7 @@ import java.sql.SQLException;
 //Front-87:Смена электронного адреса
 public class Front87ChangeEmailNotFinished extends TestBase {
 
-  @Test
+  @Test(enabled = false)
   public void testChangeEmail() throws InterruptedException, IOException, SQLException {
     String email1 = "userofd202@yopmail.com";
     String email2 = "userofd203@yopmail.com";

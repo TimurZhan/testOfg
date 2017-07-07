@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!--- Данный файл описывает тестовый набор для ВСЕХ тестов в проекте -->
+<suite name="Suite1" verbose="1" >
+
+    <!--- Набор тестов из папки NewUserRegistration/EditingCustomerDataTests -->
+    <test name="checkNewUserRegistrationEditingCustomerDataTests">
+        <classes>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.editingCustomerDataTests.Front1_79CoincidenceLegalPostalAddress"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.editingCustomerDataTests.Front2_78EditMailingAddressTest"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.editingCustomerDataTests.Front3_77EditLegalAddressTest"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.editingCustomerDataTests.Front80EditNoAddress"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.editingCustomerDataTests.Front81NotFilledZipcode"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.editingCustomerDataTests.Front82EditFullName"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.editingCustomerDataTests.Front83EditPhone"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.editingCustomerDataTests.Front84EditPhoneAlphabeticInput"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.editingCustomerDataTests.Front85EditWorkflow"/>
+        </classes>
+    </test>
+
+</suite>
