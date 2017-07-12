@@ -6,7 +6,7 @@ import ru.stqa.pft.testOfg.tests.TestBase;
 //Front-112:Смена пароля (пароли не совпадают)
 public class Front112PasswordsNotMatch extends TestBase {
 
-  @Test(enabled = false)
+  @Test(enabled = true)
   public void testPasswordsNotMatch() throws InterruptedException {
     String email = "testuserofd@yopmail.com";
     String password1 = "123";

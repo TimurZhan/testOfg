@@ -16,7 +16,7 @@ public class Front98ContractNotSigned extends TestBase {
     //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystemDemoSite(email, password);
     app.getNavigationHelper().checkContractNotSigned1(inn);
-    app.getNavigationHelper().loginToSystem(email, password);
+    app.getNavigationHelper().loginToSystemDemoSite(email, password);
     app.getNavigationHelper().checkContractAvailable();
     app.db().deleteINN(inn);
     app.db().deleteUserFromDB(email);

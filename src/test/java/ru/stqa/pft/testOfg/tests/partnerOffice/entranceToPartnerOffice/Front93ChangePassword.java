@@ -6,7 +6,7 @@ import ru.stqa.pft.testOfg.tests.TestBase;
 //Front-93:Регистрация партнера на сайте (смена пароля)
 public class Front93ChangePassword extends TestBase {
 
-  @Test(enabled = false)
+  @Test(enabled = true)
   public void testChangePassword() throws InterruptedException {
     String email = "ofdtestpartner@yopmail.com";
     String user = "ofdtestpartner";
@@ -14,7 +14,7 @@ public class Front93ChangePassword extends TestBase {
     //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().makePasswordChange(email);
-    app.getNavigationHelper().passwordConfirmation(user, email, password);
+    app.getNavigationHelper().passwordConfirmation(user, password);
   }
 
 }

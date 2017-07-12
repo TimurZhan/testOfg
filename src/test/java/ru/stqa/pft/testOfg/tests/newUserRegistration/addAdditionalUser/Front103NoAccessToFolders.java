@@ -10,6 +10,7 @@ public class Front103NoAccessToFolders extends TestBase {
   public void testNoAccessToFolders() throws InterruptedException {
     String email = "ofdru008@yopmail.com";
     String password = "123";
+
     //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkNoAccessToFolders();
