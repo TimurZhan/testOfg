@@ -24,8 +24,12 @@ public class Front14RegistrationSeveralCashRegisters extends TestBase {
     final int rnd2 = rnd(min3, max3);
     final String arbitrarily4 = rnd2 + "30000000";
 
-    app.getNavigationHelper().checkSeveralCashRegisters(arbitrarily1, arbitrarily2, arbitrarily3, arbitrarily4);
+    String email = "ofdtestpartner@yopmail.com";
+    String password = "12345";
 
+    app.getNavigationHelper().signOut();
+    app.getNavigationHelper().loginToSystem(email, password);
+    app.getNavigationHelper().checkSeveralCashRegisters(arbitrarily1, arbitrarily2, arbitrarily3, arbitrarily4);
   }
 
   //Метод получения псевдослучайного целого числа от min до max (включая max) для arbitrarily...

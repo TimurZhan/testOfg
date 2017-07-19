@@ -18,6 +18,11 @@ public class Front26FNSIncorrectData extends TestBase {
     final int rnd = rnd(min, max);
     final String arbitrarily2 = rnd + "30000000";
 
+    String email = "ofdtestpartner@yopmail.com";
+    String password = "12345";
+
+    app.getNavigationHelper().signOut();
+    app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkIncorrectDataFNS(arbitrarily1, arbitrarily2);
   }
 

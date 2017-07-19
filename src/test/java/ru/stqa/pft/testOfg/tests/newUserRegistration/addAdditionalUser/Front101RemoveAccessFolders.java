@@ -10,8 +10,9 @@ public class Front101RemoveAccessFolders extends TestBase {
   public void testRemoveAccessFolders() throws InterruptedException {
     String email = "zhanchikov@ofd.ru";
     String password = "12345";
-    app.getNavigationHelper().signOut();
-    app.getNavigationHelper().loginToSystem(email, password);
+
+    //app.getNavigationHelper().signOut();
+    //app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkRemoveAccess();
   }
 
