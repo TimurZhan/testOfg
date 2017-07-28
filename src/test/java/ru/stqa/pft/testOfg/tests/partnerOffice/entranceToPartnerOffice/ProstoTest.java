@@ -1,19 +1,27 @@
 package ru.stqa.pft.testOfg.tests.partnerOffice.entranceToPartnerOffice;
 
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.Test;
 import ru.stqa.pft.testOfg.tests.TestBase;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+//Front-15:Регистрация кассы excel- файл
 public class ProstoTest extends TestBase {
 
-  @Test(enabled = false)
-  public void prosto() throws InterruptedException {
-    //String email = "partofd1@yopmail.com";
-    //String password = "12345";
-    String inn = "6908009802";
-    app.getNavigationHelper().signOut();
-    app.getNavigationHelper().loginAccount();
-    app.getNavigationHelper().loginIparol();
-    app.getNavigationHelper().fillingCustomerForm(inn);
+  @Test
+  public void testCashregisterrr() throws InterruptedException, IOException {
+
+    File cashregister = new File("src/test/resources/testCashRegister.xlsx");
+    FileInputStream excelFile = new FileInputStream(cashregister);
+    XSSFWorkbook workBook = new XSSFWorkbook(excelFile);
+    XSSFSheet sheet1 = workBook.getSheetAt(0);
+    String cashNumber = sheet1.getRow(0).getCell(2).getStringCellValue();
+    System.out.println(cashNumber);
   }
 
 }

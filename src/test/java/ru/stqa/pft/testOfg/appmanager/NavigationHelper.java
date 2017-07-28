@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -1588,7 +1589,7 @@ public class NavigationHelper extends HelperBase {
     type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div/div/form/div/div[2]/div[1]/div/div/div[1]/div[2]/div/input"), String.valueOf(arbitrarily1));
     type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div/div/form/div/div[2]/div[1]/div/div/div[2]/div/div/input"), arbitrarily2);
     click(By.xpath("//button[@type='submit']"));
-    TimeUnit.SECONDS.sleep(4);
+    TimeUnit.SECONDS.sleep(5);
     assertThat(wd.findElement(By.xpath("//h2[@class='text text_title-h2 text_center margin-bottom-21']")).getText(),
             equalTo("Выберите, каким способом клиент заключит договоры с OFD.RU:"));
     assertThat(wd.findElement(By.xpath("//table/tbody/tr[1]/th[2]")).getText(),
@@ -1803,6 +1804,136 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(5);
     assertThat(wd.findElement(By.xpath("//h2[@class='text text_title-h2 text_center margin-bottom-21']")).getText(),
             equalTo("Выберите, каким способом клиент заключит договоры с OFD.RU:"));
+    click(By.xpath("//div[@class='header__col-item margin-right-10']"));
+    click(By.linkText("Выйти"));
+  }
+
+  public void checkDownloadCashregister(String pathToFile) throws InterruptedException, AWTException {
+    TimeUnit.SECONDS.sleep(1);
+    click(By.cssSelector("div.header__col-item div.header__add"));
+    click(By.cssSelector("p.reg-client__select-name a.i-block"));
+    TimeUnit.SECONDS.sleep(2);
+    attach(By.xpath("//button[@class='fw-btn fw-btn_18 fw-btn-info-light']"), pathToFile);
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(4);
+    assertThat(wd.findElement(By.xpath("//h2[@class='text text_title-h2 text_center margin-bottom-21']")).getText(),
+            equalTo("Выберите, каким способом клиент заключит договоры с OFD.RU:"));
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(3);
+    assertThat(wd.findElement(By.cssSelector("div.reg-4__content h1.text_title")).getText(),
+            equalTo("Сформирован счёт для клиента за услуги OFD.RU"));
+    scrollToItem(By.xpath("//p[@class='text text_m text_color-fade reg-4__bill-provider margin-bottom-14']"));
+    click(By.xpath("//a[@type='submit']"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.cssSelector("div.reg-5__content h1.text_title")).getText(),
+            equalTo("Выберите способ регистрации касс в ФНС"));
+    click(By.xpath("//a[@type='submit']"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.cssSelector("div.section__content h1.text_center")).getText(),
+            equalTo("Подключите кассы к OFD.RU"));
+    click(By.xpath("//a[@href='/pk/']"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.cssSelector("p.billslist__card-head span.billslist__card-head-name")).getText(),
+            equalTo("ООО \"НОРДРЕГИОНПРОДУКТ\""));
+    assertThat(wd.findElement(By.xpath("//span[@class='billslist__footer-results-num text text_title-h2 valign-middle']")).getText(),
+            equalTo("3 000.00"));
+    click(By.xpath("//span[@class='clear billslist__bill-delete']"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//div[@class='header__col-item margin-right-10']"));
+    click(By.linkText("Выйти"));
+  }
+
+  public void checkDownloadCashregisterNotFNS(String pathToFile) throws InterruptedException, AWTException {
+    TimeUnit.SECONDS.sleep(1);
+    click(By.cssSelector("div.header__col-item div.header__add"));
+    click(By.cssSelector("p.reg-client__select-name a.i-block"));
+    TimeUnit.SECONDS.sleep(2);
+    attach(By.xpath("//button[@class='fw-btn fw-btn_18 fw-btn-info-light']"), pathToFile);
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(4);
+    assertThat(wd.findElement(By.xpath("//h2[@class='text text_title-h2 text_center margin-bottom-21']")).getText(),
+            equalTo("Выберите, каким способом клиент заключит договоры с OFD.RU:"));
+    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div/div[1]/div[2]/div[2]/div/div[1]"));
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(3);
+    assertThat(wd.findElement(By.cssSelector("div.reg-4__content h1.text_title")).getText(),
+            equalTo("Сформирован счёт для клиента за услуги OFD.RU"));
+    scrollToItem(By.xpath("//p[@class='text text_m text_color-fade reg-4__bill-provider margin-bottom-14']"));
+    click(By.xpath("//a[@type='submit']"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.cssSelector("div.reg-5__content h1.text_title")).getText(),
+            equalTo("Выберите способ регистрации касс в ФНС"));
+    click(By.xpath("//a[@type='submit']"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.cssSelector("div.section__content h1.text_center")).getText(),
+            equalTo("Подключите кассы к OFD.RU"));
+    click(By.xpath("//a[@href='/pk/']"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.cssSelector("p.billslist__card-head span.billslist__card-head-name")).getText(),
+            equalTo("ООО \"НОРДРЕГИОНПРОДУКТ\""));
+    assertThat(wd.findElement(By.xpath("//span[@class='billslist__footer-results-num text text_title-h2 valign-middle']")).getText(),
+            equalTo("3 000.00"));
+    click(By.xpath("//span[@class='clear billslist__bill-delete']"));
+    TimeUnit.SECONDS.sleep(3);
+    click(By.xpath("//div[@class='header__col-item margin-right-10']"));
+    click(By.linkText("Выйти"));
+  }
+
+  public void checkDownloadCashInvalidPar1(String pathToFile) throws InterruptedException, AWTException {
+    TimeUnit.SECONDS.sleep(1);
+    click(By.cssSelector("div.header__col-item div.header__add"));
+    click(By.cssSelector("p.reg-client__select-name a.i-block"));
+    TimeUnit.SECONDS.sleep(2);
+    attach(By.xpath("//button[@class='fw-btn fw-btn_18 fw-btn-info-light']"), pathToFile);
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("//div[@class='ofd-input__item ofd-input__item_left ofd-input__item_error']//span[@class='ofd-default-input__error']")).getText(),
+            equalTo("Неверный формат заводского номера кассы"));
+    assertThat(wd.findElement(By.xpath("//div[@class='ofd-input__item ofd-input__item_right ofd-input__item_error']//span[@class='ofd-default-input__error']")).getText(),
+            equalTo("Неверный формат номера фискального накопителя"));
+    click(By.xpath("//div[@class='header__col-item margin-right-10']"));
+    click(By.linkText("Выйти"));
+  }
+
+  public void checkDownloadCashInvalidPar2(String pathToFile) throws InterruptedException, AWTException {
+    TimeUnit.SECONDS.sleep(1);
+    click(By.cssSelector("div.header__col-item div.header__add"));
+    click(By.cssSelector("p.reg-client__select-name a.i-block"));
+    TimeUnit.SECONDS.sleep(2);
+    attach(By.xpath("//button[@class='fw-btn fw-btn_18 fw-btn-info-light']"), pathToFile);
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("//div[@class='ofd-input__item ofd-input__item_left ofd-input__item_error']//span[@class='ofd-default-input__error']")).getText(),
+            equalTo("Неверный формат заводского номера кассы"));
+    assertThat(wd.findElement(By.xpath("//div[@class='ofd-input__item ofd-input__item_right ofd-input__item_error']//span[@class='ofd-default-input__error']")).getText(),
+            equalTo("Неверный формат номера фискального накопителя"));
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div/div/form/div/div[2]/div[1]/div/div/div[1]/div[2]/div/input"), "2354");
+    type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div/div/form/div/div[2]/div[1]/div/div/div[2]/div/div/input"), "2342342342345");
+    assertThat(wd.findElement(By.xpath("//div[@class='ofd-input__item ofd-input__item_left ofd-input__item_error']//span[@class='ofd-default-input__error']")).getText(),
+            equalTo("Поле должно содержать от 5 до 20 символов"));
+    assertThat(wd.findElement(By.xpath("//div[@class='ofd-input__item ofd-input__item_right ofd-input__item_error']//span[@class='ofd-default-input__error']")).getText(),
+            equalTo("Поле должно состоять из 16 символов"));
+    click(By.xpath("//div[@class='header__col-item margin-right-10']"));
+    click(By.linkText("Выйти"));
+  }
+
+  public void checkDownloadCashAlreadyRegistered(String pathToFile) throws InterruptedException, AWTException {
+    TimeUnit.SECONDS.sleep(1);
+    click(By.cssSelector("div.header__col-item div.header__add"));
+    click(By.cssSelector("p.reg-client__select-name a.i-block"));
+    TimeUnit.SECONDS.sleep(2);
+    attach(By.xpath("//button[@class='fw-btn fw-btn_18 fw-btn-info-light']"), pathToFile);
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(3);
+    assertThat(wd.findElement(By.xpath("/html/body/div[2]/div/div[1]/div/div/div[1]")).getText(),
+            equalTo("Данные по кассам не прошли проверку"));
+    click(By.xpath("//button[@type='button']"));
+    TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//div[@class='header__col-item margin-right-10']"));
     click(By.linkText("Выйти"));
   }
