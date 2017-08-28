@@ -10,6 +10,7 @@ public class Front31ClearLegalAddressFields extends TestBase {
   public void testClearLegalAddressFields() throws InterruptedException {
     String email = "ofd222111@yopmail.com";
     String password = "123";
+
     //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);

@@ -6,7 +6,7 @@ import ru.stqa.pft.testOfg.tests.TestBase;
 //Front-26:Заполнение формы ФНС некорректными данными
 public class Front26FNSIncorrectData extends TestBase {
 
-  @Test
+  @Test(enabled = false) //Тест по заполнению формы ФНС убрали
   public void testIncorrectDataFNS() throws InterruptedException {
 
     final int min1 = 10000; // Минимальное число для диапазона

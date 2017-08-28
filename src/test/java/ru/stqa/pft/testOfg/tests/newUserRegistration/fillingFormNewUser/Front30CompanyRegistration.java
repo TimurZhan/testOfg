@@ -13,6 +13,8 @@ public class Front30CompanyRegistration extends TestBase {
     String email = "usercompany@yopmail.com";
     String password = "123";
     String inn = "2464114499";
+
+    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);
     app.getNavigationHelper().checkCompanyRegistration(inn);

@@ -10,6 +10,7 @@ public class Front42EntranceToPartnerOffice extends TestBase{
   public void testEntranceToPartnerOffice() throws InterruptedException {
     String email = "ofdtestpartner@yopmail.com";
     String password = "12345";
+
     //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().entranceToPartnerOffice();

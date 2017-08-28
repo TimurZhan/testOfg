@@ -6,7 +6,7 @@ import ru.stqa.pft.testOfg.tests.TestBase;
 //Front-25:Проверка формы ФНС
 public class Front25RegistrationWithFNS extends TestBase {
 
-  @Test
+  @Test(enabled = false) //Тест по заполнению формы ФНС убрали
   public void testRegistrationWithFNS() throws InterruptedException {
     final int min1 = 10000; // Минимальное число для диапазона
     final int max1 = 999999; // Максимальное число для диапазона

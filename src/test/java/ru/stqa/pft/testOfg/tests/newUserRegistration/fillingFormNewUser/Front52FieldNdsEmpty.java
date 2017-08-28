@@ -11,6 +11,7 @@ public class Front52FieldNdsEmpty extends TestBase {
     String email = "ofdinnispres@yopmail.com";
     String password = "123";
     String inn = "7719778113";
+
     //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);

@@ -10,6 +10,7 @@ public class Front29InnNotCorrect extends TestBase {
   public void testInnNotCorrect() throws InterruptedException {
     String email = "ofdtest@yopmail.com";
     String password = "12345";
+
     //app.getNavigationHelper().signOut(); //Включить, при отладке и запуске в случае отдельного пуска теста
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);

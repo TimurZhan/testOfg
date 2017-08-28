@@ -6,7 +6,7 @@ import ru.stqa.pft.testOfg.tests.TestBase;
 //Front-27:Проверка заявления о перерегистрации кассы
 public class Front27ReregistrationCash extends TestBase {
 
-  @Test
+  @Test(enabled = false) //Тест этот убрали, как и заполнение формы ФНС
   public void testReregistration() throws InterruptedException {
 
     final int min1 = 10000; //Минимальное число для диапазона
@@ -18,6 +18,11 @@ public class Front27ReregistrationCash extends TestBase {
     final int rnd = rnd(min, max);
     final String arbitrarily2 = rnd + "30000000";
 
+    String email = "ofdtestpartner@yopmail.com";
+    String password = "12345";
+
+    app.getNavigationHelper().signOut();
+    app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkReregistrationCash(arbitrarily1, arbitrarily2);
 
   }

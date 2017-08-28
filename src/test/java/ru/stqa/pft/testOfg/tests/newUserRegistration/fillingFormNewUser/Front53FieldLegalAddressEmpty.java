@@ -11,6 +11,7 @@ public class Front53FieldLegalAddressEmpty extends TestBase {
     String email = "ofdinnispres@yopmail.com";
     String password = "123";
     String inn = "6618399732";
+
     //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);

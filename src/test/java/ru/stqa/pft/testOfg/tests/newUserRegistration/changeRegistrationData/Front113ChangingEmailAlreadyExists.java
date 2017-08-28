@@ -10,6 +10,7 @@ public class Front113ChangingEmailAlreadyExists extends TestBase {
   public void testChangingEmailAddress() throws InterruptedException {
     String email = "zhanchikov@ofd.ru";
     String password = "12345";
+
     //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkEmailAlreadyExists(email, password);

@@ -13,10 +13,12 @@ public class Front76RegistrationIndividualEntrepreneur extends TestBase {
     String email = "usercompany@yopmail.com";
     String password = "123";
     String inn = "027312034723";
+
     //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);
     app.getNavigationHelper().enterValuesInputFieldsIndividualEntrepreneur(inn);
+    app.getNavigationHelper().signOut();
     app.db().deleteINN(inn);
     app.db().deleteUserFromDB(email);
     app.db().addUserInDB(email);

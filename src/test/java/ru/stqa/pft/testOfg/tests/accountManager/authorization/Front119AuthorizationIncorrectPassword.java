@@ -10,6 +10,7 @@ public class Front119AuthorizationIncorrectPassword extends TestBase {
   public void testtestAuthIncorrectPassword() throws InterruptedException {
     String email = "zhanchikov@ofd.ru";
     String password = "12346";
+
     app.getNavigationHelper().authIncorrectPassword(email, password);
   }
 
