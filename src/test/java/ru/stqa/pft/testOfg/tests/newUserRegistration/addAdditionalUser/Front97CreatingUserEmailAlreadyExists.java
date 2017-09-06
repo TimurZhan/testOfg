@@ -13,7 +13,7 @@ public class Front97CreatingUserEmailAlreadyExists extends TestBase {
     String password = "12345";
 
     //app.getNavigationHelper().signOut();
-    //app.getNavigationHelper().loginToSystem(email2, password);
+    app.getNavigationHelper().loginToSystem(email2, password);
     app.getNavigationHelper().addAdditionalUser2(email);
   }
 

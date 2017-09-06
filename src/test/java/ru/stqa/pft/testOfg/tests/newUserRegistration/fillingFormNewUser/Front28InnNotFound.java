@@ -16,5 +16,4 @@ public class Front28InnNotFound extends TestBase {
     app.getNavigationHelper().checkForFields(email, password);
     app.getNavigationHelper().checkInnNotFound();
   }
-
 }

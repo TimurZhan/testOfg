@@ -11,6 +11,7 @@ public class Front93ChangePassword extends TestBase {
     String email = "ofdtestpartner@yopmail.com";
     String user = "ofdtestpartner";
     String password = "12345";
+
     //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().makePasswordChange(email);

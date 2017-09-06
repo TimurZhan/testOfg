@@ -21,11 +21,11 @@ public class Front86CheckChangePassword extends TestBase {
     app.db().sendPOSTRequestForChangePassword(email, password2);
     app.getNavigationHelper().authUnderModifMail(email, password2);
     app.getNavigationHelper().signOut();
-    app.getNavigationHelper().loginToSystem(email, password2);
+    //app.getNavigationHelper().loginToSystem(email, password2);
     app.db().sendPOSTRequestForLinkFormation(email);
     app.db().sendPOSTRequestForChangePassword(email, password1);
-    app.getNavigationHelper().authUnderModifMail(email, password1);
-    app.getNavigationHelper().signOut();
+    //app.getNavigationHelper().authUnderModifMail(email, password1);
+    //app.getNavigationHelper().signOut();
   }
 
 }

@@ -13,7 +13,7 @@ import java.io.IOException;
 //Front-15:Регистрация кассы excel- файл
 public class ProstoTest extends TestBase {
 
-  @Test
+  @Test(enabled = false)
   public void testCashregisterrr() throws InterruptedException, IOException {
 
     File cashregister = new File("src/test/resources/testCashRegister.xlsx");

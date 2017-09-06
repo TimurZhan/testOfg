@@ -12,7 +12,7 @@ public class Front76RegistrationIndividualEntrepreneur extends TestBase {
   public void testRegistrationIndividualEntrepreneur() throws InterruptedException, SQLException {
     String email = "usercompany@yopmail.com";
     String password = "123";
-    String inn = "027312034723";
+    String inn = "246215905925";
 
     //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();

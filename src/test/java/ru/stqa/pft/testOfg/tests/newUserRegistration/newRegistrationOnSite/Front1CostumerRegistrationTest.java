@@ -17,6 +17,7 @@ public class Front1CostumerRegistrationTest extends TestBase {
     long now = System.currentTimeMillis();
     String email = String.format("user%s@yopmail.com", now);
     String password = "123";
+    System.out.println(email);
 
     //app.getNavigationHelper().signOut();
     app.getNavigationHelper().newCustomerRegistration(email, password);

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 //Front-30:Регистрация ЮР -лица в OFD.RU (адрес юр.лица)
 public class Front30CompanyRegistration extends TestBase {
 
-  @Test
+  @Test(enabled = false)
   public void testRegistrationCompany() throws InterruptedException, SQLException {
     String email = "usercompany@yopmail.com";
     String password = "123";
