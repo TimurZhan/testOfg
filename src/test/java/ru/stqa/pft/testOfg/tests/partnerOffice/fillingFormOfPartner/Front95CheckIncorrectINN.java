@@ -13,6 +13,7 @@ public class Front95CheckIncorrectINN extends TestBase {
     String email = "ofdru@yopmail.com";
     String password = "123";
     String inn = "75360434255";
+
     //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().testIncorrectINNFront95(inn);

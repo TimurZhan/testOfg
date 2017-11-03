@@ -12,7 +12,7 @@ public class Front111PostpaidInnAlreadyExists extends TestBase {
     String password = "123";
     String inn = "6658399762";
 
-    //app.getNavigationHelper().signOut();
+    app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkInnAlreadyExists(inn);
   }

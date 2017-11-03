@@ -13,6 +13,7 @@ public class Front110PartnerRegistrationPostpaid extends TestBase {
     String email = "userofd12345@yopmail.com"; //После выполнения теста надо удалить из базы и зарегать заново
     String password = "123";
     String inn = "7744001497";
+
     app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkRegistrationPostpaid(inn);

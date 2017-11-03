@@ -9,6 +9,7 @@ public class Front139CheckAddNewUserIncorrectINN extends TestBase {
   @Test
   public void testIncorrectINN() throws InterruptedException {
     String inn = "1234567890123";
+
     app.getNavigationHelper().checkAddNewUserIncorrectINN(inn);
   }
 

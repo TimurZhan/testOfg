@@ -11,7 +11,8 @@ public class Front140CheckAddNewUserCorrectINN extends TestBase {
   @Test
   public void testCorrectINN() throws SQLException, InterruptedException {
     String email = "ofduser3556677@yopmail.com";
-    String inn = "124601959242";
+    String inn = "905359385";
+
     app.getNavigationHelper().checkAddNewUserCorrectINN(email, inn);
   }
 

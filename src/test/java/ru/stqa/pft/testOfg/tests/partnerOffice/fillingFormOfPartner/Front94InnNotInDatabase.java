@@ -13,6 +13,7 @@ public class Front94InnNotInDatabase extends TestBase {
     String email = "userofd12345@yopmail.com"; //После выполнения теста надо удалить из базы и зарегать заново, как партнера
     String password = "123";
     String inn = "545645645645";
+
     //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().fillingCustomerFormInnNotBD(inn);

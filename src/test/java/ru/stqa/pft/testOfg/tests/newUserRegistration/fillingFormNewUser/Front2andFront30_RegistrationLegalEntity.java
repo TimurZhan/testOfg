@@ -10,7 +10,7 @@ public class Front2andFront30_RegistrationLegalEntity extends TestBase{
 
   @Test
   public void testRegistrationLegalEntity() throws InterruptedException, SQLException {
-    String email = "ofd222111@yopmail.com";
+      String email = "ofd222111@yopmail.com";
     String password = "123";
     String inn ="6685133850";
 

@@ -19,6 +19,7 @@
             <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front54FieldWorkflowEmpty"/>
             <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front64InnDoesNotExist"/>
             <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front76RegistrationIndividualEntrepreneur"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front155NoAgreementOffer"/>
         </classes>
     </test>
 

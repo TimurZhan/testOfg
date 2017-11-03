@@ -11,7 +11,7 @@ public class Front143CheckAddNewUserlegalEntity extends TestBase {
   @Test
   public void testAddNewUserlegalEntity() throws SQLException, InterruptedException {
     String email = "ofduser3556677@yopmail.com";
-    String inn = "960601901";
+    String inn = "7906006886";
 
     app.getNavigationHelper().checkAddNewUserlegalEntity(email, inn);
     app.db().deleteINN(inn);
