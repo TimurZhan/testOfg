@@ -1,0 +1,235 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    agent
+}
+
+dependencies {
+    compile 'org.testng:testng:6.11'
+    compile 'org.seleniumhq.selenium:selenium-java:2.53.1'
+    compile 'org.hamcrest:java-hamcrest:2.0.0.0'
+    compile 'com.beust:jcommander:1.69'
+    compile 'com.thoughtworks.xstream:xstream:1.4.9'
+    compile 'ch.qos.logback:logback-classic:1.2.2'
+    compile 'org.subethamail:subethasmtp:3.1.7'
+    compile 'ru.lanwen.verbalregex:java-verbal-expressions:1.4'
+    compile 'commons-net:commons-net:3.5'
+    compile 'com.microsoft.sqlserver:mssql-jdbc:6.1.7.jre8-preview'
+    compile 'org.hibernate:hibernate-core:5.2.10.Final'
+    compile 'com.google.code.gson:gson:2.8.1'
+    compile 'org.apache.httpcomponents:httpclient:4.5.3'
+    compile 'org.apache.httpcomponents:fluent-hc:4.5.3'
+    compile 'com.jayway.restassured:rest-assured:2.9.0'
+    compile 'com.github.kevinsawicki:http-request:6.0'
+    agent "org.aspectj:aspectjweaver:1.8.0"
+    compile "ru.yandex.qatools.allure:allure-testng-adaptor:1.4.0.RC4"
+    compile 'com.github.wnameless:workbook-accessor:1.3.0'
+}
+
+
+task testAccountManagerAuthorization(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng-AccountManagerAuthorization.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+}
+
+testAccountManagerAuthorization.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
+
+
+task testAccountManagerCashregisterTab(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng-AccountManagerCashregisterTab.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+}
+
+testAccountManagerCashregisterTab.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
+
+
+task testAccountManagerClientsTab(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng-AccountManagerClientsTab.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+}
+
+testAccountManagerClientsTab.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
+
+
+task testNewUserRegistrationAddAdditionalUser(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng-NewUserRegistrationAddAdditionalUser.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+}
+
+testNewUserRegistrationAddAdditionalUser.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
+
+
+task testNewUserRegistrationChangeRegistrationData(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng-NewUserRegistrationChangeRegistrationData.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+}
+
+testNewUserRegistrationChangeRegistrationData.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
+
+
+task testNewUserRegistrationEditingCustomerDataTests(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng-NewUserRegistrationEditingCustomerDataTests.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+}
+
+testNewUserRegistrationEditingCustomerDataTests.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
+
+
+task testNewUserRegistrationFillingFormNewUser(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng-NewUserRegistrationFillingFormNewUser.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+}
+
+testNewUserRegistrationFillingFormNewUser.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
+
+
+task testNewUserRegistrationNewRegistrationOnSite(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng-NewUserRegistrationNewRegistrationOnSite.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+}
+
+testNewUserRegistrationNewRegistrationOnSite.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
+
+
+task testPageInterfaceTestsCheckhomepage(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng-PageInterfaceTestsCheckhomepage.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+}
+
+testPageInterfaceTestsCheckhomepage.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
+
+
+task testPageInterfaceTestsCheckingpersonalcabinet(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng-PageInterfaceTestsCheckingpersonalcabinet.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+}
+
+testPageInterfaceTestsCheckingpersonalcabinet.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
+
+
+task testPartnerOfficeEntranceToPartnerOffice(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng-PartnerOfficeEntranceToPartnerOffice.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+}
+
+testPartnerOfficeEntranceToPartnerOffice.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
+
+
+task testPartnerOfficeFillingFormOfPartner(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng-PartnerOfficeFillingFormOfPartner.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+}
+
+testPartnerOfficeFillingFormOfPartner.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}

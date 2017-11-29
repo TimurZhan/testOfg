@@ -8,7 +8,7 @@ public class Front150CheckAddNewUserAlreadyExists extends TestBase {
 
   @Test
   public void testUserAlreadyExists() throws InterruptedException {
-    String email = "ofduser3556677@yopmail.com";
+    String email = "ofduser350056677@yopmail.com";
     String inn = "121635324100";
 
     app.getNavigationHelper().checkUserAlreadyExists(email, inn);

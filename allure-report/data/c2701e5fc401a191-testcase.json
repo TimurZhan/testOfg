@@ -1,0 +1,35 @@
+{
+  "uid" : "c2701e5fc401a191",
+  "name" : "testAuthIncorrectEmail",
+  "title" : "Test auth incorrect email",
+  "time" : {
+    "start" : 1499434972394,
+    "stop" : 1499434977524,
+    "duration" : 5130
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 0
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "56040e4ebc12c985",
+    "name" : "Suite1",
+    "title" : "Suite 1"
+  },
+  "steps" : [ ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "suite-name",
+    "value" : "Suite1"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  } ],
+  "parameters" : [ ]
+}

@@ -1,0 +1,64 @@
+{
+  "hash" : "e7105c43ada45c9f6e0006854ef1a1d95249231d",
+  "plugins" : {
+    "total" : {
+      "statistic" : {
+        "total" : 20,
+        "passed" : 17,
+        "pending" : 0,
+        "canceled" : 0,
+        "failed" : 3,
+        "broken" : 0
+      },
+      "time" : {
+        "start" : 1499434591277,
+        "stop" : 1499437997477,
+        "duration" : 3406200
+      }
+    },
+    "defects" : {
+      "totalCount" : 2,
+      "items" : [ {
+        "count" : 2,
+        "uid" : "11e7119dc4a0c9fb",
+        "message" : "AssertionError: \nExpected: \"Список всех кас\"\n     but: was \"Список всех касс\"",
+        "status" : "FAILED"
+      }, {
+        "count" : 1,
+        "uid" : "9a867166da16ac85",
+        "message" : "AssertionError: \nExpected: \"Список всех касc\"\n     but: was \"Список всех касс\"",
+        "status" : "FAILED"
+      } ]
+    },
+    "xunit" : {
+      "totalCount" : 1,
+      "items" : [ {
+        "uid" : "56040e4ebc12c985",
+        "title" : "Suite 1",
+        "statistic" : {
+          "total" : 20,
+          "passed" : 17,
+          "pending" : 0,
+          "canceled" : 0,
+          "failed" : 3,
+          "broken" : 0
+        }
+      } ]
+    },
+    "behaviors" : {
+      "totalCount" : 1,
+      "items" : [ {
+        "title" : "Without feature",
+        "statistic" : {
+          "total" : 20,
+          "passed" : 17,
+          "pending" : 0,
+          "canceled" : 0,
+          "failed" : 3,
+          "broken" : 0
+        }
+      } ]
+    },
+    "environment" : [ ]
+  }
+}

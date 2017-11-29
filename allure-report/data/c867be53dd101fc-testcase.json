@@ -1,0 +1,35 @@
+{
+  "uid" : "c867be53dd101fc",
+  "name" : "testAuthAccountManager",
+  "title" : "Test auth account manager",
+  "time" : {
+    "start" : 1499434591277,
+    "stop" : 1499434614775,
+    "duration" : 23498
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 0
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "49194ba18925f7f6",
+    "name" : "Suite1",
+    "title" : "Suite 1"
+  },
+  "steps" : [ ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "suite-name",
+    "value" : "Suite1"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  } ],
+  "parameters" : [ ]
+}

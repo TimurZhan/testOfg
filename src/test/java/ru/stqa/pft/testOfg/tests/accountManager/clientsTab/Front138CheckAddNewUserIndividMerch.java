@@ -10,7 +10,7 @@ public class Front138CheckAddNewUserIndividMerch extends TestBase {
 
   @Test
   public void testAddNewUserIndividMerch() throws InterruptedException, SQLException {
-    String email = "ofduser3556677@yopmail.com";
+    String email = "ofduser55667711711@yopmail.com";
     String inn = "503111739928";
 
     app.getNavigationHelper().checkAddNewUserIndividMerch(email, inn);

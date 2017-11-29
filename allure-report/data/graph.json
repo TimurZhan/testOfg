@@ -1,0 +1,223 @@
+{
+  "testCases" : [ {
+    "uid" : "b78fba1898efed8c",
+    "name" : "testAuthAccountManager",
+    "title" : "Test auth account manager",
+    "time" : {
+      "start" : 1499437202814,
+      "stop" : 1499437217992,
+      "duration" : 15178
+    },
+    "severity" : "NORMAL",
+    "status" : "FAILED"
+  }, {
+    "uid" : "d7bc8830e2d3790b",
+    "name" : "testAuthIncorrectEmail",
+    "title" : "Test auth incorrect email",
+    "time" : {
+      "start" : 1499437217992,
+      "stop" : 1499437223002,
+      "duration" : 5010
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "9a868c34f43c4976",
+    "name" : "testtestAuthIncorrectPassword",
+    "title" : "Testtest auth incorrect password",
+    "time" : {
+      "start" : 1499437223002,
+      "stop" : 1499437228073,
+      "duration" : 5071
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "124818cd732e4d75",
+    "name" : "testIncorrectUser",
+    "title" : "Test incorrect user",
+    "time" : {
+      "start" : 1499437228088,
+      "stop" : 1499437233944,
+      "duration" : 5856
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "3be954495eeb4651",
+    "name" : "testAuthAccountManager",
+    "title" : "Test auth account manager",
+    "time" : {
+      "start" : 1499437854684,
+      "stop" : 1499437869597,
+      "duration" : 14913
+    },
+    "severity" : "NORMAL",
+    "status" : "FAILED"
+  }, {
+    "uid" : "27a5bbb7bbb64451",
+    "name" : "testAuthIncorrectEmail",
+    "title" : "Test auth incorrect email",
+    "time" : {
+      "start" : 1499437869600,
+      "stop" : 1499437874653,
+      "duration" : 5053
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "5423700d5cfe74f8",
+    "name" : "testtestAuthIncorrectPassword",
+    "title" : "Testtest auth incorrect password",
+    "time" : {
+      "start" : 1499437874663,
+      "stop" : 1499437879524,
+      "duration" : 4861
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "4161c4071114ee38",
+    "name" : "testIncorrectUser",
+    "title" : "Test incorrect user",
+    "time" : {
+      "start" : 1499437879528,
+      "stop" : 1499437885354,
+      "duration" : 5826
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "181156e9a116ac75",
+    "name" : "testAuthAccountManager",
+    "title" : "Test auth account manager",
+    "time" : {
+      "start" : 1499434959328,
+      "stop" : 1499434972375,
+      "duration" : 13047
+    },
+    "severity" : "NORMAL",
+    "status" : "FAILED"
+  }, {
+    "uid" : "c2701e5fc401a191",
+    "name" : "testAuthIncorrectEmail",
+    "title" : "Test auth incorrect email",
+    "time" : {
+      "start" : 1499434972394,
+      "stop" : 1499434977524,
+      "duration" : 5130
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "f4f58137aec3be58",
+    "name" : "testtestAuthIncorrectPassword",
+    "title" : "Testtest auth incorrect password",
+    "time" : {
+      "start" : 1499434977609,
+      "stop" : 1499434982668,
+      "duration" : 5059
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "10fa4cf354a65587",
+    "name" : "testIncorrectUser",
+    "title" : "Test incorrect user",
+    "time" : {
+      "start" : 1499434982668,
+      "stop" : 1499434988724,
+      "duration" : 6056
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "2e74ecc28e0bc9f9",
+    "name" : "testAuthAccountManager",
+    "title" : "Test auth account manager",
+    "time" : {
+      "start" : 1499437965841,
+      "stop" : 1499437981118,
+      "duration" : 15277
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "8b45f52309c649b5",
+    "name" : "testAuthIncorrectEmail",
+    "title" : "Test auth incorrect email",
+    "time" : {
+      "start" : 1499437981193,
+      "stop" : 1499437986607,
+      "duration" : 5414
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "9985f841ce080e45",
+    "name" : "testtestAuthIncorrectPassword",
+    "title" : "Testtest auth incorrect password",
+    "time" : {
+      "start" : 1499437986613,
+      "stop" : 1499437991560,
+      "duration" : 4947
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "3807fe91423d81c8",
+    "name" : "testIncorrectUser",
+    "title" : "Test incorrect user",
+    "time" : {
+      "start" : 1499437991566,
+      "stop" : 1499437997477,
+      "duration" : 5911
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "d2908727fe968324",
+    "name" : "testAuthAccountManager",
+    "title" : "Test auth account manager",
+    "time" : {
+      "start" : 1499434591277,
+      "stop" : 1499434614775,
+      "duration" : 23498
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "e5361ff5e18e0078",
+    "name" : "testAuthIncorrectEmail",
+    "title" : "Test auth incorrect email",
+    "time" : {
+      "start" : 1499434614859,
+      "stop" : 1499434619870,
+      "duration" : 5011
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "39b97e1e08743b74",
+    "name" : "testtestAuthIncorrectPassword",
+    "title" : "Testtest auth incorrect password",
+    "time" : {
+      "start" : 1499434619870,
+      "stop" : 1499434625159,
+      "duration" : 5289
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "4f49f0f023cc1df6",
+    "name" : "testIncorrectUser",
+    "title" : "Test incorrect user",
+    "time" : {
+      "start" : 1499434625159,
+      "stop" : 1499434631466,
+      "duration" : 6307
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  } ]
+}

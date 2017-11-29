@@ -1,0 +1,35 @@
+{
+  "uid" : "5a093b5ce19df55a",
+  "name" : "testIncorrectUser",
+  "title" : "Test incorrect user",
+  "time" : {
+    "start" : 1499434625159,
+    "stop" : 1499434631466,
+    "duration" : 6307
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 0
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "49194ba18925f7f6",
+    "name" : "Suite1",
+    "title" : "Suite 1"
+  },
+  "steps" : [ ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "suite-name",
+    "value" : "Suite1"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  } ],
+  "parameters" : [ ]
+}
