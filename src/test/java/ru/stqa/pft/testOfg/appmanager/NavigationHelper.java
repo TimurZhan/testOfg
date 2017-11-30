@@ -39,7 +39,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void goToEditFullName() {
-    click(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[2]/div/div[1]/div/p[2]/a"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[3]/div/div[1]/div/p[2]/a"));
   }
 
   public void goToEditPhone() {
