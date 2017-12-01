@@ -9,11 +9,11 @@ import ru.stqa.pft.testOfg.tests.TestBase;
 public class Front1_79CoincidenceLegalPostalAddress extends TestBase {
 
   @BeforeMethod
-  public void ensurePreconditions(){
+  public void ensurePreconditions() throws InterruptedException {
     String email = "zhanchikov@ofd.ru";
     String password = "12345";
 
-    //app.getNavigationHelper().loginToSystem(email, password);
+    app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().goToProfileEdit();
     app.getNavigationHelper().goToEditLegalAddress();
   }

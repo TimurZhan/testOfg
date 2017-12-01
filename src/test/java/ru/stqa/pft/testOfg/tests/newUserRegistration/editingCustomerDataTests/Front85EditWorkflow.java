@@ -11,7 +11,7 @@ public class Front85EditWorkflow extends TestBase {
     String email = "zhanchikov@ofd.ru";
     String password = "12345";
 
-    app.getNavigationHelper().loginToSystem(email, password);
+    //app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().goToProfileEdit();
     app.getNavigationHelper().selectWorkflow();
     app.getNavigationHelper().clickVAT();

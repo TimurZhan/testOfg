@@ -43,14 +43,16 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void goToEditPhone() {
-    click(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[2]/div/div[2]/div/p[2]/a"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[3]/div/div[2]/div/p[2]/a"));
   }
 
   public void goToEditLegalAddress() {
     click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/p[2]/a"));
   }
 
-  public void goToProfileEdit() {
+  public void goToProfileEdit() throws InterruptedException {
+    wd.manage().window().maximize();
+    TimeUnit.SECONDS.sleep(2);
     click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
     click(By.xpath("//a[@href='/lk/profile']"));
   }
@@ -96,7 +98,7 @@ public class NavigationHelper extends HelperBase {
 
   public void submitFront83() throws InterruptedException {
     TimeUnit.SECONDS.sleep(1);
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[2]/div/div[2]/div/h2")).getText(),
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[3]/div/div[2]/div/h2")).getText(),
             equalTo("89021112255"));
   }
 
@@ -113,23 +115,25 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void selectWorkflow() throws InterruptedException {
-    click(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[3]/div/div[1]/div/div"));
-    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[4]/div/div[1]/div/div/div[1]"));
+    TimeUnit.SECONDS.sleep(2);
     click(By.xpath("//*[text()='Диадок']"));
     TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[3]/div/div[1]/div/div/div[1]/div[1]/div[2]")).getText(),
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[4]/div/div[1]/div/div/div[1]/div[1]/div[2]")).getText(),
             equalTo("Диадок"));
-    click(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div[3]/div/div[1]/div/div"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[4]/div/div[1]/div/div/div[1]"));
     TimeUnit.SECONDS.sleep(2);
     click(By.xpath("//*[text()='СБИС']"));
     TimeUnit.SECONDS.sleep(2);
   }
 
   public void clickVAT() {
-    click(By.xpath("//div[@data-reactid='.0.1.1.1.0.1.$0.2.0.1.1.1.0']"));
-    Assert.assertTrue(isElementVisible(By.xpath("//div[@class='fw-label fw-label_success fw-label_size-static ']")));
-    click(By.xpath("//div[@data-reactid='.0.1.1.1.0.1.$0.2.0.1.1.0.0']"));
-    Assert.assertTrue(isElementVisible(By.xpath("//div[@class='fw-label fw-label_success fw-label_size-static ']")));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[4]/div/div[2]/div/div[1]/div"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[4]/div/div[2]/div/div[1]/div")).getCssValue("background-color"),
+            equalTo("rgba(0, 190, 106, 1)"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[4]/div/div[2]/div/div[2]/div"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[4]/div/div[2]/div/div[2]/div")).getCssValue("background-color"),
+            equalTo("rgba(0, 190, 106, 1)"));
   }
 
   public void clickAddedCashMachine() {
