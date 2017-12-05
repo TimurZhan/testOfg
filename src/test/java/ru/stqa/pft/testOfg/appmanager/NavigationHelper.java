@@ -430,7 +430,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void loginAccount() throws InterruptedException {
-    click(By.cssSelector("div.pull-right a.analytics-login"));
+    click(By.xpath("//input[@name='Login']"));
     TimeUnit.SECONDS.sleep(1);
   }
 
@@ -678,9 +678,9 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkForFields(String email, String password) throws InterruptedException {
-    type(By.xpath("//div[@class='modal__area']//input[@name='Login']"), email);
-    type(By.xpath("//div[@class='modal__area']//input[@name='Password']"), password);
-    click(By.xpath("//div[@class='modal__area']//button[@type='submit']"));
+    type(By.xpath("//input[@name='Login']"), email);
+    type(By.xpath("//input[@name='Password']"), password);
+    click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/label")).getText()
             , equalTo("ИНН компании"));
@@ -747,6 +747,7 @@ public class NavigationHelper extends HelperBase {
     assertThat(wd.findElement(By.xpath("//button[@type='submit']")).getCssValue("background-color"),
             equalTo("rgba(229, 233, 240, 1)"));
     scrollToItem(By.xpath("//img[@src='https://ofd.ru/Content/Images/logo_type1.svg']"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[1]/div[1]/div/div[2]/div"));
     click(By.linkText("Выйти"));
     TimeUnit.SECONDS.sleep(1);
   }
@@ -769,6 +770,7 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//button[@class='btn btn-primary btn-md']"));
     isElementVisible(By.xpath("//button[@disabled='']"));
     scrollToItem(By.xpath("//img[@src='https://ofd.ru/Content/Images/logo_type1.svg']"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[1]/div[1]/div/div[2]/div"));
     click(By.linkText("Выйти"));
     TimeUnit.SECONDS.sleep(1);
   }
@@ -790,6 +792,7 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//button[@type='button']"));
     TimeUnit.SECONDS.sleep(2);
     scrollToItem(By.xpath("//img[@src='https://ofd.ru/Content/Images/logo_type1.svg']"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[1]/div[1]/div/div[2]/div"));
     click(By.linkText("Выйти"));
     TimeUnit.SECONDS.sleep(1);
   }
@@ -805,6 +808,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     isElementVisible(By.xpath("//button[@disabled='']"));
     scrollToItem(By.xpath("//img[@src='https://ofd.ru/Content/Images/logo_type1.svg']"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[1]/div[1]/div/div[2]/div"));
     click(By.linkText("Выйти"));
     TimeUnit.SECONDS.sleep(1);
   }
@@ -840,6 +844,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     isElementVisible(By.xpath("//button[@disabled='']"));
     scrollToItem(By.xpath("//img[@src='https://ofd.ru/Content/Images/logo_type1.svg']"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[1]/div[1]/div/div[2]/div"));
     click(By.linkText("Выйти"));
     TimeUnit.SECONDS.sleep(1);
   }
@@ -851,14 +856,12 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//*[text()='СБИС']"));
     TimeUnit.SECONDS.sleep(1);
-    //type(By.name("Locality"),"Налпункт");
-    //type(By.name("House"),"46");
     click(By.cssSelector("div.customer__nds-inline div.fw-label_disabled"));
     scrollToItem(By.xpath("//button[@type='submit']"));
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[2]/div/div[1]/div/div/input"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//button[@type='submit']"));
-    TimeUnit.SECONDS.sleep(6);
+    TimeUnit.SECONDS.sleep(8);
     assertThat(wd.findElement(By.xpath("//div[@class='ofd-section__content color-info']/div[1]/h3")).getText(),
             equalTo("Как подключить кассу к OFD.RU?"));
   }
@@ -890,6 +893,7 @@ public class NavigationHelper extends HelperBase {
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(),
             equalTo("Регистрация данных пользователя"));
     scrollToItem(By.xpath("//img[@src='https://ofd.ru/Content/Images/logo_type1.svg']"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[1]/div[1]/div/div[2]/div"));
     click(By.linkText("Выйти"));
     TimeUnit.SECONDS.sleep(1);
   }
@@ -903,6 +907,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(),
             equalTo("Регистрация данных пользователя"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[1]/div[1]/div/div[2]/div"));
     click(By.linkText("Выйти"));
     TimeUnit.SECONDS.sleep(1);
   }
@@ -919,6 +924,7 @@ public class NavigationHelper extends HelperBase {
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(),
             equalTo("Регистрация данных пользователя"));
     scrollToItem(By.xpath("//img[@src='https://ofd.ru/Content/Images/logo_type1.svg']"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[1]/div[1]/div/div[2]/div"));
     click(By.linkText("Выйти"));
     TimeUnit.SECONDS.sleep(1);
   }
@@ -946,6 +952,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     isElementPresent(By.xpath("//button[@disabled='']"));
     scrollToItem(By.xpath("//img[@src='https://ofd.ru/Content/Images/logo_type1.svg']"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[1]/div[1]/div/div[2]/div"));
     click(By.linkText("Выйти"));
     TimeUnit.SECONDS.sleep(1);
   }
@@ -1006,6 +1013,7 @@ public class NavigationHelper extends HelperBase {
     assertThat(wd.findElement(By.xpath("//button[@type='submit']")).getCssValue("background-color"),
             equalTo("rgba(229, 233, 240, 1)"));
     scrollToItem(By.xpath("//img[@src='https://ofd.ru/Content/Images/logo_type1.svg']"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[1]/div[1]/div/div[2]/div"));
     click(By.linkText("Выйти"));
     TimeUnit.SECONDS.sleep(1);
   }
