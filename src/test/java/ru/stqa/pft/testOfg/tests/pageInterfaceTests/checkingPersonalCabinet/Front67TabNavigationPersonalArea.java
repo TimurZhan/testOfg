@@ -11,7 +11,6 @@ public class Front67TabNavigationPersonalArea extends TestBase {
     String email = "testuserofd@yopmail.com";
     String password = "123";
 
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().addCashRegister();
     app.getNavigationHelper().tabNavigation();

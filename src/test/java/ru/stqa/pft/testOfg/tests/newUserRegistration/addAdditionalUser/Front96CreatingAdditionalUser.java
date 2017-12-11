@@ -15,8 +15,8 @@ public class Front96CreatingAdditionalUser extends TestBase {
     long now = System.currentTimeMillis();
     String user = String.format("user%s", now);
     String email = String.format(user + "@yopmail.com");
-    String email2 = "zhanchikov@ofd.ru";
-    String password = "12345";
+    String email2 = "yaschenko@ofd.ru";
+    String password = "121288";
     System.out.println(email);
 
     //app.getNavigationHelper().signOut();

@@ -14,7 +14,7 @@ public class Front100RegistrationPostoplatnik extends TestBase {
     String password = "123";
     String inn = "7744001497";
 
-    app.getNavigationHelper().signOut();
+
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);
     app.getNavigationHelper().checkRegistrationPostoplatnik(inn);

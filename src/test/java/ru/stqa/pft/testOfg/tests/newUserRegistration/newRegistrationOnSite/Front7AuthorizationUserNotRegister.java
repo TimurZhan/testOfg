@@ -8,7 +8,6 @@ public class Front7AuthorizationUserNotRegister extends TestBase {
 
   @Test
   public void testCheckAuthorizationPageUserNotRegister() throws InterruptedException {
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkUserNotRegister();
   }

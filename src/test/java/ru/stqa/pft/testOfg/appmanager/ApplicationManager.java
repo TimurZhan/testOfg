@@ -63,8 +63,8 @@ public class ApplicationManager {
     personalInformationHelper = new PersonalInformationHelper(wd);
     phoneInformationHelper = new PhoneInformationHelper(wd);
     clearInputFieldsHelper = new ClearInputFieldsHelper(wd);
-    sessionHelper = new SessionHelper(wd);
-    sessionHelper.login(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPassword"));
+    //sessionHelper = new SessionHelper(wd);
+    //sessionHelper.login(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPassword"));
   }
 
   public void stop() {

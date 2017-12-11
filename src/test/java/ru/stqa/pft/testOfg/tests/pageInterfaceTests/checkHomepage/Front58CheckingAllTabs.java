@@ -8,7 +8,6 @@ public class Front58CheckingAllTabs extends TestBase {
 
   @Test
   public void testCheckingAllTabs() throws InterruptedException {
-    app.getNavigationHelper().signOut();
     app.getNavigationHelper().checkingTabsMainPage();
     app.getNavigationHelper().clickTabsMainPage();
   }

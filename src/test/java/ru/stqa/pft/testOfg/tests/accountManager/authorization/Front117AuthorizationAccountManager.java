@@ -11,7 +11,7 @@ public class Front117AuthorizationAccountManager extends TestBase{
     String email = "zhanchikov@ofd.ru";
     String password = "12345";
 
-    app.getNavigationHelper().signOut();
+    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().authAccountManager(email, password);
   }
 

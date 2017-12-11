@@ -10,10 +10,13 @@ public class Front140CheckAddNewUserCorrectINN extends TestBase {
 
   @Test
   public void testCorrectINN() throws SQLException, InterruptedException {
-    String email = "ofduser3556677@yopmail.com";
+    String email2 = "ofduser3556677@yopmail.com";
     String inn = "905359385";
+    String email1 = "zhanchikov@ofd.ru";
+    String password = "12345";
 
-    app.getNavigationHelper().checkAddNewUserCorrectINN(email, inn);
+    app.getNavigationHelper().loginToSystem(email1, password);
+    app.getNavigationHelper().checkAddNewUserCorrectINN(email2, inn);
   }
 
 }

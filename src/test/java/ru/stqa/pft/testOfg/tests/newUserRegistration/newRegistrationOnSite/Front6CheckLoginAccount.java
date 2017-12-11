@@ -8,7 +8,6 @@ public class Front6CheckLoginAccount extends TestBase {
 
   @Test
   public void testCheckLoginAccount() throws InterruptedException {
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkHomePage();
   }

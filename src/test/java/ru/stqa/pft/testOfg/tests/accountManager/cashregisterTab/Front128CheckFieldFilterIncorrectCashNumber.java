@@ -8,6 +8,10 @@ public class Front128CheckFieldFilterIncorrectCashNumber extends TestBase {
 
   @Test
   public void testFilterIncorrectCashNumber() throws InterruptedException {
+    String email = "zhanchikov@ofd.ru";
+    String password = "12345";
+
+    //app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().fieldFilterIncorrectCashNumber();
   }
 

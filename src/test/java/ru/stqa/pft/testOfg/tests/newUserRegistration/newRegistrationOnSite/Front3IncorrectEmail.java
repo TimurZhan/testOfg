@@ -8,7 +8,6 @@ public class Front3IncorrectEmail extends TestBase {
 
   @Test
   public void testIncorrectEmail() throws InterruptedException {
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().clickButtonConnect();
     app.getNavigationHelper().checkEmailWhenRegistering();
   }

@@ -8,7 +8,6 @@ public class Front59CheckingDevelopersTab extends TestBase {
 
   @Test
   public void testCheckingDevelopersTab() throws InterruptedException {
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().clickMainLabel();
     app.getNavigationHelper().checkDevelopersPage();
   }

@@ -8,7 +8,6 @@ public class Front106MessagePasswordChange extends TestBase {
 
   @Test
   public void testMessagePasswordChange() throws InterruptedException {
-    app.getNavigationHelper().signOut();
     app.getNavigationHelper().checkMessagePasswordChange();
   }
 

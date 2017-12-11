@@ -8,6 +8,10 @@ public class Front130CheckFieldFilterInvoiceNumber extends TestBase {
 
   @Test
   public void testFilterInvoiceNumber() throws InterruptedException {
+    String email = "zhanchikov@ofd.ru";
+    String password = "12345";
+
+    //app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().fieldFilterInvoiceNumber();
   }
 

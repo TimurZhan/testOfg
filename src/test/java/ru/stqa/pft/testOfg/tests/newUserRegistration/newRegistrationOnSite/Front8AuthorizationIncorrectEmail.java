@@ -8,7 +8,6 @@ public class Front8AuthorizationIncorrectEmail extends TestBase {
 
   @Test
   public void testCheckAuthorizationPageUserIncorrectEmail() throws InterruptedException {
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkAuthorizationIncorrectEmail();
   }

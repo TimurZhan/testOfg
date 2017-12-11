@@ -11,7 +11,6 @@ public class Front68CheckingUploadTab extends TestBase {
     String email = "testuserofd@yopmail.com";
     String password = "123";
 
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().addCashRegister();
     app.getNavigationHelper().goToEditAndAssertUpload();

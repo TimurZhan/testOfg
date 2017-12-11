@@ -12,7 +12,6 @@ public class Front53FieldLegalAddressEmpty extends TestBase {
     String password = "123";
     String inn = "6618399732";
 
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);
     app.getNavigationHelper().checkFieldLegalAddressEmpty(inn);

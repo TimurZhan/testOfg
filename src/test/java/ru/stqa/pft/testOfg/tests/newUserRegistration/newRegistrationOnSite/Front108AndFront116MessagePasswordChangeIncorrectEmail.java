@@ -8,7 +8,6 @@ public class Front108AndFront116MessagePasswordChangeIncorrectEmail extends Test
 
   @Test
   public void testIncorrectEmail() throws InterruptedException {
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().checkMessagePasswordChangeIncorrectEmail();
   }
 

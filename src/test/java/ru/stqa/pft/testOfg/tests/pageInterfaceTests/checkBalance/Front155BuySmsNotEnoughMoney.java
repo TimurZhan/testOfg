@@ -11,7 +11,6 @@ public class Front155BuySmsNotEnoughMoney extends TestBase {
     String email = "disey1111@yopmail.com";
     String password = "123";
 
-    app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkBuySmsNotMoney();
     app.getNavigationHelper().signOut();

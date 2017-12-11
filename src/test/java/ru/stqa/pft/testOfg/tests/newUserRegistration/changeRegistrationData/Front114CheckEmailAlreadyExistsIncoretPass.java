@@ -12,7 +12,6 @@ public class Front114CheckEmailAlreadyExistsIncoretPass extends TestBase {
     String password1 = "123";
     String password2 = "124";
 
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password1);
     app.getNavigationHelper().checkEmailIncoretPassword(email, password2);
     app.getNavigationHelper().signOut();

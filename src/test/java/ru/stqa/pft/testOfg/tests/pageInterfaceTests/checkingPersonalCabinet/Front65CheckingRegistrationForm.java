@@ -11,7 +11,6 @@ public class Front65CheckingRegistrationForm extends TestBase {
     String email = "user1499072034667@yopmail.com";
     String password = "123";
 
-    app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkingItemsOnRegistrationPage();
   }

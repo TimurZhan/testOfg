@@ -8,7 +8,6 @@ public class Front5PhoneEmptyFiled extends TestBase {
 
   @Test
   public void testEmailAlreadyRegistered() throws InterruptedException {
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().clickButtonConnect();
     app.getNavigationHelper().checkPhoneEmptyField();
   }

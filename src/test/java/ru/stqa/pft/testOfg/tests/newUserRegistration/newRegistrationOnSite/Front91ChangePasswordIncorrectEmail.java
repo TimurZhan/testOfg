@@ -8,7 +8,6 @@ public class Front91ChangePasswordIncorrectEmail extends TestBase {
 
   @Test
   public void testEmailAlreadyRegistered() throws InterruptedException {
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().checkChangePasswordEmailEmptyField();
   }
 

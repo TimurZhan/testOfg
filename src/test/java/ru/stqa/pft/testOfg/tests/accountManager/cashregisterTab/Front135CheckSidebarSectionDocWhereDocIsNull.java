@@ -8,6 +8,10 @@ public class Front135CheckSidebarSectionDocWhereDocIsNull extends TestBase {
 
   @Test
   public void testSectionDocWhereDocIsNull() throws InterruptedException {
+    String email = "zhanchikov@ofd.ru";
+    String password = "12345";
+
+    //app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkSectionDocWhereDocIsNull();
   }
 

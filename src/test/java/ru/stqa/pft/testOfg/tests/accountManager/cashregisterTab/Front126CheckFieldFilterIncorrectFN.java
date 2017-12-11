@@ -8,6 +8,10 @@ public class Front126CheckFieldFilterIncorrectFN extends TestBase {
 
   @Test
   public void testFilterIncorrectFN() throws InterruptedException {
+    String email = "zhanchikov@ofd.ru";
+    String password = "12345";
+
+    //app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().fieldFilterIncorrectFN();
   }
 

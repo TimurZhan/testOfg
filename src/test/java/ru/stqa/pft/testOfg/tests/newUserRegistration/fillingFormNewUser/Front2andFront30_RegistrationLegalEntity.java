@@ -10,11 +10,10 @@ public class Front2andFront30_RegistrationLegalEntity extends TestBase{
 
   @Test
   public void testRegistrationLegalEntity() throws InterruptedException, SQLException {
-      String email = "ofd222111@yopmail.com";
+    String email = "ofd222111@yopmail.com";
     String password = "123";
     String inn ="6685133850";
 
-    //app.getNavigationHelper().signOut(); //Включить, при отладке и запуске в случае отдельного пуска теста
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);
     app.getNavigationHelper().enterValuesInputFieldsLegalEntity(inn);

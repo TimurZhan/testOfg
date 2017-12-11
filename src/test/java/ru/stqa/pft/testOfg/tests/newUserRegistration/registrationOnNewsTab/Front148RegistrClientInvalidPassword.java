@@ -9,7 +9,6 @@ public class Front148RegistrClientInvalidPassword extends TestBase {
   @Test
   public void testInvalidPassword() throws InterruptedException {
 
-    app.getNavigationHelper().signOut();
     app.getNavigationHelper().registInvalidPassword();
   }
 

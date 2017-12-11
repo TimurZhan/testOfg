@@ -8,6 +8,10 @@ public class Front123CheckFieldFilterINNPartner extends TestBase {
 
   @Test
   public void testFieldFilterINNPartner() throws InterruptedException {
+    String email = "zhanchikov@ofd.ru";
+    String password = "12345";
+
+    //app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().fieldFilterByINNPartner();
   }
 

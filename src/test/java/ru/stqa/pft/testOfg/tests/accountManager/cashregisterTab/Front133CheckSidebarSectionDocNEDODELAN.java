@@ -7,7 +7,11 @@ import ru.stqa.pft.testOfg.tests.TestBase;
 public class Front133CheckSidebarSectionDocNEDODELAN extends TestBase {
 
   @Test(enabled = false)
-  public void testSectionDoc(){
+  public void testSectionDoc() throws InterruptedException {
+    String email = "zhanchikov@ofd.ru";
+    String password = "12345";
+
+    app.getNavigationHelper().loginToSystem(email, password);
 
   }
 

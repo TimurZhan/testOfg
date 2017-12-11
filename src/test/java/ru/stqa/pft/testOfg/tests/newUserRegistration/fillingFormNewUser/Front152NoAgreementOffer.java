@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.testOfg.tests.TestBase;
 
 //Front-152:Регистрация клиента OFD.RU (нет согласия с офертой)
-public class Front155NoAgreementOffer extends TestBase {
+public class Front152NoAgreementOffer extends TestBase {
 
   @Test
   public void testNoAgreementOffer() throws InterruptedException {
@@ -12,7 +12,6 @@ public class Front155NoAgreementOffer extends TestBase {
     String password = "123";
     String inn = "1215114521";
 
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);
     app.getNavigationHelper().checkNoAgreementOffer(inn);

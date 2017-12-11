@@ -123,12 +123,14 @@ public class DbHelper {
     ).execute().returnResponse();
   }
 
+
   public void sendPOSTRequestForLinkFormation(String email) throws SQLException, IOException {
     Request.Post("http://test.ofd.ru/api/userAccounts/SendPasswordChangeConfirmationCode").bodyForm(
             new BasicNameValuePair("Email", email)
     ).execute();
   }
 
+  //Метод отвечает за подтверждение регистрации
   public void sendGETRequestForRegConfirm(String email) throws SQLException, IOException {
     String id = getIdUser(email);
     String code = getCodeUser(email);

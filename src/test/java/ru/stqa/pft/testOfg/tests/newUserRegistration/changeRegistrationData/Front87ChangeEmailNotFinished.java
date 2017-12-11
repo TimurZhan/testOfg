@@ -20,7 +20,9 @@ public class Front87ChangeEmailNotFinished extends TestBase {
     app.getNavigationHelper().changingEmail(email1, password);
     //Разобраться с ПОСТ запросом. Он не отрабатывает.
     app.db().sendPOSTRequestForChangeEmail(email1, email2, password);
-    app.getNavigationHelper().authUnderModifMail(email2, password);
+    app.getNavigationHelper().authUnderModifMail();
+    app.getNavigationHelper().loginToSystem(email2, password);
+    app.getNavigationHelper().signOut();
   }
 
 }

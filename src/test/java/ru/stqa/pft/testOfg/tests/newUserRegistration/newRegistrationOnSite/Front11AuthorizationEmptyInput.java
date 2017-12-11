@@ -8,7 +8,6 @@ public class Front11AuthorizationEmptyInput extends TestBase {
 
   @Test
   public void testCheckAuthorizationPageEmptyInput() throws InterruptedException {
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkAuthorizationEmptyInput();
   }

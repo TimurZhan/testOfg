@@ -11,7 +11,6 @@ public class Front145RegistrClient extends TestBase {
     String email = "testofff@ofd.ru";
     String password = "123";
 
-    app.getNavigationHelper().signOut();
     app.getNavigationHelper().registOnNewsTab(email, password);
   }
 

@@ -8,7 +8,6 @@ public class Front60CheckingInformationTab extends TestBase {
 
   @Test
   public void testCheckingInformationTab() throws InterruptedException {
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().clickMainLabel();
     app.getNavigationHelper().checkInformationPage();
   }

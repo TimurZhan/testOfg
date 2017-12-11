@@ -18,7 +18,7 @@ public class Front90CheckChangePassword extends TestBase {
     String password2 = "321";
     System.out.println(email);
 
-    //app.getNavigationHelper().signOut();
+    app.getNavigationHelper().clickButtonConnect();
     app.getNavigationHelper().newCustomerRegistration(email, password1);
     app.db().sendGETRequestForRegConfirm(email);
     app.getNavigationHelper().confirmationRegistration(email, password1);

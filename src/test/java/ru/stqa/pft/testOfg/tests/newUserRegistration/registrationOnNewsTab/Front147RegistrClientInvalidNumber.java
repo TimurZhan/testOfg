@@ -10,7 +10,6 @@ public class Front147RegistrClientInvalidNumber extends TestBase {
   public void testInvalidNumber() throws InterruptedException {
     String password = "123";
 
-    app.getNavigationHelper().signOut();
     app.getNavigationHelper().registInvalidNumber(password);
   }
 

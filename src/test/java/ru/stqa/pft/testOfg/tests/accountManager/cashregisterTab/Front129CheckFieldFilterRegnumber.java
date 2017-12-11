@@ -8,6 +8,10 @@ public class Front129CheckFieldFilterRegnumber extends TestBase {
 
   @Test
   public void testFieldFilterRegnumber() throws InterruptedException {
+    String email = "zhanchikov@ofd.ru";
+    String password = "12345";
+
+    //app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().fieldFilterRegnumber();
   }
 

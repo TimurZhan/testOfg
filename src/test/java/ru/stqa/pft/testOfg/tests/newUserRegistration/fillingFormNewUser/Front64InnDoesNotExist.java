@@ -12,7 +12,6 @@ public class Front64InnDoesNotExist extends TestBase {
     String password = "12345";
     String inn = "675675677646";
 
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);
     app.getNavigationHelper().checkInnDoesNotExist(inn);

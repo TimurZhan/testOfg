@@ -12,7 +12,6 @@ public class Front112PasswordsNotMatch extends TestBase {
     String password1 = "123";
     String password2 = "321";
 
-    app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password1);
     app.getNavigationHelper().changingPasswordOnLK();
     app.getNavigationHelper().checkPasswordsNotMatch(email, password1, password2);

@@ -14,7 +14,6 @@ public class Front32FillOutAddressCorresp extends TestBase {
     String password = "123";
     String inn = "5262210124";
 
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkForFields(email, password);
     app.getNavigationHelper().enterValuesCorrespAddress(inn);

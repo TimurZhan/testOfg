@@ -8,10 +8,13 @@ public class Front144CheckAddNewUserIncorrectZipcode extends TestBase {
 
   @Test
   public void testIncorrectZipcode() throws InterruptedException {
-    String email = "ofduser3556677@yopmail.com";
+    String email2 = "ofduser3556677@yopmail.com";
     String inn = "290124258407";
+    String email1 = "zhanchikov@ofd.ru";
+    String password = "12345";
 
-    app.getNavigationHelper().checkAddNewUserIncorrectZipcode(email, inn);
+    //app.getNavigationHelper().loginToSystem(email1, password);
+    app.getNavigationHelper().checkAddNewUserIncorrectZipcode(email2, inn);
   }
 
 }

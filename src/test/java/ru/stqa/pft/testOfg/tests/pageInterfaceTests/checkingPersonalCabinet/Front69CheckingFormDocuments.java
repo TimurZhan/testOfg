@@ -11,7 +11,6 @@ public class Front69CheckingFormDocuments extends TestBase {
     String email = "zhanchikov@ofd.ru";
     String password = "12345";
 
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkingFormDocuments();
     app.getNavigationHelper().signOut();

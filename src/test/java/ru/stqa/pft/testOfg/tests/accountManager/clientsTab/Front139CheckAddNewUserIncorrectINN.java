@@ -9,7 +9,10 @@ public class Front139CheckAddNewUserIncorrectINN extends TestBase {
   @Test
   public void testIncorrectINN() throws InterruptedException {
     String inn = "1234567890123";
+    String email = "zhanchikov@ofd.ru";
+    String password = "12345";
 
+    //app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkAddNewUserIncorrectINN(inn);
   }
 

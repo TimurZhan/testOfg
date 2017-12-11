@@ -8,6 +8,10 @@ public class Front137CheckClientsTab extends TestBase {
 
   @Test
   public void testClientsTab() throws InterruptedException {
+    String email = "zhanchikov@ofd.ru";
+    String password = "12345";
+
+    //app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkClientsTab();
   }
 

@@ -8,7 +8,6 @@ public class Front4EmailEmptyField extends TestBase {
 
   @Test
   public void testEmailAlreadyRegistered() throws InterruptedException {
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().clickButtonConnect();
     app.getNavigationHelper().checkEmailEmptyField();
   }

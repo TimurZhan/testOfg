@@ -10,7 +10,6 @@ public class Front146RegistrClientInvalidEmail extends TestBase {
   public void testInvalidEmail() throws InterruptedException {
     String password = "123";
 
-    app.getNavigationHelper().signOut();
     app.getNavigationHelper().registInvalidEmail(password);
   }
 

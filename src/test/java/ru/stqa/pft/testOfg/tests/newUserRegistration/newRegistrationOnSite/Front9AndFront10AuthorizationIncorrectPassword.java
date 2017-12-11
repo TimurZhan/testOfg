@@ -8,7 +8,6 @@ public class Front9AndFront10AuthorizationIncorrectPassword extends TestBase {
 
   @Test
   public void testCheckAuthorizationPageIncorrectPassword() throws InterruptedException {
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginAccount();
     app.getNavigationHelper().checkAuthorizationIncorrectPassword();
   }

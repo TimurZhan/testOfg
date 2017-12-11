@@ -11,7 +11,6 @@ public class Front149RegistrClientRusEmail extends TestBase {
     String email = "русмылотест@письмо.рф";
     String password = "123";
 
-    app.getNavigationHelper().signOut();
     app.getNavigationHelper().registRusEmail(email, password);
   }
 
