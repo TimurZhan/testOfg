@@ -1029,16 +1029,26 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void enterBecomePartner() throws InterruptedException {
-    click(By.xpath("//a[@class='btn btn-border-fade pull-right']"));
+    wd.get("https://stage1.ofd.ru/partnerskaya-programma");
     TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//a[@href='/partnerskaya-programma']"));
-    TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//div[@class='table-col']/p[2]/button"));
+    click(By.xpath("//section[1]/div/div/div[1]/p[2]/button"));
   }
 
   public void fillingRegistrationFieldsNewPartner(String email, String password) throws InterruptedException {
     TimeUnit.SECONDS.sleep(2);
     type1(By.xpath("//*[@id='Email']"), email);
+    type(By.id("Phone"), "89054001020");
+    type(By.id("FullName"), "Test Testov");
+    click(By.xpath("//div[@class='input-group-sm ofd-form__input-group ']/i"));
+    type(By.id("Password"), password);
+    click(By.xpath("//button[@type='submit']"));
+    click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/p[2]/a"));
+    TimeUnit.SECONDS.sleep(2);
+  }
+
+  public void fillingRegFieldsNewPartner(String email, String password) throws InterruptedException {
+    TimeUnit.SECONDS.sleep(2);
+    type1(By.xpath("//input[@id='Email']"), email);
     type(By.id("Phone"), "89054001020");
     type(By.id("FullName"), "Test Testov");
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div/div[2]/form/div[1]/div/div[4]/i"));
@@ -1047,6 +1057,7 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/p[2]/a"));
     TimeUnit.SECONDS.sleep(2);
   }
+
 
   public void confirmationRegistrationMail(String user) throws InterruptedException {
     wd.get("http://www.yopmail.com/en/");
@@ -1064,7 +1075,6 @@ public class NavigationHelper extends HelperBase {
     //ArrayList tabs2 = new ArrayList(wd.getWindowHandles());//Получение списка открытых окон браузера
     //wd.switchTo().window((String) tabs2.get(1));//Переключение на второй таб в браузере
 
-    click(By.cssSelector("div.pull-right a.analytics-login"));
     type(By.xpath("//input[@name='Login']"), email);
     type(By.xpath("//input[@name='Password']"), password);
     click(By.xpath("//button[@type='submit']"));
@@ -1075,6 +1085,20 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//a[@href='http://test.ofd.ru/logout']"));
     TimeUnit.SECONDS.sleep(1);
   }
+
+  public void confirmRegOnSite(String email, String password) throws InterruptedException {
+    type(By.xpath("//input[@name='Login']"), email);
+    type(By.xpath("//input[@name='Password']"), password);
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(5);
+    assertThat(wd.findElement(By.xpath("//span[@class='caption']")).getText(),
+            equalTo("ЛИЧНЫЙ КАБИНЕТ ПАРТНЁРА"));
+    click(By.xpath("//button[@class='mat-button']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.linkText("Выход"));
+    TimeUnit.SECONDS.sleep(1);
+  }
+
 
   public void confirmationRegistrationOnSite2(String email, String password) throws InterruptedException {
     //ArrayList tabs2 = new ArrayList(wd.getWindowHandles());//Получение списка открытых окон браузера
@@ -3178,6 +3202,22 @@ public class NavigationHelper extends HelperBase {
             equalTo("С вашего баланса списано"));
     click(By.xpath("//button[@class='fw-btn fw-btn_md fw-btn-primary']"));
     TimeUnit.SECONDS.sleep(1);
+  }
+
+  public void fillingInUserForm() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(4);
+    type(By.xpath("//input[@formcontrolname='inn']"), "2465122693");
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//div[@role='listbox']"));
+    TimeUnit.SECONDS.sleep(1);
+    type(By.xpath("//input[@formcontrolname='PostalCode']"), "127288");
+    click(By.xpath("//app-address/div/div[1]/table/tbody/tr[1]/td[2]/mat-form-field/div/div[1]/div"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//div[@class='mat-select-content ng-trigger ng-trigger-fadeInContent']/mat-option[2]"));
+    TimeUnit.SECONDS.sleep(1);
+    type(By.xpath("//input[@formcontrolname='FullAddress']"), "Тестовый город Тестовая улица");
+    click(By.xpath("//label[@class='mat-checkbox-layout']"));
+
   }
 
 }
