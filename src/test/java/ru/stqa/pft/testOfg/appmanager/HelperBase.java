@@ -1,6 +1,7 @@
 package ru.stqa.pft.testOfg.appmanager;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -131,4 +132,10 @@ public class HelperBase {
     robot.delay(1000);
   }
 
+  //Метод отвечает за наведение курсора на элемент
+  public void actions(By locator) {
+    WebElement element = wd.findElement(locator);
+    Actions actions = new Actions(wd);
+    actions.moveToElement(element).perform();
+  }
 }

@@ -3217,7 +3217,63 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     type(By.xpath("//input[@formcontrolname='FullAddress']"), "Тестовый город Тестовая улица");
     click(By.xpath("//label[@class='mat-checkbox-layout']"));
+    click(By.xpath("//app-registration//mat-card/form/table[2]/tbody/tr/td[2]/mat-form-field/div"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//div[@class='mat-select-content ng-trigger ng-trigger-fadeInContent']/mat-option[2]"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(7);
+    assertThat(wd.findElement(By.xpath("//app-registration-agreement/div/mat-card/div[1]/div/h3[1]/strong")).getText(),
+            equalTo("ОФЕРТА НА ЗАКЛЮЧЕНИЕ ДОГОВОРА\nКОММЕРЧЕСКОГО ПРЕДСТАВИТЕЛЬСТВА"));
+    click(By.xpath("//label[@class='mat-checkbox-layout']"));
+    click(By.xpath("//button[@class='mat-raised-button mat-primary']"));
+    TimeUnit.SECONDS.sleep(3);
+    assertThat(wd.findElement(By.xpath("//app-registration/div/div[2]/div[1]/mat-card/div[1]/h2")).getText(),
+            equalTo("Спасибо за регистрацию!"));
+    click(By.xpath("//button[@class='mat-button']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.linkText("Выход"));
+    TimeUnit.SECONDS.sleep(2);
+  }
 
+  public void dashboardPageCheck() throws InterruptedException {
+    wd.get("http://pk-test.ofd.ru/");
+    TimeUnit.SECONDS.sleep(10);
+    actions(By.xpath("//app-dashboard/div/div/div[1]/app-widget-summary/widget/div/div[2]/div/a[2]"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//app-dashboard/div/div/div[1]/app-widget-summary/widget/div/div[2]/div/a[2]"));
+    //assertThat(wd.findElement(By.xpath("//div[@class='pie-chart']/svg/g/text")).getText(), equalTo("57%"));
+    assertThat(wd.findElement(By.xpath("//mat-table/mat-expansion-panel[5]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
+            equalTo("ИрискаПро"));
+    click(By.xpath("//a[@href='/balance']"));
+    click(By.xpath("//widget-actions[@class='widget-actions widget-actions-align-between']/button[1]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//app-deposit/app-deposit-content/div/div/div/h2")).getText(),
+            equalTo("Пополнение баланса"));
+    wd.navigate().refresh();
+    TimeUnit.SECONDS.sleep(3);
+    click(By.xpath("//a[@href='/codes']"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-tab-group/mat-tab-header/div[2]/div/div/div[1]")).getText(),
+            equalTo("КОДЫ АКТИВАЦИИ"));
+    click(By.xpath("//button[@class='_codes__header-select mat-raised-button mat-primary']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//div[@class='mat-menu-content ng-trigger ng-trigger-fadeInItems']/button[1]"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("//app-create-code/div/div/div/h1")).getText(),
+            equalTo("Создание кода активации"));
+    click(By.xpath("//button[@class='mat-icon-button']"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-tab-group/mat-tab-header/div[2]/div/div/div[1]")).getText(),
+            equalTo("КОДЫ АКТИВАЦИИ"));
+    click(By.xpath("//a[@href='']"));
+  }
+
+  public void balanceCheck() throws InterruptedException {
+    wd.get("http://pk-test.ofd.ru/");
+    TimeUnit.SECONDS.sleep(10);
+    click(By.xpath("//a[@href='/balance']"));
+    scrollToItem(By.xpath(""));
   }
 
 }
