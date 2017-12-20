@@ -78,16 +78,6 @@ public class HelperBase {
     }
   }
 
-  //Метод для проверки наличие элемента на странице
-  public boolean isElementNotPresent(By locator) {
-    try {
-      wd.findElement(locator);
-      return false;
-    } catch (NoSuchElementException e) {
-      return true;
-    }
-  }
-
   //Метод для проверки того, что элемент невидим на странице
   public boolean invisibleElement(By locator) {
     Assert.assertTrue(!wd.findElement(locator).isDisplayed());

@@ -3270,10 +3270,55 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void balanceCheck() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(7);
     wd.get("http://pk-test.ofd.ru/");
-    TimeUnit.SECONDS.sleep(10);
+    TimeUnit.SECONDS.sleep(7);
     click(By.xpath("//a[@href='/balance']"));
-    scrollToItem(By.xpath(""));
+    scrollToItem(By.xpath("//app-balance/div[2]/mat-tab-group/mat-tab-header/div[2]/div/div/div[1]"));
+    click(By.xpath("//app-balance-history/div/mat-table/mat-header-row/mat-header-cell[1]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//app-balance-history/div/mat-table/mat-row[1]/mat-cell[1]")).getText(),
+            equalTo("17.11.2017"));
+    click(By.xpath("//app-balance-history/div/mat-table/mat-header-row/mat-header-cell[1]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//app-balance-history/div/mat-table/mat-row[1]/mat-cell[1]")).getText(),
+            equalTo("20.12.2017"));
+    click(By.xpath("//app-balance-history/div/mat-table/mat-header-row/mat-header-cell[2]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//app-balance-history/div/mat-table/mat-row[1]/mat-cell[2]")).getText(),
+            equalTo("Код активации на 11 дней"));
+    click(By.xpath("//app-balance-history/div/mat-table/mat-header-row/mat-header-cell[2]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//app-balance-history/div/mat-table/mat-row[1]/mat-cell[2]")).getText(),
+            equalTo("Пополнение баланса счетом №123465749685-3"));
+    click(By.xpath("//app-balance-history/div/mat-table/mat-header-row/mat-header-cell[3]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//app-balance-history/div/mat-table/mat-row[1]/mat-cell[3]")).getText(),
+            equalTo("+ 11 \u20BD"));
+    click(By.xpath("//app-balance-history/div/mat-table/mat-header-row/mat-header-cell[3]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//app-balance-history/div/mat-table/mat-row[1]/mat-cell[3]")).getText(),
+            equalTo("+ 20 908 \u20BD"));
+    click(By.xpath("//widget-actions[@class='widget-actions widget-actions-align-between']/button[1]/span"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//mat-radio-button[@value='noncash']/label"));
+    assertThat(wd.findElement(By.xpath("//button[@type='submit']/span[@class='mat-button-wrapper']/span")).getText(),
+            equalTo("ВЫСТАВИТЬ СЧЕТ"));
+    click(By.xpath("//mat-radio-button[@value='card']/label"));
+    assertThat(wd.findElement(By.xpath("//button[@type='submit']/span[@class='mat-button-wrapper']/span")).getText(),
+            equalTo("ПЕРЕЙТИ К ОПЛАТЕ"));
+    type(By.name("amount"), "111");
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(4);
+    wd.switchTo().frame(wd.findElement(By.xpath("//iframe[@class=' with-appled']")));
+    assertThat(wd.findElement(By.xpath("/html/body/div/div[2]/div[1]/form/fieldset/div[1]/div/div[1]")).getText(),
+            equalTo("Пополнение баланса партнёра"));
+    wd.switchTo().defaultContent();
+    wd.navigate().refresh();
+    TimeUnit.SECONDS.sleep(7);
+    click(By.xpath("//app-balance/div[2]/mat-tab-group/mat-tab-header/div[2]/div/div/div[2]"));
+    assertThat(wd.findElement(By.xpath("//app-cash-days/app-empty-page/div/div[2]/div")).getText(),
+            equalTo("Список бонус-дней пуст"));
   }
 
 }
