@@ -110,6 +110,15 @@ public class NavigationHelper extends HelperBase {
     //wd.navigate().refresh();
   }
 
+  public void signOutFromPK() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(3);
+    click(By.xpath("//button[@class='mat-button']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.linkText("Выход"));
+    TimeUnit.SECONDS.sleep(1);
+    //wd.navigate().refresh();
+  }
+
   public void clickButtonConnect() {
     click(By.xpath("//button[@class='fw-btn fw-btn_md fw-btn-primary btn btn-primary connect-button  analytics-registration font-h6']"));
   }
@@ -3319,6 +3328,65 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//app-balance/div[2]/mat-tab-group/mat-tab-header/div[2]/div/div/div[2]"));
     assertThat(wd.findElement(By.xpath("//app-cash-days/app-empty-page/div/div[2]/div")).getText(),
             equalTo("Список бонус-дней пуст"));
+  }
+
+  public void generalPageCheck() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(7);
+    //wd.get("http://pk-test.ofd.ru/");
+    //TimeUnit.SECONDS.sleep(7);
+    click(By.xpath("//a[@href='/clients']"));
+    type(By.name("searchString"), "7825444\n");
+    TimeUnit.SECONDS.sleep(3);
+    assertThat(wd.findElement(By.xpath("//span[@class='companyname']")).getText(),
+            equalTo("ООО \"ТДСЗ\""));
+    type(By.name("searchString"), "рога\n");
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//span[@class='companyname']")).getText(),
+            equalTo("Рога и копыта"));
+    type(By.name("searchString"), "впвапвак\n");
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//app-clients-list/app-empty-page/div/div[2]/div")).getText(),
+            equalTo("Список клиентов пуст"));
+    wd.navigate().refresh();
+    TimeUnit.SECONDS.sleep(4);
+    click(By.xpath("//app-clients-list/div/mat-table/mat-header-row/mat-header-cell[1]/app-sort-header/div"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-row[1]/mat-cell[1]/span")).getText(),
+            equalTo("32623623"));
+    click(By.xpath("//app-clients-list/div/mat-table/mat-header-row/mat-header-cell[1]/app-sort-header/div"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-row[1]/mat-cell[1]/span")).getText(),
+            equalTo("ывппвыпвы"));
+    click(By.xpath("//app-clients-list/div/mat-table/mat-header-row/mat-header-cell[2]/app-sort-header/div"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-row[1]/mat-cell[2]")).getText(),
+            equalTo("0102030508"));
+    click(By.xpath("//app-clients-list/div/mat-table/mat-header-row/mat-header-cell[2]/app-sort-header/div"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-row[1]/mat-cell[2]")).getText(),
+            equalTo("9984005930"));
+    click(By.xpath("//app-clients-list/div/mat-table/mat-header-row/mat-header-cell[3]/app-sort-header/div"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-row[1]/mat-cell[3]")).getText(),
+            equalTo("0"));
+    click(By.xpath("//app-clients-list/div/mat-table/mat-header-row/mat-header-cell[3]/app-sort-header/div"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-row[1]/mat-cell[3]")).getText(),
+            equalTo("8"));
+    click(By.xpath("//mat-table/mat-row[1]/mat-cell[1]"));
+    TimeUnit.SECONDS.sleep(5);
+    assertThat(wd.findElement(By.xpath("//mat-sidenav-container/mat-sidenav/div/div/h3")).getText(),
+            equalTo("Фильтры"));
+    assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
+            equalTo("ООО \"ПС СТ\""));
+    click(By.xpath("//a[@href='/clients']"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//a[@class='mat-icon-button']"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//app-page-content[1]/app-client-card-header/div/div/h2")).getText(),
+            equalTo("ООО \"ПС СТ\""));
+    assertThat(wd.findElement(By.xpath("//div[@class='ofd-info-block-body']/p[1]")).getText(),
+            equalTo("ИНН 7841515151"));
   }
 
 }
