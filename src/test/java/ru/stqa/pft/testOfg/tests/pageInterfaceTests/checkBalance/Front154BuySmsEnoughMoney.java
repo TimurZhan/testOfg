@@ -8,7 +8,7 @@ public class Front154BuySmsEnoughMoney extends TestBase {
 
   @Test
   public void testBuySmsEnoughMoney() throws InterruptedException {
-    String email = "disey1111@yopmail.com";
+    String email = "disey2227@yopmail.com";
     String password = "123";
 
     app.getNavigationHelper().loginToSystem(email, password);
