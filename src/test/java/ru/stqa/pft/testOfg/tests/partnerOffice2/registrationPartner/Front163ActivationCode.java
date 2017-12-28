@@ -6,19 +6,16 @@ import ru.stqa.pft.testOfg.tests.TestBase;
 import java.io.IOException;
 import java.sql.SQLException;
 
-//Front-162:Кассы.Вкладка Кассы
-public class Front162CashTab extends TestBase {
+//Front-164:Коды Активации. Вкладка Коды активации
+public class Front163ActivationCode extends TestBase {
 
   @Test
-  public void testCashTab () throws InterruptedException, IOException, SQLException {
+  public void testActivationCode () throws InterruptedException, IOException, SQLException {
     String email = "yaschenko@ofd.ru";
     String password = "121288";
 
     app.getNavigationHelper().loginToSystem(email, password);
-    app.getNavigationHelper().checkCashTab();
-    app.getNavigationHelper().checkSearchCash();
-    app.getNavigationHelper().checkAddCash();
-    app.getNavigationHelper().checkActivationCode();
+    app.getNavigationHelper().checkActivationCodeTab();
     app.getNavigationHelper().signOutFromPK();
   }
 

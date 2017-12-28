@@ -3439,13 +3439,9 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//a[@href='/kkt']"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//app-list-table/div/div/mat-accordion/mat-table/mat-header-row/mat-header-cell[1]"));
-    TimeUnit.SECONDS.sleep(2);
+    TimeUnit.SECONDS.sleep(3);
     assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
             equalTo("ИрискаПро"));
-    click(By.xpath("//app-list-table/div/div/mat-accordion/mat-table/mat-header-row/mat-header-cell[1]"));
-    TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
-            equalTo("ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ПЕТ…"));
     click(By.xpath("//app-list-table/div/div/mat-accordion/mat-table/mat-header-row/mat-header-cell[2]"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[2]/span[2]")).getText(),
@@ -3465,14 +3461,14 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkSearchCash() throws InterruptedException {
+    type(By.name("search"), "9999000052527474\n");
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
+            equalTo("Ириска"));
     type(By.name("search"), "8170262938822662\n");
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
             equalTo("РОга и КОпыта"));
-    type(By.name("search"), "8059988874461741\n");
-    TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
-            equalTo("ИрискаПро"));
     type(By.name("search"), "34534\n");
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//app-list-table/app-empty-page/div/div[2]/div")).getText(),
@@ -3496,8 +3492,67 @@ public class NavigationHelper extends HelperBase {
   public void checkAddCash() throws InterruptedException {
     click(By.cssSelector("button.mat-raised-button"));
     TimeUnit.SECONDS.sleep(2);
-    type(By.name("KktSerialNumber"), "678345123");
-    type(By.name("FnSerialNumber"), "0001112223334441");
+    type(By.name("KktSerialNumber"), "6783451218");
+    type(By.name("FnSerialNumber"), "0001112423734441");
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//app-create-kkt/div/div[1]/form/div[4]/div[2]/button"));
+    TimeUnit.SECONDS.sleep(3);
+    click(By.xpath("//mat-tab-group/mat-tab-header/div[2]/div/div/div[2]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-table/mat-row[1]/mat-cell[1]/div/span")).getText(),
+            equalTo("6783451218"));
+    actions(By.xpath("//app-booking-table/div/div/mat-table/mat-row[1]/mat-cell[3]/div/span[3]"));
+    click(By.xpath("//app-booking-table/div/div/mat-table/mat-row[1]/mat-cell[3]/div/span[3]/mat-icon"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//app-booking-table/div/div/mat-table/mat-row[1]/mat-cell[3]/div/span[2]/button[1]"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.cssSelector("button.mat-raised-button"));
+    TimeUnit.SECONDS.sleep(2);
+    type(By.name("KktSerialNumber"), "44444444444467785856");
+    type(By.name("FnSerialNumber"), "5475475756856956");
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//app-create-kkt/div/div[1]/form/div[4]/div[2]/button"));
+    TimeUnit.SECONDS.sleep(3);
+    assertThat(wd.findElement(By.xpath("//snack-bar-container/simple-snack-bar")).getText(),
+            equalTo("ККТ уже зарегистрирована\nзакрыть"));
+    click(By.xpath("//snack-bar-container/simple-snack-bar/button"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//app-fs-dialog-container/div/div[1]/div[2]/button"));
+    TimeUnit.SECONDS.sleep(2);
+  }
+
+  public void checkActivationCode() throws InterruptedException {
+    wd.manage().window().maximize();
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//mat-tab-group/mat-tab-header/div[2]/div/div/div[1]"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//div[@class='_expansion__activation-check ofd-pointer']"));
+    TimeUnit.SECONDS.sleep(1);
+    type(By.xpath("//input[@placeholder='Код активации']"), "fgdg435345f");
+    click(By.xpath("//app-activate-kkt/div/div[2]/button"));
+    TimeUnit.SECONDS.sleep(3);
+    click(By.xpath("//app-fs-dialog-container/div/div[1]/div[2]/button"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/div/div/div/div[6]/div[1]/span[3]")).getText(),
+            equalTo("оплачена до —"));
+  }
+
+  public void checkActivationCodeTab() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(7);
+    wd.get("http://pk-test.ofd.ru/");
+    TimeUnit.SECONDS.sleep(7);
+    click(By.xpath("//a[@href='/codes']"));
+    TimeUnit.SECONDS.sleep(3);
+    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[1]/app-sort-header"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[1]")).getText(),
+            equalTo("21.11.2017"));
+    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[1]/app-sort-header"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[1]")).getText(),
+            equalTo("20.12.2017"));
   }
 
 }
