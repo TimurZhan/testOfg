@@ -115,7 +115,7 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//button[@class='mat-button']"));
     TimeUnit.SECONDS.sleep(1);
     click(By.linkText("Выход"));
-    TimeUnit.SECONDS.sleep(1);
+    TimeUnit.SECONDS.sleep(2);
     //wd.navigate().refresh();
   }
 
@@ -1105,10 +1105,6 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(5);
     assertThat(wd.findElement(By.xpath("//span[@class='caption']")).getText(),
             equalTo("ЛИЧНЫЙ КАБИНЕТ ПАРТНЁРА"));
-    click(By.xpath("//button[@class='mat-button']"));
-    TimeUnit.SECONDS.sleep(1);
-    click(By.linkText("Выход"));
-    TimeUnit.SECONDS.sleep(1);
   }
 
 
@@ -3242,10 +3238,6 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(3);
     assertThat(wd.findElement(By.xpath("//app-registration/div/div[2]/div[1]/mat-card/div[1]/h2")).getText(),
             equalTo("Спасибо за регистрацию!"));
-    click(By.xpath("//button[@class='mat-button']"));
-    TimeUnit.SECONDS.sleep(1);
-    click(By.linkText("Выход"));
-    TimeUnit.SECONDS.sleep(2);
   }
 
   public void dashboardPageCheck() throws InterruptedException {
@@ -3438,6 +3430,74 @@ public class NavigationHelper extends HelperBase {
             equalTo("ИНН " + inn));
     assertThat(wd.findElement(By.xpath("//app-client-card-information/mat-card/div[2]/div[1]/div[2]/p[1]/a")).getText(),
             equalTo(email));
+  }
+
+  public void checkCashTab() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(7);
+    wd.get("http://pk-test.ofd.ru/");
+    TimeUnit.SECONDS.sleep(7);
+    click(By.xpath("//a[@href='/kkt']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//app-list-table/div/div/mat-accordion/mat-table/mat-header-row/mat-header-cell[1]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
+            equalTo("ИрискаПро"));
+    click(By.xpath("//app-list-table/div/div/mat-accordion/mat-table/mat-header-row/mat-header-cell[1]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
+            equalTo("ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ПЕТ…"));
+    click(By.xpath("//app-list-table/div/div/mat-accordion/mat-table/mat-header-row/mat-header-cell[2]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[2]/span[2]")).getText(),
+            equalTo("Касса не готова к работе"));
+    click(By.xpath("//app-list-table/div/div/mat-accordion/mat-table/mat-header-row/mat-header-cell[2]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[2]/span[2]")).getText(),
+            equalTo("Прекращено обслуживание"));
+    click(By.xpath("//app-list-table/div/div/mat-accordion/mat-table/mat-header-row/mat-header-cell[3]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
+            equalTo("ЗАКРЫТОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \"АЙКО\""));
+    click(By.xpath("//app-list-table/div/div/mat-accordion/mat-table/mat-header-row/mat-header-cell[3]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
+            equalTo("РОга и КОпыта"));
+  }
+
+  public void checkSearchCash() throws InterruptedException {
+    type(By.name("search"), "8170262938822662\n");
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
+            equalTo("РОга и КОпыта"));
+    type(By.name("search"), "8059988874461741\n");
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
+            equalTo("ИрискаПро"));
+    type(By.name("search"), "34534\n");
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//app-list-table/app-empty-page/div/div[2]/div")).getText(),
+            equalTo("У ваших клиентов нет зарегистрированных касс"));
+    click(By.xpath("//a[@href='/clients']"));
+    click(By.xpath("//a[@href='/kkt']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.cssSelector("mat-icon._cashbox-list__header-options-tune"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//mat-sidenav/div/app-filter/div/div[2]/div[1]/div[4]/div[1]/mat-checkbox"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[2]/span[2]")).getText(),
+            equalTo("Прекращено обслуживание"));
+    click(By.xpath("//mat-sidenav/div/app-filter/div/div[2]/div[1]/div[4]/div[1]/mat-checkbox"));
+    click(By.xpath("//mat-sidenav/div/app-filter/div/div[2]/div[1]/div[2]/div[1]/mat-checkbox"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[2]/span[2]")).getText(),
+            equalTo("Касса не готова к работе"));
+  }
+
+  public void checkAddCash() throws InterruptedException {
+    click(By.cssSelector("button.mat-raised-button"));
+    TimeUnit.SECONDS.sleep(2);
+    type(By.name("KktSerialNumber"), "678345123");
+    type(By.name("FnSerialNumber"), "0001112223334441");
   }
 
 }

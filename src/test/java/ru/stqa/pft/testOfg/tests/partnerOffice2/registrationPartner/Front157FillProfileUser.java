@@ -26,6 +26,7 @@ public class Front157FillProfileUser extends TestBase {
     Request.Get("http://test.ofd.ru/api/Authorization/ConfirmRegistration?AccountId="+id+"&ConfirmCode="+code1).execute();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().fillingInUserForm();
+    app.getNavigationHelper().signOutFromPK();
     app.db().deleteUserFromDB(email);
     app.db().deleteINN(inn);
   }

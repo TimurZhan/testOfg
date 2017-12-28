@@ -16,6 +16,7 @@ public class Front158DashboardNEDODELAN extends TestBase {
 
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().dashboardPageCheck();
+    app.getNavigationHelper().signOutFromPK();
   }
 
 }
