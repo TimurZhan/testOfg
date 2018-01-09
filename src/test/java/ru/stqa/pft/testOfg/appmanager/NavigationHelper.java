@@ -3553,6 +3553,50 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[1]")).getText(),
             equalTo("20.12.2017"));
+    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[2]/app-sort-header"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[2]")).getText(),
+            equalTo("26HHKN62"));
+    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[2]/app-sort-header"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[2]")).getText(),
+            equalTo("ZXQ5EP5M"));
+    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[3]/app-sort-header"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
+            equalTo("2 кассо-дней"));
+    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[3]/app-sort-header"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
+            equalTo("133 кассо-дней"));
+    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[4]/app-sort-header"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[4]")).getText(),
+            equalTo("Доступен"));
+  }
+
+  public void checkFilterCode() throws InterruptedException {
+    click(By.xpath("//app-codes/div/app-content/div/div[1]/div/div[2]/div[3]"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//mat-sidenav/div/div[2]/mat-radio-group/div[2]/mat-radio-button/label"));
+    TimeUnit.SECONDS.sleep(3);
+    assertThat(wd.findElement(By.xpath("//mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[4]/span/span")).getText(),
+            equalTo("Использован 24.11.2017"));
+    click(By.xpath("//mat-sidenav/div/div[2]/mat-radio-group/div[3]/mat-radio-button/label"));
+    TimeUnit.SECONDS.sleep(3);
+    assertThat(wd.findElement(By.xpath("//mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[4]/span")).getText(),
+            equalTo("Доступен"));
+  }
+
+  public void checkPageCode() throws InterruptedException {
+    click(By.xpath("//app-codes/div/app-content/div/div[1]/div/div[2]/div[1]/button"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("/html/body/div[3]/div[2]/div/div/button[1]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//app-create-code/div/div/div/h1")).getText(),
+            equalTo("Создание кода активации"));
+    click(By.xpath("//button[@class='mat-icon-button']"));
+    TimeUnit.SECONDS.sleep(1);
   }
 
 }

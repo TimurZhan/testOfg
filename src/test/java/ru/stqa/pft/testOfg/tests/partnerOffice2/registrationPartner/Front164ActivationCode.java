@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 //Front-164:Коды Активации. Вкладка Коды активации
-public class Front163ActivationCode extends TestBase {
+public class Front164ActivationCode extends TestBase {
 
   @Test
   public void testActivationCode () throws InterruptedException, IOException, SQLException {
@@ -16,6 +16,8 @@ public class Front163ActivationCode extends TestBase {
 
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkActivationCodeTab();
+    app.getNavigationHelper().checkFilterCode();
+    app.getNavigationHelper().checkPageCode();
     app.getNavigationHelper().signOutFromPK();
   }
 
