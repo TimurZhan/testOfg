@@ -3597,6 +3597,65 @@ public class NavigationHelper extends HelperBase {
             equalTo("Создание кода активации"));
     click(By.xpath("//button[@class='mat-icon-button']"));
     TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//app-codes/div/app-content/div/div[1]/div/div[2]/div[1]/button"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("/html/body/div[3]/div[3]/div/div/button[2]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//app-create-discount/div/form/h1")).getText(),
+            equalTo("Создание кода на скидку"));
+    click(By.xpath("//button[@class='mat-icon-button']"));
+    TimeUnit.SECONDS.sleep(1);
+  }
+
+  public void checkDiscountCodeTab() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(7);
+    wd.get("http://pk-test.ofd.ru/");
+    TimeUnit.SECONDS.sleep(7);
+    click(By.xpath("//a[@href='/codes']"));
+    TimeUnit.SECONDS.sleep(3);
+    click(By.xpath("//mat-tab-group/mat-tab-header/div[2]/div/div/div[2]"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[1]/app-sort-header"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[1]")).getText(),
+            equalTo("27.11.2017"));
+    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[1]/app-sort-header"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[1]")).getText(),
+            equalTo("09.01.2018"));
+    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[2]/app-sort-header"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[2]")).getText(),
+            equalTo("IM2K9OCW"));
+    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[2]/app-sort-header"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[2]")).getText(),
+            equalTo("YTICAEYI"));
+    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[3]/app-sort-header"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
+            equalTo("4%"));
+    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[3]/app-sort-header"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
+            equalTo("50%"));
+    actions(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/div[1]/i[2]"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("//mat-table/mat-expansion-panel[1]/div/div/div/p/span")).getText(),
+            equalTo("СОХРАНИТЬ"));
+  }
+
+  public void checkPageDiscountCode() throws InterruptedException {
+    click(By.xpath("//app-codes/div/app-content/div/div[1]/div/div[2]/div[1]/button"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("/html/body/div[3]/div[2]/div/div/button[2]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//app-create-discount/div/form/h1")).getText(),
+            equalTo("Создание кода на скидку"));
+    click(By.xpath("//button[@class='mat-icon-button']"));
+    TimeUnit.SECONDS.sleep(1);
   }
 
 }
