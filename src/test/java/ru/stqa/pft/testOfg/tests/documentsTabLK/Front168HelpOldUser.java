@@ -15,7 +15,7 @@ public class Front168HelpOldUser extends TestBase {
     String password = "121288";
 
     app.getNavigationHelper().loginToSystem(email, password);
-    app.getNavigationHelper().checkelpOldUser();
+    app.getNavigationHelper().checkHelpOldUser();
     app.getNavigationHelper().signOut();
 
   }

@@ -3658,7 +3658,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
   }
 
-  public void checkelpOldUser()throws InterruptedException {
+  public void checkHelpOldUser()throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
     click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
     TimeUnit.SECONDS.sleep(1);
@@ -3691,6 +3691,43 @@ public class NavigationHelper extends HelperBase {
             equalTo("Для исправления закрывающих документов, напишите, пожалуйста, на электронную почту feedback@ofd.ru, письмо с описанием ошибки."));
     click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[13]/div[6]/span[2]"));
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[13]/div[6]/p")).getText(),
+            equalTo("Чтобы получить оригиналы документов, напишите, пожалуйста, нам письмо на электронную почту feedback@ofd.ru " +
+                    "с темой «Получить документы», укажите название и ИНН вашей организации, период и тип документов, которые вам нужны. " +
+                    "Срок обработки запроса – 3 недели. Перед запросом просим вас проверить правильность выставленных документов" +
+                    " в вашем личном кабинете. Оригиналы документов в бумажном виде отправляются Почтой России по запросу " +
+                    "не чаще одного раза в квартал."));
+
+  }
+
+  public void checkHelpNewUser()throws InterruptedException {
+    TimeUnit.SECONDS.sleep(3);
+    click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//ul[@class='header-profile-nav-links']/li[3]"));
+    TimeUnit.SECONDS.sleep(4);
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[4]/div[1]/a"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("/html/body/div[6]/div/div[2]/div[1]/span[1]")).getText(),
+            equalTo("В личном кабинете для вас доступны закрывающие документы за прошедшие периоды."));
+    click(By.xpath("/html/body/div[6]/div/div[3]/div/a"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[4]/div[3]/span[2]"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[4]/div[3]/p")).getText(),
+            equalTo("Вам необходимо зайти во вкладку «Документы». " +
+                    "Копии закрывающих документов размещаются в данной вкладке в течение 15 дней с даты окончания месяца, " +
+                    "в котором денежные средства были зачислены на Лицевой счет."));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[4]/div[4]/span[2]"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[4]/div[4]/p")).getText(),
+            equalTo("Копии закрывающих документов появляются во вкладке «Документы» в течение 15 дней с даты окончания месяца, " +
+                    "в котором денежные средства были зачислены на Лицевой счет. " +
+                    "Если по истечении 15 дней документы не появились, " +
+                    "напишите, пожалуйста, на электронную почту feedback@ofd.ru"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[4]/div[5]/span[2]"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[4]/div[5]/p")).getText(),
+            equalTo("Для исправления закрывающих документов, напишите, пожалуйста, на электронную почту feedback@ofd.ru, письмо с описанием ошибки."));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[4]/div[6]/span[2]"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[4]/div[6]/p")).getText(),
             equalTo("Чтобы получить оригиналы документов, напишите, пожалуйста, нам письмо на электронную почту feedback@ofd.ru " +
                     "с темой «Получить документы», укажите название и ИНН вашей организации, период и тип документов, которые вам нужны. " +
                     "Срок обработки запроса – 3 недели. Перед запросом просим вас проверить правильность выставленных документов" +
