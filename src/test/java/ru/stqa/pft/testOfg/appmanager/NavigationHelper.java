@@ -2513,8 +2513,8 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void authAccountManager(String email, String password) throws InterruptedException {
-    TimeUnit.SECONDS.sleep(2);
     wd.get("http://test1.ofd.ru/mk/login");
+    TimeUnit.SECONDS.sleep(6);
     type1(By.id("Login"), email);
     type1(By.id("Password"), password);
     click(By.xpath("//button[@type='submit']"));
@@ -2526,8 +2526,8 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void authIncorrectEmail(String email, String password) throws InterruptedException {
-    TimeUnit.SECONDS.sleep(6);
     wd.get("http://test.ofd.ru/mk/login");
+    TimeUnit.SECONDS.sleep(6);
     type1(By.id("Login"), email);
     type1(By.id("Password"), password);
     click(By.xpath("/html/body/app/div/ng-component/div/div/div/form/div[3]/div/button"));
@@ -2536,8 +2536,8 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void authIncorrectPassword(String email, String password) throws InterruptedException {
-    TimeUnit.SECONDS.sleep(5);
     wd.get("http://test.ofd.ru/mk/login");
+    TimeUnit.SECONDS.sleep(6);
     type1(By.id("Login"), email);
     type1(By.id("Password"), password);
     click(By.xpath("/html/body/app/div/ng-component/div/div/div/form/div[3]/div/button"));
@@ -2547,9 +2547,8 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void authIncorrectUser(String email, String password) throws InterruptedException {
-    TimeUnit.SECONDS.sleep(5);
     wd.get("http://test.ofd.ru/mk/login");
-    TimeUnit.SECONDS.sleep(2);
+    TimeUnit.SECONDS.sleep(6);
     type1(By.id("Login"), email);
     type1(By.id("Password"), password);
     click(By.xpath("/html/body/app/div/ng-component/div/div/div/form/div[3]/div/button"));
