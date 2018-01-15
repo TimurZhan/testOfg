@@ -39,15 +39,15 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void goToEditFullName() {
-    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[3]/div/div[1]/div/p[2]/a"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/p[2]/a"));
   }
 
   public void goToEditPhone() {
-    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[3]/div/div[2]/div/p[2]/a"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/div/p[2]/a"));
   }
 
-  public void goToEditLegalAddress() {
-    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/p[2]/a"));
+  public void goToEditLegalAddress() throws InterruptedException {
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/p[2]/a"));
   }
 
   public void goToProfileEdit() throws InterruptedException {
@@ -70,24 +70,23 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//div[@class='profile__inline']/button[@type='submit']"));
   }
 
-  public void submitFront79() {
-    waitTheElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/p[1]"), "170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1");
-    waitTheElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/p[1]"), "170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1");
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/p[1]")).getText(),
+  public void submitFront79() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(4);
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/p[1]")).getText(),
             equalTo("170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/p[1]")).getText(),
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[1]/div/div[2]/p[1]")).getText(),
             equalTo("170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1"));
   }
 
   public void submitFront77() {
-    waitTheElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/p[1]"), "420095, Казань, ул Восход, 5, корп/стр: 3, офис/кв: 7");
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/p[1]")).getText(),
+    waitTheElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/p[1]"), "420095, Казань, ул Восход, 5, корп/стр: 3, офис/кв: 7");
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/p[1]")).getText(),
             equalTo("420095, Казань, ул Восход, 5, корп/стр: 3, офис/кв: 7"));
   }
 
   public void submitFront78() {
-    waitTheElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/p[1]"), "140095, Тула, ул Восход, 67, корп/стр: 1, офис/кв: 94");
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/p[1]")).getText(),
+    waitTheElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[1]/div/div[2]/p[1]"), "140095, Тула, ул Восход, 67, корп/стр: 1, офис/кв: 94");
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[1]/div/div[2]/p[1]")).getText(),
             equalTo("140095, Тула, ул Восход, 67, корп/стр: 1, офис/кв: 94"));
   }
 
@@ -98,7 +97,7 @@ public class NavigationHelper extends HelperBase {
 
   public void submitFront83() throws InterruptedException {
     TimeUnit.SECONDS.sleep(1);
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[3]/div/div[2]/div/h2")).getText(),
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/div/h2")).getText(),
             equalTo("89021112255"));
   }
 
@@ -124,24 +123,25 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void selectWorkflow() throws InterruptedException {
-    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[4]/div/div[1]/div/div/div[1]"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[3]/div/div[1]/div/div"));
     TimeUnit.SECONDS.sleep(2);
     click(By.xpath("//*[text()='Диадок']"));
     TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[4]/div/div[1]/div/div/div[1]/div[1]/div[2]")).getText(),
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[3]/div/div[1]/div/div/div[1]/div[1]/div[2]")).getText(),
             equalTo("Диадок"));
-    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[4]/div/div[1]/div/div/div[1]"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[3]/div/div[1]/div/div"));
     TimeUnit.SECONDS.sleep(2);
     click(By.xpath("//*[text()='СБИС']"));
     TimeUnit.SECONDS.sleep(2);
   }
 
   public void clickVAT() {
-    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[4]/div/div[2]/div/div[1]/div"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[4]/div/div[2]/div/div[1]/div")).getCssValue("background-color"),
+
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div")).getCssValue("background-color"),
             equalTo("rgba(0, 190, 106, 1)"));
-    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[4]/div/div[2]/div/div[2]/div"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[4]/div/div[2]/div/div[2]/div")).getCssValue("background-color"),
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[3]/div/div[2]/div/div[2]/div"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[3]/div/div[2]/div/div[2]/div")).getCssValue("background-color"),
             equalTo("rgba(0, 190, 106, 1)"));
   }
 
@@ -590,7 +590,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void newCustomerRegistration(String email, String password) throws InterruptedException {
-    click(By.xpath("//div[@class='fw-col fw-col-1 fw-col-xs-2 fw-col-md-2']/button[@type='button']"));
+    //click(By.xpath("//div[@class='fw-col fw-col-1 fw-col-xs-2 fw-col-md-2']/button[@type='button']"));
     TimeUnit.SECONDS.sleep(2);
     type(By.id("Email"), email);
     type(By.id("Phone"), "89024951054");
@@ -2560,7 +2560,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterByINN() throws InterruptedException {
     TimeUnit.SECONDS.sleep(5);
-    wd.get("http://test1.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(5);
     type1(By.xpath("//input[@id='Inn']"), "7724261610");
     click(By.xpath("//button[@type='submit']"));
@@ -2575,8 +2575,8 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterByINNPartner() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test1.ofd.ru/mk");
-    TimeUnit.SECONDS.sleep(5);
+    wd.get("http://test.ofd.ru/mk");
+    TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='PartnerInn']"), "5403341203");
     click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(2);
@@ -2588,8 +2588,8 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterByFN() throws InterruptedException {
     TimeUnit.SECONDS.sleep(5);
-    wd.get("http://test1.ofd.ru/mk");
-    TimeUnit.SECONDS.sleep(3);
+    wd.get("http://test.ofd.ru/mk");
+    TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='FnNumber']"), "0000099990789199");
     click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(2);
@@ -2605,8 +2605,8 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterIncorrectFN() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test1.ofd.ru/mk");
-    TimeUnit.SECONDS.sleep(5);
+    wd.get("http://test.ofd.ru/mk");
+    TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='FnNumber']"), "0030099990789199");
     click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(2);
@@ -2618,8 +2618,8 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterCashNumber() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test1.ofd.ru/mk");
-    TimeUnit.SECONDS.sleep(5);
+    wd.get("http://test.ofd.ru/mk");
+    TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='KktSerialNumber']"), "0493006104");
     click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(2);
@@ -2634,8 +2634,8 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterIncorrectCashNumber() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test1.ofd.ru/mk");
-    TimeUnit.SECONDS.sleep(3);
+    wd.get("http://test.ofd.ru/mk");
+    TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='KktSerialNumber']"), "0493556104");
     click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(2);
@@ -2647,8 +2647,8 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterRegnumber() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test1.ofd.ru/mk");
-    TimeUnit.SECONDS.sleep(5);
+    wd.get("http://test.ofd.ru/mk");
+    TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='KktRegNumber']"), "6125313683395011");
     click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(2);
@@ -2663,8 +2663,8 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterInvoiceNumber() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test1.ofd.ru/mk");
-    TimeUnit.SECONDS.sleep(4);
+    wd.get("http://test.ofd.ru/mk");
+    TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='BillNumber']"), "7724261610-62");
     click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(2);
@@ -2677,7 +2677,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkCheckSidebar() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test1.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//ng-component//div[11]/i[2]"));
@@ -2713,9 +2713,9 @@ public class NavigationHelper extends HelperBase {
 
   public void checkSectionActions() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test1.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     wd.manage().window().maximize();
-    TimeUnit.SECONDS.sleep(5);
+    TimeUnit.SECONDS.sleep(8);
     type1(By.id("FnNumber"), "6365864135553052");
     click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(2);
@@ -2759,9 +2759,9 @@ public class NavigationHelper extends HelperBase {
 
   public void checkSectionDocIncorrectDoc() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test1.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     wd.manage().window().maximize();
-    TimeUnit.SECONDS.sleep(2);
+    TimeUnit.SECONDS.sleep(8);
     type1(By.id("KktSerialNumber"), "0493006104");
     click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(2);
@@ -2792,9 +2792,9 @@ public class NavigationHelper extends HelperBase {
 
   public void checkSectionDocWhereDocIsNull() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test1.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     //wd.manage().window().maximize();
-    TimeUnit.SECONDS.sleep(2);
+    TimeUnit.SECONDS.sleep(8);
     type1(By.id("KktSerialNumber"), "0493006104");
     click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(2);
@@ -2825,7 +2825,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkClientsTab() throws InterruptedException {
-    wd.get("http://test1.ofd.ru/mk/clients");
+    wd.get("http://test.ofd.ru/mk/clients");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("/html/body/app/div/header/div/div/div[1]/a[3]"));
@@ -2855,7 +2855,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAddNewUserIndividMerch(String email, String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test1.ofd.ru/mk/clients?PageCount=100");
+    wd.get("http://test.ofd.ru/mk/clients?PageCount=100");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -2884,7 +2884,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAddNewUserlegalEntity(String email, String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(2);
-    wd.get("http://test1.ofd.ru/mk/clients");
+    wd.get("http://test.ofd.ru/mk/clients");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -2912,7 +2912,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAddNewUserIncorrectINN(String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(2);
-    wd.get("http://test1.ofd.ru/mk/clients?PageCount=100");
+    wd.get("http://test.ofd.ru/mk/clients?PageCount=100");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -2925,7 +2925,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAddNewUserCorrectINN(String email, String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(2);
-    wd.get("http://test1.ofd.ru/mk/clients?PageCount=100");
+    wd.get("http://test.ofd.ru/mk/clients?PageCount=100");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(10);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -2961,7 +2961,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAddNewUserIncorrectZipcode(String email, String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test1.ofd.ru/mk/clients?");
+    wd.get("http://test.ofd.ru/mk/clients?");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(5);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -2987,7 +2987,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkUserAlreadyExists(String email, String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test1.ofd.ru/mk/clients?");
+    wd.get("http://test.ofd.ru/mk/clients?");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(5);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -3017,7 +3017,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAdditionConditions(String conNum) throws InterruptedException {
     TimeUnit.SECONDS.sleep(6);
-    wd.get("http://test1.ofd.ru/mk/clients?");
+    wd.get("http://test.ofd.ru/mk/clients?");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     type1(By.id("filter"), "dsf@sdsdg.ru\n");
@@ -3069,7 +3069,7 @@ public class NavigationHelper extends HelperBase {
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(2);
     wd.get("http://test1.ofd.ru/news");
-    TimeUnit.SECONDS.sleep(1);
+    TimeUnit.SECONDS.sleep(2);
     click(By.xpath("/html/body/div[1]/div/div/section/div/div[2]/article[1]/div/div/div[1]/h2/a"));
     TimeUnit.SECONDS.sleep(1);
     type(By.id("Email"), email);

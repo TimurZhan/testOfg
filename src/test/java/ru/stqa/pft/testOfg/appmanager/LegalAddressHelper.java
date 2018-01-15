@@ -15,13 +15,13 @@ public class LegalAddressHelper extends HelperBase {
 
   public void editLegalAddress(LegalAddressData legalAddressData) throws InterruptedException {
     type1(By.xpath("//input[@name='PostalCode']"), legalAddressData.getIndex());
-    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/div[2]/div/div/div[1]"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/div/div"));
     TimeUnit.SECONDS.sleep(2);
     click(By.xpath("//*[text()='Республика Крым']"));
     TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/div[2]/div/div/div[1]"));
+    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/div/div"));
     TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//*[text()='Республика Мордовия']"));
+    click(By.xpath("//*[text()='Республика Марий Эл']"));
     TimeUnit.SECONDS.sleep(2);
     type1(By.xpath("//input[@name='Locality']"), legalAddressData.getLocality());
     type1(By.xpath("//input[@name='Street']"), legalAddressData.getStreet());
