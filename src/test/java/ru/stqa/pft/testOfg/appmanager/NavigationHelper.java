@@ -3735,6 +3735,32 @@ public class NavigationHelper extends HelperBase {
 
   }
 
+  public void checkPurchaseCode() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(7);
+    wd.get("http://pk-test.ofd.ru/");
+    TimeUnit.SECONDS.sleep(7);
+    click(By.xpath("//a[@href='/codes']"));
+    TimeUnit.SECONDS.sleep(3);
+    click(By.xpath("//app-codes/div/app-content/div/div[1]/div/div[2]/div[1]/button"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("/html/body/div[3]/div[2]/div/div/button[1]"));
+    TimeUnit.SECONDS.sleep(2);
+    type(By.name("numberOfDays"), "500");
+    type(By.name("numberOfCodes"), "100");
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("//app-create-code/div/div/div/div[5]/button/span/span")).getText(),
+            equalTo("ПОПОЛНИТЬ БАЛАНС"));
+    type(By.name("numberOfDays"), "5");
+    type(By.name("numberOfCodes"), "1");
+    TimeUnit.SECONDS.sleep(3);
+    click(By.xpath("//button[@class='text-upper mat-button mat-primary']"));
+    TimeUnit.SECONDS.sleep(6);
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(3);
+    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
+            equalTo("5 кассо-дней"));
+  }
+
 }
 
 

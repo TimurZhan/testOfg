@@ -1,4 +1,4 @@
-package ru.stqa.pft.testOfg.tests.partnerOffice2.registrationPartner;
+package ru.stqa.pft.testOfg.tests.partnerOffice2.registrationPartner.discountAndActivationCode;
 
 import org.testng.annotations.Test;
 import ru.stqa.pft.testOfg.tests.TestBase;
