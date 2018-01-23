@@ -3761,6 +3761,31 @@ public class NavigationHelper extends HelperBase {
             equalTo("5 кассо-дней"));
   }
 
+  public void checkPurchaseDiscountCode() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(7);
+    wd.get("http://pk-test.ofd.ru/");
+    TimeUnit.SECONDS.sleep(7);
+    click(By.xpath("//a[@href='/codes']"));
+    TimeUnit.SECONDS.sleep(3);
+    click(By.xpath("//app-codes/div/app-content/div/div[1]/div/div[2]/div[1]/button"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("/html/body/div[3]/div[2]/div/div/button[2]"));
+    TimeUnit.SECONDS.sleep(2);
+    type(By.xpath("//input[@formcontrolname='MaxNumberOfUses']"), "2");
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(3);
+    click(By.xpath("//mat-tab-group/mat-tab-header/div[2]/div/div/div[2]"));
+    assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]/span[1]")).getText(),
+            equalTo("1%"));
+    actions(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/div[1]/i[1]"));
+    TimeUnit.SECONDS.sleep(3);
+  }
+
 }
 
 
