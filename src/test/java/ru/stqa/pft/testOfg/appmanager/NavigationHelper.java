@@ -3786,6 +3786,43 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(3);
   }
 
+  public void checkBookingCash() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(7);
+    wd.get("http://pk-test.ofd.ru/");
+    TimeUnit.SECONDS.sleep(7);
+    click(By.xpath("//a[@href='/kkt']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.cssSelector("button.mat-raised-button"));
+    TimeUnit.SECONDS.sleep(2);
+    type(By.name("KktSerialNumber"), "6783451218");
+    type(By.name("FnSerialNumber"), "0001112423734441");
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//app-create-kkt/div/div[1]/form/div[4]/div[2]/button"));
+    TimeUnit.SECONDS.sleep(3);
+    click(By.xpath("//mat-tab-group/mat-tab-header/div[2]/div/div/div[2]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-table/mat-row[1]/mat-cell[1]/div/span")).getText(),
+            equalTo("6783451218"));
+    actions(By.xpath("//app-booking-table/div/div/mat-table/mat-row[1]/mat-cell[3]/div/span[3]"));
+    click(By.xpath("//app-booking-table/div/div/mat-table/mat-row[1]/mat-cell[3]/div/span[3]/mat-icon"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//app-booking-table/div/div/mat-table/mat-row[1]/mat-cell[3]/div/span[2]/button[1]"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.cssSelector("button.mat-raised-button"));
+    TimeUnit.SECONDS.sleep(2);
+    type(By.name("KktSerialNumber"), "44444444444467785856");
+    type(By.name("FnSerialNumber"), "5475475756856956");
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//app-create-kkt/div/div[1]/form/div[4]/div[2]/button"));
+    TimeUnit.SECONDS.sleep(3);
+    assertThat(wd.findElement(By.xpath("//snack-bar-container/simple-snack-bar")).getText(),
+            equalTo("ККТ уже зарегистрирована\nзакрыть"));
+    click(By.xpath("//snack-bar-container/simple-snack-bar/button"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//app-fs-dialog-container/div/div[1]/div[2]/button"));
+    TimeUnit.SECONDS.sleep(2);
+  }
+
 }
 
 
