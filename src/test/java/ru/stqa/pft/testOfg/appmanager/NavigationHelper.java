@@ -3823,6 +3823,20 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(2);
   }
 
+  public void checkDocsPage() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(7);
+    wd.get("http://pk-test.ofd.ru/");
+    TimeUnit.SECONDS.sleep(7);
+    click(By.xpath("//a[@href='/docs']"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-tab-group/mat-tab-header/div[2]/div/div/div[1]")).getText(),
+            equalTo("ЗАКРЫВАЮЩИЕ ДОКУМЕНТЫ"));
+    click(By.xpath("//mat-tab-group/mat-tab-header/div[2]/div/div/div[2]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//app-page-content/app-documents-contract/mat-card/div[1]")).getText(),
+            equalTo("Оферта партнера"));
+  }
+
 }
 
 
