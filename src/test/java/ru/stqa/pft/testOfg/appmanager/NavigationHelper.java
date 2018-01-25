@@ -3837,6 +3837,28 @@ public class NavigationHelper extends HelperBase {
             equalTo("Оферта партнера"));
   }
 
+  public void checkHelpPage() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(7);
+    wd.get("http://pk-test.ofd.ru/");
+    TimeUnit.SECONDS.sleep(7);
+    click(By.xpath("//a[@href='/help']"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-tab-group/div/mat-tab-body[1]/div/app-page-empty/div/div[2]")).getText(),
+            equalTo("Страница временно отсутствует"));
+    click(By.xpath("//mat-tab-group/mat-tab-header/div[2]/div/div/div[2]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-tab-group/div/mat-tab-body[2]/div/app-page-empty/div/div[2]")).getText(),
+            equalTo("Страница временно отсутствует"));
+    click(By.xpath("//mat-tab-group/mat-tab-header/div[2]/div/div/div[3]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-tab-group/div/mat-tab-body[3]/div/app-page-empty/div/div[2]")).getText(),
+            equalTo("Страница временно отсутствует"));
+    click(By.xpath("//mat-tab-group/mat-tab-header/div[2]/div/div/div[4]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-tab-group/div/mat-tab-body[4]/div/app-page-empty/div/div[2]")).getText(),
+            equalTo("Страница временно отсутствует"));
+  }
+
 }
 
 
