@@ -15,11 +15,11 @@ public class MailingAddressHelper extends HelperBase {
 
   public void editMailingAddressTest(MailingAddressData mailingAddressData) throws InterruptedException {
     type(By.xpath("//input[@name='PostPostalCode']"), mailingAddressData.getIndex());
-    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/div[4]/div[1]/div[2]/div/div"));
+    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/div[4]/div[1]/div[2]/div/div"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//*[text()='Республика Карелия']"));
     TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/div[4]/div[1]/div[2]/div/div"));
+    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/div[4]/div[1]/div[2]/div/div"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//*[text()='Республика Коми']"));
     TimeUnit.SECONDS.sleep(2);

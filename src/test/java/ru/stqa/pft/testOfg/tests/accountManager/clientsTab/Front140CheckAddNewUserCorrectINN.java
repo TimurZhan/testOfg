@@ -15,7 +15,7 @@ public class Front140CheckAddNewUserCorrectINN extends TestBase {
     String email1 = "zhanchikov@ofd.ru";
     String password = "12345";
 
-    app.getNavigationHelper().loginToSystem(email1, password);
+    //app.getNavigationHelper().loginToSystem(email1, password);
     app.getNavigationHelper().checkAddNewUserCorrectINN(email2, inn);
   }
 

@@ -11,7 +11,7 @@ public class Front137CheckClientsTab extends TestBase {
     String email = "zhanchikov@ofd.ru";
     String password = "12345";
 
-    //app.getNavigationHelper().loginToSystem(email, password);
+    app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkClientsTab();
   }
 
