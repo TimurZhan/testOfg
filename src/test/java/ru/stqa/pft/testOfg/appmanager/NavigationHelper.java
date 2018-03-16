@@ -1041,7 +1041,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void enterBecomePartner() throws InterruptedException {
-    wd.get("http://test.ofd.ru/partnerskaya-programma");
+    wd.get("https://demo.ofd.ru/partnerskaya-programma");
     TimeUnit.SECONDS.sleep(2);
     click(By.xpath("//section[1]/div/div/div[1]/p[2]/button"));
   }
@@ -2514,7 +2514,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void authAccountManager(String email, String password) throws InterruptedException {
-    wd.get("http://test.ofd.ru/mk/login");
+    wd.get("https://demo.ofd.ru/mk/login");
     TimeUnit.SECONDS.sleep(6);
     type1(By.id("Login"), email);
     type1(By.id("Password"), password);
@@ -2527,7 +2527,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void authIncorrectEmail(String email, String password) throws InterruptedException {
-    wd.get("http://test.ofd.ru/mk/login");
+    wd.get("https://demo.ofd.ru/mk/login");
     TimeUnit.SECONDS.sleep(6);
     type1(By.id("Login"), email);
     type1(By.id("Password"), password);
@@ -2537,7 +2537,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void authIncorrectPassword(String email, String password) throws InterruptedException {
-    wd.get("http://test.ofd.ru/mk/login");
+    wd.get("https://demo.ofd.ru/mk/login");
     TimeUnit.SECONDS.sleep(6);
     type1(By.id("Login"), email);
     type1(By.id("Password"), password);
@@ -2548,7 +2548,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void authIncorrectUser(String email, String password) throws InterruptedException {
-    wd.get("http://test.ofd.ru/mk/login");
+    wd.get("https://demo.ofd.ru/mk/login");
     TimeUnit.SECONDS.sleep(6);
     type1(By.id("Login"), email);
     type1(By.id("Password"), password);
@@ -2560,7 +2560,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterByINN() throws InterruptedException {
     TimeUnit.SECONDS.sleep(5);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(5);
     type1(By.xpath("//input[@id='Inn']"), "7724261610");
     click(By.xpath("//button[@type='submit']"));
@@ -2575,7 +2575,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterByINNPartner() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='PartnerInn']"), "5403341203");
     click(By.xpath("//button[@type='submit']"));
@@ -2588,7 +2588,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterByFN() throws InterruptedException {
     TimeUnit.SECONDS.sleep(5);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='FnNumber']"), "0000099990789199");
     click(By.xpath("//button[@type='submit']"));
@@ -2605,7 +2605,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterIncorrectFN() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='FnNumber']"), "0030099990789199");
     click(By.xpath("//button[@type='submit']"));
@@ -2618,7 +2618,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterCashNumber() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='KktSerialNumber']"), "0493006104");
     click(By.xpath("//button[@type='submit']"));
@@ -2634,7 +2634,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterIncorrectCashNumber() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='KktSerialNumber']"), "0493556104");
     click(By.xpath("//button[@type='submit']"));
@@ -2647,7 +2647,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterRegnumber() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='KktRegNumber']"), "6125313683395011");
     click(By.xpath("//button[@type='submit']"));
@@ -2663,7 +2663,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterInvoiceNumber() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='BillNumber']"), "7724261610-62");
     click(By.xpath("//button[@type='submit']"));
@@ -2677,7 +2677,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkCheckSidebar() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//ng-component//div[11]/i[2]"));
@@ -2987,7 +2987,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkUserAlreadyExists(String email, String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk/clients?");
+    wd.get("https://demo.ofd.ru/mk/clients?");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(5);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -3007,13 +3007,14 @@ public class NavigationHelper extends HelperBase {
     type1(By.id("Phone"), "89034567766");
     type1(By.id("Email"), email);
     click(By.xpath("//button[@type='submit']"));
-    TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("//p[@class='ofd-text ofd-text_orange']")).getText(),
-            equalTo("UserAccountExists"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("/html/body/app/div/notifications/div/div/span")).getText(),
+            equalTo("Данный клиент уже существует"));
+    click(By.xpath("/html/body/app/div/notifications/div/div/i[2]"));
+    TimeUnit.SECONDS.sleep(1);
     click(By.cssSelector("div.ofd-modal__header div.ofd-modal__header-close"));
     TimeUnit.SECONDS.sleep(1);
   }
-
 
   public void checkAdditionConditions(String conNum) throws InterruptedException {
     TimeUnit.SECONDS.sleep(6);
@@ -3275,7 +3276,7 @@ public class NavigationHelper extends HelperBase {
 
   public void balanceCheck() throws InterruptedException {
     TimeUnit.SECONDS.sleep(7);
-    wd.get("http://pk-test.ofd.ru/");
+    wd.get("https://pk-demo.ofd.ru/");
     TimeUnit.SECONDS.sleep(7);
     click(By.xpath("//a[@href='/balance']"));
     scrollToItem(By.xpath("//app-balance/div[2]/mat-tab-group/mat-tab-header/div[2]/div/div/div[1]"));
@@ -3285,24 +3286,16 @@ public class NavigationHelper extends HelperBase {
             equalTo("17.11.2017"));
     click(By.xpath("//app-balance-history/div/mat-table/mat-header-row/mat-header-cell[1]"));
     TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("//app-balance-history/div/mat-table/mat-row[1]/mat-cell[1]")).getText(),
-            equalTo("12.02.2018"));
     click(By.xpath("//app-balance-history/div/mat-table/mat-header-row/mat-header-cell[2]"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//app-balance-history/div/mat-table/mat-row[1]/mat-cell[2]")).getText(),
-            equalTo("Код активации на 11 дней"));
+            equalTo("Агентское вознаграждение за Ноябрь 2017 г."));
     click(By.xpath("//app-balance-history/div/mat-table/mat-header-row/mat-header-cell[2]"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//app-balance-history/div/mat-table/mat-row[1]/mat-cell[2]")).getText(),
-            equalTo("Пополнение баланса счетом №123465749685-3"));
+            equalTo("Продажа ФН партнеру"));
     click(By.xpath("//app-balance-history/div/mat-table/mat-header-row/mat-header-cell[3]"));
     TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("//app-balance-history/div/mat-table/mat-row[1]/mat-cell[3]")).getText(),
-            equalTo("+ 11 \u20BD"));
-    click(By.xpath("//app-balance-history/div/mat-table/mat-header-row/mat-header-cell[3]"));
-    TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("//app-balance-history/div/mat-table/mat-row[1]/mat-cell[3]")).getText(),
-            equalTo("+ 20 908 \u20BD"));
     click(By.xpath("//widget-actions[@class='widget-actions widget-actions-align-between']/button[1]/span"));
     TimeUnit.SECONDS.sleep(2);
     click(By.xpath("//mat-radio-button[@value='noncash']/label"));
