@@ -2665,11 +2665,11 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(3);
     wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
-    type1(By.xpath("//input[@id='BillNumber']"), "7724261610-62");
+    type1(By.xpath("//input[@id='BillNumber']"), "071002580603-23");
     click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/div/div/div[3]/div[1]/div[2]/div[1]")).getText(),
-            equalTo("7724261610\nФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ УНИТАРНОЕ ПРЕДПРИЯТИЕ \"ПОЧТА РОССИИ\""));
+            equalTo("071002580603\nИндивидуальный предприниматель Курданов Караби Шамильевич"));
     click(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/pos-filter/div/form/custom-input[6]/div/div/i"));
     TimeUnit.SECONDS.sleep(2);
     invisibleElement(By.xpath("/html/body/app/div/ng-component/div/div/div[2]/pos-filter/div/form/custom-input[6]/div/div"));
@@ -2680,92 +2680,84 @@ public class NavigationHelper extends HelperBase {
     wd.get("https://demo.ofd.ru/mk");
     wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(5);
-    click(By.xpath("//ng-component//div[11]/i[2]"));
+    click(By.xpath("//ng-component/div/div/div[3]/div[1]/div[5]/div[11]/a"));
     TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/scrollable/div/div[2]/div[2]/div/div/div/div/h4[1]")).getText(),
-            equalTo("Действия"));
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[2]/kkt-info/scrollable/div/div[2]/div[2]/div/div/div/div/h4")).getText(),
-            equalTo("Информация по кассе"));
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/scrollable/div/div[2]/div[2]/div/div/div/div/h4[2]")).getText(),
+    assertThat(wd.findElement(By.xpath("//mat-tab-group/mat-tab-header/div[2]/div/div/div[1]/div")).getText(),
+            equalTo("Информация"));
+    assertThat(wd.findElement(By.xpath("//mat-tab-group/div/mat-tab-body[1]/div/single-pos-info/div/div[2]/h4[1]")).getText(),
             equalTo("Последний документ"));
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/scrollable/div/div[2]/div[2]/div/div/div/div/h4[3]")).getText(),
+    assertThat(wd.findElement(By.xpath("//mat-tab-group/div/mat-tab-body[1]/div/single-pos-info/div/div[2]/h4[2]")).getText(),
             equalTo("Последняя ошибка"));
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/scrollable/div/div[2]/div[2]/div/div/div/div/h4[4]")).getText(),
+    assertThat(wd.findElement(By.xpath("//mat-tab-group/div/mat-tab-body[1]/div/single-pos-info/div/div[2]/h4[3]")).getText(),
             equalTo("Просмотреть документ"));
-    assertThat(wd.findElement(By.xpath("//kkt-info/scrollable/div/div[2]/div[2]/div/div/div/div/a[1]")).getText(),
+    assertThat(wd.findElement(By.xpath("//mat-tab-group/div/mat-tab-body[1]/div/single-pos-info/div/div[2]/a[1]")).getText(),
             equalTo("Аудит по кассе"));
-    click(By.xpath("//kkt-info/scrollable/div/div[2]/div[2]/div/div/div/div/a[1]"));
-    TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/audit/div/div/div/div[1]")).getText(),
+    click(By.xpath("//ng-component/div/div[2]/div/mat-tab-group/div/mat-tab-body[1]/div/single-pos-info/div/div[2]/a[1]"));
+    TimeUnit.SECONDS.sleep(5);
+    assertThat(wd.findElement(By.xpath("//ng-component/div/div/div[2]/div[1]/div[1]/div[2]")).getText(),
             equalTo("Событие"));
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/audit/div/div/div/div[2]")).getText(),
-            equalTo("Дата события"));
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/audit/div/div/div/div[3]")).getText(),
+    assertThat(wd.findElement(By.xpath("//ng-component/div/div/div[2]/div[1]/div[1]/div[1]")).getText(),
+            equalTo("Дата"));
+    assertThat(wd.findElement(By.xpath("//ng-component/div/div/div[2]/div[1]/div[1]/div[3]")).getText(),
             equalTo("Пользователь"));
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/audit/div/div/div/div[4]")).getText(),
+    assertThat(wd.findElement(By.xpath("//ng-component/div/div/div[2]/div[1]/div[1]/div[4]")).getText(),
             equalTo("Ip-Address"));
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/audit/div/div/div/div[5]")).getText(),
+    assertThat(wd.findElement(By.xpath("//ng-component/div/div/div[2]/div[1]/div[1]/div[5]")).getText(),
             equalTo("Сообщение"));
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/modal/div/div[1]/div[2]/div/audit/div/div/div/div[6]")).getText(),
+    assertThat(wd.findElement(By.xpath("//ng-component/div/div/div[2]/div[1]/div[1]/div[6]")).getText(),
             equalTo("Результат"));
-    click(By.cssSelector("div.ofd-modal__header-close"));
   }
 
   public void checkSectionActions() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     type1(By.id("FnNumber"), "6365864135553052");
     click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//ng-component//div[11]/i[2]"));
+    click(By.xpath("//ng-component/div/div/div[3]/div[1]/div[2]/div[11]/a"));
     TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/scrollable/div/div[2]/div[2]/div/div/div/div/p[1]/span")).getText(),
-            equalTo("Проверить регномер"));
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/scrollable/div/div[2]/div[2]/div/div/div/div/p[2]/span")).getText(),
-            equalTo("Перенести оплату на договор"));
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/scrollable/div/div[2]/div[2]/div/div/div/div/p[3]/span")).getText(),
-            equalTo("Включить причем чеков"));
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/scrollable/div/div[2]/div[2]/div/div/div/div/p[4]/span")).getText(),
-            equalTo("Прекратить обслуживание кассы"));
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/scrollable/div/div[2]/div[2]/div/div/div/div/p[5]/span")).getText(),
-            equalTo("Удалить кассу"));
-    assertThat(wd.findElement(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/scrollable/div/div[2]/div[2]/div/div/div/div/p[6]/span")).getText(),
-            equalTo("Отредактировать ЗН и ФН"));
-    click(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/scrollable/div/div[2]/div[2]/div/div/div/div/p[1]"));
+    assertThat(wd.findElement(By.xpath("//ng-component/div/div[1]/div[2]/div[1]/button[1]/span")).getText(),
+            equalTo("aspect_ratioПроверить регномер"));
+    assertThat(wd.findElement(By.xpath("//ng-component/div/div[1]/div[2]/div[1]/button[2]/span")).getText(),
+            equalTo("removeПеренести оплату на договор"));
+    assertThat(wd.findElement(By.xpath("//ng-component/div/div[1]/div[2]/div[1]/button[3]/span")).getText(),
+            equalTo("power_settings_newВключить приём чеков"));
+    assertThat(wd.findElement(By.xpath("//ng-component/div/div[1]/div[2]/div[2]/button[1]/span")).getText(),
+            equalTo("blockПрекратить обслуживание кассы"));
+    assertThat(wd.findElement(By.xpath("//ng-component/div/div[1]/div[2]/div[2]/button[2]/span")).getText(),
+            equalTo("delete_foreverУдалить кассу"));
+    assertThat(wd.findElement(By.xpath("//ng-component/div/div[1]/div[2]/div[2]/button[3]/span")).getText(),
+            equalTo("mode_editОтредактировать ЗН и ФН"));
+    click(By.xpath("//ng-component/div/div[1]/div[2]/div[1]/button[1]"));
     type1(By.id("modalKktRegNumber"), "42324234");
-    assertThat(wd.findElement(By.xpath("//button[@class='ofd-button ofd-button_xl']")).getCssValue("background-color"),
+    assertThat(wd.findElement(By.xpath("//check-reg-number/div/div[3]/button")).getCssValue("background-color"),
             equalTo("rgba(0, 190, 106, 1)"));
     click(By.xpath("//div[@class='ofd-modal__header-close ofd-pointer ofd-text_right ofd-text_fade ofd-text_h2']"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/scrollable/div/div[2]/div[2]/div/div/div/div/p[5]"));
-    TimeUnit.SECONDS.sleep(1);
-    assertThat(wd.findElement(By.xpath("//h4[@class='ofd-text ofd-text_center ofd-text_h4 ofd-margin-top-10 ofd-margin-bottom-10']")).getText(),
-            equalTo("Удалить кассу"));
-    assertThat(wd.findElement(By.xpath("//button[@class='ofd-button ofd-button_xl']")).getCssValue("background-color"),
-            equalTo("rgba(0, 190, 106, 1)"));
-    click(By.xpath("//div[@class='ofd-modal__header-close ofd-pointer ofd-text_right ofd-text_fade ofd-text_h2']"));
-    TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("/html/body/app/div/ng-component/sidebar/div/div[2]/div[1]/pos-info/scrollable/div/div[2]/div[2]/div/div/div/div/p[6]"));
+    assertThat(wd.findElement(By.xpath("//ng-component/div/div[1]/div[2]/div[2]/button[2]")).getText(),
+            equalTo("delete_foreverУдалить кассу"));
+    click(By.xpath("//ng-component/div/div[1]/div[2]/div[2]/button[3]"));
     TimeUnit.SECONDS.sleep(1);
     assertThat(wd.findElement(By.xpath("//h4[@class='ofd-text ofd-text_center ofd-text_h4 ofd-margin-top-10 ofd-margin-bottom-20']")).getText(),
             equalTo("Редактирование ЗН и ФН"));
     type1(By.id("posCopy?.KktSerialNumber"), "34234234");
-    assertThat(wd.findElement(By.xpath("//button[@class='ofd-button ofd-button_xl']")).getCssValue("background-color"),
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//ng-component/modal/div/div[1]/div[2]/div/kkt-fn-change/div/div[4]/button")).getCssValue("background-color"),
             equalTo("rgba(0, 190, 106, 1)"));
     click(By.xpath("//div[@class='ofd-modal__header-close ofd-pointer ofd-text_right ofd-text_fade ofd-text_h2']"));
   }
 
   public void checkSectionDocIncorrectDoc() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     type1(By.id("KktSerialNumber"), "0493006104");
     click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//ng-component//div[11]/i[2]"));
+    click(By.xpath("//ng-component/div/div/div[3]/div[1]/div[2]/div[11]/a"));
     TimeUnit.SECONDS.sleep(2);
     type1(By.id("documentNumber"), "533977777777777");
     click(By.cssSelector("div.ofd-col_fit-right button.ofd-button"));
@@ -2780,27 +2772,26 @@ public class NavigationHelper extends HelperBase {
             equalTo("Нет данных для отображения"));
     click(By.xpath("//div[@class='ofd-text_center']/div[2]"));
     TimeUnit.SECONDS.sleep(1);
-    assertThat(wd.findElement(By.cssSelector("div.pos__document-json div.ofd-text_orange")).getText(),
-            equalTo("The DocNumber field is required."));
+    assertThat(wd.findElement(By.xpath("//ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[2]/div/p")).getText(),
+            equalTo("Нет данных для отображения"));
     click(By.xpath("//div[@class='ofd-text_center']/div[3]"));
     TimeUnit.SECONDS.sleep(1);
-    assertThat(wd.findElement(By.cssSelector("div.pos__document-json div.ofd-text_orange")).getText(),
-            equalTo("The DocNumber field is required."));
+    assertThat(wd.findElement(By.xpath("//ng-component/modal/div/div[1]/div[2]/div/document-info/div/div[2]/div/p")).getText(),
+            equalTo("Нет данных для отображения"));
     click(By.cssSelector("div.ofd-modal__header div.ofd-modal__header-close"));
     TimeUnit.SECONDS.sleep(1);
   }
 
   public void checkSectionDocWhereDocIsNull() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     type1(By.id("KktSerialNumber"), "0493006104");
     click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//ng-component//div[11]/i[2]"));
+    click(By.xpath("//ng-component/div/div/div[3]/div[1]/div[2]/div[11]/a"));
     TimeUnit.SECONDS.sleep(2);
-    scrollToItem(By.xpath("//div[@class='ofd-col ofd-col-12']/h4[4]"));
     type1(By.id("documentNumber"), "554");
     click(By.cssSelector("div.ofd-col_fit-right button.ofd-button"));
     TimeUnit.SECONDS.sleep(1);
@@ -2825,7 +2816,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkClientsTab() throws InterruptedException {
-    wd.get("http://test.ofd.ru/mk/clients");
+    wd.get("https://demo.ofd.ru/mk/clients");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("/html/body/app/div/header/div/div/div[1]/a[3]"));
