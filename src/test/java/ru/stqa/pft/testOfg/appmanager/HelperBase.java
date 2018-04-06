@@ -53,7 +53,7 @@ public class HelperBase {
 
   //Очистить поле от введенного значения
   protected void clear(By locator) {
-    wd.findElement(locator).click();
+    //wd.findElement(locator).click();
     wd.findElement(locator).clear();
   }
 
