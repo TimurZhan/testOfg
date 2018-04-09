@@ -21,7 +21,7 @@ public class LegalAddressHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(2);
     click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/div/div"));
     TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//*[text()='Республика Марий Эл']"));
+    click(By.xpath("//*[text()='Республика Мордовия']"));
     TimeUnit.SECONDS.sleep(2);
     type1(By.xpath("//input[@name='Locality']"), legalAddressData.getLocality());
     type1(By.xpath("//input[@name='Street']"), legalAddressData.getStreet());

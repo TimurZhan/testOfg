@@ -10,7 +10,6 @@
             <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front2andFront30_RegistrationLegalEntity"/>
             <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front28InnNotFound"/>
             <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front29InnNotCorrect"/>
-            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front30CompanyRegistration"/>
             <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front31ClearLegalAddressFields"/>
             <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front32FillOutAddressCorresp"/>
             <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.fillingFormNewUser.Front33CorrespAddressFields"/>

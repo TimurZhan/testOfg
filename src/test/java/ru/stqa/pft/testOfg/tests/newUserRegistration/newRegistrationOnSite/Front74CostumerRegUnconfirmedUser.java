@@ -17,7 +17,6 @@ public class Front74CostumerRegUnconfirmedUser extends TestBase {
     String password = "123";
     System.out.println(email);
 
-    app.getNavigationHelper().clickButtonConnect();
     app.getNavigationHelper().newCustomerRegistration(email, password);
     app.getNavigationHelper().clickButtonConnect();
     app.getNavigationHelper().notConfirmEmailRegistration(email, password);

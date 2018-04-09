@@ -19,7 +19,6 @@ public class Front96CreatingAdditionalUser extends TestBase {
     String password = "12345";
     System.out.println(email);
 
-    //app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email2, password);
     app.getNavigationHelper().addAdditionalUser(email);
     String id = app.db().getIdUser(email);
