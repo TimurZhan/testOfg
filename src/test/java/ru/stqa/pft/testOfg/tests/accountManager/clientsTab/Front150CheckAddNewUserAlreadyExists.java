@@ -13,7 +13,7 @@ public class Front150CheckAddNewUserAlreadyExists extends TestBase {
     String email1 = "zhanchikov@ofd.ru";
     String password = "12345";
 
-    app.getNavigationHelper().loginToSystem(email1, password);
+    //app.getNavigationHelper().loginToSystem(email1, password);
     app.getNavigationHelper().checkUserAlreadyExists(email2, inn);
   }
 

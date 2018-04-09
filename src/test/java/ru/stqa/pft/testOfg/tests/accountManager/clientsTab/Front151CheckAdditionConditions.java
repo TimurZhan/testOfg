@@ -14,7 +14,6 @@ public class Front151CheckAdditionConditions extends TestBase {
     String password = "121288";
     String conNum = "503151";
 
-    app.getNavigationHelper().signOut();
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkAdditionConditions(conNum);
     app.getNavigationHelper().removeConditions();

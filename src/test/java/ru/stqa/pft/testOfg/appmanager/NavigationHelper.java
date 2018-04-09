@@ -177,11 +177,11 @@ public class NavigationHelper extends HelperBase {
     assertThat(wd.findElement(By.cssSelector("div.fw-card-body h2.font-size-24")).getText(), equalTo("Договор с OFD.RU"));
     scrollToItem(By.xpath("//div[@class='fw-card-body']/h3"));
     assertThat(wd.findElement(By.xpath("//div[3]/div[@class='fw-card-body']/h3")).getText(), equalTo("Касса"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div[1]/div[2]/div[1]")).getText(),
+    assertThat(wd.findElement(By.xpath("//div[3]/div[@class='fw-card-body']/div/div[1]/div[2]/div[1]")).getText(),
             equalTo("Заводской номер кассы"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div[1]/div[3]/div[1]")).getText(),
+    assertThat(wd.findElement(By.xpath("//div[3]/div[@class='fw-card-body']/div/div[1]/div[3]/div[1]")).getText(),
             equalTo("Регистрационный номер кассы (РНМ)"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div[1]/div[5]/div[1]")).getText(),
+    assertThat(wd.findElement(By.xpath("//div[3]/div[@class='fw-card-body']/div/div[1]/div[5]/div[1]")).getText(),
             equalTo("Заводской номер фискального накопителя"));
   }
 
@@ -2816,7 +2816,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkClientsTab() throws InterruptedException {
-    wd.get("https://demo.ofd.ru/mk/clients");
+    wd.get("http://test.ofd.ru/mk/clients");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("/html/body/app/div/header/div/div/div[1]/a[3]"));
@@ -2846,7 +2846,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAddNewUserIndividMerch(String email, String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk/clients?PageCount=100");
+    wd.get("http://test.ofd.ru/mk/clients");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -2868,7 +2868,7 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(10);
     type1(By.id("filter"), "503111739928\n");
-    TimeUnit.SECONDS.sleep(2);
+    TimeUnit.SECONDS.sleep(4);
     assertThat(wd.findElement(By.xpath("//div[@class='ofd-table']/div[2]/div[5]")).getText(),
             equalTo(inn));
   }
@@ -2916,7 +2916,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAddNewUserCorrectINN(String email, String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(2);
-    wd.get("https://demo.ofd.ru/mk/clients?PageCount=100");
+    wd.get("http://test.ofd.ru/mk/clients");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(10);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -2952,7 +2952,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAddNewUserIncorrectZipcode(String email, String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("https://demo.ofd.ru/mk/clients?");
+    wd.get("http://test.ofd.ru/mk/clients?");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(5);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -2978,7 +2978,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkUserAlreadyExists(String email, String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("https://demo.ofd.ru/mk/clients?");
+    wd.get("http://test.ofd.ru/mk/clients?");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(5);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -3009,19 +3009,21 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAdditionConditions(String conNum) throws InterruptedException {
     TimeUnit.SECONDS.sleep(6);
-    wd.get("https://demo.ofd.ru/mk/clients?");
+    wd.get("http://test.ofd.ru/mk/clients");
     //wd.manage().window().maximize();
-    TimeUnit.SECONDS.sleep(8);
+    TimeUnit.SECONDS.sleep(10);
     type1(By.id("filter"), "dsf@sdsdg.ru\n");
     TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//div[@class='ofd-col ofd-col_extra-1 ofd-col_middle ofd-pointer']"));
+    click(By.xpath("//a[@class='ofd-col ofd-col_extra-1 ofd-col_middle ofd-pointer']"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//div[@class='mat-tab-labels']/div[3]"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//button[@class='ofd-button ofd-button_l ofd-button_outline ofd-text ofd-text_center']"));
+    click(By.xpath("//div[@class='ng-star-inserted']/button[@class='mat-raised-button']"));
     TimeUnit.SECONDS.sleep(1);
     type1(By.id("Number"), conNum);
     click(By.cssSelector("div.mydp div.selectiongroup"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//button[@class='headertodaybtn headertodaybtnenabled']"));
+    click(By.xpath("//button[@class='headertodaybtn headertodaybtnenabled ng-star-inserted']"));
     TimeUnit.SECONDS.sleep(1);
     type1(By.id("ContractDuration"), "5");
     type1(By.id("ContractSum"), "4500");
@@ -3042,18 +3044,20 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void removeConditions() throws InterruptedException {
-    wd.get("https://demo.ofd.ru/mk/clients?");
-    //wd.manage().window().maximize();
-    TimeUnit.SECONDS.sleep(8);
-    type1(By.id("filter"), "dsf@sdsdg.ru\n");
     TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//div[@class='ofd-col ofd-col_extra-1 ofd-col_middle ofd-pointer']"));
+    click(By.xpath("//div[@class='mat-tab-labels']/div[3]"));
     TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//a[@class='ofd-link clients__sidebar-edit-left']"));
-    TimeUnit.SECONDS.sleep(3);
+    assertThat(wd.findElement(By.xpath("//h3[@class='ofd-text ofd-text_h4']")).getText(),
+            equalTo("Рамочные условия"));
+    click(By.xpath("//div[@class='special-controls ng-star-inserted']/button[@class='mat-raised-button']"));
+    TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//span[@class='ofd-text ofd-text_m ofd-text_orange ofd-margin-right-10 ofd-pointer']"));
     TimeUnit.SECONDS.sleep(3);
-    assertThat(wd.findElement(By.xpath("//div[@class='ofd-label ofd-label_s ofd-label-green ofd-label-green_outline']")).getText(),
+    wd.get("http://test.ofd.ru/mk/clients");
+    TimeUnit.SECONDS.sleep(10);
+    type1(By.id("filter"), "dsf@sdsdg.ru\n");
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//ng-component/div/div/div[5]/div[1]/div[2]/div[8]/div")).getText(),
             equalTo("Тип."));
   }
 
@@ -3170,9 +3174,10 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     assertThat(wd.findElement(By.xpath("//h2[@class='color-info margin-bottom-40 font-size-26 line-height-26 text-center margin-bottom-60']")).getText(),
             equalTo("Выберите пакет SMS"));
-    click(By.xpath("//div[@class='fd-select fd-select-input text-align-left font-size-14 color-info margin-bottom-15']"));
+    click(By.xpath("/html/body/div[6]/div/div[2]/div/div[1]/div[2]"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//*[text()='Свой, от 1000 СМС по 1р за СМС']"));
+    click(By.xpath("//*[text()='Свой, от 1000 чеков по 1.65р за чек']"));
+    click(By.xpath("/html/body/div[6]/div/div[2]/div/div[1]/div[2]"));
     TimeUnit.SECONDS.sleep(1);
     type(By.xpath("//input[@class='fd-input__field  ']"), "3424234");
     click(By.xpath("//button[@class='fw-btn fw-btn_sm fw-btn-primary']"));
@@ -3182,6 +3187,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkBuySmsEnoughMoney() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/lk/balance']"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//button[@class='fw-btn fw-btn_xs fw-btn-primary getbalance']"));
@@ -3192,9 +3198,9 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     assertThat(wd.findElement(By.xpath("//h2[@class='color-info margin-bottom-40 font-size-26 line-height-26 text-center margin-bottom-60']")).getText(),
             equalTo("Выберите пакет SMS"));
-    click(By.xpath("//div[@class='fd-select fd-select-input text-align-left font-size-14 color-info margin-bottom-15']"));
+    click(By.xpath("/html/body/div[6]/div/div[2]/div/div[1]/div[2]"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//*[text()='Минимальный (100 SMS) за 99 \u20BD']"));
+    click(By.xpath("//*[text()='Минимальный (100 чеков) за 200 \u20BD']"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//button[@class='fw-btn fw-btn_sm fw-btn-primary']"));
     TimeUnit.SECONDS.sleep(3);
@@ -3641,29 +3647,29 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//ul[@class='header-profile-nav-links']/li[3]"));
     TimeUnit.SECONDS.sleep(4);
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[13]/div[1]/a"));
+    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[1]/a"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("/html/body/div[6]/div/div[2]/div[1]/span[1]")).getText(),
             equalTo("В личном кабинете для вас доступны закрывающие документы за прошедшие периоды."));
     click(By.xpath("/html/body/div[6]/div/div[3]/div/a"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[13]/div[3]/span[2]"));
+    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[3]/span[2]"));
     TimeUnit.SECONDS.sleep(1);
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[13]/div[3]/p")).getText(),
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[3]/p")).getText(),
             equalTo("Вам необходимо зайти во вкладку «Документы». " +
                     "Копии закрывающих документов размещаются в данной вкладке в течение 15 дней с даты окончания месяца, " +
                     "в котором денежные средства были зачислены на Лицевой счет."));
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[13]/div[4]/span[2]"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[13]/div[4]/p")).getText(),
+    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[4]/span[2]"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[4]/p")).getText(),
             equalTo("Копии закрывающих документов появляются во вкладке «Документы» в течение 15 дней с даты окончания месяца, " +
                     "в котором денежные средства были зачислены на Лицевой счет. " +
                     "Если по истечении 15 дней документы не появились, " +
                     "напишите, пожалуйста, на электронную почту feedback@ofd.ru"));
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[13]/div[5]/span[2]"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[13]/div[5]/p")).getText(),
+    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[5]/span[2]"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[5]/p")).getText(),
             equalTo("Для исправления закрывающих документов, напишите, пожалуйста, на электронную почту feedback@ofd.ru, письмо с описанием ошибки."));
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[13]/div[6]/span[2]"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[13]/div[6]/p")).getText(),
+    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[6]/span[2]"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[6]/p")).getText(),
             equalTo("Чтобы получить оригиналы документов, напишите, пожалуйста, нам письмо на электронную почту feedback@ofd.ru " +
                     "с темой «Получить документы», укажите название и ИНН вашей организации, период и тип документов, которые вам нужны. " +
                     "Срок обработки запроса – 3 недели. Перед запросом просим вас проверить правильность выставленных документов" +
