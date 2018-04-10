@@ -3530,26 +3530,14 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[1]")).getText(),
             equalTo("21.11.2017"));
-    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[1]/app-sort-header"));
-    TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[1]")).getText(),
-            equalTo("20.12.2017"));
     click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[2]/app-sort-header"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[2]")).getText(),
             equalTo("26HHKN62"));
-    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[2]/app-sort-header"));
-    TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[2]")).getText(),
-            equalTo("ZXQ5EP5M"));
     click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[3]/app-sort-header"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
-            equalTo("2 кассо-дней"));
-    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[3]/app-sort-header"));
-    TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
-            equalTo("133 кассо-дней"));
+            equalTo("1 кассо-дней"));
     click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[4]/app-sort-header"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[4]")).getText(),
@@ -3572,7 +3560,7 @@ public class NavigationHelper extends HelperBase {
   public void checkPageCode() throws InterruptedException {
     click(By.xpath("//app-codes/div/app-content/div/div[1]/div/div[2]/div[1]/button"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("/html/body/div[3]/div[2]/div/div/button[1]"));
+    click(By.xpath("//div[@class='cdk-overlay-container']/div[2]/div/div/button[1]"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//app-create-code/div/div/div/h1")).getText(),
             equalTo("Создание кода активации"));
@@ -3580,7 +3568,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//app-codes/div/app-content/div/div[1]/div/div[2]/div[1]/button"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("/html/body/div[3]/div[3]/div/div/button[2]"));
+    click(By.xpath("//div[@class='cdk-overlay-container']/div[2]/div/div/button[2]"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//app-create-discount/div/form/h1")).getText(),
             equalTo("Создание кода на скидку"));
@@ -3600,26 +3588,14 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[1]")).getText(),
             equalTo("27.11.2017"));
-    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[1]/app-sort-header"));
-    TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[1]")).getText(),
-            equalTo("09.01.2018"));
     click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[2]/app-sort-header"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[2]")).getText(),
             equalTo("IM2K9OCW"));
-    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[2]/app-sort-header"));
-    TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[2]")).getText(),
-            equalTo("YTICAEYI"));
     click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[3]/app-sort-header"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
             equalTo("4%"));
-    click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[3]/app-sort-header"));
-    TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
-            equalTo("50%"));
     actions(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[1]"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/div[1]/i[2]"));
@@ -3631,7 +3607,7 @@ public class NavigationHelper extends HelperBase {
   public void checkPageDiscountCode() throws InterruptedException {
     click(By.xpath("//app-codes/div/app-content/div/div[1]/div/div[2]/div[1]/button"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("/html/body/div[3]/div[2]/div/div/button[2]"));
+    click(By.xpath("//div[@class='cdk-overlay-container']/div[2]/div/div/button[2]"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//app-create-discount/div/form/h1")).getText(),
             equalTo("Создание кода на скидку"));
@@ -3725,7 +3701,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(3);
     click(By.xpath("//app-codes/div/app-content/div/div[1]/div/div[2]/div[1]/button"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("/html/body/div[3]/div[2]/div/div/button[1]"));
+    click(By.xpath("//div[@class='cdk-overlay-container']/div[2]/div/div/button[1]"));
     TimeUnit.SECONDS.sleep(2);
     type(By.name("numberOfDays"), "500");
     type(By.name("numberOfCodes"), "100");
@@ -3751,7 +3727,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(3);
     click(By.xpath("//app-codes/div/app-content/div/div[1]/div/div[2]/div[1]/button"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("/html/body/div[3]/div[2]/div/div/button[2]"));
+    click(By.xpath("//div[@class='cdk-overlay-container']/div[2]/div/div/button[2]"));
     TimeUnit.SECONDS.sleep(2);
     type(By.xpath("//input[@formcontrolname='MaxNumberOfUses']"), "2");
     TimeUnit.SECONDS.sleep(1);
