@@ -21,7 +21,9 @@ public class Front173Employees extends TestBase {
 
     app.getNavigationHelper().loginToSystem(email1, password);
     app.getNavigationHelper().checkProfileEmployees(email2);
-    app.getNavigationHelper().confirmRegEmployee(email2);
+    String link = app.db().confirmEmailRegistration(email2);
+    System.out.println(link);
+    app.getNavigationHelper().confirmRegEmployee(email2, link);
     app.getNavigationHelper().loginToSystem(email1, password);
     app.getNavigationHelper().deleteNewEmployee();
     app.getNavigationHelper().signOutFromPK();

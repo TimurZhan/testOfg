@@ -454,8 +454,6 @@ public class NavigationHelper extends HelperBase {
 
   public void loginToSystem(String email, String password) throws InterruptedException {
     TimeUnit.SECONDS.sleep(2);
-    //click(By.cssSelector("div.pull-right a.analytics-login"));
-    //TimeUnit.SECONDS.sleep(1);
     type(By.name("Login"), email);
     type(By.name("Password"), password);
     click(By.cssSelector("button.analytics-loginstep1"));
@@ -1041,7 +1039,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void enterBecomePartner() throws InterruptedException {
-    wd.get("https://demo.ofd.ru/partnerskaya-programma");
+    wd.get("http://test.ofd.ru/partnerskaya-programma");
     TimeUnit.SECONDS.sleep(2);
     click(By.xpath("//section[1]/div/div/div[1]/p[2]/button"));
   }
@@ -1103,7 +1101,7 @@ public class NavigationHelper extends HelperBase {
     type(By.xpath("//input[@name='Login']"), email);
     type(By.xpath("//input[@name='Password']"), password);
     click(By.xpath("//button[@type='submit']"));
-    TimeUnit.SECONDS.sleep(7);
+    TimeUnit.SECONDS.sleep(10);
     assertThat(wd.findElement(By.xpath("//span[@class='caption']")).getText(),
             equalTo("ЛИЧНЫЙ КАБИНЕТ ПАРТНЁРА"));
   }
@@ -2514,7 +2512,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void authAccountManager(String email, String password) throws InterruptedException {
-    wd.get("https://demo.ofd.ru/mk/login");
+    wd.get("http://test.ofd.ru/mk/login");
     TimeUnit.SECONDS.sleep(6);
     type1(By.id("Login"), email);
     type1(By.id("Password"), password);
@@ -2527,7 +2525,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void authIncorrectEmail(String email, String password) throws InterruptedException {
-    wd.get("https://demo.ofd.ru/mk/login");
+    wd.get("http://test.ofd.ru/mk/login");
     TimeUnit.SECONDS.sleep(6);
     type1(By.id("Login"), email);
     type1(By.id("Password"), password);
@@ -2537,7 +2535,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void authIncorrectPassword(String email, String password) throws InterruptedException {
-    wd.get("https://demo.ofd.ru/mk/login");
+    wd.get("http://test.ofd.ru/mk/login");
     TimeUnit.SECONDS.sleep(6);
     type1(By.id("Login"), email);
     type1(By.id("Password"), password);
@@ -2548,7 +2546,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void authIncorrectUser(String email, String password) throws InterruptedException {
-    wd.get("https://demo.ofd.ru/mk/login");
+    wd.get("http://test.ofd.ru/mk/login");
     TimeUnit.SECONDS.sleep(6);
     type1(By.id("Login"), email);
     type1(By.id("Password"), password);
@@ -2575,7 +2573,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterByINNPartner() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("https://demo.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='PartnerInn']"), "5403341203");
     click(By.xpath("//button[@type='submit']"));
@@ -3232,7 +3230,7 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//div[@class='mat-select-content ng-trigger ng-trigger-fadeInContent']/mat-option[2]"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//button[@type='submit']"));
-    TimeUnit.SECONDS.sleep(7);
+    TimeUnit.SECONDS.sleep(10);
     assertThat(wd.findElement(By.xpath("//app-registration-agreement/div/mat-card/div[1]/div/h3[1]/strong")).getText(),
             equalTo("ОФЕРТА НА ЗАКЛЮЧЕНИЕ ДОГОВОРА\nКОММЕРЧЕСКОГО ПРЕДСТАВИТЕЛЬСТВА"));
     click(By.xpath("//label[@class='mat-checkbox-layout']"));
@@ -3277,7 +3275,7 @@ public class NavigationHelper extends HelperBase {
 
   public void balanceCheck() throws InterruptedException {
     TimeUnit.SECONDS.sleep(7);
-    wd.get("https://pk-demo.ofd.ru/");
+    wd.get("http://pk-test.ofd.ru/");
     TimeUnit.SECONDS.sleep(7);
     click(By.xpath("//a[@href='/balance']"));
     scrollToItem(By.xpath("//app-balance/div[2]/mat-tab-group/mat-tab-header/div[2]/div/div/div[1]"));
@@ -3321,7 +3319,7 @@ public class NavigationHelper extends HelperBase {
 
   public void generalPageCheck() throws InterruptedException {
     TimeUnit.SECONDS.sleep(8);
-    wd.get("https://pk-demo.ofd.ru/");
+    wd.get("http://pk-test.ofd.ru/");
     TimeUnit.SECONDS.sleep(4);
     click(By.xpath("//a[@href='/clients']"));
     type(By.name("searchString"), "631810\n");
@@ -3368,7 +3366,7 @@ public class NavigationHelper extends HelperBase {
 
   public void createNewUser(String email, String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(7);
-    wd.get("https://pk-demo.ofd.ru/");
+    wd.get("http://pk-test.ofd.ru/");
     TimeUnit.SECONDS.sleep(7);
     click(By.xpath("//a[@href='/clients']"));
     click(By.xpath("//a[@href='/clients/add']"));
@@ -3417,7 +3415,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkCashTab() throws InterruptedException {
     TimeUnit.SECONDS.sleep(7);
-    wd.get("https://pk-demo.ofd.ru/");
+    wd.get("http://pk-test.ofd.ru/");
     TimeUnit.SECONDS.sleep(7);
     click(By.xpath("//a[@href='/kkt']"));
     TimeUnit.SECONDS.sleep(1);
@@ -3721,7 +3719,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkPurchaseCode() throws InterruptedException {
     TimeUnit.SECONDS.sleep(7);
-    wd.get("https://pk-demo.ofd.ru/");
+    wd.get("http://pk-test.ofd.ru/");
     TimeUnit.SECONDS.sleep(7);
     click(By.xpath("//a[@href='/codes']"));
     TimeUnit.SECONDS.sleep(3);
@@ -3747,7 +3745,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkPurchaseDiscountCode() throws InterruptedException {
     TimeUnit.SECONDS.sleep(7);
-    wd.get("https://pk-demo.ofd.ru/");
+    wd.get("http://pk-test.ofd.ru/");
     TimeUnit.SECONDS.sleep(7);
     click(By.xpath("//a[@href='/codes']"));
     TimeUnit.SECONDS.sleep(3);
@@ -3772,7 +3770,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkBookingCash() throws InterruptedException {
     TimeUnit.SECONDS.sleep(7);
-    wd.get("https://pk-demo.ofd.ru/");
+    wd.get("http://pk-test.ofd.ru/");
     TimeUnit.SECONDS.sleep(7);
     click(By.xpath("//a[@href='/kkt']"));
     TimeUnit.SECONDS.sleep(1);
@@ -3809,7 +3807,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkDocsPage() throws InterruptedException {
     TimeUnit.SECONDS.sleep(7);
-    wd.get("https://pk-demo.ofd.ru/");
+    wd.get("http://pk-test.ofd.ru/");
     TimeUnit.SECONDS.sleep(7);
     click(By.xpath("//a[@href='/docs']"));
     TimeUnit.SECONDS.sleep(2);
@@ -3823,7 +3821,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkHelpPage() throws InterruptedException {
     TimeUnit.SECONDS.sleep(7);
-    wd.get("https://pk-demo.ofd.ru/");
+    wd.get("http://pk-test.ofd.ru/");
     TimeUnit.SECONDS.sleep(7);
     click(By.xpath("//a[@href='/help']"));
     TimeUnit.SECONDS.sleep(2);
@@ -3837,7 +3835,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkProfile() throws InterruptedException {
     TimeUnit.SECONDS.sleep(7);
-    wd.get("https://pk-demo.ofd.ru/");
+    wd.get("http://pk-test.ofd.ru/");
     TimeUnit.SECONDS.sleep(7);
     click(By.xpath("//button[@class='mat-button']"));
     TimeUnit.SECONDS.sleep(1);
@@ -3918,69 +3916,35 @@ public class NavigationHelper extends HelperBase {
             equalTo("rgba(0, 190, 106, 1)"));
   }
 
-  public void confirmRegEmployee(String email) throws InterruptedException {
-    TimeUnit.SECONDS.sleep(30);
-    wd.get("http://www.yopmail.com/en/");
-    type1(By.id("login"), email);
-    click(By.cssSelector("input.sbut"));
-    wd.switchTo().frame(wd.findElement(By.id("ifmail")));
-    if (wd.findElement(By.xpath("//a[@rel='nofollow']")).isDisplayed()){
-      String password1 =
-              wd.findElement(By.xpath("//div[@id='mailmillieu']/div[2]/table/tbody/tr[2]/td/table/tbody/tr[2]/td[2]/table/tbody/tr[3]/td/table/tbody/tr[2]/td/p/span[2]")).getText();
-      click(By.xpath("//p[@style='font-size:14px;line-height:22px;']//a"));
-      wd.switchTo().defaultContent();
-      TimeUnit.SECONDS.sleep(2);
-      ArrayList tabs2 = new ArrayList(wd.getWindowHandles());//Получение списка открытых окон браузера
-      wd.switchTo().window((String) tabs2.get(1));//Переключение на второй таб в браузере
-      TimeUnit.SECONDS.sleep(2);
-      type(By.name("Login"), email);
-      type(By.name("Password"), password1);
-      click(By.xpath("//section[1]/div[2]/div/div[2]/form/button"));
-      TimeUnit.SECONDS.sleep(5);
-
-      click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
-      click(By.linkText("Выйти"));
-      TimeUnit.SECONDS.sleep(1);
-      type(By.name("Login"), email);
-      type(By.name("Password"), password1);
-      click(By.xpath("//section[1]/div[2]/div/div[2]/form/button"));
-      TimeUnit.SECONDS.sleep(20);
-      assertThat(wd.findElement(By.xpath("//button[@class='mat-button']/span/span")).getText(),
-              equalTo(email));
-      TimeUnit.SECONDS.sleep(1);
-      click(By.xpath("//button[@class='mat-button']"));
-      click(By.linkText("Выход"));
-    } else {
-      wd.switchTo().defaultContent();
-      click(By.xpath("/html/body/div/div[10]/div/a"));
-      wd.switchTo().frame(wd.findElement(By.id("ifmail")));
-      String password1 =
-              wd.findElement(By.xpath("//div[@id='mailmillieu']/div[2]/table/tbody/tr[2]/td/table/tbody/tr[2]/td[2]/table/tbody/tr[3]/td/table/tbody/tr[2]/td/p/span[2]")).getText();
-      click(By.xpath("//p[@style='font-size:14px;line-height:22px;']//a"));
-      wd.switchTo().defaultContent();
-      TimeUnit.SECONDS.sleep(2);
-      ArrayList tabs2 = new ArrayList(wd.getWindowHandles());//Получение списка открытых окон браузера
-      wd.switchTo().window((String) tabs2.get(1));//Переключение на второй таб в браузере
-      TimeUnit.SECONDS.sleep(2);
-      type(By.name("Login"), email);
-      type(By.name("Password"), password1);
-      click(By.xpath("//section[1]/div[2]/div/div[2]/form/button"));
-      TimeUnit.SECONDS.sleep(5);
-
-      click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
-      click(By.linkText("Выйти"));
-      TimeUnit.SECONDS.sleep(1);
-      type(By.name("Login"), email);
-      type(By.name("Password"), password1);
-      click(By.xpath("//section[1]/div[2]/div/div[2]/form/button"));
-      TimeUnit.SECONDS.sleep(10);
-      assertThat(wd.findElement(By.xpath("//button[@class='mat-button']/span/span")).getText(),
-              equalTo(email));
-      TimeUnit.SECONDS.sleep(1);
-      click(By.xpath("//button[@class='mat-button']"));
-      click(By.linkText("Выход"));
-    }
-
+  public void confirmRegEmployee(String email, String link) throws InterruptedException {
+    TimeUnit.SECONDS.sleep(5);
+    wd.get(link);
+    TimeUnit.SECONDS.sleep(2);
+    String password1 =
+            wd.findElement(By.xpath("//td[@align='center']/table/tbody/tr[2]/td/p/span[2]")).getText();
+    click(By.xpath("//td[@align='center']/table/tbody/tr[3]/td/a"));
+    TimeUnit.SECONDS.sleep(5);
+    ArrayList tabs2 = new ArrayList(wd.getWindowHandles());//Получение списка открытых окон браузера
+    wd.switchTo().window((String) tabs2.get(0));//Переключение на второй таб в браузере
+    wd.close();
+    wd.switchTo().window((String) tabs2.get(1));//Переключение на второй таб в браузере
+    TimeUnit.SECONDS.sleep(2);
+    type(By.name("Login"), email);
+    type(By.name("Password"), password1);
+    click(By.xpath("//section[1]/div[2]/div/div[2]/form/button"));
+    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
+    click(By.linkText("Выйти"));
+    TimeUnit.SECONDS.sleep(1);
+    type(By.name("Login"), email);
+    type(By.name("Password"), password1);
+    click(By.xpath("//section[1]/div[2]/div/div[2]/form/button"));
+    TimeUnit.SECONDS.sleep(10);
+    assertThat(wd.findElement(By.xpath("//button[@class='mat-button']/span/span")).getText(),
+            equalTo(email));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//button[@class='mat-button']"));
+    click(By.linkText("Выход"));
   }
 
   public void deleteNewEmployee() throws InterruptedException {

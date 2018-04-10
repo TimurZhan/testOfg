@@ -101,6 +101,22 @@ public class DbHelper {
     return String.valueOf(resultSet);
   }
 
+
+  //Метод отвечает за запрос на извлечение из БД письма, которое подтвержадет регистрацию
+  public String confirmEmailRegistration(String email) throws SQLException {
+    Connection conn = null;
+    conn = DriverManager.getConnection("jdbc:sqlserver://wifimenu.cj57wuvexwcc.eu-central-1.rds.amazonaws.com","sa","yeisrkm21");
+    Statement st = conn.createStatement();
+    ResultSet resultSet = st.executeQuery("SELECT TOP (1) Source FROM Manul_Notification.dbo.Queue where [To] = '"+email+"' order by CDateUtc");
+    while (resultSet.next()){
+      String Source = resultSet.getString("Source");
+      return Source;
+    }
+    st.close();
+    conn.close();
+    return String.valueOf(resultSet);
+  }
+
   public void sendPOSTRequestForChangePassword(String email, String password2) throws SQLException, IOException, InterruptedException {
     String code = getCodeUser(email);
     Request.Post("http://test.ofd.ru/api/userAccounts/ChangePassword").bodyForm(
