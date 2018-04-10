@@ -2560,7 +2560,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterByINN() throws InterruptedException {
     TimeUnit.SECONDS.sleep(5);
-    wd.get("https://demo.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(5);
     type1(By.xpath("//input[@id='Inn']"), "7724261610");
     click(By.xpath("//button[@type='submit']"));
@@ -2588,7 +2588,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterByFN() throws InterruptedException {
     TimeUnit.SECONDS.sleep(5);
-    wd.get("https://demo.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='FnNumber']"), "0000099990789199");
     click(By.xpath("//button[@type='submit']"));
@@ -2605,7 +2605,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterIncorrectFN() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("https://demo.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='FnNumber']"), "0030099990789199");
     click(By.xpath("//button[@type='submit']"));
@@ -2618,7 +2618,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterCashNumber() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("https://demo.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='KktSerialNumber']"), "0493006104");
     click(By.xpath("//button[@type='submit']"));
@@ -2634,7 +2634,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterIncorrectCashNumber() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("https://demo.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='KktSerialNumber']"), "0493556104");
     click(By.xpath("//button[@type='submit']"));
@@ -2647,7 +2647,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterRegnumber() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("https://demo.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='KktRegNumber']"), "6125313683395011");
     click(By.xpath("//button[@type='submit']"));
@@ -2663,7 +2663,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterInvoiceNumber() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("https://demo.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='BillNumber']"), "071002580603-23");
     click(By.xpath("//button[@type='submit']"));
@@ -2677,7 +2677,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkCheckSidebar() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("https://demo.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//ng-component/div/div/div[3]/div[1]/div[5]/div[11]/a"));
@@ -2692,8 +2692,10 @@ public class NavigationHelper extends HelperBase {
             equalTo("Просмотреть документ"));
     assertThat(wd.findElement(By.xpath("//mat-tab-group/div/mat-tab-body[1]/div/single-pos-info/div/div[2]/a[1]")).getText(),
             equalTo("Аудит по кассе"));
-    click(By.xpath("//ng-component/div/div[2]/div/mat-tab-group/div/mat-tab-body[1]/div/single-pos-info/div/div[2]/a[1]"));
-    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//div[@class='pos-info']/div[2]/a[1]"));
+    TimeUnit.SECONDS.sleep(7);
+    ArrayList tabs2 = new ArrayList(wd.getWindowHandles());//Получение списка открытых окон браузера
+    wd.switchTo().window((String) tabs2.get(1));//Переключение на второй таб в браузере
     assertThat(wd.findElement(By.xpath("//ng-component/div/div/div[2]/div[1]/div[1]/div[2]")).getText(),
             equalTo("Событие"));
     assertThat(wd.findElement(By.xpath("//ng-component/div/div/div[2]/div[1]/div[1]/div[1]")).getText(),
@@ -2701,16 +2703,18 @@ public class NavigationHelper extends HelperBase {
     assertThat(wd.findElement(By.xpath("//ng-component/div/div/div[2]/div[1]/div[1]/div[3]")).getText(),
             equalTo("Пользователь"));
     assertThat(wd.findElement(By.xpath("//ng-component/div/div/div[2]/div[1]/div[1]/div[4]")).getText(),
-            equalTo("Ip-Address"));
+            equalTo("IP-адрес"));
     assertThat(wd.findElement(By.xpath("//ng-component/div/div/div[2]/div[1]/div[1]/div[5]")).getText(),
             equalTo("Сообщение"));
     assertThat(wd.findElement(By.xpath("//ng-component/div/div/div[2]/div[1]/div[1]/div[6]")).getText(),
             equalTo("Результат"));
+    wd.close();//Закрытие активной вкладки браузера
+    TimeUnit.SECONDS.sleep(2);
   }
 
   public void checkSectionActions() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("https://demo.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     type1(By.id("FnNumber"), "6365864135553052");
@@ -2751,7 +2755,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkSectionDocIncorrectDoc() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("https://demo.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     type1(By.id("KktSerialNumber"), "0493006104");
@@ -2784,7 +2788,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkSectionDocWhereDocIsNull() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("https://demo.ofd.ru/mk");
+    wd.get("http://test.ofd.ru/mk");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     type1(By.id("KktSerialNumber"), "0493006104");
@@ -2903,7 +2907,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAddNewUserIncorrectINN(String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(2);
-    wd.get("https://demo.ofd.ru/mk/clients?PageCount=100");
+    wd.get("http://test.ofd.ru/mk/clients?PageCount=100");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
