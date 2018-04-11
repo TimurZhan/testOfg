@@ -128,7 +128,7 @@ public class DbHelper {
 
   public void sendPOSTRequestForChangeEmail(String email1, String email2, String password) throws SQLException, IOException, InterruptedException {
     HttpResponse httpResponse1 = Request.Post("http://test.ofd.ru/api/userAccounts/sendEmailChangeConfirmationCode").bodyForm(
-            new BasicNameValuePair("Email", email1),
+            new BasicNameValuePair("Email", email2),
             new BasicNameValuePair("Password", password)
     ).execute().returnResponse();
 

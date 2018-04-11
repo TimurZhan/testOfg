@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 //Front-87:Смена электронного адреса
-public class Front87ChangeEmailNotFinished extends TestBase {
+public class Front87ChangeEmail extends TestBase {
 
   @Test(enabled = true)
   public void testChangeEmail() throws InterruptedException, IOException, SQLException {

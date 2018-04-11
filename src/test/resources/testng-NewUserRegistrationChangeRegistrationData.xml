@@ -11,7 +11,7 @@
             <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.changeRegistrationData.Front114CheckEmailAlreadyExistsIncoretPass"/>
             <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.changeRegistrationData.Front115CheckEmailAlreadyExistsIncoretEmail"/>
             <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.changeRegistrationData.Front86CheckChangePassword"/>
-            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.changeRegistrationData.Front87ChangeEmailNotFinished"/>
+            <class name="ru.stqa.pft.testOfg.tests.newUserRegistration.changeRegistrationData.Front87ChangeEmail"/>
         </classes>
     </test>
 
