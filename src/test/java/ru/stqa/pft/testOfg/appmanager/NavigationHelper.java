@@ -2456,6 +2456,41 @@ public class NavigationHelper extends HelperBase {
     click(By.linkText("Выйти"));
   }
 
+  public void changeEmail(String email, String password) throws InterruptedException {
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
+    click(By.xpath("//a[@href='/lk/profile']"));
+    TimeUnit.SECONDS.sleep(2);
+    scrollToItem(By.xpath("//p[@class='text text_m font-size-14 color-fade margin-bottom-5']"));
+    click(By.xpath("//div[@class='fw-card-body']/div[5]/div/p/a"));
+    TimeUnit.SECONDS.sleep(1);
+    type(By.name("Password"), password);
+    type(By.name("Email"), email);
+    click(By.xpath("//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(5);
+  }
+
+  public void confirmChangeEmail(String email, String password, String link) throws InterruptedException {
+    TimeUnit.SECONDS.sleep(4);
+    wd.get(link);
+    TimeUnit.SECONDS.sleep(4);
+    click(By.xpath("//td[@align='center']/table/tbody/tr[3]/td/a"));
+    TimeUnit.SECONDS.sleep(5);
+    ArrayList tabs2 = new ArrayList(wd.getWindowHandles());//Получение списка открытых окон браузера
+    wd.switchTo().window((String) tabs2.get(0));//Переключение на второй таб в браузере
+    wd.close();
+    wd.switchTo().window((String) tabs2.get(1));//Переключение на второй таб в браузере
+    TimeUnit.SECONDS.sleep(2);
+    type(By.name("Login"), email);
+    type(By.name("Password"), password);
+    click(By.xpath("//section[1]/div[2]/div/div[2]/form/button"));
+    TimeUnit.SECONDS.sleep(5);
+    assertThat(wd.findElement(By.xpath("//div[@class='ofd-section__content color-info']/div[1]/h3")).getText(),
+            equalTo("Как подключить кассу к OFD.RU?"));
+    assertThat(wd.findElement(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']/div[1]/div/span/span[1]")).getText(),
+            equalTo(email));
+  }
+
   public void authUnderModifMail() throws InterruptedException {
     click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
     click(By.linkText("Выйти"));

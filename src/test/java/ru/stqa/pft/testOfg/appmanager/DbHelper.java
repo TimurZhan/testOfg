@@ -107,7 +107,7 @@ public class DbHelper {
     Connection conn = null;
     conn = DriverManager.getConnection("jdbc:sqlserver://wifimenu.cj57wuvexwcc.eu-central-1.rds.amazonaws.com","sa","yeisrkm21");
     Statement st = conn.createStatement();
-    ResultSet resultSet = st.executeQuery("SELECT TOP (1) Source FROM Manul_Notification.dbo.Queue where [To] = '"+email+"' order by CDateUtc");
+    ResultSet resultSet = st.executeQuery("SELECT TOP (1) Source FROM Manul_Notification.dbo.Queue WHERE [To] = '"+email+"' ORDER BY CDateUtc DESC");
     while (resultSet.next()){
       String Source = resultSet.getString("Source");
       return Source;
@@ -128,7 +128,7 @@ public class DbHelper {
 
   public void sendPOSTRequestForChangeEmail(String email1, String email2, String password) throws SQLException, IOException, InterruptedException {
     HttpResponse httpResponse1 = Request.Post("http://test.ofd.ru/api/userAccounts/sendEmailChangeConfirmationCode").bodyForm(
-            new BasicNameValuePair("Email", email2),
+            new BasicNameValuePair("Email", email1),
             new BasicNameValuePair("Password", password)
     ).execute().returnResponse();
 
