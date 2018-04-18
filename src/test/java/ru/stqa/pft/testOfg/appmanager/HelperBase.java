@@ -35,7 +35,7 @@ public class HelperBase {
 
   //Удалить текст из поля ввода
   protected void type1(By locator, String text) {
-    //wd.findElement(locator).clear();
+    wd.findElement(locator).clear();
     wd.findElement(locator).sendKeys(text);
   }
 

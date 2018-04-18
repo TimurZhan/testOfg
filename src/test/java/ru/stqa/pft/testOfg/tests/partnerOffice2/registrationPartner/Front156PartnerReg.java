@@ -22,7 +22,7 @@ public class Front156PartnerReg extends TestBase {
     app.getNavigationHelper().fillingRegFieldsNewPartner(email, password);
     String id = app.db().getIdUser(email);
     String code1 = app.db().getCodeUser(email);
-    Request.Get("http://test.ofd.ru/api/Authorization/ConfirmRegistration?AccountId="+id+"&ConfirmCode="+code1).execute();
+    Request.Get("https://demo.ofd.ru/api/Authorization/ConfirmRegistration?AccountId="+id+"&ConfirmCode="+code1).execute();
     app.getNavigationHelper().confirmRegOnSite(email, password);
     app.getNavigationHelper().signOutFromPK();
   }

@@ -11,5 +11,4 @@ public class Front91ChangePasswordIncorrectEmail extends TestBase {
     app.getNavigationHelper().checkChangePasswordEmailEmptyField();
   }
 
-
 }
