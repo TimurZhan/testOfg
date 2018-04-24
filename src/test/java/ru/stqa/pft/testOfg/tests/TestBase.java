@@ -19,7 +19,7 @@ public class TestBase {
   Logger logger = LoggerFactory.getLogger(TestBase.class); //Создан логгер для отслеживания сообщений
 
   protected static final ApplicationManager app
-          = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
+          = new ApplicationManager(System.getProperty("browser", BrowserType.FIREFOX));
 
   @BeforeSuite
   public void setUp(ITestContext context) throws Exception {

@@ -27,7 +27,7 @@ public class HelperBase {
       String existingText = wd.findElement(locator).getAttribute("value");
       //Реализована проверка, если содержимое текста НЕ совпадает с тем значением, что вводится, то заполняем данное поле.
       if (!text.equals(existingText)) {
-        //wd.findElement(locator).clear();
+        wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(text);
       }
     }

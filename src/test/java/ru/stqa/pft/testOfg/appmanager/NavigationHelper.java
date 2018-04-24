@@ -85,6 +85,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void submitFront78() {
+
     waitTheElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[2]/p[1]"), "140095, Тула, ул Восход, 67, корп/стр: 1, офис/кв: 94");
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[2]/p[1]")).getText(),
             equalTo("140095, Тула, ул Восход, 67, корп/стр: 1, офис/кв: 94"));
@@ -163,8 +164,8 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//a[@href='/lk/documents']"));
     click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
     TimeUnit.SECONDS.sleep(1);
-    Assert.assertTrue(isElementPresent(By.cssSelector("div.fw-col-11 span.vertical-align-middle"))
-            && isElementPresent(By.cssSelector("div.fw-col-11 span.color-fade")));
+    assertThat(wd.findElement(By.xpath("//div[@class='fw-col fw-col-11 ']/div[3]/span")).getText(),
+            equalTo("Заключен от 24.05.2017"));
   }
 
   public void addCashRegister() {
@@ -220,9 +221,8 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void tabNavigation() throws InterruptedException {
-    click(By.xpath("//a[@href='/lk/downloads']"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div[1]")).getText(),
-            equalTo("Список выгрузок пуст"));
+    assertThat(wd.findElement(By.xpath("//div[@class='fw-card-body']/div/div[1]/div/h4")).getText(),
+            equalTo("Отчет по сменам"));
     click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
     click(By.xpath("//a[@href='/lk/documents']"));
     click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
@@ -239,26 +239,36 @@ public class NavigationHelper extends HelperBase {
             equalTo("ФИО"));
   }
 
-  public void goToEditAndAssertUpload() {
-    click(By.xpath("//a[@href='/lk/downloads']"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div[1]")).getText(),
-            equalTo("Список выгрузок пуст"));
-    /*
-    click(By.xpath("//a[@data-reactid='.0.1.0.1.1.1.0']"));
-    Assert.assertTrue(isElementVisible(By.xpath("//h2[@data-reactid='.0.1.1.0.1.$0.0.1']")));
-    click(By.xpath("//input[@value='KktReport']"));
-    click(By.xpath("//input[@value='CloseShiftReport']"));
-    click(By.xpath("//input[@value='ReceiptReport']"));
-    click(By.xpath("//input[@value='FiscalDocumentReport']"));
-    Assert.assertTrue(isElementVisible(By.xpath("//h2[@data-reactid='.0.1.1.0.1.$0.1.0']")));
-    click(By.xpath("//div[@data-reactid='.0.1.1.0.1.$0.1.1.0.0']"));
-    click(By.xpath("//div[@data-reactid='.0.1.1.0.1.$0.1.1.1.0']"));
-    click(By.xpath("//div[@data-reactid='.0.1.1.0.1.$0.1.1.2.0']"));
-    Assert.assertTrue(isElementVisible(By.xpath("//h2[@data-reactid='.0.1.1.0.1.$0.2.0']")));
-    click(By.xpath("//input[@value='1']"));
-    click(By.xpath("//input[@value='2']"));
-    Assert.assertTrue(isElementVisible(By.xpath("//div[@data-reactid='.0.1.1.0.1.$1.0']")));
-    */
+  public void goToEditAndAssertUpload() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//div[@class='container margin-top-15']/div[2]/h3")).getText(),
+            equalTo("Отчёты"));
+    assertThat(wd.findElement(By.xpath("//div[@class='fw-card-body']/div/div[1]/div/h4")).getText(),
+            equalTo("Отчет по сменам"));
+    assertThat(wd.findElement(By.xpath("//div[@class='fw-card-body']/div/div[2]/div/h4")).getText(),
+            equalTo("Сверка"));
+    assertThat(wd.findElement(By.xpath("//div[@class='fw-card-body']/div/div[3]/div/h4")).getText(),
+            equalTo("Мониторинг"));
+    assertThat(wd.findElement(By.xpath("//div[@class='fw-card-body']/div/div[4]/div/h4")).getText(),
+            equalTo("Статистика отправки чеков по sms и e-mail"));
+    assertThat(wd.findElement(By.xpath("//div[@class='fw-card-body']/div/div[5]/div/h4")).getText(),
+            equalTo("Аренда"));
+    assertThat(wd.findElement(By.xpath("//div[@class='fw-card-body']/div/div[6]/h4")).getText(),
+            equalTo("Создать шаблон отчёта"));
+    assertThat(wd.findElement(By.xpath("//div[@class='container margin-top-15']/div[2]/div[2]/h3")).getText(),
+            equalTo("Мои шаблоны"));
+    click(By.xpath("//div[@class='fw-cols fw-cols-2']/div[2]/button[2]"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("//div[@class='fd-table__header']/div/div[1]/div/div[1]/div/span")).getText(),
+            equalTo("ДАТА"));
+    assertThat(wd.findElement(By.xpath("//div[@class='fd-table__header']/div/div[1]/div/div[2]/div")).getText(),
+            equalTo("ТИП ОТЧЕТА"));
+    assertThat(wd.findElement(By.xpath("//div[@class='fd-table__header']/div/div[2]/div/div[1]/div")).getText(),
+            equalTo("РАЗМЕР ФАЙЛА"));
+    assertThat(wd.findElement(By.xpath("//div[@class='fd-table__header']/div/div[2]/div/div[2]/div")).getText(),
+            equalTo("ПЕРИОД"));
+    assertThat(wd.findElement(By.xpath("//div[@class='fd-table__header']/div/div[3]/div")).getText(),
+            equalTo("СКАЧАТЬ ДО"));
   }
 
   public void checkingTabsMainPage() throws InterruptedException {
@@ -460,7 +470,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void loginAccount() throws InterruptedException {
-    TimeUnit.SECONDS.sleep(2);
+    TimeUnit.SECONDS.sleep(3);
     click(By.id("jivo_close_button"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//input[@name='Login']"));
@@ -469,8 +479,8 @@ public class NavigationHelper extends HelperBase {
 
   public void loginToSystem(String email, String password) throws InterruptedException {
     TimeUnit.SECONDS.sleep(2);
-    click(By.id("jivo_close_button"));
-    TimeUnit.SECONDS.sleep(1);
+    //click(By.id("jivo_close_button"));
+    //TimeUnit.SECONDS.sleep(1);
     type1(By.name("Login"), email);
     type1(By.name("Password"), password);
     click(By.cssSelector("button.analytics-loginstep1"));
@@ -568,12 +578,14 @@ public class NavigationHelper extends HelperBase {
 
   public void checkMessagePasswordChange() throws InterruptedException {
     click(By.linkText("Забыли пароль?"));
-    type(By.className("placeholder-center"), "ofdrinnispresent@yopmail.com");
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//button[@class='btn btn-shadow btn-primary btn-sm']"));
-    assertThat(wd.findElement(By.xpath("/html/body/div/div/div/div[5]/div[2]/div/div[2]/p")).getText(),
+    type1(By.className("placeholder-center"), "ofdrinnispresent@yopmail.com");
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//div[@id='Modal-user-change_pass']//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("//div[@id='Modal-user-change_pass']//p[@data-form-success='changepassword']")).getText(),
             equalTo("Мы отправили на почту письмо с инструкцией о смене пароля"));
-    click(By.cssSelector("div.modal__body div.close"));
+    click(By.xpath("//div[@id='Modal-user-change_pass']//a[@href='/logout?login=true']"));
     TimeUnit.SECONDS.sleep(2);
   }
 
@@ -582,31 +594,37 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     click(By.linkText("Забыли пароль?"));
     TimeUnit.SECONDS.sleep(1);
-    type(By.className("placeholder-center"), "ergeger@mail.ru");
-    click(By.xpath("//button[@class='btn btn-shadow btn-primary btn-sm']"));
-    assertThat(wd.findElement(By.cssSelector("div.input-group span.input-error")).getText(),
-            equalTo("Аккаунт с таким логином не найден"));
-    type(By.className("placeholder-center"), "test@@binka.me");
-    click(By.xpath("//button[@class='btn btn-shadow btn-primary btn-sm']"));
-    assertThat(wd.findElement(By.cssSelector("div.input-group span.input-error")).getText(),
-            equalTo("Некорректный E-Mail"));
-    type(By.className("placeholder-center"), "testbinka.me");
-    click(By.xpath("//button[@class='btn btn-shadow btn-primary btn-sm']"));
-    assertThat(wd.findElement(By.cssSelector("div.input-group span.input-error")).getText(),
-            equalTo("Некорректный E-Mail"));
-    type(By.className("placeholder-center"), "test@binkame");
-    click(By.xpath("//button[@class='btn btn-shadow btn-primary btn-sm']"));
-    assertThat(wd.findElement(By.cssSelector("div.input-group span.input-error")).getText(),
-            equalTo("Некорректный E-Mail"));
-    type(By.className("placeholder-center"), "");
-    click(By.xpath("//button[@class='btn btn-shadow btn-primary btn-sm']"));
-    assertThat(wd.findElement(By.cssSelector("div.input-group span.input-error")).getText(),
+    type1(By.className("placeholder-center"), "ergeger@mail.ru");
+    click(By.xpath("//div[@id='Modal-user-change_pass']//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("//div[@id='Modal-user-change_pass']//div[@data-form-error='email']")).getText(),
+            equalTo("Пользователя с таким E-Mail не существует"));
+    type1(By.className("placeholder-center"), "test@@binka.me");
+    click(By.xpath("//div[@id='Modal-user-change_pass']//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("//div[@id='Modal-user-change_pass']//div[@data-form-error='email']")).getText(),
+            equalTo("Неверный формат E-Mail"));
+    type1(By.className("placeholder-center"), "testbinka.me");
+    click(By.xpath("//div[@id='Modal-user-change_pass']//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("//div[@id='Modal-user-change_pass']//div[@data-form-error='email']")).getText(),
+            equalTo("Неверный формат E-Mail"));
+    type1(By.className("placeholder-center"), "test@binkame");
+    click(By.xpath("//div[@id='Modal-user-change_pass']//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("//div[@id='Modal-user-change_pass']//div[@data-form-error='email']")).getText(),
+            equalTo("Неверный формат E-Mail"));
+    type1(By.className("placeholder-center"), "");
+    click(By.xpath("//div[@id='Modal-user-change_pass']//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("//div[@id='Modal-user-change_pass']//div[@data-form-error='email']")).getText(),
             equalTo("Поле обязательно для заполнения"));
-    type(By.className("placeholder-center"), "tеst1@binka.Дe");
-    click(By.xpath("//button[@class='btn btn-shadow btn-primary btn-sm']"));
-    assertThat(wd.findElement(By.cssSelector("div.input-group span.input-error")).getText(),
-            equalTo("Аккаунт с таким логином не найден"));
-    click(By.cssSelector("div.modal__body div.close"));
+    type1(By.className("placeholder-center"), "tеst1@binka.Дe");
+    click(By.xpath("//div[@id='Modal-user-change_pass']//button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(1);
+    assertThat(wd.findElement(By.xpath("//div[@id='Modal-user-change_pass']//div[@data-form-error='email']")).getText(),
+            equalTo("Пользователя с таким E-Mail не существует"));
+    click(By.xpath("//div[@id='Modal-user-change_pass']//div[@class='close']"));
     TimeUnit.SECONDS.sleep(2);
   }
 
@@ -1014,6 +1032,7 @@ public class NavigationHelper extends HelperBase {
     scrollToItem(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[4]/div/label"));
     type1(By.name("PostPostalCode"), "6775591");
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[3]/div[5]/div[1]/div[2]/div/div"));
+    TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//*[text()='Республика Калмыкия']"));
     TimeUnit.SECONDS.sleep(2);
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div/form/div/div[1]/div[5]/div/div[1]/div"));
@@ -1731,7 +1750,7 @@ public class NavigationHelper extends HelperBase {
       assertThat(wd.findElement(By.xpath("//div[@class='pull-left']/a[@href='/lk/']")).getText(),
               equalTo("Мои кассы"));
       assertThat(wd.findElement(By.xpath("//div[@class='pull-left']/a[@href='/lk/downloads']")).getText(),
-              equalTo("Выгрузки"));
+              equalTo("Отчёты"));
       assertThat(wd.findElement(By.xpath("//a[@href='/fnsreg']")).getText(),
               equalTo("Заявки в ФНС"));
       click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
@@ -1744,8 +1763,8 @@ public class NavigationHelper extends HelperBase {
       TimeUnit.SECONDS.sleep(1);
       click(By.xpath("//a[@href='/lk/downloads']"));
       TimeUnit.SECONDS.sleep(1);
-      assertThat(wd.findElement(By.xpath("//div[@class='ofd-section__content text-align-center']/div[1]")).getText(),
-              equalTo("Список выгрузок пуст"));
+      assertThat(wd.findElement(By.xpath("//div[@id='content']//div[1]/div/h4[@class='report-type-title']")).getText(),
+              equalTo("Отчет по сменам"));
       click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
       TimeUnit.SECONDS.sleep(1);
       click(By.xpath("//a[@href='/lk/documents']"));
@@ -1768,7 +1787,7 @@ public class NavigationHelper extends HelperBase {
     assertThat(wd.findElement(By.xpath("//div/h3")).getText(), equalTo("Как подключить кассу к OFD.RU?"));
     assertThat(wd.findElement(By.xpath("//a[@href='/lk/']")).getText(), equalTo("Мои кассы"));
     assertThat(wd.findElement(By.xpath("//div[@class='pull-left']/a[@href='/lk/downloads']")).getText(),
-            equalTo("Выгрузки"));
+            equalTo("Отчёты"));
     click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
     TimeUnit.SECONDS.sleep(1);
     assertThat(wd.findElement(By.xpath("//a[@href='/lk/documents']")).getText(),
@@ -1785,7 +1804,7 @@ public class NavigationHelper extends HelperBase {
       assertThat(wd.findElement(By.xpath("//div[@class='pull-left']/a[@href='/lk/']")).getText(),
               equalTo("Мои кассы"));
       assertThat(wd.findElement(By.xpath("//div[@class='pull-left']/a[@href='/lk/downloads']")).getText(),
-              equalTo("Выгрузки"));
+              equalTo("Отчёты"));
       assertThat(wd.findElement(By.xpath("//a[@href='/fnsreg']")).getText(),
               equalTo("Заявки в ФНС"));
       click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
@@ -1797,8 +1816,8 @@ public class NavigationHelper extends HelperBase {
       click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
       TimeUnit.SECONDS.sleep(1);
       click(By.xpath("//a[@href='/lk/downloads']"));
-      assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div[1]")).getText(),
-              equalTo("Список выгрузок пуст"));
+      assertThat(wd.findElement(By.xpath("//div[@class='fw-card-body']/div/div[1]/div/h4")).getText(),
+              equalTo("Отчет по сменам"));
       click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
       TimeUnit.SECONDS.sleep(1);
       click(By.xpath("//a[@href='/lk/documents']"));
@@ -2499,7 +2518,7 @@ public class NavigationHelper extends HelperBase {
   public void confirmChangeEmail(String email, String password, String link) throws InterruptedException {
     TimeUnit.SECONDS.sleep(4);
     wd.get(link);
-    TimeUnit.SECONDS.sleep(4);
+    TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//td[@align='center']/table/tbody/tr[3]/td/a"));
     TimeUnit.SECONDS.sleep(5);
     ArrayList tabs2 = new ArrayList(wd.getWindowHandles());//Получение списка открытых окон браузера
@@ -3677,44 +3696,44 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkHelpOldUser()throws InterruptedException {
-    TimeUnit.SECONDS.sleep(3);
-    click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
+    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//*[text()='yaschenko@ofd.ru']"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[1]"));
     TimeUnit.SECONDS.sleep(5);
-    click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
+    click(By.xpath("//*[text()='yaschenko@ofd.ru']"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//ul[@class='header-profile-nav-links']/li[3]"));
     TimeUnit.SECONDS.sleep(4);
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[1]/a"));
+    assertThat(wd.findElement(By.xpath("//div[@id='doc-page']/div[1]//span")).getText(),
+              equalTo("Ваши закрывающие документы"));
+    click(By.xpath("//div[@id='doc-page']/div[13]/div[1]/a"));
     TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("/html/body/div[6]/div/div[2]/div[1]/span[1]")).getText(),
-            equalTo("В личном кабинете для вас доступны закрывающие документы за прошедшие периоды."));
-    click(By.xpath("/html/body/div[6]/div/div[3]/div/a"));
+    assertThat(wd.findElement(By.xpath("//div[@class='fw-card-body']/div[1]/span[1]")).getText(),
+              equalTo("В личном кабинете для вас доступны закрывающие документы за прошедшие периоды."));
+    click(By.xpath("//*[text()='Понятно']"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[3]/span[2]"));
-    TimeUnit.SECONDS.sleep(1);
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[3]/p")).getText(),
-            equalTo("Вам необходимо зайти во вкладку «Документы». " +
-                    "Копии закрывающих документов размещаются в данной вкладке в течение 15 дней с даты окончания месяца, " +
-                    "в котором денежные средства были зачислены на Лицевой счет."));
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[4]/span[2]"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[4]/p")).getText(),
-            equalTo("Копии закрывающих документов появляются во вкладке «Документы» в течение 15 дней с даты окончания месяца, " +
-                    "в котором денежные средства были зачислены на Лицевой счет. " +
-                    "Если по истечении 15 дней документы не появились, " +
-                    "напишите, пожалуйста, на электронную почту feedback@ofd.ru"));
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[5]/span[2]"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[5]/p")).getText(),
-            equalTo("Для исправления закрывающих документов, напишите, пожалуйста, на электронную почту feedback@ofd.ru, письмо с описанием ошибки."));
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[6]/span[2]"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[4]/div[6]/p")).getText(),
-            equalTo("Чтобы получить оригиналы документов, напишите, пожалуйста, нам письмо на электронную почту feedback@ofd.ru " +
-                    "с темой «Получить документы», укажите название и ИНН вашей организации, период и тип документов, которые вам нужны. " +
-                    "Срок обработки запроса – 3 недели. Перед запросом просим вас проверить правильность выставленных документов" +
-                    " в вашем личном кабинете. Оригиналы документов в бумажном виде отправляются Почтой России по запросу " +
-                    "не чаще одного раза в квартал."));
-
+    scrollToItem(By.xpath("//div[@class='fd-select']/div[1]/div/div[1]/span[1]"));
+    click(By.xpath("//div[@id='doc-page']/div[13]/div[3]/span[2]"));
+    assertThat(wd.findElement(By.xpath("//div[@id='doc-page']/div[13]/div[3]/p")).getText(),
+            equalTo("Вам необходимо зайти во вкладку «Документы». Копии закрывающих документов размещаются в " +
+                    "данной вкладке в течение 15 дней с даты окончания месяца, в котором денежные средства были зачислены на Лицевой счет."));
+    click(By.xpath("//div[@id='doc-page']/div[13]/div[4]/span[2]"));
+    assertThat(wd.findElement(By.xpath("//div[@id='doc-page']/div[13]/div[4]/p")).getText(),
+              equalTo("Копии закрывающих документов появляются во вкладке «Документы» в течение 15 дней с даты окончания месяца, " +
+                      "в котором денежные средства были зачислены на Лицевой счет. " +
+                      "Если по истечении 15 дней документы не появились, " +
+                      "напишите, пожалуйста, на электронную почту feedback@ofd.ru"));
+    click(By.xpath("//div[@id='doc-page']/div[13]/div[5]/span[2]"));
+    assertThat(wd.findElement(By.xpath("//div[@id='doc-page']/div[13]/div[5]/p")).getText(),
+              equalTo("Для исправления закрывающих документов, напишите, пожалуйста, на электронную почту feedback@ofd.ru, письмо с описанием ошибки."));
+    click(By.xpath("//div[@id='doc-page']/div[13]/div[6]/span[2]"));
+    assertThat(wd.findElement(By.xpath("//div[@id='doc-page']/div[13]/div[6]/p")).getText(),
+              equalTo("Чтобы получить оригиналы документов, напишите, пожалуйста, нам письмо на электронную почту feedback@ofd.ru " +
+                      "с темой «Получить документы», укажите название и ИНН вашей организации, период и тип документов, которые вам нужны. " +
+                      "Срок обработки запроса – 3 недели. Перед запросом просим вас проверить правильность выставленных документов" +
+                      " в вашем личном кабинете. Оригиналы документов в бумажном виде отправляются Почтой России по запросу " +
+                      "не чаще одного раза в квартал."));
   }
 
   public void checkHelpNewUser()throws InterruptedException {
