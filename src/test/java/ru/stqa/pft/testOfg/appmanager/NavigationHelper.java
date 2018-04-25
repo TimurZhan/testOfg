@@ -3275,7 +3275,7 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//button[@class='fw-btn fw-btn_xs fw-btn-primary buysms']"));
     TimeUnit.SECONDS.sleep(1);
     assertThat(wd.findElement(By.xpath("//h2[@class='color-info margin-bottom-40 font-size-26 line-height-26 text-center margin-bottom-60']")).getText(),
-            equalTo("Выберите пакет SMS"));
+            equalTo("Выберите пакет сообщений"));
     click(By.xpath("/html/body/div[6]/div/div[2]/div/div[1]/div[2]"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//*[text()='Свой, от 1000 чеков по 1.65р за чек']"));
@@ -3299,7 +3299,7 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//button[@class='fw-btn fw-btn_xs fw-btn-primary buysms']"));
     TimeUnit.SECONDS.sleep(1);
     assertThat(wd.findElement(By.xpath("//h2[@class='color-info margin-bottom-40 font-size-26 line-height-26 text-center margin-bottom-60']")).getText(),
-            equalTo("Выберите пакет SMS"));
+            equalTo("Выберите пакет сообщений"));
     click(By.xpath("/html/body/div[6]/div/div[2]/div/div[1]/div[2]"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//*[text()='Минимальный (100 чеков) за 200 \u20BD']"));
