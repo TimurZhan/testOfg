@@ -11,8 +11,8 @@ public class Front172Profile extends TestBase {
 
   @Test
   public void testProfile () throws InterruptedException, IOException, SQLException {
-    String email = "zhanchikov@ofd.ru";
-    String password = "12345";
+    String email = "yaschenko@ofd.ru";
+    String password = "121288";
 
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().checkProfile();

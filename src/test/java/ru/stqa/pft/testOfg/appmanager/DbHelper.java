@@ -107,7 +107,7 @@ public class DbHelper {
     Connection conn = null;
     conn = DriverManager.getConnection("jdbc:sqlserver://wifimenu.cj57wuvexwcc.eu-central-1.rds.amazonaws.com","sa","yeisrkm21");
     Statement st = conn.createStatement();
-    ResultSet resultSet = st.executeQuery("SELECT TOP (1) Source FROM Manul_Notification.dbo.Queue WHERE [To] = '"+email+"' ORDER BY CDateUtc DESC");
+    ResultSet resultSet = st.executeQuery("SELECT TOP (1) Source FROM Manul_Notification.dbo.Queue WHERE [To] = '"+email+"' ORDER BY UDateUtc");
     while (resultSet.next()){
       String Source = resultSet.getString("Source");
       return Source;

@@ -507,7 +507,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void loginToSystemDemoSite(String email, String password) throws InterruptedException {
-    wd.get("http://test1.ofd.ru/");
+    wd.get("https://dev.ofd.ru/");
     click(By.cssSelector("div.pull-right a.analytics-login"));
     TimeUnit.SECONDS.sleep(1);
     type(By.name("Login"), email);
@@ -1129,9 +1129,10 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//div[@id='Modal-partner']//div[@id='pass_view_reg']/i[1]"));
     type1(By.xpath("//div[@id='Modal-partner']//input[@name='ExplicitPassword']"), password);
     click(By.xpath("//div[@id='Modal-partner']//button[@type='submit']"));
-    TimeUnit.SECONDS.sleep(8);
+    TimeUnit.SECONDS.sleep(4);
     click(By.xpath("//div[@id='Modal-partner']//a[@href='/logout?login=true']"));
-    TimeUnit.SECONDS.sleep(2);
+    TimeUnit.SECONDS.sleep(3);
+    click(By.xpath("//div[@id='Modal-user-lk']//div[@class='close']"));
   }
 
 
@@ -3374,9 +3375,13 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void balanceCheck() throws InterruptedException {
-    TimeUnit.SECONDS.sleep(7);
-    wd.get("http://pk-test.ofd.ru/");
-    TimeUnit.SECONDS.sleep(7);
+    TimeUnit.SECONDS.sleep(5);
+    wd.get("https://pk-demo.ofd.ru/");
+    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/balance']"));
     scrollToItem(By.xpath("//app-balance/div[2]/mat-tab-group/mat-tab-header/div[2]/div/div/div[1]"));
     click(By.xpath("//app-balance-history/div/mat-table/mat-header-row/mat-header-cell[1]"));
@@ -3406,21 +3411,27 @@ public class NavigationHelper extends HelperBase {
     type(By.name("amount"), "111");
     click(By.xpath("//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(4);
-    wd.switchTo().frame(wd.findElement(By.xpath("//iframe[@class=' with-appled']")));
-    assertThat(wd.findElement(By.xpath("/html/body/div/div[2]/div[1]/form/fieldset/div[1]/div/div[1]")).getText(),
-            equalTo("Пополнение баланса партнёра"));
+    wd.switchTo().frame(wd.findElement(By.xpath("//iframe[@id='sbrf_frame']")));
+    assertTrue(isElementPresent(By.xpath("//img[@src='img/sberbank.svg']")));
+    assertThat(wd.findElement(By.xpath("//div[@class='sb_sbersafe-email-auth__descr']")).getText(),
+            equalTo("По указанному адресу мы вышлем чек."));
     wd.switchTo().defaultContent();
-    wd.navigate().refresh();
-    TimeUnit.SECONDS.sleep(7);
-    click(By.xpath("//app-balance/div[2]/mat-tab-group/mat-tab-header/div[2]/div/div/div[2]"));
+    //wd.navigate().refresh();
+    click(By.xpath("//div[@class='clear']//button[@class='mat-icon-button']"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//div[@class='mat-tab-labels']/div[2]"));
     assertThat(wd.findElement(By.xpath("//app-cash-days/app-empty-page/div/div[2]/div")).getText(),
             equalTo("Список бонус-дней пуст"));
   }
 
   public void generalPageCheck() throws InterruptedException {
-    TimeUnit.SECONDS.sleep(8);
-    wd.get("http://pk-test.ofd.ru/");
-    TimeUnit.SECONDS.sleep(4);
+    TimeUnit.SECONDS.sleep(5);
+    wd.get("https://pk-demo.ofd.ru/");
+    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/clients']"));
     type(By.name("searchString"), "631810\n");
     TimeUnit.SECONDS.sleep(3);
@@ -3465,9 +3476,13 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void createNewUser(String email, String inn) throws InterruptedException {
-    TimeUnit.SECONDS.sleep(7);
-    wd.get("http://pk-test.ofd.ru/");
-    TimeUnit.SECONDS.sleep(7);
+    TimeUnit.SECONDS.sleep(5);
+    wd.get("https://pk-demo.ofd.ru/");
+    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/clients']"));
     click(By.xpath("//a[@href='/clients/add']"));
     TimeUnit.SECONDS.sleep(2);
@@ -3514,9 +3529,13 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkCashTab() throws InterruptedException {
-    TimeUnit.SECONDS.sleep(7);
-    wd.get("http://pk-test.ofd.ru/");
-    TimeUnit.SECONDS.sleep(7);
+    TimeUnit.SECONDS.sleep(5);
+    wd.get("https://pk-demo.ofd.ru/");
+    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/kkt']"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//app-list-table/div/div/mat-accordion/mat-table/mat-header-row/mat-header-cell[1]"));
@@ -3621,9 +3640,13 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkActivationCodeTab() throws InterruptedException {
-    TimeUnit.SECONDS.sleep(7);
-    wd.get("http://pk-test.ofd.ru/");
-    TimeUnit.SECONDS.sleep(7);
+    TimeUnit.SECONDS.sleep(5);
+    wd.get("https://pk-demo.ofd.ru/");
+    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/codes']"));
     TimeUnit.SECONDS.sleep(3);
     click(By.xpath("//mat-accordion/mat-table/mat-header-row/mat-header-cell[1]/app-sort-header"));
@@ -3649,8 +3672,10 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//mat-sidenav/div/div[2]/mat-radio-group/div[2]/mat-radio-button/label"));
     TimeUnit.SECONDS.sleep(3);
-    assertThat(wd.findElement(By.xpath("//mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[4]/span/span")).getText(),
-            equalTo("Использован 24.11.2017"));
+    click(By.xpath("//mat-table[@class='mat-table']/mat-header-row/mat-header-cell[4]"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.xpath("//mat-table/mat-expansion-panel[1]//mat-cell[4]/span/span")).getText(),
+            equalTo("Использован 12.04.2018"));
     click(By.xpath("//mat-sidenav/div/div[2]/mat-radio-group/div[3]/mat-radio-button/label"));
     TimeUnit.SECONDS.sleep(3);
     assertThat(wd.findElement(By.xpath("//mat-table/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[4]/span")).getText(),
@@ -3677,9 +3702,13 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkDiscountCodeTab() throws InterruptedException {
-    TimeUnit.SECONDS.sleep(7);
-    wd.get("http://pk-test.ofd.ru/");
-    TimeUnit.SECONDS.sleep(7);
+    TimeUnit.SECONDS.sleep(5);
+    wd.get("https://pk-demo.ofd.ru/");
+    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/codes']"));
     TimeUnit.SECONDS.sleep(3);
     click(By.xpath("//mat-tab-group/mat-tab-header/div[2]/div/div/div[2]"));
@@ -3794,9 +3823,13 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkPurchaseCode() throws InterruptedException {
-    TimeUnit.SECONDS.sleep(7);
-    wd.get("http://pk-test.ofd.ru/");
-    TimeUnit.SECONDS.sleep(7);
+    TimeUnit.SECONDS.sleep(5);
+    wd.get("https://pk-demo.ofd.ru/");
+    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/codes']"));
     TimeUnit.SECONDS.sleep(3);
     click(By.xpath("//app-codes/div/app-content/div/div[1]/div/div[2]/div[1]/button"));
@@ -3807,7 +3840,7 @@ public class NavigationHelper extends HelperBase {
     type(By.name("numberOfCodes"), "100");
     TimeUnit.SECONDS.sleep(1);
     assertThat(wd.findElement(By.xpath("//app-create-code/div/div/div/div[5]/button/span/span")).getText(),
-            equalTo("ПОПОЛНИТЬ БАЛАНС"));
+            equalTo("ОПЛАТИТЬ"));
     type(By.name("numberOfDays"), "5");
     type(By.name("numberOfCodes"), "1");
     TimeUnit.SECONDS.sleep(3);
@@ -3820,9 +3853,13 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkPurchaseDiscountCode() throws InterruptedException {
-    TimeUnit.SECONDS.sleep(7);
-    wd.get("http://pk-test.ofd.ru/");
-    TimeUnit.SECONDS.sleep(7);
+    TimeUnit.SECONDS.sleep(5);
+    wd.get("https://pk-demo.ofd.ru/");
+    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/codes']"));
     TimeUnit.SECONDS.sleep(3);
     click(By.xpath("//app-codes/div/app-content/div/div[1]/div/div[2]/div[1]/button"));
@@ -3845,9 +3882,13 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkBookingCash() throws InterruptedException {
-    TimeUnit.SECONDS.sleep(7);
-    wd.get("http://pk-test.ofd.ru/");
-    TimeUnit.SECONDS.sleep(7);
+    TimeUnit.SECONDS.sleep(5);
+    wd.get("https://pk-demo.ofd.ru/");
+    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/kkt']"));
     TimeUnit.SECONDS.sleep(1);
     click(By.cssSelector("button.mat-raised-button"));
@@ -3882,23 +3923,31 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkDocsPage() throws InterruptedException {
-    TimeUnit.SECONDS.sleep(7);
-    wd.get("http://pk-test.ofd.ru/");
-    TimeUnit.SECONDS.sleep(7);
+    TimeUnit.SECONDS.sleep(5);
+    wd.get("https://pk-demo.ofd.ru/");
+    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/docs']"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//mat-tab-group/mat-tab-header/div[2]/div/div/div[1]")).getText(),
             equalTo("ЗАКРЫВАЮЩИЕ ДОКУМЕНТЫ"));
     click(By.xpath("//mat-tab-group/mat-tab-header/div[2]/div/div/div[2]"));
     TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("//app-page-content/app-documents-contract/mat-card/div[1]")).getText(),
+    assertThat(wd.findElement(By.xpath("//mat-card[@class='mat-card']/div[@class='doc-header']")).getText(),
             equalTo("Оферта партнера"));
   }
 
   public void checkHelpPage() throws InterruptedException {
-    TimeUnit.SECONDS.sleep(7);
-    wd.get("http://pk-test.ofd.ru/");
-    TimeUnit.SECONDS.sleep(7);
+    TimeUnit.SECONDS.sleep(5);
+    wd.get("https://pk-demo.ofd.ru/");
+    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/help']"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//div[@class='mat-tab-body-wrapper']//span")).getText(),
@@ -3910,10 +3959,14 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkProfile() throws InterruptedException {
-    TimeUnit.SECONDS.sleep(7);
-    wd.get("http://pk-test.ofd.ru/");
-    TimeUnit.SECONDS.sleep(7);
-    click(By.xpath("//button[@class='mat-button']"));
+    TimeUnit.SECONDS.sleep(5);
+    wd.get("https://pk-demo.ofd.ru/");
+    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    TimeUnit.SECONDS.sleep(5);
+    click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//a[@href='/profile']"));
     TimeUnit.SECONDS.sleep(2);
@@ -3945,7 +3998,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkProfileEmployees(String email2) throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://pk-test.ofd.ru/employees");
+    wd.get("https://pk-demo.ofd.ru/employees");
     TimeUnit.SECONDS.sleep(7);
     click(By.cssSelector("div._employees__header-options button.mat-raised-button"));
     TimeUnit.SECONDS.sleep(2);
@@ -4004,11 +4057,11 @@ public class NavigationHelper extends HelperBase {
     wd.switchTo().window((String) tabs2.get(0));//Переключение на второй таб в браузере
     wd.close();
     wd.switchTo().window((String) tabs2.get(1));//Переключение на второй таб в браузере
-    TimeUnit.SECONDS.sleep(2);
-    type(By.name("Login"), email);
-    type(By.name("Password"), password1);
-    click(By.xpath("//section[1]/div[2]/div/div[2]/form/button"));
     TimeUnit.SECONDS.sleep(5);
+    //type(By.name("Login"), email);
+    //type(By.name("Password"), password1);
+    //click(By.xpath("//section[1]/div[2]/div/div[2]/form/button"));
+    //TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
     click(By.linkText("Выйти"));
     TimeUnit.SECONDS.sleep(1);
@@ -4025,7 +4078,7 @@ public class NavigationHelper extends HelperBase {
 
   public void deleteNewEmployee() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://pk-test.ofd.ru/employees");
+    wd.get("https://pk-demo.ofd.ru/employees");
     TimeUnit.SECONDS.sleep(7);
     click(By.xpath("//mat-accordion/mat-table/mat-expansion-panel[2]/mat-expansion-panel-header"));
     click(By.xpath("//mat-table/mat-expansion-panel[2]/div/div/div/div[2]/div/span"));
