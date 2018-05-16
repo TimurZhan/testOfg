@@ -659,7 +659,7 @@ public class NavigationHelper extends HelperBase {
     click(By.cssSelector("div.ofd-form__input-group i.material-icons"));
     type1(By.name("ExplicitPassword"), password);
     click(By.xpath("//button[@class='btn btn-primary btn-shadow ofd-form__button analytics-regstep1']"));
-    TimeUnit.SECONDS.sleep(6);
+    TimeUnit.SECONDS.sleep(2);
     click(By.xpath("/html/body/div[1]/div/div/div[5]/div[2]/div/div[2]/div[2]/a"));
   }
 
