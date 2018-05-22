@@ -410,12 +410,12 @@ public class NavigationHelper extends HelperBase {
     clear(By.id("Email"));
     type1(By.id("Email"), " ");
     click(By.xpath("//button[@class='btn btn-primary btn-shadow ofd-form__button analytics-regstep1']"));
-    assertThat(wd.findElement(By.xpath("//div[@id='Modal-user-reg']/div[2]/div/div[2]/form/div[1]/div/div[1]/div")).getText(), equalTo("Поле обязательно для заполнения"));
+    assertThat(wd.findElement(By.xpath("//div[@id='Modal-user-reg']/div[2]/div/div[2]/form/div[1]/div/div[1]/div")).getText(), equalTo("Неверный формат E-Mail"));
     clear(By.id("Email"));
     type1(By.id("Email"), "rt5b&demail.ru");
     click(By.xpath("//button[@class='btn btn-primary btn-shadow ofd-form__button analytics-regstep1']"));
     assertThat(wd.findElement(By.xpath("//div[@id='Modal-user-reg']/div[2]/div/div[2]/form/div[1]/div/div[1]/div")).getText(), equalTo("Неверный формат E-Mail"));
-    click(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[2]/div/div[1]/div"));
+    click(By.xpath("//div[@id='Modal-user-reg']//div[@class='close']"));
     TimeUnit.SECONDS.sleep(1);
   }
 
@@ -432,8 +432,8 @@ public class NavigationHelper extends HelperBase {
     type1(By.name("ExplicitPassword"), "12345");
     click(By.xpath("//button[@class='btn btn-primary btn-shadow ofd-form__button analytics-regstep1']"));
     TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("//div[@data-form-error='Email']")).getText(), equalTo("Аккаунт с таким E-Mail уже существует"));
-    click(By.cssSelector("div.close"));
+    assertThat(wd.findElement(By.xpath("//div[@data-form-error='Email']")).getText(), equalTo("Пользователь с таким E-Mail уже существует"));
+    click(By.xpath("//div[@id='Modal-user-reg']//div[@class='close']"));
     TimeUnit.SECONDS.sleep(1);
   }
 
@@ -444,9 +444,9 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//div[@id='pass_view_reg']/i[1]"));
     type1(By.name("ExplicitPassword"), "12345");
     click(By.xpath("//button[@class='btn btn-primary btn-shadow ofd-form__button analytics-regstep1']"));
-    assertThat(wd.findElement(By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div/div[2]/form/div[1]/div/div[1]/div")).getText(),
+    assertThat(wd.findElement(By.xpath("//form[@class='ofd-form']//div[@class='fx-input-error']")).getText(),
             equalTo("Поле обязательно для заполнения"));
-    click(By.cssSelector("div.text-right div.close"));
+    click(By.xpath("//div[@id='Modal-user-reg']//div[@class='close']"));
     TimeUnit.SECONDS.sleep(1);
   }
 
@@ -459,7 +459,7 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//button[@class='btn btn-primary btn-shadow ofd-form__button analytics-regstep1']"));
     assertThat(wd.findElement(By.xpath("//div[@data-form-error='Phone']")).getText(),
             equalTo("Поле обязательно для заполнения"));
-    click(By.cssSelector("div.text-right div.close"));
+    click(By.xpath("//div[@id='Modal-user-reg']//div[@class='close']"));
     TimeUnit.SECONDS.sleep(1);
   }
 
@@ -527,8 +527,8 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkHomePage() throws InterruptedException {
-    type1(By.name("Login"), "zhanchikov@ofd.ru");
-    type1(By.name("Password"), "12345");
+    type1(By.name("Login"), "yaschenko@ofd.ru");
+    type1(By.name("Password"), "121288");
     click(By.cssSelector("button.analytics-loginstep1"));
     TimeUnit.SECONDS.sleep(7);
     assertThat(wd.findElement(By.xpath("//div[@class='fd-breadcrumbs']//span")).getText(),
@@ -554,7 +554,8 @@ public class NavigationHelper extends HelperBase {
     type1(By.name("Login"), "testТест@mail.ru");
     type1(By.name("Password"), "12345");
     click(By.cssSelector("button.analytics-loginstep1"));
-    assertThat(wd.findElement(By.cssSelector("div.fx-input-error")).getText(), equalTo("Неверный формат E-Mail"));
+    TimeUnit.SECONDS.sleep(2);
+    assertThat(wd.findElement(By.cssSelector("div.fx-input-error")).getText(), equalTo("Ошибка авторизации"));
     //click(By.cssSelector("div.close"));
     TimeUnit.SECONDS.sleep(1);
   }
