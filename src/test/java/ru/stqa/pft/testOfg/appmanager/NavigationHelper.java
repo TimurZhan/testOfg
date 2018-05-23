@@ -47,7 +47,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void goToEditLegalAddress() throws InterruptedException {
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/p[2]/a"));
+    click(By.xpath("//div[@class='profile__col']//a[@class='link color-info-light']"));
   }
 
   public void goToProfileEdit() throws InterruptedException {
@@ -72,9 +72,9 @@ public class NavigationHelper extends HelperBase {
 
   public void submitFront79() throws InterruptedException {
     TimeUnit.SECONDS.sleep(4);
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/p[1]")).getText(),
+    assertThat(wd.findElement(By.xpath("//div[@id='content']/div/div[2]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/p[1]")).getText(),
             equalTo("170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[2]/p[1]")).getText(),
+    assertThat(wd.findElement(By.xpath("//div[@id='content']/div/div[2]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/p[1]")).getText(),
             equalTo("170005, Бежецк, школьная, 85, корп/стр: 1, офис/кв: 1"));
   }
 
@@ -86,8 +86,8 @@ public class NavigationHelper extends HelperBase {
 
   public void submitFront78() {
 
-    waitTheElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[2]/p[1]"), "140095, Тула, ул Восход, 67, корп/стр: 1, офис/кв: 94");
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[2]/p[1]")).getText(),
+    waitTheElement(By.xpath("//div[@id='content']/div/div[2]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/p[1]"), "140095, Тула, ул Восход, 67, корп/стр: 1, офис/кв: 94");
+    assertThat(wd.findElement(By.xpath("//div[@id='content']/div/div[2]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/p[1]")).getText(),
             equalTo("140095, Тула, ул Восход, 67, корп/стр: 1, офис/кв: 94"));
   }
 
@@ -464,8 +464,8 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkChangePasswordEmailEmptyField() throws InterruptedException {
-    TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//div[@id='jivo_close_button']"));
+    //TimeUnit.SECONDS.sleep(2);
+    //click(By.xpath("//div[@id='jivo_close_button']"));
     TimeUnit.SECONDS.sleep(1);
     click(By.linkText("Забыли пароль?"));
     TimeUnit.SECONDS.sleep(2);
@@ -662,6 +662,8 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//button[@class='btn btn-primary btn-shadow ofd-form__button analytics-regstep1']"));
     TimeUnit.SECONDS.sleep(2);
     click(By.xpath("/html/body/div[1]/div/div/div[5]/div[2]/div/div[2]/div[2]/a"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//div[@class='modal__body']//div[@class='close']"));
   }
 
   public void notConfirmEmailRegistration(String email, String password) throws InterruptedException {
@@ -672,13 +674,14 @@ public class NavigationHelper extends HelperBase {
     click(By.cssSelector("div.ofd-form__input-group i.material-icons"));
     type1(By.name("ExplicitPassword"), password);
     click(By.xpath("//button[@class='btn btn-primary btn-shadow ofd-form__button analytics-regstep1']"));
-    TimeUnit.SECONDS.sleep(6);
-    click(By.xpath("//a[@href='/logout?login=true']"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//div[@id='Modal-user-reg']//div[@class='close']"));
+    TimeUnit.SECONDS.sleep(5);
   }
 
   public void finish(String email, String password) throws InterruptedException {
-    TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//div[@class='modal__body']//div[@type='button']"));
+    //TimeUnit.SECONDS.sleep(2);
+    //click(By.xpath("//div[@class='modal__body']//div[@type='button']"));
     TimeUnit.SECONDS.sleep(2);
     type(By.name("Login"), email);
     type(By.name("Password"), password);
@@ -699,9 +702,9 @@ public class NavigationHelper extends HelperBase {
 
   public void confirmationRegistration(String email, String password) throws InterruptedException {
     TimeUnit.SECONDS.sleep(2);
-    type(By.xpath("//input[@id='Login_ecp']"), email);
-    type(By.xpath("//input[@id='Password_lk_modal']"), password);
-    click(By.xpath("//div[@id='Modal-user-lk']//button[@type='submit']"));
+    type(By.xpath("//input[@id='Login']"), email);
+    type(By.xpath("//input[@id='Password_lk_main']"), password);
+    click(By.xpath("//form[@id='forma_lk']//button[@type='submit']"));
     TimeUnit.SECONDS.sleep(8);
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(), equalTo("Регистрация данных пользователя"));
     click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
