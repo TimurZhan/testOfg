@@ -38,12 +38,13 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//p[@class='font-size-14 color-info-light']/a[@class='link color-info-light']"));
   }
 
-  public void goToEditFullName() {
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/p[2]/a"));
+  public void goToEditFullName() throws InterruptedException {
+    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[3]/div/div[1]/div/p[2]/a"));
+    TimeUnit.SECONDS.sleep(2);
   }
 
   public void goToEditPhone() {
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/div/p[2]/a"));
+    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[3]/div/div[2]/div/p[2]/a"));
   }
 
   public void goToEditLegalAddress() throws InterruptedException {
@@ -79,8 +80,8 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void submitFront77() {
-    waitTheElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/p[1]"), "420095, Казань, ул Восход, 5, корп/стр: 3, офис/кв: 7");
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/p[1]")).getText(),
+    waitTheElement(By.xpath("//div[@id='content']/div/div[2]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/p[1]"), "420095, Казань, ул Восход, 5, корп/стр: 3, офис/кв: 7");
+    assertThat(wd.findElement(By.xpath("//div[@id='content']/div/div[2]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/p[1]")).getText(),
             equalTo("420095, Казань, ул Восход, 5, корп/стр: 3, офис/кв: 7"));
   }
 
@@ -98,7 +99,7 @@ public class NavigationHelper extends HelperBase {
 
   public void submitFront83() throws InterruptedException {
     TimeUnit.SECONDS.sleep(1);
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/div/h2")).getText(),
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[3]/div/div[2]/div/h2")).getText(),
             equalTo("89021112255"));
   }
 
@@ -127,13 +128,13 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void selectWorkflow() throws InterruptedException {
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[3]/div/div[1]/div/div"));
+    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[4]/div/div[1]/div/div"));
     TimeUnit.SECONDS.sleep(2);
     click(By.xpath("//*[text()='Диадок']"));
     TimeUnit.SECONDS.sleep(2);
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[3]/div/div[1]/div/div/div[1]/div[1]/div[2]")).getText(),
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[4]/div/div[1]/div/div/div[1]/div[1]/div[2]")).getText(),
             equalTo("Диадок"));
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[3]/div/div[1]/div/div"));
+    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[4]/div/div[1]/div/div"));
     TimeUnit.SECONDS.sleep(2);
     click(By.xpath("//*[text()='СБИС']"));
     TimeUnit.SECONDS.sleep(2);
@@ -141,11 +142,11 @@ public class NavigationHelper extends HelperBase {
 
   public void clickVAT() {
 
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div")).getCssValue("background-color"),
+    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[4]/div/div[2]/div/div[1]/div"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[4]/div/div[2]/div/div[1]/div")).getCssValue("background-color"),
             equalTo("rgba(0, 190, 106, 1)"));
-    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[3]/div/div[2]/div/div[2]/div"));
-    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[3]/div/div[2]/div/div[2]/div")).getCssValue("background-color"),
+    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[4]/div/div[2]/div/div[2]/div"));
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[4]/div/div[2]/div/div[2]/div")).getCssValue("background-color"),
             equalTo("rgba(0, 190, 106, 1)"));
   }
 
@@ -1670,7 +1671,7 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/div[2]/div[4]/div[3]/div/div/input"));
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/div[4]/div/div/button"));
     TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/div[3]/div/div[2]/div/div[2]/div/i"));
+    //click(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/div[3]/div/div[2]/div/div[2]/div/i"));
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/div[4]/div/div/button"));
     TimeUnit.SECONDS.sleep(6);
   }
@@ -1708,15 +1709,14 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[1]/div[2]/div[2]/p/button"));
     type1(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/div[2]/div[1]/div/div/input"), email);
-    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/div[2]/div[2]/div/div/input"));
+    click(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[2]/div[1]/div[2]/div/div[2]/div[2]/div/div/input"));
     TimeUnit.SECONDS.sleep(3);
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/div[2]/div[2]/div/div/input")).
                     getCssValue("color"), equalTo("rgba(134, 171, 193, 1)"));
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/div[2]/div[3]/div/div/input")).
                     getCssValue("color"), equalTo("rgba(134, 171, 193, 1)"));
-    click(By.xpath("//button[@class='fw-btn fw-btn_sm fw-btn-primary fw-btn-shadow']"));
-    assertThat(wd.findElement(By.xpath("//button[@class='fw-btn fw-btn_sm fw-btn-primary fw-btn-shadow']/div[@class='fw-btn-content']")).getText(),
-            equalTo("Обновить"));
+    assertThat(wd.findElement(By.xpath("//div[@class='users__dialog-container-inner']//p[@class='fd-text fd-text_center fd-text_m fd-text_green ']")).getText(),
+            equalTo("Данный e-mail уже используется"));
     click(By.cssSelector("div.users__dialog-close i.material-icons"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
@@ -1730,36 +1730,36 @@ public class NavigationHelper extends HelperBase {
     click(By.xpath("//a[@href='/lk/users']"));
     click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[1]/div[3]/div/div/div/div[6]/div/div[1]"));
-    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("//div[@class='fd-table']/div[4]/div/div[1]"));
+    TimeUnit.SECONDS.sleep(2);
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[1]/div[1]/div/div[2]/div/div[2]/div[1]/div[1]/div/div/input"));
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[1]/div[1]/div/div[2]/div/div[2]/div[1]/div[2]/div/div/input"));
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[1]/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/div/div/input"));
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[1]/div[1]/div/div[1]/i"));
     TimeUnit.SECONDS.sleep(1);
     new WebDriverWait(wd, 1).
-            until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[1]/div[3]/div/div/div/div[6]/div/div[3]/div/i")));
+            until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[1]/div[3]/div/div/div/div[4]/div/div[3]/div/i")));
     new WebDriverWait(wd, 1).
-            until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[1]/div[3]/div/div/div/div[6]/div/div[4]/div/i")));
+            until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[1]/div[3]/div/div/div/div[4]/div/div[4]/div/i")));
     new WebDriverWait(wd, 1).
-            until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[1]/div[3]/div/div/div/div[6]/div/div[5]/div/i")));
+            until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[1]/div[3]/div/div/div/div[4]/div/div[5]/div/i")));
     click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//a[@href='/lk/users']"));
     click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("/html/body/div[1]/div/div/div[2]/div[1]/div[3]/div/div/div/div[6]/div/div[1]"));
+    click(By.xpath("//div[@class='fd-table']/div[4]/div/div[1]"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[1]/div[1]/div/div[2]/div/div[2]/div[1]/div[1]/div/div/input"));
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[1]/div[1]/div/div[2]/div/div[2]/div[1]/div[2]/div/div/input"));
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[1]/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/div/div/input"));
     click(By.xpath("/html/body/div[1]/div/div/div[2]/div[1]/div[1]/div/div[1]/i"));
     new WebDriverWait(wd, 1).
-            until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[1]/div[3]/div/div/div/div[6]/div/div[3]/div/i")));
+            until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[1]/div[3]/div/div/div/div[4]/div/div[3]/div/i")));
     new WebDriverWait(wd, 1).
-            until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[1]/div[3]/div/div/div/div[6]/div/div[4]/div/i")));
+            until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[1]/div[3]/div/div/div/div[4]/div/div[4]/div/i")));
     new WebDriverWait(wd, 1).
-            until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[1]/div[3]/div/div/div/div[6]/div/div[5]/div/i")));
+            until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[1]/div[3]/div/div/div/div[4]/div/div[5]/div/i")));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
     click(By.linkText("Выйти"));
@@ -3751,14 +3751,14 @@ public class NavigationHelper extends HelperBase {
   public void checkHelpOldUser()throws InterruptedException {
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//*[text()='yaschenko@ofd.ru']"));
-    TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[1]"));
+    TimeUnit.SECONDS.sleep(2);
+    click(By.xpath("//*[text()='OOO PHOENIX']"));
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//*[text()='yaschenko@ofd.ru']"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//ul[@class='header-profile-nav-links']/li[3]"));
     TimeUnit.SECONDS.sleep(4);
-    assertThat(wd.findElement(By.xpath("//div[@id='doc-page']/div[1]//span")).getText(),
+    assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[1]/div[1]/div/div[1]/div[2]/span/span")).getText(),
               equalTo("Ваши закрывающие документы"));
     click(By.xpath("//div[@id='doc-page']/div[13]/div[1]/a"));
     TimeUnit.SECONDS.sleep(2);

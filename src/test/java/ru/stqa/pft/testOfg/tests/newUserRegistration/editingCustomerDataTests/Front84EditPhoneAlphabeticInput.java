@@ -9,8 +9,8 @@ public class Front84EditPhoneAlphabeticInput extends TestBase {
 
   @Test
   public void testEditPhoneAlphabeticInput() throws InterruptedException {
-    String email = "zhanchikov@ofd.ru";
-    String password = "12345";
+    String email = "user1527069419291@yopmail.com";
+    String password = "123";
     PersonalInformationUserData personalInformationUserData = new PersonalInformationUserData().withPhone("89cbvbc02r1bvbcb1122b55");
 
     app.getNavigationHelper().loginToSystem(email, password);

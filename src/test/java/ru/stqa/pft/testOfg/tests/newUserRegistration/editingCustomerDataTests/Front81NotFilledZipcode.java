@@ -12,8 +12,8 @@ public class Front81NotFilledZipcode extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() throws InterruptedException {
-    String email = "zhanchikov@ofd.ru";
-    String password = "12345";
+    String email = "user1527069419291@yopmail.com";
+    String password = "123";
 
     app.getNavigationHelper().loginToSystem(email, password);
     app.getNavigationHelper().goToProfileEdit();

@@ -9,8 +9,8 @@ public class Front83EditPhone extends TestBase {
 
   @Test
   public void testEditPhone() throws InterruptedException {
-    String email = "zhanchikov@ofd.ru";
-    String password = "12345";
+    String email = "user1527069419291@yopmail.com";
+    String password = "123";
     PersonalInformationUserData personalInformationUserData = new PersonalInformationUserData().withPhone("89021112255");
     PersonalInformationUserData personalInformationUserData2 = new PersonalInformationUserData().withPhone("89664441188");
 

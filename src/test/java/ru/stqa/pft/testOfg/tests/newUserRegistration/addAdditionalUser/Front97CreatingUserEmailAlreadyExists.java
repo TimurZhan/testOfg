@@ -9,8 +9,8 @@ public class Front97CreatingUserEmailAlreadyExists extends TestBase {
   @Test(enabled = true)
   public void testEmailAlreadyExists() throws InterruptedException {
     String email = "user1497865190220@yopmail.com";
-    String email2 = "zhanchikov@ofd.ru";
-    String password = "12345";
+    String email2 = "user1527069419291@yopmail.com";
+    String password = "123";
 
     app.getNavigationHelper().loginToSystem(email2, password);
     app.getNavigationHelper().addAdditionalUser2(email);
