@@ -107,7 +107,7 @@ public class DbHelper {
     Connection conn = null;
     conn = DriverManager.getConnection("jdbc:sqlserver://tst-sql-1","sa","yeisrkm21");
     Statement st = conn.createStatement();
-    ResultSet resultSet = st.executeQuery("SELECT TOP (1) Source FROM Manul_Notification.dbo.Queue WHERE [To] = '"+email+"' ORDER BY UDateUtc");
+    ResultSet resultSet = st.executeQuery("SELECT TOP (1) Source FROM Manul_Notification.dbo.Queue WHERE [To] = '"+email+"' ORDER BY CDateUtc");
     while (resultSet.next()){
       String Source = resultSet.getString("Source");
       return Source;

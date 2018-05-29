@@ -290,7 +290,7 @@ public class NavigationHelper extends HelperBase {
 
   public void clickTabsMainPage() throws InterruptedException {
     TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//div[@id='jivo_close_button']"));
+    //click(By.xpath("//div[@id='jivo_close_button']"));
     click(By.xpath("//a[@class='btn btn-border-fade pull-right']"));
     TimeUnit.SECONDS.sleep(1);
     Assert.assertTrue(isElementVisible(By.linkText("Проверить чек")));
@@ -338,7 +338,7 @@ public class NavigationHelper extends HelperBase {
     click(By.linkText("Разработчикам"));
     TimeUnit.SECONDS.sleep(1);
     assertThat(wd.findElement(By.xpath("//div[@class='section']/div[3]/h1")).getText(),
-            equalTo("API для сверки с оператором фискальных данных OFD.RU"));
+            equalTo("Программный интерфейс приложений (API) для сверки документов с оператором фискальных данных OFD.RU"));
     click(By.xpath("//a[@class='btn btn-border-fade pull-right']"));
     TimeUnit.SECONDS.sleep(1);
 
@@ -352,7 +352,7 @@ public class NavigationHelper extends HelperBase {
     click(By.linkText("База знаний"));
     TimeUnit.SECONDS.sleep(1);
     assertThat(wd.findElement(By.xpath("//div[@class='container']/h1")).getText(),
-            equalTo("База знаний OFD.RU"));
+            equalTo("База знаний OFD.ru"));
 
     click(By.xpath("//a[@class='logo']"));
     TimeUnit.SECONDS.sleep(1);
@@ -1169,9 +1169,9 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void confirmRegOnSite(String email, String password) throws InterruptedException {
-    type(By.xpath("//div[@id='Modal-user-lk']//input[@name='Login']"), email);
-    type(By.xpath("//div[@id='Modal-user-lk']//input[@name='Password']"), password);
-    click(By.xpath("//div[@id='Modal-user-lk']//button[@type='submit']"));
+    type1(By.name("Login"), email);
+    type1(By.name("Password"), password);
+    click(By.cssSelector("button.analytics-loginstep1"));
     TimeUnit.SECONDS.sleep(10);
     assertThat(wd.findElement(By.xpath("//span[@class='caption']")).getText(),
             equalTo("ЛИЧНЫЙ КАБИНЕТ ПАРТНЁРА"));
@@ -2617,7 +2617,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void authAccountManager(String email, String password) throws InterruptedException {
-    wd.get("http://test.ofd.ru/mk/login");
+    wd.get("https://demo.ofd.ru/mk/login");
     TimeUnit.SECONDS.sleep(6);
     type1(By.id("Login"), email);
     type1(By.id("Password"), password);
@@ -2630,7 +2630,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void authIncorrectEmail(String email, String password) throws InterruptedException {
-    wd.get("http://test.ofd.ru/mk/login");
+    wd.get("https://demo.ofd.ru/mk/login");
     TimeUnit.SECONDS.sleep(6);
     type1(By.id("Login"), email);
     type1(By.id("Password"), password);
@@ -2640,7 +2640,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void authIncorrectPassword(String email, String password) throws InterruptedException {
-    wd.get("http://test.ofd.ru/mk/login");
+    wd.get("https://demo.ofd.ru/mk/login");
     TimeUnit.SECONDS.sleep(6);
     type1(By.id("Login"), email);
     type1(By.id("Password"), password);
@@ -2651,7 +2651,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void authIncorrectUser(String email, String password) throws InterruptedException {
-    wd.get("http://test.ofd.ru/mk/login");
+    wd.get("https://demo.ofd.ru/mk/login");
     TimeUnit.SECONDS.sleep(6);
     type1(By.id("Login"), email);
     type1(By.id("Password"), password);
@@ -2663,7 +2663,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterByINN() throws InterruptedException {
     TimeUnit.SECONDS.sleep(5);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(5);
     type1(By.xpath("//input[@id='Inn']"), "7724261610");
     click(By.xpath("//button[@type='submit']"));
@@ -2678,7 +2678,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterByINNPartner() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='PartnerInn']"), "5403341203");
     click(By.xpath("//button[@type='submit']"));
@@ -2691,7 +2691,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterByFN() throws InterruptedException {
     TimeUnit.SECONDS.sleep(5);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='FnNumber']"), "0000099990789199");
     click(By.xpath("//button[@type='submit']"));
@@ -2708,7 +2708,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterIncorrectFN() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='FnNumber']"), "0030099990789199");
     click(By.xpath("//button[@type='submit']"));
@@ -2721,7 +2721,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterCashNumber() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='KktSerialNumber']"), "0493006104");
     click(By.xpath("//button[@type='submit']"));
@@ -2737,7 +2737,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterIncorrectCashNumber() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='KktSerialNumber']"), "0493556104");
     click(By.xpath("//button[@type='submit']"));
@@ -2750,7 +2750,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterRegnumber() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='KktRegNumber']"), "6125313683395011");
     click(By.xpath("//button[@type='submit']"));
@@ -2766,7 +2766,7 @@ public class NavigationHelper extends HelperBase {
 
   public void fieldFilterInvoiceNumber() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     TimeUnit.SECONDS.sleep(8);
     type1(By.xpath("//input[@id='BillNumber']"), "071002580603-23");
     click(By.xpath("//button[@type='submit']"));
@@ -2780,7 +2780,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkCheckSidebar() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//ng-component/div/div/div[3]/div[1]/div[5]/div[11]/a"));
@@ -2817,7 +2817,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkSectionActions() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     type1(By.id("FnNumber"), "6365864135553052");
@@ -2858,7 +2858,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkSectionDocIncorrectDoc() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     type1(By.id("KktSerialNumber"), "0493006104");
@@ -2891,7 +2891,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkSectionDocWhereDocIsNull() throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk");
+    wd.get("https://demo.ofd.ru/mk");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     type1(By.id("KktSerialNumber"), "0493006104");
@@ -2923,7 +2923,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkClientsTab() throws InterruptedException {
-    wd.get("http://test.ofd.ru/mk/clients");
+    wd.get("https://demo.ofd.ru/mk/clients");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("/html/body/app/div/header/div/div/div[1]/a[3]"));
@@ -2953,7 +2953,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAddNewUserIndividMerch(String email, String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk/clients");
+    wd.get("https://demo.ofd.ru/mk/clients");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -2982,7 +2982,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAddNewUserlegalEntity(String email, String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(2);
-    wd.get("http://test.ofd.ru/mk/clients");
+    wd.get("https://demo.ofd.ru/mk/clients");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -3010,7 +3010,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAddNewUserIncorrectINN(String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(2);
-    wd.get("http://test.ofd.ru/mk/clients?PageCount=100");
+    wd.get("https://demo.ofd.ru/mk/clients");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(8);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -3023,7 +3023,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAddNewUserCorrectINN(String email, String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(2);
-    wd.get("http://test.ofd.ru/mk/clients");
+    wd.get("https://demo.ofd.ru/mk/clients");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(10);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -3059,7 +3059,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAddNewUserIncorrectZipcode(String email, String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk/clients?");
+    wd.get("https://demo.ofd.ru/mk/clients");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(5);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -3085,7 +3085,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkUserAlreadyExists(String email, String inn) throws InterruptedException {
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk/clients?");
+    wd.get("https://demo.ofd.ru/mk/clients");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(5);
     click(By.cssSelector("div.ofd-col-4 button.ofd-button"));
@@ -3116,7 +3116,7 @@ public class NavigationHelper extends HelperBase {
 
   public void checkAdditionConditions(String conNum) throws InterruptedException {
     TimeUnit.SECONDS.sleep(6);
-    wd.get("http://test.ofd.ru/mk/clients");
+    wd.get("https://demo.ofd.ru/mk/clients");
     //wd.manage().window().maximize();
     TimeUnit.SECONDS.sleep(10);
     type1(By.id("filter"), "dsf@sdsdg.ru\n");
@@ -3160,7 +3160,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//span[@class='ofd-text ofd-text_m ofd-text_orange ofd-margin-right-10 ofd-pointer']"));
     TimeUnit.SECONDS.sleep(3);
-    wd.get("http://test.ofd.ru/mk/clients");
+    wd.get("https://demo.ofd.ru/mk/clients");
     TimeUnit.SECONDS.sleep(10);
     type1(By.id("filter"), "dsf@sdsdg.ru\n");
     TimeUnit.SECONDS.sleep(2);
@@ -3384,7 +3384,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[20]"));
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/balance']"));
     scrollToItem(By.xpath("//app-balance/div[2]/mat-tab-group/mat-tab-header/div[2]/div/div/div[1]"));
@@ -3434,14 +3434,14 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[20]"));
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/clients']"));
     type(By.name("searchString"), "631810\n");
     TimeUnit.SECONDS.sleep(3);
     assertThat(wd.findElement(By.xpath("//span[@class='companyname']")).getText(),
             equalTo("ЗАО \"РИКОН\""));
-    type(By.name("searchString"), "рога\n");
+    type(By.name("searchString"), "копыта\n");
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//span[@class='companyname']")).getText(),
             equalTo("РОга и КОпыта"));
@@ -3485,7 +3485,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[20]"));
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/clients']"));
     click(By.xpath("//a[@href='/clients/add']"));
@@ -3538,14 +3538,14 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[20]"));
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/kkt']"));
     TimeUnit.SECONDS.sleep(1);
     click(By.xpath("//app-list-table/div/div/mat-accordion/mat-table/mat-header-row/mat-header-cell[1]"));
     TimeUnit.SECONDS.sleep(3);
     assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[3]")).getText(),
-            equalTo("ИрискаПро"));
+            equalTo("Ириска"));
     click(By.xpath("//app-list-table/div/div/mat-accordion/mat-table/mat-header-row/mat-header-cell[2]"));
     TimeUnit.SECONDS.sleep(2);
     assertThat(wd.findElement(By.xpath("//mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-row/mat-cell[2]/span[2]")).getText(),
@@ -3649,7 +3649,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[20]"));
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/codes']"));
     TimeUnit.SECONDS.sleep(3);
@@ -3711,7 +3711,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[20]"));
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/codes']"));
     TimeUnit.SECONDS.sleep(3);
@@ -3832,7 +3832,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[20]"));
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/codes']"));
     TimeUnit.SECONDS.sleep(3);
@@ -3862,7 +3862,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[20]"));
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/codes']"));
     TimeUnit.SECONDS.sleep(3);
@@ -3891,7 +3891,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[20]"));
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/kkt']"));
     TimeUnit.SECONDS.sleep(1);
@@ -3932,7 +3932,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[20]"));
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/docs']"));
     TimeUnit.SECONDS.sleep(2);
@@ -3950,7 +3950,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[20]"));
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//a[@href='/help']"));
     TimeUnit.SECONDS.sleep(2);
@@ -3968,7 +3968,7 @@ public class NavigationHelper extends HelperBase {
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
     TimeUnit.SECONDS.sleep(1);
-    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[19]"));
+    click(By.xpath("//ul[@class='header-profile-nav-accounts']/li[20]"));
     TimeUnit.SECONDS.sleep(5);
     click(By.xpath("//div[@class='mat-toolbar-layout']//button[@class='mat-button']"));
     TimeUnit.SECONDS.sleep(1);
