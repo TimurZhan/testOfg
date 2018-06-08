@@ -13,8 +13,8 @@ public class Front161CreateNewUser extends TestBase {
   public void test_CreateNewUser () throws InterruptedException, IOException, SQLException {
     long now = System.currentTimeMillis();
     String email2 = String.format("user%s@yopmail.com", now);
-    String email1 = "yaschenko@ofd.ru";
-    String password = "121288";
+    String email1 = "zhanchikov@ofd.ru";
+    String password = "12345";
     String inn = "7702386245";
     System.out.println(email2);
 

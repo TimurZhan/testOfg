@@ -119,7 +119,7 @@ public class DbHelper {
 
   public void sendPOSTRequestForChangePassword(String email, String password2) throws SQLException, IOException, InterruptedException {
     String code = getCodeUser(email);
-    Request.Post("https://dev.ofd.ru/api/userAccounts/ChangePassword").bodyForm(
+    Request.Post("https://demo.ofd.ru/api/userAccounts/ChangePassword").bodyForm(
             new BasicNameValuePair("Email", email),
             new BasicNameValuePair("ConfirmationCode", code),
             new BasicNameValuePair("NewPassword", password2)
@@ -127,13 +127,13 @@ public class DbHelper {
   }
 
   public void sendPOSTRequestForChangeEmail(String email1, String email2, String password) throws SQLException, IOException, InterruptedException {
-    HttpResponse httpResponse1 = Request.Post("https://dev.ofd.ru/api/userAccounts/sendEmailChangeConfirmationCode").bodyForm(
+    HttpResponse httpResponse1 = Request.Post("https://demo.ofd.ru/api/userAccounts/sendEmailChangeConfirmationCode").bodyForm(
             new BasicNameValuePair("Email", email2),
             new BasicNameValuePair("Password", password)
     ).execute().returnResponse();
 
     String code = getCodeUser(email2);
-    HttpResponse httpResponse2 = Request.Post("https://dev.ofd.ru/api/userAccounts/changeEmail").bodyForm(
+    HttpResponse httpResponse2 = Request.Post("https://demo.ofd.ru/api/userAccounts/changeEmail").bodyForm(
             new BasicNameValuePair("Email", email2),
             new BasicNameValuePair("ConfirmationCode", code)
     ).execute().returnResponse();
@@ -141,7 +141,7 @@ public class DbHelper {
 
 
   public void sendPOSTRequestForLinkFormation(String email) throws SQLException, IOException {
-    Request.Post("https://dev.ofd.ru/api/userAccounts/SendPasswordChangeConfirmationCode").bodyForm(
+    Request.Post("https://demo.ofd.ru/api/userAccounts/SendPasswordChangeConfirmationCode").bodyForm(
             new BasicNameValuePair("Email", email)
     ).execute();
   }
@@ -150,35 +150,7 @@ public class DbHelper {
   public void sendGETRequestForRegConfirm(String email) throws SQLException, IOException {
     String id = getIdUser(email);
     String code = getCodeUser(email);
-    Request.Get("https://dev.ofd.ru/api/Authorization/ConfirmRegistration?AccountId="+id+"&ConfirmCode="+code).execute();
+    Request.Get("https://demo.ofd.ru/api/Authorization/ConfirmRegistration?AccountId="+id+"&ConfirmCode="+code).execute();
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
