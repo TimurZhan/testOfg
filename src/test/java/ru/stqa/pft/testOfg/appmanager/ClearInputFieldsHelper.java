@@ -11,12 +11,12 @@ public class ClearInputFieldsHelper extends HelperBase {
   }
 
   public void editClearInputFieldsHelper(LegalAddressData legalAddressData) {
-    type1(By.xpath("//input[@name='PostalCode']"), legalAddressData.getIndex());
-    type1(By.xpath("//input[@name='Locality']"), legalAddressData.getLocality());
-    type1(By.xpath("//input[@name='Street']"), legalAddressData.getStreet());
-    type1(By.xpath("//input[@name='House']"), legalAddressData.getHouse());
-    type1(By.xpath("//input[@name='Block']"), legalAddressData.getBlock());
-    type1(By.xpath("//input[@name='Flat']"), legalAddressData.getFlat());
+    type(By.xpath("//input[@name='PostalCode']"), legalAddressData.getIndex());
+    type(By.xpath("//input[@name='Locality']"), legalAddressData.getLocality());
+    type(By.xpath("//input[@name='Street']"), legalAddressData.getStreet());
+    type(By.xpath("//input[@name='House']"), legalAddressData.getHouse());
+    type(By.xpath("//input[@name='Block']"), legalAddressData.getBlock());
+    type(By.xpath("//input[@name='Flat']"), legalAddressData.getFlat());
   }
 
 }

@@ -12,12 +12,12 @@ public class CoincidenceLegalPostalAddressHelper extends HelperBase {
   }
 
   public void editCoincidenceLegalPostalAddress(LegalAddressData legalAddressData) {
-    type(By.xpath("//input[@name='PostalCode']"), legalAddressData.getIndex());
-    type(By.xpath("//input[@name='Locality']"), legalAddressData.getLocality());
-    type(By.xpath("//input[@name='Street']"), legalAddressData.getStreet());
-    type(By.xpath("//input[@name='House']"), legalAddressData.getHouse());
-    type(By.xpath("//input[@name='Block']"), legalAddressData.getBlock());
-    type(By.xpath("//input[@name='Flat']"), legalAddressData.getFlat());
+    type1(By.xpath("//input[@name='PostalCode']"), legalAddressData.getIndex());
+    type1(By.xpath("//input[@name='Locality']"), legalAddressData.getLocality());
+    type1(By.xpath("//input[@name='Street']"), legalAddressData.getStreet());
+    type1(By.xpath("//input[@name='House']"), legalAddressData.getHouse());
+    type1(By.xpath("//input[@name='Block']"), legalAddressData.getBlock());
+    type1(By.xpath("//input[@name='Flat']"), legalAddressData.getFlat());
     click(By.xpath("//input[@type='checkbox']"));
   }
 

@@ -23,7 +23,7 @@ public class Front96CreatingAdditionalUser extends TestBase {
     app.getNavigationHelper().addAdditionalUser(email);
     String id = app.db().getIdUser(email);
     String code1 = app.db().getCodeUser(email);
-    Request.Get("https://dev.ofd.ru/api/Authorization/ConfirmRegistration?AccountId="+id+"&ConfirmCode="+code1).execute();
+    Request.Get("https://demo.ofd.ru/api/Authorization/ConfirmRegistration?AccountId="+id+"&ConfirmCode="+code1).execute();
     app.getNavigationHelper().checkUserConfirmation(email);
   }
 
