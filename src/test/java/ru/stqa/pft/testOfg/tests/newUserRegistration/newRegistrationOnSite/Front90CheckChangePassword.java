@@ -21,7 +21,7 @@ public class Front90CheckChangePassword extends TestBase {
     app.getNavigationHelper().newCustomerRegistration(email, password1);
     app.db().sendGETRequestForRegConfirm(email);
     app.getNavigationHelper().confirmationRegistration(email, password1);
-    app.getNavigationHelper().replaceForgotPassword(email);
+    app.getNavigationHelper().replaceForgotPassword1(email);
     app.db().sendPOSTRequestForChangePassword(email, password2);
     app.getNavigationHelper().confirmForgotPassword(email, password2);
   }
