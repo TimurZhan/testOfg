@@ -28,3 +28,4 @@ public class Front156PartnerReg extends TestBase {
   }
 
 }
+

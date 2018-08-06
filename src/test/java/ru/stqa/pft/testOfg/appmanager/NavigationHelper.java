@@ -491,7 +491,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void loginAccount() throws InterruptedException {
-    wd.get("https://demo.ofd.ru/");
+    wd.get("https://dev.ofd.ru/");
     TimeUnit.SECONDS.sleep(3);
     //click(By.id("jivo_close_button"));
     //TimeUnit.SECONDS.sleep(1);
@@ -1187,6 +1187,7 @@ public class NavigationHelper extends HelperBase {
 
   public void confirmRegOnSite(String email, String password) throws InterruptedException {
     click(By.xpath("//section[@class='promo__banner']//button[2]"));
+    TimeUnit.SECONDS.sleep(1);
     type1(By.xpath("//input[@formcontrolname='login']"), email);
     type1(By.xpath("//input[@formcontrolname='password']"), password);
     click(By.xpath("//button[@type='submit']"));
