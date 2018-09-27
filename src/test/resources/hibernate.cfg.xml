@@ -15,9 +15,9 @@
 
         <!-- Database connection settings -->
         <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-        <property name="connection.url">jdbc:sqlserver://wifimenu.cj57wuvexwcc.eu-central-1.rds.amazonaws.com</property>
-        <property name="connection.username">sa</property>
-        <property name="connection.password">yeisrkm21</property>
+        <property name="connection.url">jdbc:sqlserver://тестовая база</property>
+        <property name="connection.username">юзер</property>
+        <property name="connection.password">пароль</property>
 
         <!-- JDBC connection pool (use the built-in) -->
         <property name="connection.pool_size">1</property>
