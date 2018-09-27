@@ -14,9 +14,9 @@ public class DbConnetionTest {
     Connection conn = null;
 
     try {
-      conn = DriverManager.getConnection("jdbc:sqlserver://wifimenu.cj57wuvexwcc.eu-central-1.rds.amazonaws.com","sa","yeisrkm21");
+      conn = DriverManager.getConnection("jdbc:sqlserver://тестовая база","юзер","пароль");
       Statement st = conn.createStatement();
-      ResultSet resultSet = st.executeQuery("select Id from [Manul_UserAccounts].[dbo].[UserAccount] where LoginEmail = 'zhanchikov@ofd.ru'");
+      ResultSet resultSet = st.executeQuery("select Id from [Manul_UserAccounts].[dbo].[UserAccount] where LoginEmail = 'Тестовое мыло'");
       while (resultSet.next()){
         System.out.println(resultSet.getRow()+ ". "
                 + resultSet.getString("Id"));
@@ -38,9 +38,9 @@ public class DbConnetionTest {
     Connection conn = null;
 
     try {
-      conn = DriverManager.getConnection("jdbc:sqlserver://wifimenu.cj57wuvexwcc.eu-central-1.rds.amazonaws.com","sa","yeisrkm21");
+      conn = DriverManager.getConnection("jdbc:sqlserver://тестовая база","юзер","пароль");
       Statement st = conn.createStatement();
-      ResultSet resultSet = st.executeQuery("select Code from [Manul_UserAccounts].[dbo].[UserConfirmCode] where UserAccountId in (select Id from [Manul_UserAccounts].[dbo].[UserAccount] where LoginEmail = 'zhanchikov@ofd.ru') and Reason = 'Email'");
+      ResultSet resultSet = st.executeQuery("select Code from [Manul_UserAccounts].[dbo].[UserConfirmCode] where UserAccountId in (select Id from [Manul_UserAccounts].[dbo].[UserAccount] where LoginEmail = 'тестовое мыло') and Reason = 'Email'");
       while (resultSet.next()){
         System.out.println(resultSet.getRow()+ ". "
                 + resultSet.getString("Code"));
@@ -61,7 +61,7 @@ public class DbConnetionTest {
   @Test(enabled = true)
   public void addUserInDB1() throws SQLException {
     Connection conn = null;
-    conn = DriverManager.getConnection("jdbc:sqlserver://wifimenu.cj57wuvexwcc.eu-central-1.rds.amazonaws.com", "sa", "yeisrkm21");
+    conn = DriverManager.getConnection("jdbc:sqlserver://тестовая база","юзер","пароль");
     String insrtSQL = "update Manul_UserAccounts.dbo.UserAccount set Deleted = 0 where LoginEmail = 'userofd12345@yopmail.com'";
     PreparedStatement resultSet = conn.prepareStatement(insrtSQL);
     resultSet.executeUpdate();
@@ -73,7 +73,7 @@ public class DbConnetionTest {
   @Test(enabled = true)
   public void sendGETRequest1() throws SQLException, IOException, InterruptedException {
     HttpResponse httpResponse1 =
-            Request.Get("http://test.ofd.ru/api/Authorization/Register?Email=ofdru2@yopmail.com&ExplicitPassword=123&Phone=89024567667&FirstName=Testovv?&LastName=Test?&UserType=Partner").
+            Request.Get("http://test.dof.ru/api/Authorization/Register?Email=ofdru2@yopmail.com&ExplicitPassword=123&Phone=89024567667&FirstName=Testovv?&LastName=Test?&UserType=Partner").
             execute().returnResponse();
 
     //После выполнения данного ГЕТзапроса, нужно перейти в базу и ручками выполнить СКЛ запрос на получение ID юзера и запрос на получение КОНФИРМ КОДА
@@ -83,7 +83,7 @@ public class DbConnetionTest {
   @Test(enabled = true)
   public void sendGETRequest2() throws SQLException, IOException, InterruptedException {
     HttpResponse httpResponse1 =
-            Request.Get("http://test.ofd.ru/api/Authorization/ConfirmRegistration?AccountId=90B67B86-74E7-4ACA-9C33-564CC5C14A7B&ConfirmCode=997571").
+            Request.Get("http://test.dof.ru/api/Authorization/ConfirmRegistration?AccountId=90B67B86-74E7-4ACA-9C33-564CC5C14A7B&ConfirmCode=997571").
                     execute().returnResponse();
   }
 
