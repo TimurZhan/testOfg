@@ -6,16 +6,16 @@
     <!--- Набор тестов из папки PartnerOffice/FillingFormOfPartner -->
     <test name="checkPartnerOfficeFillingFormOfPartner">
         <classes>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.fillingFormOfPartner.Front110PartnerRegistrationPostpaid"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.fillingFormOfPartner.Front111PostpaidInnAlreadyExists"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.fillingFormOfPartner.Front41FormOfPartner"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.fillingFormOfPartner.Front46RegistrationlegalEntity"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.fillingFormOfPartner.Front47VerificationSignature"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.fillingFormOfPartner.Front50InvalidContractNumber"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.fillingFormOfPartner.Front94InnNotInDatabase"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.fillingFormOfPartner.Front95CheckIncorrectINN"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.fillingFormOfPartner.Front98ContractNotSigned"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.fillingFormOfPartner.Front99TabCustomersAndCash"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.fillingFormOfPartner.Front110PartnerRegistrationPostpaid"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.fillingFormOfPartner.Front111PostpaidInnAlreadyExists"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.fillingFormOfPartner.Front41FormOfPartner"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.fillingFormOfPartner.Front46RegistrationlegalEntity"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.fillingFormOfPartner.Front47VerificationSignature"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.fillingFormOfPartner.Front50InvalidContractNumber"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.fillingFormOfPartner.Front94InnNotInDatabase"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.fillingFormOfPartner.Front95CheckIncorrectINN"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.fillingFormOfPartner.Front98ContractNotSigned"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.fillingFormOfPartner.Front99TabCustomersAndCash"/>
         </classes>
     </test>
 

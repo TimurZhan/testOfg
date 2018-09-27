@@ -15,15 +15,15 @@ public class Front96CreatingAdditionalUser extends TestBase {
     long now = System.currentTimeMillis();
     String user = String.format("user%s", now);
     String email = String.format(user + "@yopmail.com");
-    String email2 = "user1527069419291@yopmail.com";
-    String password = "123";
+    String email2 = "zhanchikov@ofd.ru";
+    String password = "12345";
     System.out.println(email);
 
     app.getNavigationHelper().loginToSystem(email2, password);
     app.getNavigationHelper().addAdditionalUser(email);
     String id = app.db().getIdUser(email);
     String code1 = app.db().getCodeUser(email);
-    Request.Get("https://demo.ofd.ru/api/Authorization/ConfirmRegistration?AccountId="+id+"&ConfirmCode="+code1).execute();
+    Request.Get("https://dev.ofd.ru/api/Authorization/ConfirmRegistration?AccountId="+id+"&ConfirmCode="+code1).execute();
     app.getNavigationHelper().checkUserConfirmation(email);
   }
 

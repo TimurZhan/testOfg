@@ -1,4 +1,4 @@
-package ru.stqa.pft.testOfg.tests.partnerOffice.entranceToPartnerOffice;
+package ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.entranceToPartnerOffice;
 
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;

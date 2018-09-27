@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.BrowserType;
 
 import java.io.File;
@@ -52,7 +53,9 @@ public class ApplicationManager {
       wd = new ChromeDriver();
       wd.manage().window().maximize();
     } else if (Objects.equals(browser, BrowserType.OPERA_BLINK)){
-      wd = new OperaDriver();
+      OperaOptions oo = new OperaOptions();
+      oo.setBinary("C:\\Program Files\\Opera\\55.0.2994.44\\opera.exe");
+      wd = new OperaDriver(oo);
   }
 
     wd.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);

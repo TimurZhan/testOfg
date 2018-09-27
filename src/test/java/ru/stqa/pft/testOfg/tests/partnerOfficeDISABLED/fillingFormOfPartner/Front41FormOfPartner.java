@@ -1,4 +1,4 @@
-package ru.stqa.pft.testOfg.tests.partnerOffice.fillingFormOfPartner;
+package ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.fillingFormOfPartner;
 
 import org.apache.http.client.fluent.Request;
 import org.testng.annotations.Test;

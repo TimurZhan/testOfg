@@ -1,4 +1,4 @@
-package ru.stqa.pft.testOfg.tests.partnerOffice.entranceToPartnerOffice;
+package ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.entranceToPartnerOffice;
 
 import org.testng.annotations.Test;
 import ru.stqa.pft.testOfg.tests.TestBase;

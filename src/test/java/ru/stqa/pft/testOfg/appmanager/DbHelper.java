@@ -77,8 +77,8 @@ public class DbHelper {
     Connection conn = null;
     conn = DriverManager.getConnection("jdbc:sqlserver://tst-sql-2","sa","bmXMOM36jgvayt1JyxgC");
     Statement st = conn.createStatement();
-    ResultSet resultSet = st.executeQuery("select Code from Manul_UserAccounts.dbo.UserConfirmCode " +
-            "where UserAccountId in (select Id from Manul_UserAccounts.dbo.UserAccount where LoginEmail = '"+email+"') and Reason = 'Email'");
+    ResultSet resultSet = st.executeQuery("SELECT Code FROM [Manul_UserAccounts].[dbo].[UserConfirmCode] where UserAccountId in \n" +
+            "(SELECT Id FROM [Manul_UserAccounts].[dbo].[UserAccount] where LoginEmail = '"+email+"') and Reason = 'Email'");
     while (resultSet.next()){
       String code = resultSet.getString("Code");
       return code;
@@ -109,7 +109,8 @@ public class DbHelper {
     Connection conn = null;
     conn = DriverManager.getConnection("jdbc:sqlserver://tst-sql-2","sa","bmXMOM36jgvayt1JyxgC");
     Statement st = conn.createStatement();
-    ResultSet resultSet = st.executeQuery("SELECT TOP (1) Source FROM Manul_Notification.dbo.Queue WHERE [To] = '"+email+"' ORDER BY CDateUtc");
+    ResultSet resultSet = st.executeQuery("SELECT TOP (1) Source FROM Manul_Notification.dbo.Queue " +
+                                          "WHERE [To] = '"+email+"' ORDER BY CDateUtc");
     while (resultSet.next()){
       String Source = resultSet.getString("Source");
       return Source;

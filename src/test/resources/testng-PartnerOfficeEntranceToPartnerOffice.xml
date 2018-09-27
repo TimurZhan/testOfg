@@ -6,16 +6,16 @@
     <!--- Набор тестов из папки PartnerOffice/EntranceToPartnerOffice -->
     <test name="checkPartnerOfficeEntranceToPartnerOffice">
         <classes>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.entranceToPartnerOffice.Front36NewPartnerRegistration"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.entranceToPartnerOffice.Front37PartnerAlreadyRegistered"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.entranceToPartnerOffice.Front38PartnerRegistrationEmptyPhoneField"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.entranceToPartnerOffice.Front39PartnerRegistrationEmptyPasswordField"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.entranceToPartnerOffice.Front40PartnerRegistrationEmptyAllFields"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.entranceToPartnerOffice.Front42EntranceToPartnerOffice"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.entranceToPartnerOffice.Front43EntranceToPartnerOfIncorrectEmail"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.entranceToPartnerOffice.Front44UnregisteredUser"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.entranceToPartnerOffice.Front45EmptyPassword"/>
-            <class name="ru.stqa.pft.testOfg.tests.partnerOffice.entranceToPartnerOffice.Front93ChangePassword"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.entranceToPartnerOffice.Front36NewPartnerRegistration"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.entranceToPartnerOffice.Front37PartnerAlreadyRegistered"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.entranceToPartnerOffice.Front38PartnerRegistrationEmptyPhoneField"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.entranceToPartnerOffice.Front39PartnerRegistrationEmptyPasswordField"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.entranceToPartnerOffice.Front40PartnerRegistrationEmptyAllFields"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.entranceToPartnerOffice.Front42EntranceToPartnerOffice"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.entranceToPartnerOffice.Front43EntranceToPartnerOfIncorrectEmail"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.entranceToPartnerOffice.Front44UnregisteredUser"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.entranceToPartnerOffice.Front45EmptyPassword"/>
+            <class name="ru.stqa.pft.testOfg.tests.partnerOfficeDISABLED.entranceToPartnerOffice.Front93ChangePassword"/>
         </classes>
     </test>
 

@@ -122,7 +122,7 @@ public class NavigationHelper extends HelperBase {
 
   public void clickButtonConnect() throws InterruptedException {
     TimeUnit.SECONDS.sleep(1);
-    click(By.cssSelector("div.middletext button.connect-button"));
+    click(By.xpath("//a[@href='/login']"));
     TimeUnit.SECONDS.sleep(1);
   }
 
@@ -405,18 +405,17 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void checkEmailWhenRegistering() throws InterruptedException {
-    type1(By.id("Email"), "rt5b&de@mail.ru");
-    click(By.xpath("//button[@class='btn btn-primary btn-shadow ofd-form__button analytics-regstep1']"));
-    assertThat(wd.findElement(By.xpath("//div[@id='Modal-user-reg']/div[2]/div/div[2]/form/div[1]/div/div[1]/div")).getText(), equalTo("Неверный формат E-Mail"));
-    clear(By.id("Email"));
-    type1(By.id("Email"), " ");
-    click(By.xpath("//button[@class='btn btn-primary btn-shadow ofd-form__button analytics-regstep1']"));
-    assertThat(wd.findElement(By.xpath("//div[@id='Modal-user-reg']/div[2]/div/div[2]/form/div[1]/div/div[1]/div")).getText(), equalTo("Поле обязательно для заполнения"));
-    clear(By.id("Email"));
-    type1(By.id("Email"), "rt5b&demail.ru");
-    click(By.xpath("//button[@class='btn btn-primary btn-shadow ofd-form__button analytics-regstep1']"));
-    assertThat(wd.findElement(By.xpath("//div[@id='Modal-user-reg']/div[2]/div/div[2]/form/div[1]/div/div[1]/div")).getText(), equalTo("Неверный формат E-Mail"));
-    click(By.xpath("//div[@id='Modal-user-reg']//div[@class='close']"));
+    type1(By.name("email"), "rt5b&de@mail.ru");
+    click(By.xpath("//section/div/div/form/div[5]/div[2]/button"));
+    assertThat(wd.findElement(By.xpath("//section/div/div/form/div[2]/div/div")).getText(), equalTo("Неверный формат E-Mail"));
+    clear(By.name("email"));
+    type1(By.name("email"), " ");
+    click(By.xpath("//section/div/div/form/div[5]/div[2]/button"));
+    assertThat(wd.findElement(By.xpath("//section/div/div/form/div[2]/div/div")).getText(), equalTo("Поле обязательно для заполнения"));
+    clear(By.name("email"));
+    type1(By.name("email"), "rt5b&demail.ru");
+    click(By.xpath("//section/div/div/form/div[5]/div[2]/button"));
+    assertThat(wd.findElement(By.xpath("//section/div/div/form/div[2]/div/div")).getText(), equalTo("Неверный формат E-Mail"));
     TimeUnit.SECONDS.sleep(1);
   }
 
@@ -654,22 +653,16 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void newCustomerRegistration(String email, String password) throws InterruptedException {
-    TimeUnit.SECONDS.sleep(3);
-    //click(By.xpath("//div[@id='jivo_close_button']"));
-    //TimeUnit.SECONDS.sleep(2);
-    click(By.cssSelector("div.middletext button.connect-button"));
     TimeUnit.SECONDS.sleep(2);
-    type1(By.xpath("//div[@class='modal__content text-center']//input[@name='Email']"), email);
-    type1(By.xpath("//div[@class='modal__content text-center']//input[@name='Phone']"), "9024951054");
-    type1(By.xpath("//div[@class='modal__content text-center']//input[@name='FullName']"), "Test Test");
-    click(By.cssSelector("div.ofd-form__input-group i.material-icons"));
-    type1(By.name("ExplicitPassword"), password);
-    type1(By.name("RepeatPassword"), password);
-    click(By.xpath("//button[@class='btn btn-primary btn-shadow ofd-form__button analytics-regstep1']"));
-    TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//div[@data-form-success='register']/a[@href='/logout?login=true']"));
-    TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//div[@id='Modal-user-lk']//div[@class='close']"));
+    click(By.xpath("//div[@class='btn-group']/a[@href='/login']"));
+    TimeUnit.SECONDS.sleep(1);
+    type1(By.xpath("//input[@name='email']"), email);
+    type1(By.xpath("//input[@name='password']"), password);
+    TimeUnit.SECONDS.sleep(1);
+    type1(By.name("name"), "Testov Test");
+    type1(By.name("phone"), "9991112211");
+    TimeUnit.SECONDS.sleep(1);
+    click(By.xpath("/html/body/div[1]/section/div/div/form/div[6]/div[5]/button"));
   }
 
   public void notConfirmEmailRegistration(String email, String password) throws InterruptedException {
@@ -687,16 +680,12 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void finish(String email, String password) throws InterruptedException {
-    //TimeUnit.SECONDS.sleep(2);
-    //click(By.xpath("//div[@class='modal__body']//div[@type='button']"));
-    click(By.xpath("/html/body/div[1]/div/div/div[5]/div[2]/div/div[2]/div[2]/a"));
-    TimeUnit.SECONDS.sleep(2);
-    click(By.xpath("//div[@class='modal__body']//div[@class='close']"));
-    TimeUnit.SECONDS.sleep(2);
-    type(By.name("Login"), email);
-    type(By.name("Password"), password);
-    click(By.cssSelector("button.analytics-loginstep1"));
-    TimeUnit.SECONDS.sleep(7);
+    click(By.xpath("//nav[@id='block-osnovnayanavigaciya']//a[@href='/login']"));
+    TimeUnit.SECONDS.sleep(1);
+    type1(By.xpath("//input[@name='email']"), email);
+    type1(By.xpath("//input[@name='password']"), password);
+    click(By.xpath("/html/body/div[1]/section/div/div/form/div[5]/div[2]/button"));
+    TimeUnit.SECONDS.sleep(4);
     assertThat(wd.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/h2")).getText(), equalTo("Регистрация данных пользователя"));
     click(By.xpath("//div[@class='navbar-item header-toggle fd-pointer']"));
     TimeUnit.SECONDS.sleep(1);
@@ -1186,16 +1175,15 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void confirmRegOnSite(String email, String password) throws InterruptedException {
-    click(By.xpath("//section[@class='promo__banner']//button[2]"));
-    TimeUnit.SECONDS.sleep(1);
-    type1(By.xpath("//input[@formcontrolname='login']"), email);
-    type1(By.xpath("//input[@formcontrolname='password']"), password);
-    click(By.xpath("//button[@type='submit']"));
-    TimeUnit.SECONDS.sleep(10);
-    assertThat(wd.findElement(By.xpath("//button[@type='submit']")).getText(),
+    //click(By.xpath("//section[@class='promo__banner']//button[2]"));
+    //TimeUnit.SECONDS.sleep(1);
+    //type1(By.xpath("//input[@formcontrolname='login']"), email);
+    //type1(By.xpath("//input[@formcontrolname='password']"), password);
+    //click(By.xpath("//div[@class='button-row']/button[@type='submit']"));
+    TimeUnit.SECONDS.sleep(4);
+    assertThat(wd.findElement(By.xpath("//span[@class='caption']")).getText(),
             equalTo("ЛИЧНЫЙ КАБИНЕТ ПАРТНЁРА"));
   }
-
 
   public void confirmationRegistrationOnSite2(String email, String password) throws InterruptedException {
     //ArrayList tabs2 = new ArrayList(wd.getWindowHandles());//Получение списка открытых окон браузера
