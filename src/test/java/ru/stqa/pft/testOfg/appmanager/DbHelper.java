@@ -13,7 +13,7 @@ public class DbHelper {
   //Метод отвечает за удаление юзера из БД после прохождеиня теста
   public void deleteUserFromDB(String email) throws SQLException {
     Connection conn = null;
-    conn = DriverManager.getConnection("jdbc:sqlserver://tst-sql-2", "sa", "bmXMOM36jgvayt1JyxgC");
+    conn = DriverManager.getConnection("jdbc:sqlserver://название базы", "юзер", "пароль");
     String qwery1 = "update Manul_UserAccounts.dbo.UserAccount set Deleted = 1 where LoginEmail = ?";
     String qwery2 = "update Manul_CustomerModel.dbo.OFDAgreement set Deleted = 1 " +
             "where UserAccountId in (select Id from [Manul_UserAccounts].[dbo].[UserAccount] where LoginEmail = ?)";
@@ -31,7 +31,7 @@ public class DbHelper {
   //Метод отвечает за добавление юзера из БД после прохождеиня теста
   public void addUserInDB(String email) throws SQLException {
     Connection conn = null;
-    conn = DriverManager.getConnection("jdbc:sqlserver://tst-sql-2", "sa", "bmXMOM36jgvayt1JyxgC");
+    conn = DriverManager.getConnection("jdbc:sqlserver://название базы", "юзер", "пароль");
     String insrtSQL = "update Manul_UserAccounts.dbo.UserAccount set Deleted = 0 where LoginEmail = ?";
     PreparedStatement resultSet = conn.prepareStatement(insrtSQL);
     resultSet.setString(1, email);
@@ -43,7 +43,7 @@ public class DbHelper {
   //Метод отвечает за удаление ИНН из БД после прохождеиня теста
   public void deleteINN(String inn) throws SQLException {
     Connection conn = null;
-    conn = DriverManager.getConnection("jdbc:sqlserver://tst-sql-2", "sa", "bmXMOM36jgvayt1JyxgC");
+    conn = DriverManager.getConnection("jdbc:sqlserver://название базы", "юзер", "пароль");
     String insrtSQL1 = "delete from Manul_CustomerModel.dbo.B2bAgreement where Inn = ?";
     String insrtSQL2 = "delete from Manul_CustomerModel.dbo.OFDAgreement where OrgInn = ?";
     PreparedStatement resultSet1 = conn.prepareStatement(insrtSQL1);
@@ -60,7 +60,7 @@ public class DbHelper {
   //Метод отвечает за получение и передачу AccountId юзера из БД
   public String getIdUser(String email) throws SQLException {
     Connection conn = null;
-    conn = DriverManager.getConnection("jdbc:sqlserver://tst-sql-2","sa","bmXMOM36jgvayt1JyxgC");
+    conn = DriverManager.getConnection("jdbc:sqlserver://название базы", "юзер", "пароль");
       Statement st = conn.createStatement();
       ResultSet resultSet = st.executeQuery("select Id from Manul_UserAccounts.dbo.UserAccount where LoginEmail = '"+email+"'");
       while (resultSet.next()){
@@ -75,7 +75,7 @@ public class DbHelper {
   //Метод отвечает за получение и передачу ConfirmCode юзера из БД
   public String getCodeUser(String email) throws SQLException {
     Connection conn = null;
-    conn = DriverManager.getConnection("jdbc:sqlserver://tst-sql-2","sa","bmXMOM36jgvayt1JyxgC");
+    conn = DriverManager.getConnection("jdbc:sqlserver://название базы", "юзер", "пароль");
     Statement st = conn.createStatement();
     ResultSet resultSet = st.executeQuery("SELECT Code FROM [Manul_UserAccounts].[dbo].[UserConfirmCode] where UserAccountId in \n" +
             "(SELECT Id FROM [Manul_UserAccounts].[dbo].[UserAccount] where LoginEmail = '"+email+"') and Reason = 'Email'");
@@ -91,7 +91,7 @@ public class DbHelper {
   //Метод отвечает за получение и передачу Email юзера из БД
   public String getEmailUser(String email) throws SQLException {
     Connection conn = null;
-    conn = DriverManager.getConnection("jdbc:sqlserver://tst-sql-2","sa","bmXMOM36jgvayt1JyxgC");
+    conn = DriverManager.getConnection("jdbc:sqlserver://название базы", "юзер", "пароль");
     Statement st = conn.createStatement();
     ResultSet resultSet = st.executeQuery("select LoginEmail from Manul_UserAccounts.dbo.UserAccount where LoginEmail = '"+email+"'");
     while (resultSet.next()){
@@ -107,7 +107,7 @@ public class DbHelper {
   //Метод отвечает за запрос на извлечение из БД письма, которое подтвержадет регистрацию
   public String confirmEmailRegistration(String email) throws SQLException {
     Connection conn = null;
-    conn = DriverManager.getConnection("jdbc:sqlserver://tst-sql-2","sa","bmXMOM36jgvayt1JyxgC");
+    conn = DriverManager.getConnection("jdbc:sqlserver://название базы", "юзер", "пароль");
     Statement st = conn.createStatement();
     ResultSet resultSet = st.executeQuery("SELECT TOP (1) Source FROM Manul_Notification.dbo.Queue " +
                                           "WHERE [To] = '"+email+"' ORDER BY CDateUtc");
@@ -122,7 +122,7 @@ public class DbHelper {
 
   public void sendPOSTRequestForChangePassword(String email, String password2) throws SQLException, IOException, InterruptedException {
     String code = getCodeUser(email);
-    Request.Post("https://dev.ofd.ru/api/userAccounts/ChangePassword").bodyForm(
+    Request.Post("https://test.dof.ru/api/userAccounts/ChangePassword").bodyForm(
             new BasicNameValuePair("Email", email),
             new BasicNameValuePair("ConfirmationCode", code),
             new BasicNameValuePair("NewPassword", password2)
@@ -130,13 +130,13 @@ public class DbHelper {
   }
 
   public void sendPOSTRequestForChangeEmail(String email1, String email2, String password) throws SQLException, IOException, InterruptedException {
-    HttpResponse httpResponse1 = Request.Post("https://dev.ofd.ru/api/userAccounts/sendEmailChangeConfirmationCode").bodyForm(
+    HttpResponse httpResponse1 = Request.Post("https://test.dof.ru/api/userAccounts/sendEmailChangeConfirmationCode").bodyForm(
             new BasicNameValuePair("Email", email2),
             new BasicNameValuePair("Password", password)
     ).execute().returnResponse();
 
     String code = getCodeUser(email2);
-    HttpResponse httpResponse2 = Request.Post("https://dev.ofd.ru/api/userAccounts/changeEmail").bodyForm(
+    HttpResponse httpResponse2 = Request.Post("https://test.dof.ru/api/userAccounts/changeEmail").bodyForm(
             new BasicNameValuePair("Email", email2),
             new BasicNameValuePair("ConfirmationCode", code)
     ).execute().returnResponse();
@@ -144,7 +144,7 @@ public class DbHelper {
 
 
   public void sendPOSTRequestForLinkFormation(String email) throws SQLException, IOException {
-    Request.Post("https://dev.ofd.ru/api/userAccounts/SendPasswordChangeConfirmationCode").bodyForm(
+    Request.Post("https://test.dof.ru/api/userAccounts/SendPasswordChangeConfirmationCode").bodyForm(
             new BasicNameValuePair("Email", email)
     ).execute();
   }
@@ -153,7 +153,7 @@ public class DbHelper {
   public void sendGETRequestForRegConfirm(String email) throws SQLException, IOException {
     String id = getIdUser(email);
     String code = getCodeUser(email);
-    Request.Get("https://dev.ofd.ru/api/Authorization/ConfirmRegistration?AccountId="+id+"&ConfirmCode="+code).execute();
+    Request.Get("https://test.dof.ru/api/Authorization/ConfirmRegistration?AccountId="+id+"&ConfirmCode="+code).execute();
   }
 
 }
